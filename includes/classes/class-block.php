@@ -34,7 +34,7 @@ abstract class Codetot_Base_Block {
   {
     $available_paths = [
       get_stylesheet_directory() . '/inc/blocks/' . $this->block_name . '.json',
-      CODETOT_BASE_DIR . 'includes/pro-blocks/fields/' . $this->block_name . '.json'
+      CODETOT_BLOCKS_DIR . 'includes/pro-blocks/fields/' . $this->block_name . '.json'
     ];
 
     try {
@@ -44,7 +44,7 @@ abstract class Codetot_Base_Block {
         }
       }
 
-      throw new Exception(sprintf(__('Block %s is not available.', 'codetot-base'), $this->block_name . '.json'));
+      throw new Exception(sprintf(__('Block %s is not available.', 'ct-blocks'), $this->block_name . '.json'));
     } catch (Exception $e) {
       echo $e->getMessage();
       die();
