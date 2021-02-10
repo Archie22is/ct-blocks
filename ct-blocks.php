@@ -6,9 +6,9 @@
  * @package           Codetot_Base
  *
  * @wordpress-plugin
- * Plugin Name:       Code Tot - Theme Toolkit
+ * Plugin Name:       CT Blocks
  * Plugin URI:        https://codetot.com
- * Description:       The required plugin to run with theme "Code Tot".
+ * Description:       Block library for web builder. Requires a license and work only with CT Theme and child theme.
  * Version:           2.0.0
  * Author:            CODE TOT JSC
  * Author URI:        https://codetot.com

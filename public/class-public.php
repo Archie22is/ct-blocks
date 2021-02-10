@@ -43,7 +43,7 @@ class Codetot_Base_Public {
   }
 
   public function page_templates($post_templates) {
-    $post_templates['flexible'] = __('Flexible Page', 'ct-blocks');
+    $post_templates['flexible'] = __('Block Page', 'ct-blocks');
 
     return $post_templates;
   }
