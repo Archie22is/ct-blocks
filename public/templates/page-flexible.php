@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Flexible Page
+ * Template Name: Block Page
  * Template Post Type: page
  */
 get_header();
