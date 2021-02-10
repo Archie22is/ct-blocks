@@ -49,18 +49,18 @@ class Codetot_Base_Admin_Acf {
   }
 
   public function admin_enqueue_style() {
-    wp_enqueue_style('codetot-admin-acf-style', CODETOT_BASE_PLUGIN_URI . '/admin/css/codetot-base-admin.css', array(), $this->theme_version);
+    wp_enqueue_style('codetot-admin-acf-style', CODETOT_BLOCKS_PLUGIN_URI . '/admin/css/admin.css', array(), $this->theme_version);
   }
 
   public function admin_enqueue_script() {
     global $pagenow;
 
     if ($pagenow = 'admin.php' && !empty($_GET['page']) && $_GET['page'] == 'ct-theme') {
-      wp_enqueue_script('codetot-admin-settings', CODETOT_BASE_PLUGIN_URI . '/admin/js/theme-settings.js', array('jquery'), CODETOT_BASE_VERSION, true);
+      wp_enqueue_script('codetot-admin-settings', CODETOT_BLOCKS_PLUGIN_URI . '/admin/js/theme-settings.js', array('jquery'), CODETOT_BLOCKS_VERSION, true);
     }
 
     if ($pagenow = 'post.php' && !empty($_GET['post']) && $_GET['action'] === 'edit') {
-      wp_enqueue_script('codetot-admin-flexible-page', CODETOT_BASE_PLUGIN_URI . '/admin/js/edit-page.js', array('jquery', 'acf-input', 'acf-pro-input'), CODETOT_BASE_VERSION, true);
+      wp_enqueue_script('codetot-admin-flexible-page', CODETOT_BLOCKS_PLUGIN_URI . '/admin/js/edit-page.js', array('jquery', 'acf-input', 'acf-pro-input'), CODETOT_BLOCKS_VERSION, true);
     }
   }
 
@@ -95,9 +95,7 @@ class Codetot_Base_Admin_Acf {
 
   public function setup_admin_head_js_variables() {
     echo '<script>';
-    echo 'var CODETOT_PLUGIN_URL = "' . CODETOT_BASE_PLUGIN_URI . '";';
+    echo 'var CODETOT_PLUGIN_URL = "' . CODETOT_BLOCKS_PLUGIN_URI . '";';
     echo '</script>';
   }
 }
-
-Codetot_Base_Admin_Acf::instance();
