@@ -1,0 +1,196 @@
+{
+  "layout_5fdac778e8e4f": {
+    "key": "layout_5fdac778e8e4f",
+    "name": "contact_section",
+    "label": "Contact Section",
+    "display": "block",
+    "sub_fields": [
+      {
+        "key": "field_5fdac8e79d681",
+        "label": "Class",
+        "name": "class",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_5fdac78b9d67e",
+        "label": "Full Screen Layout",
+        "name": "full_screen_layout",
+        "type": "true_false",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "message": "Enable",
+        "default_value": 0,
+        "ui": 0,
+        "ui_on_text": "",
+        "ui_off_text": ""
+      },
+      {
+        "key": "field_5fdac78b9d67f",
+        "label": "Main Layout",
+        "name": "contact_primary_layout",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "choices": [],
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_5fc848cfbef54",
+        "label": "Content Layout",
+        "name": "contact_secondary_layout",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_5fdac8f79d682",
+        "label": "Google Maps",
+        "name": "google_maps",
+        "type": "google_map",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "center_lat": "",
+        "center_lng": "",
+        "zoom": "",
+        "height": ""
+      },
+      {
+        "key": "field_5fdaca8e9d683",
+        "label": "Address",
+        "name": "address",
+        "type": "wysiwyg",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "tabs": "all",
+        "toolbar": "full",
+        "media_upload": 1,
+        "delay": 0
+      },
+      {
+        "key": "field_5fdaca999d684",
+        "label": "Contact Information",
+        "name": "contact_information",
+        "type": "wysiwyg",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "tabs": "all",
+        "toolbar": "full",
+        "media_upload": 1,
+        "delay": 0
+      },
+      {
+        "key": "field_5fdacaa39d685",
+        "label": "Form",
+        "name": "contact_form",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "ajax": 0,
+        "return_format": "value",
+        "placeholder": ""
+      },
+      {
+        "key": "field_5f156448ac1af",
+        "label": "Contact Form Style",
+        "name": "contact_form_style",
+        "type": "radio",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "style-1": "Style 1",
+          "style-2": "Style 2"
+        },
+        "allow_null": 0,
+        "other_choice": 0,
+        "default_value": "style-1",
+        "layout": "horizontal",
+        "return_format": "value",
+        "save_other_choice": 0
+      }
+    ],
+    "min": "",
+    "max": ""
+  }
+}

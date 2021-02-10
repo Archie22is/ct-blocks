@@ -1,0 +1,48 @@
+{
+  "layout_5fa909f3k905348": {
+    "key": "layout_5fa90g4005348",
+    "name": "breadcrumbs",
+    "label": "Breadcrumbs",
+    "display": "block",
+    "sub_fields": [
+      {
+        "key": "field_5fe00eac73614",
+        "label": "",
+        "name": "",
+        "type": "message",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "message": "Add Block Breadcrumbs In Flexible Page",
+        "new_lines": "wpautop",
+        "esc_html": 0
+      },
+      {
+        "key": "field_5fd97c4906b40",
+        "label": "Class",
+        "name": "class",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      }
+    ],
+    "min": "",
+    "max": ""
+  }
+}

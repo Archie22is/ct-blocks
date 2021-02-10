@@ -1,0 +1,160 @@
+{
+  "layout_5fd0oko458257": {
+    "key": "layout_5fd0oko458257",
+    "name": "news_columns",
+    "label": "News Columns",
+    "display": "block",
+    "sub_fields": [
+      {
+        "key": "field_5fd523top9d681",
+        "label": "Class",
+        "name": "class",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_5ftr32gdaf8a3",
+        "label": "Presets",
+        "name": "block_preset",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": "",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "layout": "",
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_5fdrame121e0",
+        "label": "Label",
+        "name": "label",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_5thangb9121df",
+        "label": "Title",
+        "name": "title",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_5fd0bay7121e1",
+        "label": "Category",
+        "name": "category",
+        "type": "taxonomy",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "taxonomy": "category",
+        "field_type": "multi_select",
+        "allow_null": 0,
+        "add_term": 1,
+        "save_terms": 0,
+        "load_terms": 0,
+        "return_format": "id",
+        "multiple": 0
+      },
+      {
+        "key": "field_5fdcakkdsc1e0",
+        "label": "Number Posts",
+        "name": "number_posts",
+        "type": "number",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_5fd050phone9b",
+        "label": "Number Categories",
+        "name": "number_categories",
+        "type": "radio",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "33",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4",
+          "5": "5"
+        },
+        "allow_null": 0,
+        "other_choice": 0,
+        "default_value": "layout-1",
+        "layout": "horizontal",
+        "return_format": "value",
+        "save_other_choice": 0
+      }
+    ],
+    "min": "",
+    "max": ""
+  }
+}

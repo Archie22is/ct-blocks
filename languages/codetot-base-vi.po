@@ -1,0 +1,66 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Code Tot - Theme Toolkit\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-11 15:48+0000\n"
+"PO-Revision-Date: 2021-01-21 04:35+0000\n"
+"Last-Translator: \n"
+"Language-Team: Tiếng Việt\n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.0; wp-5.6\n"
+"X-Domain: codetot-base"
+
+#: includes/admin/website-settings.php:46
+msgid "1 Column - Center Company Logo, Information"
+msgstr "1 cột - Logo giữa, bên dưới là Thông tin công ty"
+
+#: includes/admin/website-settings.php:35
+msgid "Center Logo with Menu - Right Icons"
+msgstr "Logo giữa với Menu - Icon phải"
+
+#. Name of the plugin
+msgid "Code Tot - Theme Toolkit"
+msgstr "Code Tốt - Công cụ quản trị giao diện"
+
+#. Author of the plugin
+msgid "CODE TOT JSC"
+msgstr "Công ty Cổ phần CODE TỐT"
+
+#: includes/classes/class-codetot-sidebars.php:42
+#, php-format
+msgid "Footer Column %s"
+msgstr "Số cột cuối trang %s"
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://codetot.com"
+msgstr "https://codetot.com"
+
+#: includes/admin/website-settings.php:37
+msgid "Left Logo - Center Menu - Right Icons"
+msgstr "Logo bên trái - Menu giữa - Icon bên phải"
+
+#: includes/admin/website-settings.php:38
+msgid "Left Logo - Center Search Form - Right Icons - Bottom Menu"
+msgstr "Logo trái - Form tìm kiếm giữa - Icon phải - Menu dưới cùng"
+
+#: includes/admin/website-settings.php:36
+msgid "Left Menu - Center Logo - Right Icons"
+msgstr "Menu trái - Logo giữa - Icon phải"
+
+#: includes/admin/website-settings.php:34
+msgid "Left Mobile Menu - Center Logo - Right Icons"
+msgstr "Mobile menu trái - Logo giữa - Icon phải"
+
+#: includes/admin/website-settings.php:47
+msgid "Minimal Layout - Logo - Bottom Menu"
+msgstr "Giao diện tối giản - Logo và Menu bên dưới"
+
+#. Description of the plugin
+msgid "The required plugin to run with theme \"Code Tot\"."
+msgstr "Được phát hành để sử dụng cùng giao diện \"Code Tốt\"."

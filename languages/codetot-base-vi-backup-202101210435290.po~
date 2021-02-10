@@ -1,0 +1,296 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Code Tot - Theme Toolkit\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-11 15:48+0000\n"
+"PO-Revision-Date: 2021-01-11 15:50+0000\n"
+"Last-Translator: \n"
+"Language-Team: Tiếng Việt\n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.0; wp-5.6\n"
+"X-Domain: codetot-base"
+
+#: includes/admin/website-settings.php:74
+msgid "1 Column - Center Company Logo, Information"
+msgstr ""
+
+#: includes/admin/sections/global-addons.php:21
+msgid "Addons"
+msgstr ""
+
+#: includes/admin/sections/advanced-api.php:25
+msgid "API Keys"
+msgstr ""
+
+#: includes/admin/sections/global-addons.php:10
+msgid "Back to top"
+msgstr ""
+
+#: admin/redux-config.php:107
+msgid ""
+"Be careful! These settings required technical skills to understand before "
+"applying."
+msgstr ""
+
+#: includes/admin/sections/global-layout.php:21
+msgid "Boxed"
+msgstr ""
+
+#: includes/admin/sections/global-sidebar.php:21
+msgid "Category sidebar"
+msgstr ""
+
+#: includes/admin/website-settings.php:62
+msgid "Center Logo with Menu - Right Icons"
+msgstr ""
+
+#. Name of the plugin
+msgid "Code Tot - Theme Toolkit"
+msgstr "Code Tốt - Công cụ quản trị giao diện"
+
+#. Author of the plugin
+msgid "CODE TOT JSC"
+msgstr "Công ty Cổ phần CODE TỐT"
+
+#: includes/admin/sections/global-layout.php:17
+msgid "Container Type"
+msgstr ""
+
+#: includes/admin/sections/global-layout.php:10
+msgid "Container width"
+msgstr ""
+
+#: includes/admin/sections/global-typography.php:12
+#, php-format
+msgid ""
+"Copy your selection font from <a href=\"%1$s\" target=\"_blank\">%2$s</a>"
+msgstr ""
+
+#: includes/admin/sections/global-footer.php:37
+msgid "Dark Background - White Text"
+msgstr ""
+
+#: includes/admin/sections/global-sidebar.php:10
+msgid "Default sidebar"
+msgstr ""
+
+#: includes/admin/sections/global-footer.php:51
+msgid "Display a footer copyright text. Accept HTML code."
+msgstr ""
+
+#: includes/admin/sections/global-woocommerce.php:18
+msgid ""
+"Display a minicart when add to cart button or view cart from header icon."
+msgstr ""
+
+#: includes/admin/sections/global-footer.php:11
+msgid "Enable Footer"
+msgstr ""
+
+#: includes/admin/sections/global-woocommerce.php:16
+msgid "Enable Minicart"
+msgstr ""
+
+#: includes/admin/sections/global-woocommerce.php:11
+msgid "Enable Product Quick View"
+msgstr ""
+
+#: includes/admin/helpers/packages.php:79
+msgid "Error. Incorrect license"
+msgstr ""
+
+#: includes/admin/sections/global-addons.php:22
+msgid ""
+"Extending more features to increase User Experience and get more revenue."
+msgstr ""
+
+#: includes/admin/sections/global-footer.php:57
+msgid "Footer"
+msgstr ""
+
+#: includes/admin/sections/global-footer.php:27
+msgid "Footer Background Color"
+msgstr ""
+
+#: includes/classes/class-codetot-sidebars.php:44
+#, php-format
+msgid "Footer Column %s"
+msgstr ""
+
+#: includes/admin/sections/global-footer.php:17
+msgid "Footer Columns"
+msgstr ""
+
+#: includes/admin/sections/global-footer.php:33
+msgid "Footer Contract"
+msgstr ""
+
+#: includes/admin/sections/global-footer.php:50
+msgid "Footer Copyright"
+msgstr ""
+
+#: includes/admin/sections/global-layout.php:22
+msgid "Full width"
+msgstr ""
+
+#: admin/redux-config.php:84
+msgid "Global"
+msgstr ""
+
+#: includes/admin/sections/advanced-api.php:7
+msgid "Google Maps API Key"
+msgstr ""
+
+#: includes/admin/helpers/fields.php:9
+msgid "here"
+msgstr ""
+
+#: includes/admin/sections/global-woocommerce.php:25
+msgid "Hide header and footer to keep client focus on checkout proceed."
+msgstr ""
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://codetot.com"
+msgstr ""
+
+#: includes/admin/website-settings.php:64
+msgid "Left Logo - Center Menu - Right Icons"
+msgstr ""
+
+#: includes/admin/website-settings.php:65
+msgid "Left Logo - Center Search Form - Right Icons - Bottom Menu"
+msgstr ""
+
+#: includes/admin/website-settings.php:60
+msgid "Left Logo - Right Menu"
+msgstr ""
+
+#: includes/admin/website-settings.php:63
+msgid "Left Menu - Center Logo - Right Icons"
+msgstr ""
+
+#: includes/admin/website-settings.php:61
+msgid "Left Mobile Menu - Center Logo - Right Icons"
+msgstr ""
+
+#: includes/admin/sections/global-sidebar.php:14
+#: includes/admin/sections/global-sidebar.php:25
+#: includes/admin/sections/global-sidebar.php:39
+#: includes/admin/sections/global-sidebar.php:51
+msgid "Left Sidebar"
+msgstr ""
+
+#: includes/admin/sections/global-footer.php:36
+msgid "Light Background - Dark Text"
+msgstr ""
+
+#: includes/admin/sections/advanced-api.php:16
+msgid "Mapbox API Key"
+msgstr ""
+
+#: includes/admin/sections/global-woocommerce.php:24
+msgid "Minimal Checkout"
+msgstr ""
+
+#: includes/admin/website-settings.php:75
+msgid "Minimal Layout - Logo - Bottom Menu"
+msgstr ""
+
+#: includes/admin/website-settings.php:73
+msgid "Multiple Columns - Company | Menus | Subscribe Form"
+msgstr ""
+
+#: includes/admin/sections/global-sidebar.php:13
+#: includes/admin/sections/global-sidebar.php:24
+#: includes/admin/sections/global-sidebar.php:38
+#: includes/admin/sections/global-sidebar.php:50
+msgid "No Sidebar"
+msgstr ""
+
+#: includes/admin/sections/global-layout.php:20
+msgid "Normal"
+msgstr ""
+
+#: includes/admin/sections/global-woocommerce.php:12
+msgid "Open a product popup in shop, category and search pages."
+msgstr ""
+
+#: includes/admin/sections/global-sidebar.php:47
+msgid "Product layout"
+msgstr ""
+
+#: includes/admin/sections/advanced-widgets.php:24
+msgid "Remove unused default widgets from WordPress."
+msgstr ""
+
+#: includes/admin/sections/global-sidebar.php:15
+#: includes/admin/sections/global-sidebar.php:26
+#: includes/admin/sections/global-sidebar.php:40
+#: includes/admin/sections/global-sidebar.php:52
+msgid "Right Sidebar"
+msgstr ""
+
+#: includes/admin/sections/global-sidebar.php:35
+msgid "Shop layout"
+msgstr ""
+
+#: includes/admin/sections/global-footer.php:44
+msgid "Show Footer Copyright"
+msgstr ""
+
+#: includes/admin/sections/global-sidebar.php:61
+msgid "Sidebar"
+msgstr ""
+
+#: includes/admin/sections/global-social.php:19
+msgid "Social Links"
+msgstr ""
+
+#. Description of the plugin
+msgid "The required plugin to run with theme \"Code Tot\"."
+msgstr "Được phát hành để sử dụng cùng giao diện \"Code Tốt\"."
+
+#: includes/admin/sections/global-footer.php:34
+msgid "To better display text, please define your background color type."
+msgstr ""
+
+#: includes/admin/sections/global-sidebar.php:41
+#: includes/admin/sections/global-sidebar.php:53
+msgid "Top Sidebar"
+msgstr ""
+
+#: includes/admin/sections/global-typography.php:18
+msgid "Typography"
+msgstr ""
+
+#: includes/admin/sections/global-typography.php:10
+msgid "Typography (CSS)"
+msgstr ""
+
+#: admin/redux-config.php:33 admin/redux-config.php:34
+msgid "Website Settings"
+msgstr ""
+
+#: includes/admin/sections/advanced-widgets.php:23
+msgid "Widgets"
+msgstr ""
+
+#: includes/admin/sections/global-woocommerce.php:31
+msgid "WooCommerce"
+msgstr ""
+
+#: includes/admin/sections/global-footer.php:18
+msgid ""
+"You can configure Widgets to display different content in each footer column."
+msgstr ""
+
+#: includes/admin/helpers/fields.php:11
+#, php-format
+msgid "You can get your %1$s %2$s."
+msgstr ""

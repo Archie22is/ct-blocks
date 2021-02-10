@@ -1,0 +1,96 @@
+{
+  "layout_5e67a90ca19ab": {
+    "key": "layout_5e67a90ca19ab",
+    "name": "two_up_slider",
+    "label": "Two Up Slider",
+    "display": "block",
+    "sub_fields": [
+      {
+        "key": "field_5e682180a19ac",
+        "label": "Content",
+        "name": "content",
+        "type": "wysiwyg",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "tabs": "all",
+        "toolbar": "full",
+        "media_upload": 1,
+        "delay": 0
+      },
+      {
+        "key": "field_5e682188a19ad",
+        "label": "Button Text",
+        "name": "button_text",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_5e682192a19ae",
+        "label": "Button URL",
+        "name": "button_url",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_5e68219aa19af",
+        "label": "Images",
+        "name": "images",
+        "type": "gallery",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "id",
+        "preview_size": "medium",
+        "insert": "append",
+        "library": "all",
+        "min": "",
+        "max": "",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": ""
+      }
+    ],
+    "min": "",
+    "max": ""
+  }
+}

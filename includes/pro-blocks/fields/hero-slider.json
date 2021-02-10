@@ -1,0 +1,533 @@
+{
+  "layout_5fa906df905348": {
+    "key": "layout_5fa90f9005348",
+    "name": "hero_slider",
+    "label": "Hero Slider",
+    "display": "block",
+    "sub_fields": [
+      {
+        "key": "field_5fd97c2696b40",
+        "label": "Class",
+        "name": "class",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_5fc9e6f6af8a3",
+        "label": "Presets",
+        "name": "block_preset",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": "1",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "layout": "",
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_5fd879ca2938c",
+        "label": "Previous/Next Buttons",
+        "name": "enable_prev_next_buttons",
+        "type": "true_false",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "26",
+          "class": "",
+          "id": ""
+        },
+        "message": "Display previous/next buttons",
+        "default_value": 0,
+        "ui": 0,
+        "ui_on_text": "",
+        "ui_off_text": ""
+      },
+      {
+        "key": "field_5fe3fd0fc6aa3",
+        "label": "Previous/Next Style",
+        "name": "previous_next_style",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_5fd879ca2938c",
+              "operator": "==",
+              "value": "1"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "12",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "circle": "Circle",
+          "simple": "Simple",
+          "square": "Square"
+        },
+        "default_value": "circle",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_5fe3fs09e6aa3",
+        "label": "Previous/Next Alignment",
+        "name": "previous_next_alignment",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_5fd879ca2938c",
+              "operator": "==",
+              "value": "1"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "12",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "top-left": "Top Left",
+          "top-right": "Top Right",
+          "middle": "Middle",
+          "bottom-left": "Bottom Left",
+          "bottom-right": "Bottom Right"
+        },
+        "default_value": "middle",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_5fcfdsa17f33f",
+        "label": "Overlay",
+        "name": "overlay",
+        "type": "range",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "min": 0,
+        "max": 1,
+        "step": "0.1",
+        "prepend": "Lighter",
+        "append": "Darker"
+      },
+      {
+        "key": "field_5fcf5ds87f33e",
+        "label": "Content Alignment",
+        "name": "content_alignment",
+        "type": "radio",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": "",
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "allow_null": 0,
+        "other_choice": 0,
+        "default_value": "",
+        "layout": "horizontal",
+        "return_format": "value",
+        "save_other_choice": 0
+      },
+      {
+        "key": "field_5fcf5ds87f431",
+        "label": "Page Dots",
+        "name": "enable_page_dots",
+        "type": "true_false",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "26",
+          "class": "",
+          "id": ""
+        },
+        "message": "Display page dots navigation",
+        "default_value": 0,
+        "ui": 0,
+        "ui_on_text": "",
+        "ui_off_text": ""
+      },
+      {
+        "key": "field_5fe3fd0ds3aa3",
+        "label": "Page Dots Style",
+        "name": "page_dots_style",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_5fcf5ds87f431",
+              "operator": "==",
+              "value": "1"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "12",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "circle": "Circle",
+          "dashes": "Dashes",
+          "simple": "Simple",
+          "square": "Square"
+        },
+        "default_value": "circle",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_5fe3sa6ds3aa3",
+        "label": "Page Dots Alignment",
+        "name": "page_dots_alignment",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_5fcf5ds87f431",
+              "operator": "==",
+              "value": "1"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "12",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "center": "center",
+          "left": "left",
+          "right": "right"
+        },
+        "default_value": "center",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_5fa90ad22223e",
+        "label": "Items",
+        "name": "items",
+        "type": "repeater",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "collapsed": "",
+        "min": 0,
+        "max": 0,
+        "layout": "block",
+        "button_label": "Add Item",
+        "sub_fields": [
+          {
+            "key": "field_5facbb1a73f1e",
+            "label": "Image",
+            "name": "image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "50",
+              "class": "",
+              "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+          },
+          {
+            "key": "field_5facbb9f73f1e",
+            "label": "Image Mobile",
+            "name": "image_mobile",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "50",
+              "class": "",
+              "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+          },
+          {
+            "key": "field_5fd86c7c0aa2e",
+            "label": "Content Position",
+            "name": "content_position",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+              [
+                {
+                  "field": "field_5fc9e6f6af8a3",
+                  "operator": "==",
+                  "value": "style-4"
+                }
+              ]
+            ],
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "choices": {
+              "top-left": "Top - Left",
+              "top-right": "Top - Right",
+              "bottom-left": "Bottom - Left",
+              "bottom-right": "Bottom - Right",
+              "center": "Center"
+            },
+            "default_value": "top-left",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "layout": "horizontal",
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+          },
+          {
+            "key": "field_5fb39f9967f96",
+            "label": "Label",
+            "name": "label",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "50",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+          },
+          {
+            "key": "field_5fa90c4c471da",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "50",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+          },
+          {
+            "key": "field_5fa90d6a471dd",
+            "label": "Description",
+            "name": "description",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+              [
+                {
+                  "field": "field_5fc9e6f6af8a3",
+                  "operator": "!=",
+                  "value": "style-4"
+                }
+              ]
+            ],
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+          },
+          {
+            "key": "field_5fd979bb21f3f",
+            "label": "Buttons",
+            "name": "buttons",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 2,
+            "layout": "row",
+            "button_label": "Add Button",
+            "sub_fields": [
+              {
+                "key": "field_5fd979c921f40",
+                "label": "Button Text",
+                "name": "button_text",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+              },
+              {
+                "key": "field_5fd979d221f41",
+                "label": "Button URL",
+                "name": "button_url",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+              },
+              null,
+              {
+                "key": "field_5fd97a0721f43",
+                "label": "Button Style",
+                "name": "button_style",
+                "type": "select",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                },
+                "choices": {
+                  "primary": "Primary",
+                  "secondary": "Secondary",
+                  "dark": "Dark",
+                  "outline": "Outline",
+                  "outline-white": "Outline (Dark Background)",
+                  "link": "Link",
+                  "link-white": "Link (Dark Background)"
+                },
+                "default_value": "primary",
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "return_format": "value",
+                "ajax": 0,
+                "placeholder": ""
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "min": "",
+    "max": ""
+  }
+}
