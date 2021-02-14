@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: CT Blocks\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-10 09:12+0000\n"
-"PO-Revision-Date: 2021-02-10 09:16+0000\n"
+"PO-Revision-Date: 2021-02-14 01:07+0000\n"
 "Last-Translator: \n"
 "Language-Team: Tiếng Việt\n"
 "Language: vi\n"
@@ -30,7 +30,7 @@ msgstr ""
 
 #: public/class-public.php:46
 msgid "Block Page"
-msgstr "Trang block"
+msgstr "Block Page Builder"
 
 #. Author of the plugin
 msgid "CODE TOT JSC"
@@ -38,7 +38,7 @@ msgstr "Công ty Cổ phần CODE TỐT"
 
 #. Name of the plugin
 msgid "CT Blocks"
-msgstr "Code Tốt Block"
+msgstr "Code Tốt - Block"
 
 #. URI of the plugin
 #. Author URI of the plugin
@@ -48,4 +48,4 @@ msgstr "https://codetot.com"
 #: ct-blocks.php:28
 msgctxt "plugin name"
 msgid "CT Blocks"
-msgstr "Code Tốt Block"
+msgstr "Code Tốt - Block"

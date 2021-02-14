@@ -99,13 +99,11 @@ class Codetot_Base {
       'logo-grid',
       'section-post',
       'pricing-tables',
-      'product-tabs',
       'team-member',
       'testimonials',
       'three-up-card',
       'two-up-intro',
-      'two-up-slider',
-      'section-product',
+      'two-up-slider'
     ]);
     $this->load_pro_blocks();
 	}
