@@ -99,7 +99,6 @@ class Codetot_Base {
       'logo-grid',
       'section-post',
       'pricing-tables',
-      'product-tabs',
       'team-member',
       'testimonials',
       'three-up-card',
