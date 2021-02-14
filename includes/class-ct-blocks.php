@@ -103,8 +103,7 @@ class Codetot_Base {
       'testimonials',
       'three-up-card',
       'two-up-intro',
-      'two-up-slider',
-      'section-product',
+      'two-up-slider'
     ]);
     $this->load_pro_blocks();
 	}
