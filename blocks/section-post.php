@@ -2,7 +2,7 @@
 $container = codetot_site_container();
 $_class = 'section-post';
 $_class .= !empty($class) ? ' ' . $class : '';
-$_class .= !empty($block_preset) ? ' section-post--style-' . $block_preset : '';
+$_class .= !empty($block_preset) ? ' section-post--' . $block_preset : '';
 
 $post_args = array(
   'post_type' => 'post',
