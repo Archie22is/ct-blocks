@@ -2,12 +2,12 @@
 
 /**
  *
-'class',
-'anchor_name',
-'background_type',
-'enable_slideshow',
-'columns',
-'header_alignment',
+ * 'class',
+ * 'anchor_name',
+ * 'background_type',
+ * 'enable_slideshow',
+ * 'columns',
+ * 'header_alignment',
  */
 
 $container = codetot_site_container();
@@ -34,7 +34,7 @@ $_slider_options = empty($slider_options) ? array(
 if (!empty($title) || !empty($items)) :
   ?>
   <section class="<?php echo $_class; ?>"<?php if(!empty($anchor_name)) : printf(' id="%s"', $anchor_name); endif; ?>
-    <?php if (!empty($enable_slideshow)) : ?> data-block="logo-grid"<?php endif; ?>
+    <?php if (!empty($enable_slideshow)) : ?> data-ct-block="logo-grid"<?php endif; ?>
   >
     <div class="<?php echo $container; ?> logo-grid__container">
       <?php if (!empty($title) || !empty($description)) : ?>

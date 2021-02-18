@@ -13,6 +13,11 @@ class Codetot_Base_Public {
   private static $instance;
 
   /**
+   * @var string
+   */
+  private $theme_environment;
+
+  /**
    * Get singleton instance.
    *
    * @return Codetot_Base_Public
@@ -26,8 +31,12 @@ class Codetot_Base_Public {
   }
 
 	public function __construct() {
+    $this->theme_environment = $this->is_localhost() ? '' : '.min';
+
 		add_action('template_include', array($this, 'template_include'));
 		add_action('theme_page_templates', array($this, 'page_templates'));
+    add_action('wp_enqueue_scripts', array($this, 'load_css'));
+    add_action('wp_enqueue_scripts', array($this, 'load_js'));
 	}
 
 	public function template_include($template) {
@@ -46,5 +55,21 @@ class Codetot_Base_Public {
     $post_templates['flexible'] = __('Block Page', 'ct-blocks');
 
     return $post_templates;
+  }
+
+  public function load_css() {
+    wp_enqueue_style('codetot-blocks-style', CODETOT_BLOCKS_PLUGIN_URI . '/assets/css/blocks-style' . $this->theme_environment . '.css', array('codetot-first-screen'), CODETOT_CHILD_VERSION);
+  }
+
+  public function load_js() {
+    wp_enqueue_script('codetot-blocks-script', CODETOT_BLOCKS_PLUGIN_URI . '/assets/js/blocks-script' . $this->theme_environment . '.js', array('jquery'), CODETOT_CHILD_VERSION, true);
+  }
+
+    /**
+   * @return bool
+   */
+  public function is_localhost()
+  {
+    return !empty($_SERVER['HTTP_X_CODETOT_HEADER']) && $_SERVER['HTTP_X_CODETOT_HEADER'] === 'development';
   }
 }
