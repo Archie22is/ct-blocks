@@ -1,8 +1,8 @@
-(function( $ ) {
-  var $fontHeadingEl = $('.js-font-heading-options select');
-  var $fontEl = $('.js-font-options select');
-  var $fontPreview = $('.js-review-font p');
-  var $headingPreview = $('.js-review-font-heading p');
+;(function ($) {
+  var $fontHeadingEl = $('.js-font-heading-options select')
+  var $fontEl = $('.js-font-options select')
+  var $fontPreview = $('.js-review-font p')
+  var $headingPreview = $('.js-review-font-heading p')
 
   if ($fontHeadingEl.length && $headingPreview) {
     $fontHeadingEl.on('select2:select', () => {
@@ -17,4 +17,4 @@
       $fontPreview.css('font-family', $font[0].text)
     })
   }
-})( jQuery );
+})(jQuery)
