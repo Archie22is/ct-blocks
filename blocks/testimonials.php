@@ -30,7 +30,7 @@ $_class .= !empty($overlay) ? ' testimonials--has-overlay' : '';
 $_class .= !empty($style) ? ' testimonials--' . esc_attr($style) : ' testimonials--style-1';
 ?>
 <?php if (!empty($columns)) : ?>
-  <section class="<?php echo esc_attr($_class); ?>" data-pro-block="testimonials">
+  <section class="<?php echo esc_attr($_class); ?>" data-ct-block="testimonials">
     <div class="rel <?php echo $container; ?> testimonials__container">
       <?php if (!empty($title) || !empty($description)) : ?>
         <header class="testimonials__header">

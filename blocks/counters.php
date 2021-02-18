@@ -46,7 +46,7 @@ if (!empty($counters)) :
   if ($layout === 'column') {
     the_block('default-section', array(
       'id' => !empty($id) ? esc_attr($id) : '',
-      'attributes' => ' data-pro-block="counters" data-aos="fade-up"',
+      'attributes' => ' data-ct-block="counters" data-aos="fade-up"',
       'class' => $_class,
       'header' => $header,
       'content' => $content
@@ -54,7 +54,7 @@ if (!empty($counters)) :
   } else {
     the_block('sidebar-section', array(
       'id' => !empty($id) ? esc_attr($id) : '',
-      'attributes' => ' data-pro-block="counters" data-aos="fade-up"',
+      'attributes' => ' data-ct-block="counters" data-aos="fade-up"',
       'class' => $_class,
       'sidebar' => $header,
       'content' => $content
