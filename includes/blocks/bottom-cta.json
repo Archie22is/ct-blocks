@@ -284,8 +284,7 @@
               "class": "",
               "id": ""
             },
-            "choices": {
-            },
+            "choices": {},
             "default_value": false,
             "allow_null": 0,
             "multiple": 0,

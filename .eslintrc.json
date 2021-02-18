@@ -1,5 +1,3 @@
 {
-  "extends": [
-    "prettier-standard"
-  ]
+  "extends": ["prettier-standard"]
 }

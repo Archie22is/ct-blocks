@@ -11,13 +11,8 @@
 }
 
 .logo-grid__title {
-  font-weight: 700;
   margin: 0 0 0.5em;
-  font-size: 1.5rem;
-
-  @media (--s) {
-    font-size: 2rem;
-  }
+  font-weight: var(--font-bold);
 }
 
 .logo-grid__description {
@@ -60,10 +55,8 @@
 
   &.is-ready {
     & .logo-grid__col {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      @mixin flex-center;
+
       min-height: 100%;
     }
   }
