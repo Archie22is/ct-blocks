@@ -9,7 +9,7 @@ $_class .= !empty($contact_form_style) ? ' contact-section--' . $contact_form_st
 $_class .= !empty($class) ? ' ' . $class : '';
 
 ?>
-<section class="<?php echo $_class; ?>" data-block="contact-section">
+<section class="<?php echo $_class; ?>" data-ct-block="contact-section">
   <div class="<?php echo $container; ?> contact-section__container">
     <div class="grid contact-section__grid contact-section__grid--primary">
       <div class="grid__col contact-section__col contact-section__col--map" data-aos="fade-up">
