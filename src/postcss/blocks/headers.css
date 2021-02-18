@@ -1,0 +1,156 @@
+.header--layout-5 {
+  & .header__row--navigation,
+  & .header__menu-icons__item--cart,
+  & .header__menu-icons__item--account {
+    display: none;
+
+    @media (--m) {
+      display: block;
+    }
+  }
+
+  & .header__row--main {
+    & .header__grid {
+      justify-content: space-between;
+
+      @media (--m) {
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  & .header__col {
+    @mixin flex-center;
+  }
+
+  & .header__col--menu-icons {
+    @media (--m) {
+      margin-left: auto;
+    }
+  }
+
+  & .header__col--navigation {
+    @media (--m) {
+      width: 100%;
+    }
+  }
+}
+
+.header--layout-6 {
+  & .header__row--navigation,
+  & .header__menu-icons__item--search,
+  & .header__menu-icons__item--account {
+    display: none;
+
+    @media (--m) {
+      display: block;
+    }
+  }
+
+  & .header__row--main {
+    padding: 10px 0;
+
+    @media (--m) {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    & .header__grid {
+      justify-content: space-between;
+
+      @media (--m) {
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  & .header__col {
+    @mixin flex-center;
+  }
+
+  & .header__widget--form {
+    width: 100%;
+
+    @media (--m) {
+      width: 500px;
+    }
+  }
+
+  & .header__col--menu-icons {
+    @media (--m) {
+      margin-left: auto;
+    }
+  }
+
+  & .header__row--navigation {
+    @media (--m) {
+      padding: 10px 0 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  & .header__col--navigation {
+    @media (--m) {
+      width: 100%;
+      align-items: flex-start;
+    }
+  }
+
+  & .header__col--search-form {
+    display: none;
+    flex: 1 1 auto;
+
+    @media (--m) {
+      display: flex;
+      width: 550px;
+    }
+  }
+
+  & .header__menu {
+    & .menu-item {
+      position: relative;
+      display: inline-flex;
+      line-height: 1;
+      align-items: center;
+      flex-direction: column;
+      margin: 0 20px;
+      padding: 0;
+
+      & a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 7px 0 6px 0;
+        font-size: 0.875rem;
+        line-height: 40px;
+        color: var(--dark);
+
+        @media (--m) {
+          &:hover {
+            color: var(--primary);
+          }
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 0;
+          height: 3px;
+          background-color: var(--primary);
+          transition: 0.3s;
+        }
+      }
+    }
+
+    & .current-menu-item {
+      & a {
+        color: var(--primary);
+
+        &::before {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

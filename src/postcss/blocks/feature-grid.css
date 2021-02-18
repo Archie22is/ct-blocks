@@ -1,0 +1,37 @@
+.feature-grid.sidebar-section {
+  & .sidebar-section__col--sidebar {
+    @media (--m) {
+      width: 25%;
+    }
+  }
+}
+
+.feature-grid__col {
+  @mixin column-item 1, 1em;
+}
+
+.feature-grid.has-2-columns,
+.feature-grid.has-3-columns,
+.feature-grid.has-4-columns {
+  & .feature-grid__col {
+    display: flex;
+  }
+}
+
+.feature-grid.is-light-contract {
+  & .feature-grid__header {
+    color: var(--dark);
+  }
+
+  & .feature-grid__description {
+    color: var(--dark);
+  }
+}
+
+.feature-grid--preset-2 {
+  & .feature-card__image {
+    @mixin ratio 1/1;
+
+    width: 48px;
+  }
+}
