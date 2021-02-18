@@ -46,7 +46,7 @@ module.exports = {
       target: 'http://ecom.test',
       proxyReq: [
         proxyReq => {
-          proxyReq.setHeader('X-Codetot-Header', 'development')
+          proxyReq.setHeader('X-Codetot-Block-Header', 'development')
         }
       ]
     },
