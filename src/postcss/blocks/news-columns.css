@@ -12,6 +12,50 @@
   }
 }
 
+.news-columns--1-columns {
+  & .news-columns__col {
+    @mixin column-item 1, 1em;
+  }
+}
+
+.news-columns--2-columns {
+  & .news-columns__col {
+    @mixin column-item 1, 1em;
+
+    @media (--s) {
+      @mixin column-item 2, 1em;
+    }
+  }
+}
+
+.news-columns--4-columns {
+  & .news-columns__col {
+    @mixin column-item 1, 1em;
+
+    @media (--s) {
+      @mixin column-item 2, 1em;
+    }
+
+    @media (--m) {
+      @mixin column-item 4, 1em;
+    }
+  }
+}
+
+.news-columns--5-columns {
+  & .news-columns__col {
+    @mixin column-item 1, 1em;
+
+    @media (--s) {
+      @mixin column-item 2, 1em;
+    }
+
+    @media (--m) {
+      @mixin column-item 5, 1em;
+    }
+  }
+}
+
 .news-columns__label {
   color: var(--primary);
 }
