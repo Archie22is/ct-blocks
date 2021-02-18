@@ -48,17 +48,9 @@ class Codetot_Base {
 	protected $version;
 
   /**
-   * The instance of current options by Redux Framework
-   *
-   * @since    1.0.0
-   * @access   protected
-   * @var      string    $version    The current version of the plugin.
+   * @var array
    */
-	public $options;
-  /**
-   * @var void
-   */
-  private $pro_blocks;
+  private $blocks;
 
   /**
 	 * Define the core functionality of the plugin.
@@ -80,7 +72,7 @@ class Codetot_Base {
     Codetot_Base_Public::instance();
     Codetot_Base_Admin_Acf::instance();
 
-    $this->pro_blocks = apply_filters('codetot_pro_blocks', [
+    $this->blocks = apply_filters('codetot_pro_blocks', [
       'hero-image',
       'hero-slider',
       'hero-banner',
@@ -105,7 +97,8 @@ class Codetot_Base {
       'two-up-intro',
       'two-up-slider'
     ]);
-    $this->load_pro_blocks();
+
+    $this->load_blocks();
 	}
 
 	public function load_translation() {
@@ -116,11 +109,11 @@ class Codetot_Base {
     );
   }
 
-	public function load_pro_blocks() {
+	public function load_blocks() {
     require_once CODETOT_BLOCKS_DIR . 'includes/classes/interface-block.php';
     require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-block.php';
 
-    foreach ($this->pro_blocks as $block) {
+    foreach ($this->blocks as $block) {
       require_once CODETOT_BLOCKS_DIR . 'includes/pro-blocks/register/' . $block . '.php';
     }
   }
@@ -129,35 +122,4 @@ class Codetot_Base {
     require_once CODETOT_BLOCKS_DIR . 'admin/class-admin-acf.php';
 		require_once CODETOT_BLOCKS_DIR . 'public/class-public.php';
 	}
-
-	/**
-	 * The name of the plugin used to uniquely identify it within the context of
-	 * WordPress and to define internationalization functionality.
-	 *
-	 * @since     1.0.0
-	 * @return    string    The name of the plugin.
-	 */
-	public function get_plugin_name() {
-		return $this->plugin_name;
-	}
-
-	/**
-	 * Retrieve the version number of the plugin.
-	 *
-	 * @since     1.0.0
-	 * @return    string    The version number of the plugin.
-	 */
-	public function get_version() {
-		return $this->version;
-	}
-
-  /**
-   * Retrieve the version number of the plugin.
-   *
-   * @since     1.0.0
-   * @return    string    The version number of the plugin.
-   */
-  public function get_options() {
-    return $this->options;
-  }
 }
