@@ -1,0 +1,156 @@
+.cta-form {
+  position: relative;
+}
+
+.cta-form--dark {
+  color: var(--white);
+
+  & .gform_wrapper {
+    & .validation_message {
+      color: var(--white);
+    }
+  }
+}
+
+.cta-form__col-inner {
+  padding: 40px 0;
+}
+
+.cta-form__background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cta-form__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.cta-form--style-1,
+.cta-form--style-2 {
+  & .cta-form__header {
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  & .cta-form__title {
+    text-align: center;
+    margin: 5px auto;
+  }
+
+  & .cta-form__content {
+    text-align: center;
+  }
+
+  & .cta-form__grid {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & .cta-form__col {
+    width: 100%;
+    margin-top: 1em;
+    padding: 0 30px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    @media (--s) {
+      width: 50%;
+      margin-top: 2em;
+
+      &:nth-child(-n + 2) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  & .cta-form__image {
+    text-align: center;
+  }
+
+  & .cta-form__img {
+    width: 80%;
+  }
+
+  & .cta-form__name {
+    text-align: center;
+    padding-bottom: 15px;
+
+    &:hover {
+      color: var(--secondary);
+    }
+  }
+
+  & .gform_heading,
+  & .gform_wrapper .top_label .gfield_label {
+    display: none;
+  }
+
+  & .gform_footer {
+    text-align: center;
+    & input[type='submit'] {
+      min-width: 193px;
+      width: auto !important;
+      background-color: var(--primary);
+      color: var(--white);
+      &:hover {
+        background-color: var(--secondary);
+      }
+    }
+  }
+}
+
+.cta-form--style-2 {
+  & .cta-form__grid {
+    flex-direction: column-reverse;
+
+    @media (--s) {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+.gform_confirmation_wrapper {
+  text-align: center;
+}
+
+.gform_wrapper {
+  & .validation_error {
+    display: none;
+  }
+
+  & .field_description_below {
+    & .gfield_description {
+      padding-top: 0 !important;
+    }
+  }
+
+  & li.gfield.gfield_error,
+  & li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+    background-color: transparent !important;
+    border: none !important;
+  }
+
+  & li.gfield.gfield_error {
+    margin: 0 !important;
+    padding: 0 !important;
+    &.gfield_contains_required.gfield_creditcard_warning {
+      margin: 0 !important;
+    }
+  }
+}
+
+.cta-form__form ul {
+  list-style-type: none;
+}
