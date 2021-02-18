@@ -43,7 +43,7 @@ if (!empty($items)) :
   if ($layout === 'column') {
     the_block('default-section', array(
       'id' => !empty($id) ? $id : '',
-      'attributes' => ' data-pro-block="accordions"',
+      'attributes' => ' data-ct-block="accordions"',
       'class' => $_class,
       'header' => $header,
       'content' => $content
@@ -51,7 +51,7 @@ if (!empty($items)) :
   } else {
     the_block('sidebar-section', array(
       'id' => !empty($id) ? $id : '',
-      'attributes' => ' data-pro-block="accordions"',
+      'attributes' => ' data-ct-block="accordions"',
       'class' => $_class,
       'sidebar' => $header,
       'content' => $content
