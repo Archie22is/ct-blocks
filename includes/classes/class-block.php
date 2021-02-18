@@ -32,15 +32,17 @@ abstract class Codetot_Base_Block {
    */
   public function load_primary_fields()
   {
-    $available_paths = [
-      get_stylesheet_directory() . '/inc/blocks/' . $this->block_name . '.json',
-      CODETOT_BLOCKS_DIR . 'includes/pro-blocks/fields/' . $this->block_name . '.json'
-    ];
+    $available_paths = apply_filters('ct_blocks_fields_paths', [
+      get_stylesheet_directory() . '/inc/blocks',
+      CODETOT_BLOCKS_DIR . 'includes/blocks'
+    ]);
 
     try {
       foreach ($available_paths as $available_path) {
-        if (file_exists($available_path)) {
-          return json_decode(file_get_contents($available_path), true);
+        $file_path = $available_path . '/' . $this->block_name . '.json';
+
+        if (file_exists($file_path)) {
+          return json_decode(file_get_contents($file_path), true);
         }
       }
 
