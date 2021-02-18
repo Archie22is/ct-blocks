@@ -18,7 +18,6 @@ $_class .= !empty($number_categories) ? ' news-columns--' . $number_categories .
       <div class="grid news-columns__inner">
         <?php
         for ($i = 0; $i <= ($number_categories - 1); $i++) {
-
           $post_args = array(
             'post_type' => 'post',
             'posts_per_page' => !empty($number_posts) ? $number_posts : '3',
@@ -30,23 +29,21 @@ $_class .= !empty($number_categories) ? ' news-columns--' . $number_categories .
               )
             ),
           );
-
           $post_query = new WP_Query($post_args);
-
           ?>
-          <div class="grid__col news-columns__col" data-aos="fade-up" data-aos-duration="800">
-            <?php if ($post_query->have_posts()) : ?>
-              <h3 class="news-columns__post-title"><?php echo get_the_category_by_ID($category[$i]); ?></h3>
-              <?php if (!empty($post_query)) : ?>
-                <div class="news-columns__post" data-aos="fade-up" data-aos-duration="800">
-                  <?php while ($post_query->have_posts()) : $post_query->the_post(); ?>
-                    <a class="news-columns__link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                  <?php endwhile;
-                  wp_reset_postdata(); ?>
-                </div>
-              <?php endif; ?>
-            <?php endif; ?>
-          </div>
+          <?php if ($post_query->have_posts()) : ?>
+            <div class="grid__col news-columns__col" data-aos="fade-up" data-aos-duration="800">
+                <h3 class="news-columns__post-title"><?php echo get_the_category_by_ID($category[$i]); ?></h3>
+                <?php if (!empty($post_query)) : ?>
+                  <div class="news-columns__post" data-aos="fade-up" data-aos-duration="800">
+                    <?php while ($post_query->have_posts()) : $post_query->the_post(); ?>
+                      <a class="news-columns__link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                    <?php endwhile;
+                    wp_reset_postdata(); ?>
+                  </div>
+                <?php endif; ?>
+            </div>
+          <?php endif; ?>
         <?php } ?>
       </div>
     </div>
