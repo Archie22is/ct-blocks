@@ -1,6 +1,6 @@
 <?php
 $_class = 'hero-slider';
-$_class .= !empty($block_preset) ? ' hero-slider--preset-' . esc_attr($block_preset) : '';
+$_class .= !empty($block_preset) ? ' hero-slider--' . esc_attr($block_preset) : '';
 $_class .= !empty($content_alignment) ? ' hero-slider--alignment-' . esc_attr($content_alignment) : ' hero-slider--alignment-left';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 $_class .= !empty($previous_next_style) ? ' hero-slider--button-' . esc_attr($previous_next_style) : ' hero-slider--button-circle';
