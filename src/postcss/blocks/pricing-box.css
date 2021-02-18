@@ -25,6 +25,10 @@
   padding: 1em 0;
 }
 
+.pricing-box__items {
+  list-style: none;
+}
+
 .pricing-box__item {
   margin-top: 0.5em;
 }
