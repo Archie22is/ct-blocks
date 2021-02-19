@@ -319,7 +319,7 @@
     z-index: 299;
     visibility: hidden;
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
     transform: translateY(15px) translateZ(0);
     background: var(--white);
     border: 1px solid rgba(0, 0, 0, 0.05);
