@@ -11,13 +11,7 @@ $_class .= !empty($enable_slideshow) ? ' image-row--has-slider' : '';
 
 if (!empty($enable_slideshow)) :
   $carousel_settings = array(
-    'contain' => true,
-    'cellAlign' => 'center',
-    'pageDots' => false,
-    'prevNextButtons' => true,
-    'groupCells' => true,
-    'percentagePosition' => true,
-    'draggable' => true
+    'contain' => true
   );
 endif;
 ?>

@@ -21,12 +21,8 @@ $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 // $_class .= empty($description) ? ' logo-grid--no-description' : '';
 $_slider_options = empty($slider_options) ? array(
   'contain' => true,
-  'cellAlign' => 'center',
   'pageDots' => false,
-  'prevNextButtons' => true,
-  'groupCells' => true,
-  'percentagePosition' => true,
-  'draggable' => true
+  'autoPlay' => 5000
 ) : $slider_options;
 
 $header = codetot_build_content_block(array(
