@@ -11,7 +11,8 @@ $_class .= !empty($enable_slideshow) ? ' image-row--has-slider' : '';
 
 if (!empty($enable_slideshow)) :
   $carousel_settings = array(
-    'contain' => true
+    'contain' => true,
+    'pageDots' => false
   );
 endif;
 ?>
