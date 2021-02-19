@@ -25,7 +25,8 @@ $_slider_options = empty($slider_options) ? array(
   'pageDots' => false,
   'prevNextButtons' => true,
   'groupCells' => true,
-  'percentagePosition' => true
+  'percentagePosition' => true,
+  'draggable' => true
 ) : $slider_options;
 
 $header = codetot_build_content_block(array(

@@ -33,7 +33,7 @@ $_class .= !empty($number_columns) ? ' pricing-tables--' . esc_attr($number_colu
                   'title' => $item['title'],
                   'pricing' => $item['pricing'],
                   'unit' => $item['unit'],
-                  'items' => $item['feature'],
+                  'items' => $item['listings'],
                   'button_text' => $item['button_text'],
                   'button_url' => $item['button_url']
                 ))
