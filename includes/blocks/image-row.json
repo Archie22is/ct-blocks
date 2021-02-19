@@ -6,6 +6,29 @@
     "display": "block",
     "sub_fields": [
       {
+        "key": "field_5fdscfr5et8a3",
+        "label": "Presets",
+        "name": "block_preset",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "20",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": "",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "layout": "",
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
         "key": "field_5fc997bdd6223",
         "label": "Enable Full Screen Layout",
         "name": "enable_full_screen_layout",
@@ -14,11 +37,68 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "",
+          "width": "20",
           "class": "",
           "id": ""
         },
         "message": "",
+        "default_value": 0,
+        "ui": 0,
+        "ui_on_text": "",
+        "ui_off_text": ""
+      },
+      {
+        "key": "field_5fd879cso938c",
+        "label": "Space Between",
+        "name": "space_between",
+        "type": "true_false",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "20",
+          "class": "",
+          "id": ""
+        },
+        "message": "None",
+        "default_value": 0,
+        "ui": 0,
+        "ui_on_text": "",
+        "ui_off_text": ""
+      },
+      {
+        "key": "field_60showddca5be",
+        "label": "Enable Slideshow",
+        "name": "enable_slideshow",
+        "type": "true_false",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "20",
+          "class": "",
+          "id": ""
+        },
+        "message": "Enable",
+        "default_value": 1,
+        "ui": 0,
+        "ui_on_text": "",
+        "ui_off_text": ""
+      },
+      {
+        "key": "field_5fd87shoo938c",
+        "label": "Image Zoom",
+        "name": "image_zoom",
+        "type": "true_false",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "20",
+          "class": "",
+          "id": ""
+        },
+        "message": "True",
         "default_value": 0,
         "ui": 0,
         "ui_on_text": "",
@@ -39,7 +119,7 @@
         },
         "collapsed": "",
         "min": 0,
-        "max": 5,
+        "max": 6,
         "layout": "row",
         "button_label": "Add Column",
         "sub_fields": [
@@ -57,6 +137,7 @@
               "id": ""
             },
             "choices": {
+              "16": "1/6",
               "20": "1/5",
               "25": "1/4",
               "33": "1/3",
@@ -105,7 +186,7 @@
             "name": "url",
             "type": "text",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
               "width": "",
