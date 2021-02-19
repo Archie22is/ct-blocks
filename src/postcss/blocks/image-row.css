@@ -47,6 +47,8 @@
 }
 
 .image-row__col--16 {
+  width: 50%;
+
   @media (--s) {
     width: 25%;
   }
