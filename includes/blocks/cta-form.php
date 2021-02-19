@@ -55,7 +55,8 @@ class Codetot_Block_Contact_Form extends Codetot_Base_Block implements Codetot_B
       'image',
       'background_image',
       'background_types' ,
-      'overlay'];
+      'overlay'
+    ];
 
     parent::__construct();
   }
