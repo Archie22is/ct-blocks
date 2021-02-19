@@ -15,7 +15,8 @@ $carousel_settings = array(
   'wrapAround' => true,
   'cellAlign' => 'center',
   'autoPlay' => 5000,
-  'pauseAutoPlayOnHover' => true
+  'pauseAutoPlayOnHover' => true,
+  'groupCells' => 1
 );
 ?>
 
