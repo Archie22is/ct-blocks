@@ -71,6 +71,8 @@ class Codetot_Base
     add_filter('ct_theme_block_paths', array($this, 'load_block_paths'));
     add_filter('ct_theme_block_parts_paths', array($this, 'load_block_parts_paths'));
 
+    include_once CODETOT_BLOCKS_DIR . 'includes/helpers.php';
+
     $this->load_dependencies();
 
     Codetot_Base_Public::instance();
@@ -135,6 +137,8 @@ class Codetot_Base
     foreach ($this->blocks as $block) {
       require_once CODETOT_BLOCKS_DIR . 'includes/blocks/' . $block . '.php';
     }
+
+    require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-ct-blocks-page.php';
   }
 
   private function load_dependencies()
