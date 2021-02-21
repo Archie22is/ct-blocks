@@ -5,6 +5,6 @@
  */
 get_header();
 
-do_action('codetot_flexible_page');
+the_content();
 
 get_footer();
