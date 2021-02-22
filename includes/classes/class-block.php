@@ -33,7 +33,6 @@ abstract class Codetot_Base_Block {
   public function load_primary_fields()
   {
     $available_paths = apply_filters('ct_blocks_fields_paths', [
-      get_stylesheet_directory() . '/inc/blocks',
       CODETOT_BLOCKS_DIR . 'includes/blocks'
     ]);
 
