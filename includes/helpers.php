@@ -25,13 +25,13 @@ if (!function_exists('codetot_svg')) {
   }
 }
 
-if (!function_exists('ct_get_block')) {
+if (!function_exists('get_block')) {
   /**
    * @param string $block_name
    * @param array $args
    * @return false|string
    */
-  function ct_get_block($block_name, $args = array())
+  function get_block($block_name, $args = array())
   {
     ob_start();
     the_block($block_name, $args);
