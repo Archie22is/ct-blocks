@@ -5,11 +5,18 @@
  * @param array $args
  * @return false|string
  */
-function get_block($block_name, $args = array())
-{
-  ob_start();
-  the_block($block_name, $args);
-  return ob_get_clean();
+if (!function_exists('get_block')) {
+  /**
+   * @param string $block_name
+   * @param array $args
+   * @return false|string
+   */
+  function get_block($block_name, $args = array())
+  {
+    ob_start();
+    the_block($block_name, $args);
+    return ob_get_clean();
+  }
 }
 
 /**
@@ -23,15 +30,13 @@ if ( ! function_exists( 'the_block' ) ) {
     if (empty($block_name)) {
       return new WP_Error(
         '404',
-        __('Missing block name', 'codetotbase')
+        __('Missing block name', 'ct-blocks')
       );
     }
 
     extract($args, EXTR_SKIP);
 
-    $available_paths = apply_filters('ct_theme_block_paths', [
-      CODETOT_BLOCK
-    ]);
+    $available_paths = apply_filters('ct_theme_block_paths', []);
 
     $path = '';
 
@@ -78,10 +83,7 @@ function get_block_part($path_name)
  */
 function the_block_part($path_name)
 {
-  $available_paths = apply_filters('ct_theme_block_parts_paths', [
-    CODETOT_BLOCK_PART,
-    CODETOT_CHILD_BLOCK_PART
-  ]);
+  $available_paths = apply_filters('ct_theme_block_parts_paths', []);
 
   $path = '';
 
