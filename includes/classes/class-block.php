@@ -57,7 +57,7 @@ abstract class Codetot_Base_Block {
     if ($layout == $this->block_slug) {
       $data = codetot_get_sub_fields($this->fields);
 
-      ct_the_block($this->block_name, $data);
+      the_block($this->block_name, $data);
     }
   }
 }
