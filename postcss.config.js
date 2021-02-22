@@ -6,7 +6,7 @@ module.exports = ({ file, options, env }) => ({
       mixinsDir: './src/postcss/mixins'
     },
     'postcss-preset-env': {
-      importFrom: './src/postcss/utils/variables.css',
+      importFrom: './src/postcss/variables.css',
       exportTo: 'variables.css',
       stage: 1,
       browsers: 'last 2 versions',
