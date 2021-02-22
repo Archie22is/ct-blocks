@@ -133,6 +133,8 @@ class Codetot_Base
   {
     require_once CODETOT_BLOCKS_DIR . 'includes/classes/interface-block.php';
     require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-block.php';
+    require_once CODETOT_BLOCKS_DIR . 'includes/helpers/template-functions.php';
+    require_once CODETOT_BLOCKS_DIR . 'includes/helpers/utils.php';
 
     foreach ($this->blocks as $block) {
       require_once CODETOT_BLOCKS_DIR . 'includes/blocks/' . $block . '.php';
