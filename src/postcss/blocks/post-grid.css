@@ -1,0 +1,48 @@
+.post-grid__col {
+  width: 100%;
+  margin-top: 1em;
+}
+
+.post-grid--5-column {
+  & .post-grid__col {
+    @media (--s) {
+      width: 50%;
+    }
+
+    @media (--m) {
+      width: 20%;
+    }
+  }
+}
+
+.post-grid--4-column {
+  & .post-grid__col {
+    @media (--s) {
+      width: 50%;
+    }
+
+    @media (--m) {
+      width: 25%;
+    }
+  }
+}
+
+.post-grid--3-column {
+  & .post-grid__col {
+    @media (--s) {
+      width: 50%;
+    }
+
+    @media (--m) {
+      width: 33.33%;
+    }
+  }
+}
+
+.post-grid--2-column {
+  & .post-grid__col {
+    @media (--s) {
+      width: 50%;
+    }
+  }
+}
