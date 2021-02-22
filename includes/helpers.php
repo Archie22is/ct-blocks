@@ -34,18 +34,18 @@ if (!function_exists('ct_get_block')) {
   function ct_get_block($block_name, $args = array())
   {
     ob_start();
-    ct_the_block($block_name, $args);
+    the_block($block_name, $args);
     return ob_get_clean();
   }
 }
 
-if (!function_exists('ct_the_block')) {
+if (!function_exists('the_block')) {
   /**
    * @param string $block_name
    * @param array $args
    * @return void|WP_Error
    */
-  function ct_the_block($block_name, $args = array())
+  function the_block($block_name, $args = array())
   {
     if (empty($block_name)) {
       return new WP_Error(
