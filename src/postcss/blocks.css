@@ -17,7 +17,6 @@
 @import url('blocks/feature-card.css');
 @import url('blocks/feature-grid.css');
 @import url('blocks/guarantee-list.css');
-@import url('blocks/headers.css');
 @import url('blocks/hero-banner.css');
 @import url('blocks/hero-image.css');
 @import url('blocks/hero-slider.css');
@@ -35,3 +34,5 @@
 @import url('blocks/two-up-intro.css');
 @import url('blocks/two-up-slider.css');
 @import url('blocks/sidebar-section.css');
+@import url('blocks/category-post.css');
+@import url('blocks/default-section.css');
