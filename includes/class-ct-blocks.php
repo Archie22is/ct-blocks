@@ -174,6 +174,8 @@ class Codetot_Base
 
   public function load_blocks()
   {
+    require_once CODETOT_BLOCKS_DIR . 'includes/classes/interface-block.php';
+    require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-block.php';
     require_once CODETOT_BLOCKS_DIR . 'includes/helpers/template-functions.php';
     require_once CODETOT_BLOCKS_DIR . 'includes/helpers/utils.php';
 
