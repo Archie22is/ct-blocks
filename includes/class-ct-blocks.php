@@ -72,6 +72,8 @@ class Codetot_Base
     add_filter('ct_theme_block_parts_paths', array($this, 'load_block_parts_paths'));
 
     include_once CODETOT_BLOCKS_DIR . 'includes/helpers.php';
+    include_once CODETOT_BLOCKS_DIR . 'includes/acf.php';
+    include_once CODETOT_BLOCKS_DIR . 'includes/breadcrumbs.php';
 
     $this->load_dependencies();
 
