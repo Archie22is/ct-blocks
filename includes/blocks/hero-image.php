@@ -52,7 +52,6 @@ class Codetot_Block_Hero_Image extends Codetot_Base_Block implements Codetot_Bas
       'spacing',
       'background_position',
       'background_contract',
-      'is_background_image',
       'overlay',
       'image',
       'mobile_image',
