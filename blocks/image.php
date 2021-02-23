@@ -21,8 +21,6 @@ if (!empty($image) && !empty($class)) :
         'class' => 'image__img lazyload'
       ));
       $image_html = ob_get_clean();
-      $image_html = str_replace('src="', 'data-sizes="auto" data-src="', $image_html);
-      $image_html = str_replace('srcset="', 'data-srcset="', $image_html);
       echo $image_html;
     } else {
       $mobile_image = wp_get_attachment_image_src($image_id, 'medium', null);

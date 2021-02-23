@@ -76,7 +76,7 @@
 .feature-card--image-contain {
   & .feature-card__image {
     width: auto;
-    max-width: 48px;
+    max-width: 48px !important;
     margin: auto;
 
     & .image__img {
