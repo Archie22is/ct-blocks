@@ -81,7 +81,6 @@ if (!function_exists('get_block_part')) {
   }
 }
 
-
 if (!function_exists('the_block_part')) {
   /**
    * @param string $path_name
