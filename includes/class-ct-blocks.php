@@ -72,6 +72,9 @@ class Codetot_Base
     add_filter('ct_theme_block_parts_paths', array($this, 'load_block_parts_paths'));
 
     include_once CODETOT_BLOCKS_DIR . 'includes/helpers.php';
+    include_once CODETOT_BLOCKS_DIR . 'includes/acf.php';
+    include_once CODETOT_BLOCKS_DIR . 'includes/breadcrumbs.php';
+    include_once CODETOT_BLOCKS_DIR . 'includes/class-block-presets.php';
 
     $this->load_dependencies();
 
@@ -174,6 +177,8 @@ class Codetot_Base
 
   public function load_blocks()
   {
+    require_once CODETOT_BLOCKS_DIR . 'includes/classes/interface-block.php';
+    require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-block.php';
     require_once CODETOT_BLOCKS_DIR . 'includes/helpers/template-functions.php';
     require_once CODETOT_BLOCKS_DIR . 'includes/helpers/utils.php';
 

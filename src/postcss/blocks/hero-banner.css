@@ -3,6 +3,13 @@
 }
 
 .hero-banner__slider {
+  & .flickity-viewport {
+    & * {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+
   & .flickity-page-dots {
     bottom: 10px;
 

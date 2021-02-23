@@ -86,7 +86,6 @@ class Codetot_Base_Admin_Acf {
     ?>
     <div class="ct__block-list js-block-list"></div>
     <div class="ct__preview-block js-preview-block">
-      <div class="ct__header"><?php _e('Preview', 'codetot-theme') ?></div>
       <div class="js-preview-block-items"></div>
     </div>
     <div class="ct__svg"><?php codetot_svg('ct_svg', true); ?></div>

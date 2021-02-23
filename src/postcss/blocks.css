@@ -8,6 +8,7 @@
 @import url('global/flexbox.css');
 @import url('global/grid.css');
 @import url('global/animate.css');
+@import url('mixins/flickity.css');
 @import url('blocks/accordions.css');
 @import url('blocks/bottom-cta.css');
 @import url('blocks/category-grid.css');
@@ -17,7 +18,6 @@
 @import url('blocks/feature-card.css');
 @import url('blocks/feature-grid.css');
 @import url('blocks/guarantee-list.css');
-@import url('blocks/headers.css');
 @import url('blocks/hero-banner.css');
 @import url('blocks/hero-image.css');
 @import url('blocks/hero-slider.css');
@@ -35,3 +35,11 @@
 @import url('blocks/two-up-intro.css');
 @import url('blocks/two-up-slider.css');
 @import url('blocks/sidebar-section.css');
+@import url('blocks/category-post.css');
+@import url('blocks/default-section.css');
+@import url('blocks/loader.css');
+@import url('blocks/social-links.css');
+@import url('blocks/slideout-menu.css');
+@import url('blocks/post-grid.css');
+@import url('blocks/post-card.css');
+@import url('blocks/breadcrumbs.css');
