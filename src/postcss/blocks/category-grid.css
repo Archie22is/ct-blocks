@@ -47,62 +47,6 @@
   }
 }
 
-.category-grid--1-columns {
-  & .category-grid__col {
-    @media (--s) {
-      @mixin column-item 1, calc(2 * var(--grid-gutter));
-    }
-
-    @media (--m) {
-      margin-top: calc(2 * var(--grid-gutter-m));
-    }
-  }
-}
-
-.category-grid--2-columns {
-  & .category-grid__col {
-    @media (--m) {
-      margin-top: calc(2 * var(--grid-gutter-m));
-    }
-  }
-}
-
-.category-grid--3-columns {
-  & .category-grid__col {
-    @media (--m) {
-      @mixin column-item 3, calc(2 * var(--grid-gutter-m));
-    }
-  }
-}
-
-.category-grid--4-columns {
-  & .category-grid__col {
-    @media (--xxs) {
-      @mixin column-item 2, calc(2 * var(--grid-gutter-s));
-    }
-
-    @media (--m) {
-      @mixin column-item 4, calc(2 * var(--grid-gutter-m));
-    }
-  }
-}
-
-.category-grid--5-columns {
-  & .category-grid__col {
-    @media (--m) {
-      @mixin column-item 5, calc(2 * var(--grid-gutter-m));
-    }
-  }
-}
-
-.category-grid--6-columns {
-  & .category-grid__col {
-    @media (--m) {
-      @mixin column-item 6, calc(2 * var(--grid-gutter-m));
-    }
-  }
-}
-
 .category-grid--style-1,
 .category-grid--style-2,
 .category-grid--style-4,
@@ -198,14 +142,6 @@
     background: var(--white);
     z-index: 3;
     border: 1px solid var(--light);
-  }
-}
-
-.category-grid--style-3 {
-  & .category-grid__col {
-    @media (--m) {
-      @mixin column-item 5, 2em;
-    }
   }
 }
 
@@ -310,6 +246,62 @@
       background: rgba(19, 56, 128, 0.8);
       color: var(--white);
       fill: var(--white);
+    }
+  }
+}
+
+.category-grid--1-columns {
+  & .category-grid__col {
+    @media (--s) {
+      @mixin column-item 1, calc(2 * var(--grid-gutter));
+    }
+
+    @media (--m) {
+      margin-top: calc(2 * var(--grid-gutter-m));
+    }
+  }
+}
+
+.category-grid--2-columns {
+  & .category-grid__col {
+    @media (--m) {
+      margin-top: calc(2 * var(--grid-gutter-m));
+    }
+  }
+}
+
+.category-grid--3-columns {
+  & .category-grid__col {
+    @media (--m) {
+      @mixin column-item 3, calc(2 * var(--grid-gutter-m));
+    }
+  }
+}
+
+.category-grid--4-columns {
+  & .category-grid__col {
+    @media (--xxs) {
+      @mixin column-item 2, calc(2 * var(--grid-gutter-s));
+    }
+
+    @media (--m) {
+      @mixin column-item 4, calc(2 * var(--grid-gutter-m));
+    }
+  }
+}
+
+.category-grid--5-columns {
+  & .category-grid__col {
+    @media (--m) {
+      @mixin column-item 5, calc(2 * var(--grid-gutter-m));
+    }
+  }
+}
+
+.category-grid--6-columns {
+  & .category-grid__col {
+    @media (--m) {
+      @mixin column-item 6, calc(2 * var(--grid-gutter-m));
     }
   }
 }

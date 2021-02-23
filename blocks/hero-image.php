@@ -6,7 +6,6 @@ $_class .= !empty($spacing) ? ' hero-image--spacing-' . esc_attr($spacing) : '';
 $_class .= !empty($background_position) ? ' hero-image--bg-position-' . esc_attr($background_position) : '';
 $_class .= !empty($background_contract) ? ' hero-image--' .esc_attr($background_contract) : '';
 $_class .= !empty($overlay) ? ' hero-image--has-overlay' : '';
-$_class .= !empty($is_background_image) ? ' hero-image--background-image' : ' hero-image--two-up';
 
 $_overlay = !empty($overlay) ? $overlay : null;
 ob_start();
@@ -75,19 +74,11 @@ if (!empty($image)) :
   ?>
   <section class="<?php echo $_class; ?>">
     <?php
-    if (!empty($is_background_image)) {
       the_block('hero-image-default', array(
         'container' => $container,
         'image_html' => $image_html,
         'content_html' => $content_html
       ));
-    } else {
-      the_block('two-up', array(
-        'class' => 'hero-image__inner',
-        'left_content' => $image_html,
-        'right_content' => $content_html
-      ));
-    }
     ?>
   </section>
 <?php endif; ?>
