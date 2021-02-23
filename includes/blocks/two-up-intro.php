@@ -49,9 +49,12 @@ class Codetot_Block_Two_Up_Intro extends Codetot_Base_Block implements Codetot_B
     $this->block_title = __('Two Up Intro', 'codetot');
     $this->fields = [
       'class',
+      'block_preset',
       'content_alignment',
       'image',
       'image_position',
+      'label',
+      'title',
       'content',
       'buttons',
       'button_text',
