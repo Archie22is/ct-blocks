@@ -65,17 +65,14 @@
   box-sizing: border-box;
 }
 
-#poststuff #codetot-flexible-button .ct__block-list {
-  max-height: 600px;
-  overflow-y: scroll;
-}
-
 #poststuff #codetot-flexible-button .ct__block-list ul {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -0.5em;
   padding: 0;
   list-style: none;
+  max-height: 600px;
+  overflow-y: scroll;
 }
 
 #poststuff #codetot-flexible-button .ct__block-list ul li {

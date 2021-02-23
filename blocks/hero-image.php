@@ -81,12 +81,6 @@ if (!empty($image)) :
         'image_html' => $image_html,
         'content_html' => $content_html
       ));
-    } else {
-      the_block('two-up', array(
-        'class' => 'hero-image__inner',
-        'left_content' => $image_html,
-        'right_content' => $content_html
-      ));
     }
     ?>
   </section>
