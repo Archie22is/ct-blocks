@@ -25,6 +25,29 @@
         "maxlength": ""
       },
       {
+        "key": "field_5fc9e6f6love3",
+        "label": "Presets",
+        "name": "block_preset",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": "1",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "layout": "",
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
         "key": "field_5fd724c54fb1b",
         "label": "Content Alignment",
         "name": "content_alignment",
@@ -96,6 +119,46 @@
         "max_height": "",
         "max_size": "",
         "mime_types": ""
+      },
+      {
+        "key": "field_5fcf52d7di341",
+        "label": "Label",
+        "name": "label",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "acfe_permissions": "",
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_5fcf52df7uu42",
+        "label": "Title",
+        "name": "title",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "acfe_permissions": "",
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
       },
       {
         "key": "field_5fd724d54fb1e",

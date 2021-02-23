@@ -34,6 +34,16 @@ if (!empty($image) || !empty($content)) :
           <?php if (!empty($content)) : ?>
             <div class="two-up-intro__col two-up-intro__col--content">
               <div class="two-up-intro__inner">
+                <?php if (!empty($title)) : ?>
+                  <header class="two-up-intro__header">
+                    <?php if (!empty($label)) : ?>
+                      <p class="two-up-intro__label" data-aos="fade-up"><?php echo esc_html($label); ?></p>
+                    <?php endif; ?>
+                    <?php if (!empty($title)) : ?>
+                      <h2 class="two-up-intro__title" data-aos="fade-up"><?php echo esc_html($title); ?></h2>
+                    <?php endif; ?>
+                  </header>
+                <?php endif; ?>
                 <div class="wysiwyg two-up-intro__content" data-aos="fade-up"><?php echo $content; ?></div>
                 <?php if (!empty($buttons)) : ?>
                   <div class="two-up-intro__footer" data-aos="fade-up">
