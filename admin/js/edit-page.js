@@ -45,9 +45,15 @@
         $(this).addClass('active')
         URL_image = CODETOT_PLUGIN_URL + '/admin/images/' + nameImage + '.jpg'
 
-        $previewBlockItemEls.html('<div class="ct__preview-block-item"><img src="' + URL_image + '" /></div>')
+        $previewBlockItemEls.html(
+          '<div class="ct__preview-block-item"><img src="' +
+            URL_image +
+            '" /></div>'
+        )
 
-        $previewBlockEl.css({'top' : ($(this).offset().top - $(blockListEl).offset().top)})
+        $previewBlockEl.css({
+          top: $(this).offset().top - $(blockListEl).offset().top
+        })
 
         if ($(window).width() < 850) {
           $blockListEl.addClass('active')
