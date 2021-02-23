@@ -8,6 +8,7 @@
 @import url('global/flexbox.css');
 @import url('global/grid.css');
 @import url('global/animate.css');
+@import url('mixins/flickity.css');
 @import url('blocks/accordions.css');
 @import url('blocks/bottom-cta.css');
 @import url('blocks/category-grid.css');
