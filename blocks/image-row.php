@@ -3,11 +3,13 @@ $container = codetot_site_container();
 $is_full_screen = !empty($enable_full_screen_layout) ? ' image-row--full-screen' : '';
 
 $_class = 'image-row';
+$_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 $_class .= !empty($block_preset) ? ' image-row--' . esc_attr($block_preset) : '';
 $_class .= !empty($columns) ? ' image-row--' . count($columns) . '-columns' : '';
 $_class .= !empty($space_between) ? ' image-row--space-between' : '';
 $_class .= !empty($image_zoom) ? ' image-row--image-zoom' : '';
 $_class .= !empty($enable_slideshow) ? ' image-row--has-slider' : '';
+$_class .= !empty($header_alignment) ? ' image-row--'.  $header_alignment : '';
 
 if (!empty($enable_slideshow)) :
   $carousel_settings = array(
@@ -20,6 +22,13 @@ endif;
      data-aos="fade-up" <?php echo !empty($enable_slideshow) ? 'data-ct-block="image-row"' : ''; ?>>
   <div class="<?php echo $container; ?> image-row__container">
     <div class="image-row__wrapper">
+      <div class="grid image-row__grid">
+        <?php if (!empty($title)) : ?>
+          <div class="image-row__header">
+            <h2 class="h2 image-row__title" data-aos="fade-up"><?php echo $title; ?></h2>
+          </div>
+        <?php endif; ?>
+      </div>
       <div class="grid image-row__grid">
         <?php if (!empty($enable_slideshow)) : ?>
         <div class="image-row__slider js-slider" <?php if (!empty($carousel_settings)) : ?> data-carousel='<?= json_encode($carousel_settings); ?>'<?php endif; ?> style="width: 100%">

@@ -45,11 +45,14 @@ class Codetot_Block_Image_Row extends Codetot_Base_Block implements Codetot_Base
     $this->block_slug = 'image_row';
     $this->block_title = __('Image Row', 'codetot');
     $this->fields = [
+      'class',
       'block_preset',
       'columns',
       'enable_full_screen_layout',
       'space_between',
       'enable_slideshow',
+      'header_alignment',
+      'title',
       'image_zoom'
     ];
 

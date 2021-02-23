@@ -333,3 +333,22 @@
     flex: 1 1 auto;
   }
 }
+
+.two-up-intro__label {
+  color: var(--white);
+  display: flex;
+  background-color: #cb6d73;
+  padding: 0.35em 1em;
+  font-weight: 700;
+  width: max-content;
+  margin-top: 1em;
+}
+
+.two-up-intro__title {
+  font-size: 36px;
+  font-weight: 700;
+
+  @media (--s) {
+    font-size: 48px;
+  }
+}
