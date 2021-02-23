@@ -74,6 +74,7 @@ class Codetot_Base
     include_once CODETOT_BLOCKS_DIR . 'includes/helpers.php';
     include_once CODETOT_BLOCKS_DIR . 'includes/acf.php';
     include_once CODETOT_BLOCKS_DIR . 'includes/breadcrumbs.php';
+    include_once CODETOT_BLOCKS_DIR . 'includes/class-block-presets.php';
 
     $this->load_dependencies();
 
