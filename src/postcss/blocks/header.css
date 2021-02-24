@@ -95,20 +95,6 @@
 
   & > .menu-item-has-children {
     @media (--m) {
-      position: relative;
-
-      & > a {
-        &::after {
-          content: '';
-          margin-left: 0.5em;
-          width: 8px;
-          height: 6px;
-          clip-path: polygon(100% 0, 0 0, 50% 100%);
-          display: inline-block;
-          transform: translateY(-2px);
-        }
-      }
-
       & .menu-item {
         & > a {
           display: inherit;
@@ -142,25 +128,6 @@
         box-shadow: 0 0 6px 0 var(--primary-light);
 
         & .menu-item-has-children {
-          position: relative;
-
-          & > a {
-            position: relative;
-
-            &::after {
-              content: '';
-              margin-left: 0.5em;
-              width: 6px;
-              height: 8px;
-              clip-path: polygon(0 0, 0% 100%, 100% 50%);
-              position: absolute;
-              right: 4px;
-              top: 50%;
-              transform: translateY(-50%);
-              background: var(--dark);
-            }
-          }
-
           & > .sub-menu {
             @mixin fade-out;
 
