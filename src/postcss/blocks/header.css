@@ -128,7 +128,6 @@
         box-shadow: 0 0 6px 0 var(--primary-light);
 
         & .menu-item-has-children {
-
           & > .sub-menu {
             @mixin fade-out;
 
