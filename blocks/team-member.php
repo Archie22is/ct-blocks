@@ -50,7 +50,11 @@ $_class .= !empty($item_style) ? ' team-member--item-style-' . esc_attr($item_st
         <div class="grid__col team-member__col team-member__col--items">
           <div class="team-member__items<?php if (!empty($carousel_settings) && ($items_layout == 'slider')) : ?> js-slider<?php endif; ?>" <?php if (!empty($carousel_settings) && ($items_layout == 'slider')) : ?> data-carousel='<?= json_encode($carousel_settings); ?>'<?php endif; ?>>
             <?php foreach ($items as $item) : ?>
-              <div class="team-member__item">
+            <?php if (!empty($item['url'])) :?>
+                <a href="<?php echo $item['url']; ?>" class="team-member__item">
+            <?php else : ?>
+                <div class="team-member__item">
+            <?php endif; ?>
                 <div class="team-member__inner" data-aos="fade-up">
                   <?php the_block('image', array(
                     'image' => $item['image'],
@@ -68,9 +72,13 @@ $_class .= !empty($item_style) ? ' team-member--item-style-' . esc_attr($item_st
                     </div>
                   <?php endif; ?>
                 </div>
+            <?php if (!empty($item['url'])) :?>
+              </a>
+            <?php else : ?>
               </div>
+            <?php endif; ?>
             <?php endforeach; ?>
-          </div>
+          </a>
         </div>
       </div>
     </div>

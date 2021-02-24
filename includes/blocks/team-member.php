@@ -44,7 +44,21 @@ class Codetot_Block_Team_Member extends Codetot_Base_Block implements Codetot_Ba
     $this->block_name = 'team-member';
     $this->block_slug = 'team_member';
     $this->block_title = __('Team Member', 'codetot');
-    $this->fields = ['style', 'background_type', 'title', 'label', 'description', 'items', 'items_layout', 'number_columns', 'item_style', 'button_text', 'button_url', 'button_style'];
+    $this->fields = [
+      'class',
+      'style',
+      'background_type',
+      'title',
+      'label',
+      'description',
+      'items',
+      'items_layout',
+      'number_columns',
+      'item_style',
+      'button_text',
+      'button_url',
+      'button_style'
+    ];
 
     parent::__construct();
   }
