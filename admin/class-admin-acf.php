@@ -88,7 +88,9 @@ class Codetot_Base_Admin_Acf {
     <div class="ct__preview-block js-preview-block">
       <div class="js-preview-block-items"></div>
     </div>
-    <div class="ct__svg"><?php codetot_svg('ct_svg', true); ?></div>
+    <div class="ct__svg"><?php
+      echo file_get_contents(CODETOT_BLOCKS_PLUGIN_URI .'/admin/svg/ct_svg.svg')
+      ?></div>
     <?php
   }
 
