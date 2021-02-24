@@ -185,7 +185,7 @@
   border-color: var(--primary);
 }
 
-[data-type="wysiwyg"] iframe {
+[data-type='wysiwyg'] iframe {
   max-height: 120px !important;
   min-height: 0 !important;
 }
