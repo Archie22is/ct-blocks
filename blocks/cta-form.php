@@ -35,12 +35,14 @@ $_overlay = !empty($overlay) ? $overlay : null;
                                 <?php echo esc_html($content); ?>
                             </p>
                         </div>
+                      <?php if (!empty($select_form)) : ?>
                         <div class="cta-form__form" data-aos="fade-up">
-                            <?php
-                            $form_object = $select_form;
-                            echo do_shortcode('[gravityform id="' . $form_object['id'] . '" title="true" description="true" ajax="true"]');
-                            ?>
+                          <?php
+                          $form_object = $select_form;
+                          echo do_shortcode('[gravityform id="' . $form_object['id'] . '" title="true" description="true" ajax="true"]');
+                          ?>
                         </div>
+                      <?php endif; ?>
                     </div>
                 </div>
 
