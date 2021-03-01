@@ -191,3 +191,25 @@
     }
   }
 }
+
+.hero-image--no-fullscreen {
+  & .hero-image__image-container {
+    height: 100%;
+    position: absolute;
+    width: calc(100% - 2 * var(--container-gutter));
+    left: 50%;
+    transform: translateX(-50%);
+
+    @media (--s) {
+      width: calc(100% - 2 * var(--container-gutter-s));
+    }
+
+    @media (--m) {
+      width: calc(100% - 2 * var(--container-gutter-m));
+    }
+
+    @media (--ml) {
+      width: calc(var(--container-max) - 2 * var(--container-gutter-ml));
+    }
+  }
+}
