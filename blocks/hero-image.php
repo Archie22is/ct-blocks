@@ -6,43 +6,53 @@ $_class .= !empty($spacing) ? ' hero-image--spacing-' . esc_attr($spacing) : '';
 $_class .= !empty($background_position) ? ' hero-image--bg-position-' . esc_attr($background_position) : '';
 $_class .= !empty($background_contract) ? ' hero-image--' .esc_attr($background_contract) : '';
 $_class .= !empty($overlay) ? ' hero-image--has-overlay' : '';
+$_class .= (empty($fullscreen)) ? ' hero-image--no-fullscreen' : '';
 
 $_overlay = !empty($overlay) ? $overlay : null;
+
+$container = codetot_site_container();
+
 ob_start();
 if (!empty($image)) :
 ?>
-<picture class="hero-image__image">
-  <?php if (!empty($overlay)) : ?>
-    <div class="hero-image__overlay" style="background-color: rgba(0, 0, 0, <?php echo esc_attr($_overlay); ?>);"></div>
-  <?php endif; ?>
-  <?php
-  $image_src = wp_get_attachment_image_src($image['ID'], 'full', null);
-  $image_alt = get_post_meta($image['ID'], '_wp_attachment_image_alt', true);
+<?php if(empty($fullscreen)) : ?>
+  <div class="<?php echo $container; ?> hero-image__image-container">
+<?php endif; ?>
+  <picture class="hero-image__image">
+    <?php if (!empty($overlay)) : ?>
+      <div class="hero-image__overlay" style="background-color: rgba(0, 0, 0, <?php echo esc_attr($_overlay); ?>);"></div>
+    <?php endif; ?>
+    <?php
+    $image_src = wp_get_attachment_image_src($image['ID'], 'full', null);
+    $image_alt = get_post_meta($image['ID'], '_wp_attachment_image_alt', true);
 
-  printf('<source srcset="%1$s" media="%2$s">', $image_src[0], '(min-width: 375px)');
+    printf('<source srcset="%1$s" media="%2$s">', $image_src[0], '(min-width: 375px)');
 
-  if (!empty($mobile_image)) {
-    $mobile_image_src = wp_get_attachment_image_src($mobile_image['ID'], 'full', null);
-    $mobile_image_alt = get_post_meta($mobile_image['ID'], '_wp_attachment_image_alt', true);
+    if (!empty($mobile_image)) {
+      $mobile_image_src = wp_get_attachment_image_src($mobile_image['ID'], 'full', null);
+      $mobile_image_alt = get_post_meta($mobile_image['ID'], '_wp_attachment_image_alt', true);
 
-    printf('<img data-sizes="auto" src="%1$s" alt="%2$s" width="%3$s" height="%4$s" class="%5$s">',
-      $mobile_image_src[0],
-      $mobile_image_alt,
-      $mobile_image_src[1],
-      $mobile_image_src[2],
-      'image__img lazyload'
-    );
-  } else {
-    printf('<img data-sizes="auto" src="%1$s" alt="%2$s" width="%3$s" height="%4$s" class="%5$s">',
-      $image_src[0],
-      $image_alt,
-      $image_src[1],
-      $image_src[2],
-      'image__img lazyload'
-    );
-  }
-  ?>
-</picture>
+      printf('<img data-sizes="auto" src="%1$s" alt="%2$s" width="%3$s" height="%4$s" class="%5$s">',
+        $mobile_image_src[0],
+        $mobile_image_alt,
+        $mobile_image_src[1],
+        $mobile_image_src[2],
+        'image__img lazyload'
+      );
+    } else {
+      printf('<img data-sizes="auto" src="%1$s" alt="%2$s" width="%3$s" height="%4$s" class="%5$s">',
+        $image_src[0],
+        $image_alt,
+        $image_src[1],
+        $image_src[2],
+        'image__img lazyload'
+      );
+    }
+    ?>
+  </picture>
+<?php if(empty($fullscreen)) : ?>
+  </div>
+<?php endif; ?>
 <?php
 endif;
 $image_html = ob_get_clean();
@@ -67,8 +77,6 @@ ob_start(); ?>
 <?php endif; ?>
 <?php
 $content_html = ob_get_clean();
-
-$container = codetot_site_container();
 
 if (!empty($image)) :
   ?>
