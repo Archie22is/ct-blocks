@@ -21,9 +21,7 @@ if (!empty($items)) : ?>
         <?php foreach ($items as $item) : ?>
           <div class="grid__col guarantee-list__col">
             <div class="guarantee-list__media-wrapper">
-              <?php if ($item['icon_type'] === 'icon') : ?>
-                <span class="<?php echo esc_html($item['icon_name']); ?> guarantee-list__icon" aria-hidden="true"></span>
-              <?php elseif ($item['icon_type'] === 'image' && !empty($item['icon_image'])) : ?>
+              <?php if(!empty($item['icon_image'])) : ?>
                 <?php the_block('image', array(
                   'image' => $item['icon_image']['ID'],
                   'class' => 'image--cover image-row__image guarantee-list__image'
