@@ -197,30 +197,6 @@
         "button_label": "Add Item",
         "sub_fields": [
           {
-            "key": "field_5fc888b69b64c",
-            "label": "Icon Type",
-            "name": "icon_type",
-            "type": "radio",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-              "width": "",
-              "class": "",
-              "id": ""
-            },
-            "choices": {
-              "image": "Image",
-              "icon": "Icon"
-            },
-            "allow_null": 0,
-            "other_choice": 0,
-            "default_value": "image",
-            "layout": "horizontal",
-            "return_format": "value",
-            "save_other_choice": 0
-          },
-          {
             "key": "field_5fc888ee9b64d",
             "label": "Icon Image",
             "name": "icon_image",
@@ -251,33 +227,6 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
-          },
-          {
-            "key": "field_5fc889039b64e",
-            "label": "Icon Name",
-            "name": "icon_name",
-            "type": "text",
-            "instructions": "Copy name from fontawesome.com/v4.7.0/icons/",
-            "required": 0,
-            "conditional_logic": [
-              [
-                {
-                  "field": "field_5fc888b69b64c",
-                  "operator": "==",
-                  "value": "icon"
-                }
-              ]
-            ],
-            "wrapper": {
-              "width": "",
-              "class": "",
-              "id": ""
-            },
-            "default_value": "",
-            "placeholder": "fa fa-heart",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
           },
           {
             "key": "field_5fc8891b9b64f",
