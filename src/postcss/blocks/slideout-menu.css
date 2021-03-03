@@ -12,6 +12,68 @@
   @media (--m) {
     display: none;
   }
+
+  & .header__vertical--logo {
+    width: 100%;
+    max-width: 120px;
+    margin: 0 auto 1em;
+
+    & * {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  & .header__vertical-header {
+    color: var(--white);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+    background-color: var(--primary);
+    padding: 0.25em 1.5em;
+
+    & svg {
+      fill: var(--white);
+      width: 1em;
+      height: 1em;
+    }
+
+    & .header__vertical-title {
+      margin-left: 0.5em;
+    }
+  }
+
+  & li {
+    list-style: none;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.25em;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  & .sub-menu {
+    padding-top: 0.5em;
+
+    & li {
+      font-weight: 500;
+      font-size: 12px;
+      margin-bottom: 0.25em;
+      padding-bottom: 0.15em;
+      border-bottom: 0;
+    }
+  }
+
+  & .slideout-menu__inner {
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+  }
 }
 
 .is-slideout-visible .slideout-menu {
