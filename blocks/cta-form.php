@@ -13,15 +13,12 @@ $_overlay = !empty($overlay) ? $overlay : null;
         <div class="cta-form__main">
             <div class="grid cta-form__grid">
                 <?php if ($image): ?>
-                <?php
-                $image_src = wp_get_attachment_image_src($image, 'full');
-                $image_src = $image_src[0];
-                ?>
                 <div class="cta-form__col">
                     <div class="cta-form__col-inner" data-aos="fade-up">
-                        <div class="cta-form__image">
-                            <?php echo '<img class="cta-form__img" src="'.$image_src.'" alt="'.$title.'"/>'; ?>
-                        </div>
+                      <?php the_block('image', array(
+                          'image' => $image,
+                          'class' => 'cta-form__img'
+                      )); ?>
                     </div>
                 </div>
                 <?php endif; ?>
