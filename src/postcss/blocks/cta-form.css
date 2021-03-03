@@ -81,6 +81,12 @@
 
   & .cta-form__img {
     width: 80%;
+
+    & .image__img {
+      position: unset;
+      top: unset;
+      left: unset;
+    }
   }
 
   & .cta-form__name {
@@ -99,11 +105,14 @@
 
   & .gform_footer {
     text-align: center;
+
     & input[type='submit'] {
       min-width: 193px;
+      height: 44px;
       width: auto !important;
       background-color: var(--primary);
       color: var(--white);
+
       &:hover {
         background-color: var(--secondary);
       }
