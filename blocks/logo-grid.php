@@ -51,7 +51,7 @@ ob_start(); ?>
   <?php foreach ($items as $item) : ?>
     <div class="grid__col logo-grid__col">
       <?php the_block('image', array(
-        'class' => 'image--contain logo-grid__image',
+        'class' => 'image--contain logo-grid__image js-image',
         'size' => 'logo',
         'image' => $item['image']
       )); ?>
