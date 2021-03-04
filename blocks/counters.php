@@ -48,7 +48,7 @@ if (!empty($counters)) :
       'id' => !empty($id) ? esc_attr($id) : '',
       'attributes' => ' data-ct-block="counters" data-aos="fade-up"',
       'class' => $_class,
-      'header' => $header,
+      'header' => (!empty($title) || !empty($descriptiom)) ? $header : false,
       'content' => $content
     ));
   } else {
@@ -56,7 +56,7 @@ if (!empty($counters)) :
       'id' => !empty($id) ? esc_attr($id) : '',
       'attributes' => ' data-ct-block="counters" data-aos="fade-up"',
       'class' => $_class,
-      'sidebar' => $header,
+      'sidebar' => (!empty($title) || !empty($descriptiom)) ? $header : false,
       'content' => $content
     ));
   }
