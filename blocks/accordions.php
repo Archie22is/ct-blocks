@@ -45,7 +45,7 @@ if (!empty($items)) :
       'id' => !empty($id) ? $id : '',
       'attributes' => ' data-ct-block="accordions"',
       'class' => $_class,
-      'header' => $header,
+      'header' => (!empty($title) || !empty($descriptiom)) ? $header : false,
       'content' => $content
     ));
   } else {
@@ -53,7 +53,7 @@ if (!empty($items)) :
       'id' => !empty($id) ? $id : '',
       'attributes' => ' data-ct-block="accordions"',
       'class' => $_class,
-      'sidebar' => $header,
+      'sidebar' => (!empty($title) || !empty($descriptiom)) ? $header : false,
       'content' => $content
     ));
   }

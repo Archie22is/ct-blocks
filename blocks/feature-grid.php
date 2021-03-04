@@ -26,7 +26,8 @@ $columns = !empty($items) ? array_map(function($item) use ($_card_class, $_butto
   return get_block('feature-card', array(
     'class' => $_card_class,
     'image_class' => !empty($image_size) ? 'image--' . $image_size : 'image--cover',
-    'image_content' => $item['icon_image']['ID'],
+    'icon_type' => $item['icon_type'],
+    'image_content' => ($item['icon_type'] === 'svg') ? $item['icon_svg'] : $item['icon_image']['ID'],
     'title' => $item['title'],
     'description' => $item['description'],
     'button_text' => $item['button_text'],
@@ -44,13 +45,13 @@ if (!empty($items)) :
   if ($layout === 'column') {
     the_block('default-section', array(
       'class' => $_class,
-      'header' => $header,
+      'header' => (!empty($title) || !empty($descriptiom)) ? $header : false,
       'content' => $content
     ));
   } else {
     the_block('sidebar-section', array(
       'class' => $_class,
-      'sidebar' => $header,
+      'header' => (!empty($title) || !empty($descriptiom)) ? $header : false,
       'content' => $content
     ));
   }
