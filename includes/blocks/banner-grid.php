@@ -48,7 +48,17 @@ class Codetot_Block_Banner_Grid extends Codetot_Base_Block implements Codetot_Ba
       'block_preset',
       'class',
       'layout',
+      'full_screen_layout',
       'columns_count',
+      'enable_prev_next_buttons',
+      'previous_next_style',
+      'previous_next_alignment',
+      'enable_page_dots',
+      'page_dots_style',
+      'page_dots_alignment',
+      'cell_alignment',
+      'enable_autoplay',
+      'speed',
       'items'
       ];
 

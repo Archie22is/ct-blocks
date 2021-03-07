@@ -583,7 +583,8 @@
     <path d="M10 16v-8h2.5a2.5 2.5 0 1 1 0 5h-2.5"/>
     <circle cx="12" cy="12" r="9"/>
   </svg>
-  <svg id="social_form" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shape" width="20" height="20"
+  <svg id="social_form" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shape" width="20"
+       height="20"
        viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round"
        stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -597,19 +598,22 @@
     <line x1="19" y1="7" x2="19" y2="17"/>
   </svg>
 
-  <svg id="product_columns"  xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-grip-vertical" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <svg id="product_columns" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-grip-vertical"
+       width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" fill="none" stroke-linecap="round"
+       stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-    <circle cx="9" cy="5" r="1" />
-    <circle cx="9" cy="12" r="1" />
-    <circle cx="9" cy="19" r="1" />
-    <circle cx="15" cy="5" r="1" />
-    <circle cx="15" cy="12" r="1" />
-    <circle cx="15" cy="19" r="1" />
+    <circle cx="9" cy="5" r="1"/>
+    <circle cx="9" cy="12" r="1"/>
+    <circle cx="9" cy="19" r="1"/>
+    <circle cx="15" cy="5" r="1"/>
+    <circle cx="15" cy="12" r="1"/>
+    <circle cx="15" cy="19" r="1"/>
   </svg>
 
-  <svg id="banner_grid" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-flag-3" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <svg id="banner_grid" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-flag-3" width="20"
+       height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round"
+       stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-    <path d="M5 14h14l-4.5 -4.5l4.5 -4.5h-14v16" />
+    <path d="M5 14h14l-4.5 -4.5l4.5 -4.5h-14v16"/>
   </svg>
-
 </svg>
