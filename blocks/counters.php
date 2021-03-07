@@ -38,7 +38,6 @@ $columns = !empty($counters) ? array_map(function($item) {
 }, $counters) : [];
 
 $content = codetot_build_grid_columns($columns, 'counters', array(
-  'column_attributes' => 'data-aos="fade-up"',
   'column_class' => $layout === 'column' ? 'default-section__col ' . $_card_class : 'sidebar-section__col ' . $_card_class
 ));
 
