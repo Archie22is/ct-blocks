@@ -69,6 +69,28 @@
         "save_other_choice": 0
       },
       {
+        "key": "field_600f9c6f5rt66",
+        "label": "Content Alignment",
+        "name": "content_alignment",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": "left",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
         "key": "field_5fd2d854a94a9",
         "label": "Background Contract",
         "name": "background_contract",

@@ -1,0 +1,35 @@
+.banner-grid__col {
+  @mixin column-item 1, 1em;
+
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.banner-grid__col-inner {
+  flex: 1 1 auto;
+}
+
+.banner-grid--2-columns,
+.banner-grid--4-columns {
+  & .banner-grid__col {
+    @media (--s) {
+      @mixin column-item 2, 1em;
+    }
+  }
+}
+
+.banner-grid--3-columns {
+  & .banner-grid__col {
+    @media (--sm) {
+      @mixin column-item 3, 1em;
+    }
+  }
+}
+
+.banner-grid--4-columns {
+  & .banner-grid__col {
+    @media (--m) {
+      @mixin column-item 4, 1em;
+    }
+  }
+}

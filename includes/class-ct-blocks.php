@@ -83,6 +83,7 @@ class Codetot_Base
       'hero-slider',
       'hero-banner',
       'accordions',
+      'banner-grid',
       'bottom-cta',
       'breadcrumbs',
       'contact-section',

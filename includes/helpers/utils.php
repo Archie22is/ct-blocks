@@ -318,7 +318,7 @@ if (!function_exists('codetot_build_grid_columns')) {
     ob_start(); ?>
     <div class="grid <?php echo $prefix_class; ?>__grid<?php if (!empty($grid_class)) : echo ' ' . $grid_class; endif; ?>">
       <?php foreach ($columns as $column) : ?>
-        <div class="grid__col <?php echo $prefix_class; ?>__col<?php if (!empty($column_class)) : echo ' ' . $column_class; endif; ?>"<?php if (!empty($column_attributes) && is_array($column_attributes)) : echo ' ' . $column_attributes; endif; ?>>
+        <div class="grid__col <?php echo $prefix_class; ?>__col<?php if (!empty($column_class)) : echo ' ' . $column_class; endif; ?>"<?php if (!empty($column_attributes)) : echo ' ' . $column_attributes; endif; ?>>
           <?php echo $column; ?>
         </div>
       <?php endforeach; ?>
