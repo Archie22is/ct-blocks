@@ -1,4 +1,5 @@
-.banner-grid__col {
+.banner-grid__col,
+.banner-grid__slider-item {
   @mixin column-item 1, 1em;
 
   display: flex;
@@ -7,11 +8,13 @@
 
 .banner-grid__col-inner {
   flex: 1 1 auto;
+  height: 100%;
 }
 
 .banner-grid--2-columns,
 .banner-grid--4-columns {
-  & .banner-grid__col {
+  & .banner-grid__col,
+  & .banner-grid__slider-item {
     @media (--s) {
       @mixin column-item 2, 1em;
     }
@@ -19,7 +22,8 @@
 }
 
 .banner-grid--3-columns {
-  & .banner-grid__col {
+  & .banner-grid__col,
+  & .banner-grid__slider-item {
     @media (--sm) {
       @mixin column-item 3, 1em;
     }
@@ -27,9 +31,84 @@
 }
 
 .banner-grid--4-columns {
-  & .banner-grid__col {
+  & .banner-grid__col,
+  & .banner-grid__slider-item {
     @media (--m) {
       @mixin column-item 4, 1em;
     }
   }
+}
+
+.banner-grid__slider-item {
+  margin-top: 0 !important;
+}
+
+.banner-grid--full-screen {
+  & .default-section__container--main {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+.banner-grid__slider {
+  & .flickity-viewport {
+    transition: height 0.3s;
+  }
+
+  & .flickity-page-dots {
+    @mixin flickity-page-dots var(--primary);
+
+    & .dot {
+      &.is-selected {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+
+  @mixin prev-next-button;
+}
+
+.banner-grid--button-circle {
+  @mixin slider-button-circle;
+}
+
+.banner-grid--button-simple {
+  @mixin slider-button-simple;
+}
+
+.banner-grid--button-square {
+  @mixin slider-button-square;
+}
+
+.banner-grid--dots-dashes {
+  @mixin slider-button-dashes;
+}
+
+.banner-grid--dots-square {
+  @mixin slider-dots-square;
+}
+
+.banner-grid--dots-left {
+  @mixin slider-dots-left;
+}
+
+.banner-grid--dots-right {
+  @mixin slider-dots-right;
+}
+
+.banner-grid--button-top-left {
+  @mixin slider-button-top-left;
+}
+
+.banner-grid--button-bottom-left {
+  @mixin slider-button-bottom-left;
+}
+
+.banner-grid--button-top-right {
+  @mixin slider-button-top-right;
+}
+
+.banner-grid--button-bottom-right {
+  @mixin slider-button-bottom-right;
 }

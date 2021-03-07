@@ -201,7 +201,7 @@ if (!function_exists('_codetot_block_generate_class')) {
         break;
 
       case 'column':
-        if (is_numeric((int) $value)) {
+        if (is_numeric((int)$value)) {
           $number_class = sprintf(_n('%s-column', '%s-columns', $value), $value);
         } else {
           $number_class = $value - '-columns';
@@ -233,7 +233,8 @@ if (!function_exists('codetot_generate_block_background_class')) {
    * @param $background_type
    * @return string
    */
-  function codetot_generate_block_background_class($background_type) {
+  function codetot_generate_block_background_class($background_type)
+  {
     $_class = !empty($background_type) ? ' bg-' . esc_attr($background_type) : '';
     if (!empty($background_type) && codetot_is_dark_background($background_type)) {
       $_class .= ' is-dark-contract';
@@ -251,7 +252,8 @@ if (!function_exists('codetot_build_content_block')) {
    * @param $prefix_class
    * @return false|string
    */
-  function codetot_build_content_block($args, $prefix_class) {
+  function codetot_build_content_block($args, $prefix_class)
+  {
     $output_elements = [];
     $title_tag = (!empty($args['title_tag']) ? $args['title_tag'] : 'h2');
     $block_tag = (!empty($args['block_tag']) ? $args['block_tag'] : 'header');
@@ -279,7 +281,9 @@ if (!function_exists('codetot_build_content_block')) {
 
     ob_start();
     printf('<%s class="%s">', $block_tag, $_class);
-    if (isset($args['enable_container'])) { printf('<div class="%s %s__container">', codetot_site_container(), $prefix_class); }
+    if (isset($args['enable_container'])) {
+      printf('<div class="%s %s__container">', codetot_site_container(), $prefix_class);
+    }
     echo implode('', $output_elements);
     if (isset($args['enable_container'])) {
       printf('</div>');
@@ -298,7 +302,8 @@ if (!function_exists('codetot_build_grid_columns')) {
    * @param array $args
    * @return string
    */
-  function codetot_build_grid_columns($columns, $prefix_class, $args = []) {
+  function codetot_build_grid_columns($columns, $prefix_class, $args = [])
+  {
     if (!is_array($columns)) {
       return '';
     }
@@ -316,12 +321,59 @@ if (!function_exists('codetot_build_grid_columns')) {
     }
 
     ob_start(); ?>
-    <div class="grid <?php echo $prefix_class; ?>__grid<?php if (!empty($grid_class)) : echo ' ' . $grid_class; endif; ?>">
+    <div
+      class="grid <?php echo $prefix_class; ?>__grid<?php if (!empty($grid_class)) : echo ' ' . $grid_class; endif; ?>">
       <?php foreach ($columns as $column) : ?>
-        <div class="grid__col <?php echo $prefix_class; ?>__col<?php if (!empty($column_class)) : echo ' ' . $column_class; endif; ?>"<?php if (!empty($column_attributes)) : echo ' ' . $column_attributes; endif; ?>>
+        <div
+          class="grid__col <?php echo $prefix_class; ?>__col<?php if (!empty($column_class)) : echo ' ' . $column_class; endif; ?>"<?php if (!empty($column_attributes)) : echo ' ' . $column_attributes; endif; ?>>
           <?php echo $column; ?>
         </div>
       <?php endforeach; ?>
+    </div>
+    <?php
+
+    return ob_get_clean();
+  }
+}
+
+
+if (!function_exists('codetot_build_slider_block')) {
+  /**
+   * Generate HTML markup for slider
+   *
+   * @param array $columns
+   * @param string $prefix_class
+   * @param array $args
+   * @return string
+   */
+  function codetot_build_slider($columns, $prefix_class, $args = [])
+  {
+    if (!is_array($columns)) {
+      return '';
+    }
+
+    if (!empty($args) && !empty($args['slider_class'])) {
+      $slider_class = $args['slider_class'];
+    }
+
+    if (!empty($args) && !empty($args['slider_settings'])) {
+      $slider_settings = $args['slider_settings'];
+    }
+
+    if (!empty($args) && !empty($args['slider_attributes'])) {
+      $slider_attributes = $args['slider_attributes'];
+    }
+
+    ob_start(); ?>
+
+    <div class="<?php echo $prefix_class; ?>__inner<?php if (!empty($slider_class)) : echo ' ' . $slider_class; endif; ?>"<?php if (!empty($slider_attributes)) : echo ' ' . $slider_attributes; endif; ?>>
+      <div class="<?php echo $prefix_class; ?>__slider js-slider" <?php if (!empty($slider_settings)) : ?> data-carousel='<?= json_encode($slider_settings); ?>'<?php endif; ?>>
+        <?php foreach ($columns as $column) : ?>
+          <div class="<?php echo $prefix_class; ?>__slider-item js-slider-item">
+            <?php echo $column; ?>
+          </div>
+        <?php endforeach; ?>
+      </div>
     </div>
     <?php
 
