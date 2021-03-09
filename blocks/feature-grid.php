@@ -6,6 +6,7 @@ $_class .= !empty($columns) ? ' has-'. $columns .'-columns' : '';
 $_class .= !empty($header_alignment) ? ' is-header-'.  $header_alignment : '';
 $_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
+$_class .= !empty($background_contract) ? ' feature-grid--' . $background_contract : '';
 
 $_card_class = 'feature-card';
 $_card_class .= !empty($image_size) ? ' feature-card--image-' . esc_attr($image_size) : '';
@@ -14,12 +15,14 @@ $_card_class .= !empty($box_content) ? ' feature-card--boxed' : '';
 
 $_button_style = !empty($button_style) ? esc_attr($button_style) : 'primary';
 
-$header = codetot_build_content_block(array(
-  'class' => 'section-header',
-  'alignment' => $header_alignment,
-  'title' => $title,
-  'description' => $description
-), 'feature-grid');
+if (!empty($title) || !empty($description)) {
+  $header = codetot_build_content_block(array(
+    'class' => 'section-header',
+    'alignment' => $header_alignment,
+    'title' => $title,
+    'description' => $description
+  ), 'feature-grid');
+}
 
 // Main Content
 $columns = !empty($items) ? array_map(function($item) use ($_card_class, $_button_style) {

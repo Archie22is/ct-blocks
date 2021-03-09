@@ -67,7 +67,7 @@ $_class .= !empty($item_style) ? ' team-member--item-style-' . esc_attr($item_st
                         <p class="team-member__item-sub-title" data-aos="fade-up"><?php echo $item['sub_title']; ?></p>
                       <?php endif; ?>
                       <?php if(!empty($item['description'])) : ?>
-                        <p class="team-member__item-description" data-aos="fade-up"><?php echo $item['description']; ?></p>
+                        <div class="wysiwyg team-member__item-description" data-aos="fade-up"><?php echo $item['description']; ?></div>
                       <?php endif; ?>
                     </div>
                   <?php endif; ?>
