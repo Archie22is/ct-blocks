@@ -287,7 +287,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-              "width": "33",
+              "width": "50",
               "class": "",
               "id": ""
             },
@@ -306,7 +306,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-              "width": "33",
+              "width": "50",
               "class": "",
               "id": ""
             },
@@ -320,12 +320,12 @@
             "key": "field_5fdae090fc3b4",
             "label": "Description",
             "name": "description",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-              "width": "34",
+              "width": "100",
               "class": "",
               "id": ""
             },

@@ -23,12 +23,14 @@ $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 $_card_class = !empty($layout_items) ? ' counters__col--layout-'. $layout_items : ' counters__col--layout-column';
 $_card_class .= !empty($content_alignment) ? ' counters__col--alignment-' . $content_alignment : ' counters__col--alignment-left';
 
-$header = codetot_build_content_block(array(
-  'class' => 'section-header',
-  'alignment' => $header_alignment,
-  'title' => $title,
-  'description' => $description
-), 'counters');
+if(!empty($title) || !empty($description)) {
+  $header = codetot_build_content_block(array(
+    'class' => 'section-header',
+    'alignment' => $header_alignment,
+    'title' => $title,
+    'description' => $description
+  ), 'counters');
+}
 
 // Main Content
 $columns = !empty($counters) ? array_map(function($item) {
