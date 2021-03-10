@@ -237,11 +237,14 @@ class Codetot_Blocks_Page {
 
       case 'page_content':
 
-        add_filter('the_content', function() {
-          return get_sub_field('content');
-        }, 1);
+        echo '<div class="mt-1 mb-1 page-content">';
+        echo '<div class="container">';
+        echo '<div class="wysiwyg page-content__inner">';
+        echo  get_sub_field('content');
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
 
-        the_block('page-block');
         break;
 
     endswitch;
