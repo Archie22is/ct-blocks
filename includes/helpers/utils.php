@@ -36,16 +36,12 @@ if ( ! function_exists( 'the_block' ) ) {
     $path = '';
 
     try {
-      if (count($available_paths) > 1) {
-        foreach ($available_paths as $available_path) {
-          $file_name = $available_path . '/' . $block_name . '.php';
+      foreach ($available_paths as $available_path) {
+        $file_name = $available_path . '/' . $block_name . '.php';
 
-          if (file_exists($file_name) && empty($path)) {
-            $path = $file_name;
-          }
+        if (file_exists($file_name) && empty($path)) {
+          $path = $file_name;
         }
-      } else {
-        $path = $available_paths[0] . '/' . $file_name . '.php';
       }
 
       if (!empty($path)) {
