@@ -1,5 +1,6 @@
 /* global google, GOOGLE_MAPS_API_KEY */
-import { select, on, getData } from 'lib/dom'
+import { select, on, getData, addClass, inViewPort } from 'lib/dom'
+import { throttle } from 'lib/utils'
 import { initMapScript } from 'lib/scripts'
 
 export default el => {
@@ -16,7 +17,6 @@ export default el => {
     }
 
     mapObj = new google.maps.Map(mapEl, mapOptions)
-    loaded = true
   }
 
   const initMapMarker = () => {
@@ -63,18 +63,25 @@ export default el => {
   }
 
   if (GOOGLE_MAPS_API_KEY) {
+    const load = () => {
+      setTimeout(function () {
+        initMap()
+        initMapMarker()
+        centerMap()
+
+        addClass('is-loaded', el)
+        loaded = true
+      }, 100)
+    }
+
     on(
-      'load',
-      () => {
-        if (!loaded) {
+      'scroll',
+      throttle(() => {
+        if (!loaded && inViewPort(el)) {
           initMapScript(GOOGLE_MAPS_API_KEY)
-          setTimeout(function () {
-            initMap()
-            initMapMarker()
-            centerMap()
-          }, 300)
+          load()
         }
-      },
+      }, 1000),
       window
     )
   }
