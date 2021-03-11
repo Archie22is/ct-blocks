@@ -1,22 +1,24 @@
 /* global google, GOOGLE_MAPS_API_KEY */
-import { select, on, getData } from 'lib/dom'
+import { select, on, getData, addClass, inViewPort } from 'lib/dom'
+import { throttle } from 'lib/utils'
 import { initMapScript } from 'lib/scripts'
 
 export default el => {
   // Map elements
   const mapEl = select('.js-map', el)
+  const defaultZoom = mapEl ? getData('default-zoom', mapEl) : 14
+  const clickedZoom = mapEl ? getData('clicked-zoom', mapEl) : 18
   const mapMarkerEl = mapEl ? select('.js-marker', mapEl) : null
   let mapObj = null
   let loaded = false
 
   const initMap = () => {
     const mapOptions = {
-      zoom: 14,
+      zoom: defaultZoom,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
 
     mapObj = new google.maps.Map(mapEl, mapOptions)
-    loaded = true
   }
 
   const initMapMarker = () => {
@@ -32,8 +34,6 @@ export default el => {
         lng: parseFloat(lng)
       }
 
-      console.log(latLng)
-
       const marker = new google.maps.Marker({
         position: latLng,
         map: mapObj,
@@ -44,7 +44,7 @@ export default el => {
 
       if (marker) {
         marker.addListener('click', () => {
-          mapObj.setZoom(18)
+          mapObj.setZoom(clickedZoom)
           mapObj.setCenter(marker.getPosition())
         })
       }
@@ -65,18 +65,36 @@ export default el => {
   }
 
   if (GOOGLE_MAPS_API_KEY) {
+    const load = () => {
+      setTimeout(function () {
+        initMap()
+        initMapMarker()
+        centerMap()
+
+        addClass('is-loaded', el)
+        loaded = true
+      }, 100)
+    }
+
     on(
       'load',
       () => {
-        if (!loaded) {
-          initMapScript(GOOGLE_MAPS_API_KEY)
-          setTimeout(function () {
-            initMap()
-            initMapMarker()
-            centerMap()
-          }, 300)
+        initMapScript(GOOGLE_MAPS_API_KEY)
+
+        if (!loaded && inViewPort(el)) {
+          load()
         }
       },
+      window
+    )
+
+    on(
+      'scroll',
+      throttle(() => {
+        if (!loaded && inViewPort(el)) {
+          load()
+        }
+      }, 1000),
       window
     )
   }
