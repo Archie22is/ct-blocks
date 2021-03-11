@@ -27,7 +27,6 @@ export default el => {
   const setHeightSliderItem = () => {
     const sliderItemEls = selectAll('.js-slider-item', el)
     const flickityViewportEl = select('.flickity-viewport', el)
-    console.log(flickityViewportEl)
 
     if (slider && flickityViewportEl && sliderItemEls) {
       const flickityHeight = getHeight(flickityViewportEl)
