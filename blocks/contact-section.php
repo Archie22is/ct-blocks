@@ -15,7 +15,7 @@ $_class .= !empty($class) ? ' ' . $class : '';
       <div class="grid__col contact-section__col contact-section__col--map" data-aos="fade-up">
         <?php if (!empty($google_maps)) : ?>
           <div class="contact-section__map-wrapper">
-            <div class="contact-section__map js-map">
+            <div class="contact-section__map js-map" data-default-zoom="14" data-clicked-zoom="18">
               <div class="contact-section__map-marker js-marker"
                    data-lat="<?php echo $google_maps['lat']; ?>"
                    data-lng="<?php echo $google_maps['lng']; ?>"
@@ -42,11 +42,13 @@ $_class .= !empty($class) ? ' ' . $class : '';
                         <?php echo $address; ?>
                       </div>
                     </div>
-                    <div class="grid__col contact-section__col contact-section__col--info">
-                      <div class="wysiwyg contact-section__inner">
-                        <?php echo $contact_information; ?>
+                    <?php if (!empty($contact_information)) : ?>
+                      <div class="grid__col contact-section__col contact-section__col--info">
+                        <div class="wysiwyg contact-section__inner">
+                          <?php echo $contact_information; ?>
+                        </div>
                       </div>
-                    </div>
+                    <?php endif; ?>
                   </div>
                 </div>
               </div>

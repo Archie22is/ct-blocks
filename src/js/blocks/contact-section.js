@@ -6,13 +6,15 @@ import { initMapScript } from 'lib/scripts'
 export default el => {
   // Map elements
   const mapEl = select('.js-map', el)
+  const defaultZoom = mapEl ? getData('default-zoom', mapEl) : 14
+  const clickedZoom = mapEl ? getData('clicked-zoom', mapEl) : 18
   const mapMarkerEl = mapEl ? select('.js-marker', mapEl) : null
   let mapObj = null
   let loaded = false
 
   const initMap = () => {
     const mapOptions = {
-      zoom: 14,
+      zoom: defaultZoom,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
 
@@ -42,7 +44,7 @@ export default el => {
 
       if (marker) {
         marker.addListener('click', () => {
-          mapObj.setZoom(18)
+          mapObj.setZoom(clickedZoom)
           mapObj.setCenter(marker.getPosition())
         })
       }
@@ -75,10 +77,21 @@ export default el => {
     }
 
     on(
+      'load',
+      () => {
+        initMapScript(GOOGLE_MAPS_API_KEY)
+
+        if (!loaded && inViewPort(el)) {
+          load()
+        }
+      },
+      window
+    )
+
+    on(
       'scroll',
       throttle(() => {
         if (!loaded && inViewPort(el)) {
-          initMapScript(GOOGLE_MAPS_API_KEY)
           load()
         }
       }, 1000),
