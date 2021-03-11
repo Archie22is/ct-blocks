@@ -32,8 +32,6 @@ export default el => {
         lng: parseFloat(lng)
       }
 
-      console.log(latLng)
-
       const marker = new google.maps.Marker({
         position: latLng,
         map: mapObj,
