@@ -187,7 +187,8 @@
 
 [data-type='wysiwyg'] iframe,
 #codetot_header_top_content_ifr,
-#codetot_footer_copyright_ifr {
+#codetot_footer_copyright_ifr,
+#codetot_header_topbar_content_ifr {
   max-height: 120px !important;
   min-height: 0 !important;
 }
