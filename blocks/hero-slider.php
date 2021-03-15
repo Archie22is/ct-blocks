@@ -25,7 +25,8 @@ $carousel_settings = array(
     <div class="hero-slider__wrapper">
       <div class="align-c hero-slider__inner">
         <?php if (!empty($items)) : ?>
-          <div  class="hero-slider__slider js-slider" <?php if (!empty($carousel_settings)) : ?> data-carousel='<?= json_encode($carousel_settings); ?>'<?php endif; ?>>
+          <div
+            class="hero-slider__slider js-slider" <?php if (!empty($carousel_settings)) : ?> data-carousel='<?= json_encode($carousel_settings); ?>'<?php endif; ?>>
             <?php foreach ($items as $item) : ?>
               <div class="hero-slider__item">
                 <div class="hero-slider__item-inner">
@@ -58,33 +59,35 @@ $carousel_settings = array(
                     }
                     ?>
                   </picture>
-                  <?php if (!empty($overlay) ) : ?>
-                    <div class="hero-slider__overlay" style="background-color: rgba(0, 0, 0, <?php echo esc_attr($overlay); ?>);"></div>
+                  <?php if (!empty($overlay)) : ?>
+                    <div class="hero-slider__overlay"
+                         style="background-color: rgba(0, 0, 0, <?php echo esc_attr($overlay); ?>);"></div>
                   <?php endif; ?>
                   <?php if (!empty($item['description']) || !empty($item['title'])) : ?>
                     <div class="hero-slider__content js-content">
-                    <div class="container hero-slider__container">
-                      <div class="hero-slider__box" data-aos="fade-up">
-                        <?php if (!empty($item['label'])) : ?>
-                          <p class="label-text bold-text hero-slider__label"><?php echo esc_html($item['label']); ?></p>
-                        <?php endif; ?>
-                        <?php if (!empty($item['title'])) : ?>
-                          <h1 class="h1 hero-slider__title"><?php echo esc_html($item['title']); ?></h1>
-                        <?php endif; ?>
-                        <?php if (!empty($item['description'])) : ?>
-                          <div class="wysiwyg hero-slider__description"><?php echo $item['description'] ?></div>
-                        <?php endif; ?>
-                        <?php if (!empty($item['buttons'])) : ?>
-                          <div class="hero-slider__footer">
-                            <?php the_block('button-group', array(
-                              'buttons' => $item['buttons'],
-                              'class' => 'hero-slider__button-group'
-                            )); ?>
-                          </div>
-                        <?php endif; ?>
+                      <div class="container hero-slider__container">
+                        <div class="hero-slider__box" data-aos="fade-up">
+                          <?php if (!empty($item['label'])) : ?>
+                            <p
+                              class="label-text bold-text hero-slider__label"><?php echo esc_html($item['label']); ?></p>
+                          <?php endif; ?>
+                          <?php if (!empty($item['title'])) : ?>
+                            <h1 class="h1 hero-slider__title"><?php echo esc_html($item['title']); ?></h1>
+                          <?php endif; ?>
+                          <?php if (!empty($item['description'])) : ?>
+                            <div class="wysiwyg hero-slider__description"><?php echo $item['description'] ?></div>
+                          <?php endif; ?>
+                          <?php if (!empty($item['buttons'])) : ?>
+                            <div class="hero-slider__footer">
+                              <?php the_block('button-group', array(
+                                'buttons' => $item['buttons'],
+                                'class' => 'hero-slider__button-group'
+                              )); ?>
+                            </div>
+                          <?php endif; ?>
+                        </div>
                       </div>
                     </div>
-                  </div>
                   <?php endif; ?>
                 </div>
               </div>
