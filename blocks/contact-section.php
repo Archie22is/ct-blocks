@@ -6,6 +6,7 @@ $_class .= !empty($contact_primary_layout) ? ' contact-section--primary-' . $con
 $_class .= !empty($contact_secondary_layout) ? ' contact-section--secondary-' . $contact_secondary_layout : '';
 $_class .= !empty($full_screen_layout) ? ' contact-section--full-screen' : '';
 $_class .= !empty($contact_form_style) ? ' contact-section--' . $contact_form_style : '';
+$_class .= !empty($background_image) ? ' has-contact-section-background' : '';
 $_class .= !empty($class) ? ' ' . $class : '';
 
 ?>
@@ -30,40 +31,50 @@ $_class .= !empty($class) ? ' ' . $class : '';
         <?php endif; ?>
       </div>
       <div class="grid__col contact-section__col contact-section__col--block">
-        <?php if (!empty($address) || !empty($contact_information) || !empty($form)) : ?>
-          <div class="contact-section__wrapper">
-            <!-- Form vs Content -->
-            <div class="grid contact-section__grid contact-section__grid--secondary">
-              <div class="grid__col contact-section__col contact-section__col--content" data-aos="fade-up">
-                <div class="contact-section__content">
-                  <div class="grid contact-section__grid contact-section__grid--tertiary">
+
+        <div class="contact-section__wrapper">
+          <!-- Form vs Content -->
+          <div class="grid contact-section__grid contact-section__grid--secondary">
+            <div class="grid__col contact-section__col contact-section__col--content" data-aos="fade-up">
+              <div class="contact-section__content">
+                <div class="grid contact-section__grid contact-section__grid--tertiary">
+                  <?php if (!empty($address)) : ?>
                     <div class="grid__col contact-section__col contact-section__col--address">
                       <div class="wysiwyg contact-section__inner">
                         <?php echo $address; ?>
                       </div>
                     </div>
-                    <?php if (!empty($contact_information)) : ?>
-                      <div class="grid__col contact-section__col contact-section__col--info">
-                        <div class="wysiwyg contact-section__inner">
-                          <?php echo $contact_information; ?>
-                        </div>
+                  <?php endif; ?>
+                  <?php if (!empty($contact_information)) : ?>
+                    <div class="grid__col contact-section__col contact-section__col--info">
+                      <div class="wysiwyg contact-section__inner">
+                        <?php echo $contact_information; ?>
                       </div>
-                    <?php endif; ?>
-                  </div>
+                    </div>
+                  <?php endif; ?>
                 </div>
               </div>
-              <div class="grid__col contact-section__col contact-section__col--form" data-aos="fade-up">
-                <?php if (!empty($contact_form)) : ?>
-                  <div
-                    class="contact-section__form">
-                    <?php echo do_shortcode('[gravityform id="' . $contact_form . '" title="false" description="false" ajax="true"]'); ?>
-                  </div>
-                <?php endif; ?>
-              </div>
             </div>
+            <?php if (!empty($contact_form)) : ?>
+              <div class="grid__col contact-section__col contact-section__col--form" data-aos="fade-up">
+                <div
+                  class="contact-section__form">
+                  <?php echo do_shortcode('[gravityform id="' . $contact_form . '" title="true" description="false" ajax="true"]'); ?>
+                </div>
+              </div>
+            <?php endif; ?>
           </div>
-        <?php endif; ?>
+        </div>
       </div>
     </div>
   </div>
+  <?php if (!empty($background_image)) : ?>
+    <div class="contact-section__background-image">
+      <?php the_block('image', array(
+      'class' => 'image--cover js-image',
+      'size' => 'logo',
+      'image' => $background_image
+      )); ?>
+    </div>
+  <?php endif; ?>
 </section>

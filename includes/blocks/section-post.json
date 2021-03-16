@@ -178,6 +178,113 @@
         "layout": "horizontal",
         "return_format": "value",
         "save_other_choice": 0
+      },
+      {
+        "key": "field_5fd33b343054a",
+        "label": "Button Text",
+        "name": "button_text",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_5fd33b246464b",
+        "label": "Button URL",
+        "name": "button_url",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_5fd33b343054a",
+              "operator": "!=empty"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "post_type": "",
+        "taxonomy": "",
+        "allow_null": 0,
+        "allow_archives": 1,
+        "multiple": 0
+      },
+      {
+        "key": "field_5f67767a7f347",
+        "label": "Target",
+        "name": "target",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_5fd33b343054a",
+              "operator": "!=empty"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "acfe_permissions": "",
+        "choices": {
+          "_self": "Same window",
+          "_blank": "New Tab"
+        },
+        "default_value": "_self",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_5fd33b6b34567",
+        "label": "Button Style",
+        "name": "button_style",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_5fd33b343054a",
+              "operator": "!=empty"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
       }
     ],
     "min": "",

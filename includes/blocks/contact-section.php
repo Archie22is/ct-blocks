@@ -47,6 +47,7 @@ class Codetot_Block_Contact_Section extends Codetot_Base_Block implements Codeto
     $this->fields = [
       'class',
       'full_screen_layout',
+      'background_image',
       'contact_primary_layout',
       'contact_secondary_layout',
       'google_maps',
