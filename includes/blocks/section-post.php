@@ -52,7 +52,11 @@ class Codetot_Block_Section_Post extends Codetot_Base_Block implements Codetot_B
       'category',
       'number_posts',
       'post_grid_columns',
-      'post_card_style'
+      'post_card_style',
+      'button_text',
+      'button_url',
+      'target',
+      'button_style'
     ];
 
     parent::__construct();
