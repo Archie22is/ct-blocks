@@ -267,3 +267,22 @@
     transform: rotate(360deg);
   }
 }
+
+.has-contact-section-background {
+  &.contact-section {
+    position: relative;
+  }
+
+  & .contact-section__background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+
+    & picture {
+      height: 100%;
+    }
+  }
+}

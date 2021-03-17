@@ -33,6 +33,18 @@ if ($post_query->have_posts()) :?>
           'card_style' => !empty($post_card_style) ? $post_card_style : 'style-1'
         ));
         ?>
+
+        <?php
+        if (!empty($button_text)) {
+          the_block('button', array(
+            'class' => 'bottom-cta__button',
+            'size' => 'large',
+            'type' => $button_style,
+            'button' => $button_text,
+            'url' => $button_url
+          ));
+        }
+        ?>
       </div>
     </div>
   </section>
