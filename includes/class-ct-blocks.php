@@ -111,6 +111,10 @@ class Codetot_Base
   public function is_supported_theme() {
     $theme_tags = wp_get_theme()->Get('Tags') ?? [];
 
+    if (empty($theme_tags)) {
+      return false;
+    }
+
     return in_array('codetot-theme', $theme_tags);
   }
 
