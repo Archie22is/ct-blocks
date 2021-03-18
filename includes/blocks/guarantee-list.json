@@ -197,6 +197,62 @@
         "button_label": "Add Item",
         "sub_fields": [
           {
+            "key": "field_5fc888458b64c",
+            "label": "Icon Type",
+            "name": "icon_type",
+            "type": "radio",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "choices": {
+              "image": "Image",
+              "svg": "SVG"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "image",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+          },
+          {
+            "key": "field_6037808f44167",
+            "label": "SVG",
+            "name": "icon_svg",
+            "type": "textarea",
+            "instructions": "Copy svg",
+            "required": 0,
+            "conditional_logic": [
+              [
+                {
+                  "field": "field_5fc888458b64c",
+                  "operator": "==",
+                  "value": "svg"
+                }
+              ]
+            ],
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+          },
+          {
             "key": "field_5fc888ee9b64d",
             "label": "Icon Image",
             "name": "icon_image",
@@ -206,7 +262,7 @@
             "conditional_logic": [
               [
                 {
-                  "field": "field_5fc888b69b64c",
+                  "field": "field_5fc888458b64c",
                   "operator": "==",
                   "value": "image"
                 }
