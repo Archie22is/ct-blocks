@@ -193,7 +193,7 @@ if (!function_exists('_codetot_block_generate_class')) {
         break;
 
       case 'hide_mobile':
-        $_class = 'section--hide-mobile';
+        $_class = ($value === true) ? ' section--hide-mobile' : '';
         break;
 
       case 'column':

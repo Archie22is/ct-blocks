@@ -8,7 +8,7 @@ $available_classes_key = array(
   'content_alignment' => $content_alignment,
   'column' => count($items),
   'fullscreen' => $fullscreen,
-  'hide_mobile' => $hide_mobile,
+  'hide_mobile' => ($hide_mobile === true),
   'class' => $class
 );
 
@@ -19,13 +19,19 @@ if (!empty($items)) : ?>
     <div class="container guarantee-list__container">
       <div class="grid guarantee-list__grid">
         <?php foreach ($items as $item) : ?>
+        <?php $image_content = ($item['icon_type'] === 'svg') ? $item['icon_svg'] : $item['icon_image']['ID']; ?>
           <div class="grid__col guarantee-list__col">
             <div class="guarantee-list__media-wrapper">
-              <?php if(!empty($item['icon_image'])) : ?>
-                <?php the_block('image', array(
-                  'image' => $item['icon_image']['ID'],
-                  'class' => 'image--cover image-row__image guarantee-list__image'
-                )); ?>
+              <?php if ($item['icon_type'] === 'svg') : ?>
+                <span class="guarantee-list__svg" aria-hidden="true"><?php echo $image_content; ?></span>
+              <?php elseif ($item['icon_type'] === 'image' && !empty($image_content)) : ?>
+                <?php
+                the_block('image', array(
+                  'image' => $image_content,
+                  'class' => !empty($image_class) ? ' ' . esc_attr($image_class) . ' guarantee-list__image' : ' image--cover guarantee-list__image',
+                  'size' => 'full'
+                ));
+                ?>
               <?php endif; ?>
             </div>
             <div class="guarantee-list__content">
