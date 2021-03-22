@@ -18,13 +18,13 @@ if ($post_query->have_posts()) :?>
         <div class="section-post__header">
           <div class="section-post__inner">
             <?php if (!empty($label)) : ?>
-              <p class="section-post__label" data-aos="fade-up"><?php echo $label; ?></p>
+              <p class="section-post__label"><?php echo $label; ?></p>
             <?php endif; ?>
-            <h2 class="h2 section-post__title" data-aos="fade-up"><?php echo $title; ?></h2>
+            <h2 class="h2 section-post__title"><?php echo $title; ?></h2>
           </div>
         </div>
       <?php endif; ?>
-      <div class="section-product_main">
+      <div class="section-post_main">
         <?php
         the_block('post-grid', array(
           'label' => !empty($label) ? $label : '',

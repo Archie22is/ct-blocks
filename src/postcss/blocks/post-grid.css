@@ -7,10 +7,18 @@
   & .post-grid__col {
     @media (--s) {
       width: 50%;
+
+      &:nth-child(-n + 2) {
+        margin-top: 0;
+      }
     }
 
     @media (--m) {
       width: 20%;
+
+      &:nth-child(-n + 5) {
+        margin-top: 0;
+      }
     }
   }
 }
@@ -19,10 +27,18 @@
   & .post-grid__col {
     @media (--s) {
       width: 50%;
+
+      &:nth-child(-n + 2) {
+        margin-top: 0;
+      }
     }
 
     @media (--m) {
       width: 25%;
+
+      &:nth-child(-n + 4) {
+        margin-top: 0;
+      }
     }
   }
 }
@@ -31,10 +47,18 @@
   & .post-grid__col {
     @media (--s) {
       width: 50%;
+
+      &:nth-child(-n + 2) {
+        margin-top: 0;
+      }
     }
 
     @media (--m) {
       width: 33.33%;
+
+      &:nth-child(-n + 3) {
+        margin-top: 0;
+      }
     }
   }
 }
@@ -43,6 +67,10 @@
   & .post-grid__col {
     @media (--s) {
       width: 50%;
+
+      &:nth-child(-n + 2) {
+        margin-top: 0;
+      }
     }
   }
 }
