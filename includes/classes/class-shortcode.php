@@ -56,6 +56,10 @@ class CodeTot_Shortcode
     add_shortcode('contact', function () {
      the_block('header-contact');
     });
+
+    add_shortcode('search-form', function () {
+     the_block('search-product-form');
+    });
   }
 }
 
