@@ -7,9 +7,10 @@ $_class .= !empty($card_style) ? ' post-card--' . esc_attr($card_style) : ' post
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 
 // Visible condition
-$_display_category = !empty($card_style) && (in_array($card_style, array('style-2', 'style-3')));
+$_display_category = !empty($card_style) && (in_array($card_style, array('style-3')));
 $_display_author = !empty($card_style) && (in_array($card_style, array('style-4')));
 $_display_date = !empty($card_style) && $card_style == 'style-3';
+$_display_date_bage = !empty($card_style) && $card_style == 'style-2';
 $_display_footer = !empty($card_style) && $card_style == 'style-3';
 $_display_description = !empty($card_style) && (in_array($card_style, array('style-2', 'style-3', 'style-4', 'style-5')));
 ?>
@@ -28,6 +29,13 @@ $_display_description = !empty($card_style) && (in_array($card_style, array('sty
         ));
       endif;
       ?>
+
+      <?php if ($_display_date_bage) : ?>
+        <div class="post-card__bage">
+          <span class="post-card__bage-date"><?php echo get_the_date(); ?></span>
+          <span class="post-card__bage-icon"><?php codetot_svg('right-arrow',true); ?></span>
+        </div>
+        <?php endif; ?>
       </a>
   </div>
   <div class="f fdc fa1 post-card__main">
