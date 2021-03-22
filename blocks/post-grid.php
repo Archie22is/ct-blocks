@@ -6,7 +6,7 @@ $_class .= !empty($columns) ? ' post-grid--' . $columns .'-column': '';
 if ( !empty($query) ) : ?>
   <div class="<?php echo $_class; ?>">
     <div class="post-grid__container">
-      <div class="grid post-grid__grid" data-aos="fade-up" data-aos-duration="800">
+      <div class="grid post-grid__grid">
         <?php while( $query->have_posts() ) : $query->the_post(); ?>
           <div class="f fdc grid__col post-grid__col">
             <?php the_block('post-card', array(

@@ -90,15 +90,6 @@
 }
 
 .post-card--style-2 {
-  &:hover {
-    box-shadow: 0 0 10px 0 var(--gray);
-  }
-
-  & .post-card__main {
-    text-align: center;
-    padding: 1em;
-  }
-
   & .post-card__meta {
     text-transform: uppercase;
     color: var(--secondary);
@@ -106,8 +97,40 @@
     font-size: 0.85rem;
   }
 
-  & .post-card__description {
-    margin-top: auto;
+  & .post-card__description,
+  & .post-card__title {
+    margin-top: 0.5em;
+  }
+
+  & .post-card__wrapper {
+    position: relative;
+
+    & .post-card__bage {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 2;
+      background: rgba(0, 0, 0, 0.4);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+
+      & .post-card__bage-icon {
+        background: var(--primary);
+        padding: 0.5em;
+        display: flex;
+
+        & svg {
+          fill: var(--white);
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      & .post-card__bage-date {
+        padding: 0 0.5em;
+      }
+    }
   }
 }
 
