@@ -1,0 +1,18 @@
+.search-product-form {
+  border: 1px solid var(--gray);
+  width: max-content;
+  border-radius: 20px;
+
+  & form.search-form {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 0.5em 1em;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & svg {
+    width: 14px;
+    stroke: var(--gray);
+  }
+}
