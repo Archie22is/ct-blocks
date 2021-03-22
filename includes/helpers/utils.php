@@ -259,7 +259,7 @@ if (!function_exists('codetot_build_content_block')) {
     }
 
     if (!empty($args['title'])) {
-      $output_elements['label'] = sprintf('<%1$s class="%2$s__title">%3$s</%4$s>',
+      $output_elements['title'] = sprintf('<%1$s class="%2$s__title">%3$s</%4$s>',
         $title_tag,
         $prefix_class,
         $args['title'],
@@ -280,7 +280,7 @@ if (!function_exists('codetot_build_content_block')) {
     if (isset($args['enable_container'])) {
       printf('<div class="%s %s__container">', codetot_site_container(), $prefix_class);
     }
-    echo implode('', $output_elements);
+    echo implode('' . PHP_EOL, $output_elements);
     if (isset($args['enable_container'])) {
       printf('</div>');
     }
