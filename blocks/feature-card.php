@@ -1,24 +1,25 @@
 <?php if (!empty($title) || !empty($description)) :
-  $content = codetot_build_content_block(array(
+  $default_args = array(
     'title' => $title,
     'description' => !empty($description) ? $description : '',
     'title_tag' => 'h3'
-  ), 'feature-card');
+  );
+
+  $_content_args = !empty($content_args) ? wp_parse_args($content_args, $default_args) : $default_args;
+
+  $content = codetot_build_content_block($_content_args, 'feature-card');
 endif; ?>
 
 <div class="feature-card <?php echo (!empty($class)) ? $class : ''; ?>">
   <?php if (!empty($image_content)) : ?>
     <div class="feature-card__image-wrapper">
-      <?php if ($icon_type === 'svg') : ?>
-        <span class="feature-card__svg" aria-hidden="true"><?php echo $image_content; ?></span>
-      <?php elseif ($icon_type === 'image' && !empty($image_content)) : ?><?php
-        the_block('image', array(
-          'image' => $image_content,
-          'class' => !empty($image_class) ? ' ' . esc_attr($image_class) . ' feature-card__image' : ' image--cover feature-card__image',
-          'size' => 'full'
-        ));
-        ?>
-      <?php endif; ?>
+      <?php
+      the_block('image', array(
+        'image' => $image_content,
+        'class' => !empty($image_class) ? ' ' .esc_attr($image_class) . ' feature-card__image' : ' image--cover feature-card__image',
+        'size' => 'full'
+      ));
+      ?>
     </div>
   <?php endif; ?>
   <div class="feature-card__content">
