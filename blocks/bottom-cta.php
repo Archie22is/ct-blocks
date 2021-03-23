@@ -13,7 +13,7 @@ if (!empty($title)) : ?>
     <?php echo (!empty($item_url)) ? '<a href="' . esc_attr($item_url) . '">' : false; ?>
       <div class="rel z-2 bottom-cta__wrapper">
         <div class="container bottom-cta__container">
-          <div class="align-c bottom-cta__inner">
+          <div class="bottom-cta__inner">
             <?php echo (!empty($block_preset) && $block_preset === 'preset-1') ? '<div class="bottom-cta__box">' : '' ?>
               <?php if (!empty($label)) : ?>
                 <p class="label-text bottom-cta__label" data-aos="fade-up"><?php echo $label; ?></p>
