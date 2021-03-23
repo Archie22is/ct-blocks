@@ -9,6 +9,8 @@ if (empty($items)) {
  * - social-links--footer-bottom (display in footer)
  * - social-links--sticky
  */
+
+ if (!empty($items)) :
 ?>
 
 <div class="social-links<?php if (!empty($class)) : echo ' ' . $class; endif; ?>">
@@ -24,3 +26,4 @@ if (empty($items)) {
     <?php endforeach; ?>
   </p>
 </div>
+<?php endif; ?>
