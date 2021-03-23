@@ -3,7 +3,8 @@
  * Block: Hero Banner
  */
 $block_class = codetot_block_generate_class(array(
-  'block_preset' => $block_preset
+  'block_preset' => $block_preset,
+  'class' => $class
 ), 'hero-banner');
 
 if (!empty($display_left_menu) && !empty($menu)) {
@@ -24,7 +25,9 @@ if (!empty($slider_items)) : ?>
         <?php endif; ?>
         <div class="grid__col hero-banner__col hero-banner__col--slider">
           <?php the_block('hero-banner-slider', array(
-            'items' => $slider_items
+            'items' => $slider_items,
+            'navItems' => !empty($nav_slider_items) ? $nav_slider_items : false,
+            'block_preset' => $block_preset
           )); ?>
         </div>
         <?php if (!empty($right_items)) : ?>
