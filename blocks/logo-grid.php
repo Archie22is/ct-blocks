@@ -30,7 +30,7 @@ $header = codetot_build_content_block(array(
   'alignment' => $header_alignment,
   'title' => $title,
   'description' => $description
-), 'feature-grid');
+), 'logo-grid');
 
 // Build column content
 $columns = !empty($items) ? array_map(function($item) use($enable_slideshow) {
