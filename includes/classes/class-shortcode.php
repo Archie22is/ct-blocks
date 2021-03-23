@@ -60,6 +60,10 @@ class CodeTot_Shortcode
     add_shortcode('search-form', function () {
      the_block('search-product-form');
     });
+
+    add_shortcode('cart-icon', function () {
+     the_block('cart-icon');
+    });
   }
 }
 
