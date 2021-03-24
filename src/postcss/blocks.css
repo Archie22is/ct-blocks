@@ -1,14 +1,3 @@
-@import url('global/normalize.css');
-@import url('global/reset.css');
-@import url('global/helpers.css');
-@import url('global/typography.css');
-@import url('global/buttons.css');
-@import url('global/colors.css');
-@import url('global/container.css');
-@import url('global/flexbox.css');
-@import url('global/grid.css');
-@import url('global/animate.css');
-@import url('mixins/flickity.css');
 @import url('blocks/accordions.css');
 @import url('blocks/bottom-cta.css');
 @import url('blocks/contact-section.css');
