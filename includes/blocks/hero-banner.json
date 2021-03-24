@@ -37,12 +37,7 @@
           "class": "",
           "id": ""
         },
-        "choices": {
-          "preset-1": "Preset 1",
-          "preset-2": "Preset 2",
-          "preset-3": "Preset 3",
-          "": "No Preset"
-        },
+        "choices": {},
         "default_value": false,
         "allow_null": 0,
         "multiple": 0,
@@ -191,6 +186,73 @@
             "type": "text",
             "instructions": "",
             "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "50",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+          }
+        ]
+      },
+      {
+        "key": "field_6012306774999",
+        "label": "Nav Slider Items",
+        "name": "nav_slider_items",
+        "type": "repeater",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_60122f03b38d7",
+              "operator": "==",
+              "value": "preset-2"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "collapsed": "",
+        "min": 0,
+        "max": 0,
+        "layout": "block",
+        "button_label": "Add Nav Slide Item",
+        "sub_fields": [
+          {
+            "key": "field_601230339f79a",
+            "label": "Label",
+            "name": "label",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "50",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+          },
+          {
+            "key": "field_601230834416b",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
               "width": "50",
