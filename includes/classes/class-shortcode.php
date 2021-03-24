@@ -62,7 +62,7 @@ class CodeTot_Shortcode
     });
 
     add_shortcode('cart-icon', function () {
-     the_block('cart-icon');
+      the_block_part('header/cart-icon');
     });
   }
 }
