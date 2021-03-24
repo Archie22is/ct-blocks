@@ -50,6 +50,7 @@ class Codetot_Block_Hero_Banner extends Codetot_Base_Block implements Codetot_Ba
       'display_left_menu',
       'menu',
       'slider_items',
+      'nav_slider_items',
       'description',
       'right_items'
     ];

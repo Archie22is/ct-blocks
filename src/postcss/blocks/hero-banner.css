@@ -365,3 +365,13 @@
     }
   }
 }
+
+.hero-banner--preset-2 {
+  & .hero-banner__slider-nav {
+    color: var(--dark);
+  }
+
+  & .hero-banner__slider-nav-item {
+    width: calc(100% / 3);
+  }
+}
