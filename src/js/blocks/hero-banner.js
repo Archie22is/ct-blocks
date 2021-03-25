@@ -1,5 +1,6 @@
 import { select, getData, addClass } from 'lib/dom'
 import Flickity from 'flickity'
+require('flickity-as-nav-for')
 
 export default el => {
   const sliderEl = select('.js-slider', el)
@@ -15,7 +16,6 @@ export default el => {
   }
   // eslint-disable-next-line no-unused-vars
   let slider = null
-  let sliderNav = null
 
   if (sliderEl && sliderOptions) {
     slider = new Flickity(sliderEl, {
@@ -25,9 +25,11 @@ export default el => {
   }
 
   if (sliderNavEl && sliderNavOptions) {
-    sliderNav = new Flickity(sliderNavEl, {
+    slider = new Flickity(sliderNavEl, {
       ...JSON.parse(sliderNavOptions),
       ...defaultOptions
     })
   }
+
+  console.log(sliderOptions)
 }
