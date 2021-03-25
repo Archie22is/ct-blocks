@@ -2,18 +2,20 @@
   $slider_options = array(
     'contain'=> true,
     'prevNextButtons' => false,
-    'asNavFor' => (!empty($block_preset) && $block_preset === 'preset-2') ? '.hero-banner__slider-nav' : false,
     'draggable' => true,
     'wrapAround' => true,
     'autoPlay' => 5000,
+    'cellAlign'=> 'left'
   );
+
   if($block_preset === 'preset-2') :
     $carousel_settings_nav = array(
       'wrapAround' => true,
       'pageDots' => false,
       'prevNextButtons' => false,
-      'draggable' => true,
-      'wrapAround' => true
+      'draggable' => false,
+      'cellAlign'=> 'left',
+      'asNavFor' => (!empty($block_preset) && $block_preset === 'preset-2') ? '.js-slider' : false
     );
   endif;
 
