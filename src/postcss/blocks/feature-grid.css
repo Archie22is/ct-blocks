@@ -35,3 +35,15 @@
     width: 48px;
   }
 }
+
+.feature-grid--center {
+  margin: auto;
+}
+
+.feature-grid--left {
+  margin: auto auto auto 0;
+}
+
+.feature-grid--right {
+  margin: auto 0 auto auto;
+}

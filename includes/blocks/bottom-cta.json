@@ -14,7 +14,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "33",
+          "width": "34",
           "class": "",
           "id": ""
         },
@@ -37,7 +37,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "33",
+          "width": "35",
           "class": "",
           "id": ""
         },
@@ -48,15 +48,36 @@
         "maxlength": ""
       },
       {
+        "key": "field_5fd2d854a94a9",
+        "label": "Background Contract",
+        "name": "background_contract",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "31",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "allow_null": 0,
+        "other_choice": 0,
+        "default_value": "",
+        "layout": "horizontal",
+        "return_format": "value",
+        "save_other_choice": 0
+      },
+      {
         "key": "field_4fcdcf8386ebc",
         "label": "Content Position",
         "name": "content_position",
-        "type": "radio",
+        "type": "select",
         "instructions": "",
         "required": 1,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "33",
+          "width": "23",
           "class": "",
           "id": ""
         },
@@ -77,29 +98,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "",
-          "class": "",
-          "id": ""
-        },
-        "choices": {},
-        "default_value": "left",
-        "allow_null": 0,
-        "multiple": 0,
-        "ui": 0,
-        "return_format": "value",
-        "ajax": 0,
-        "placeholder": ""
-      },
-      {
-        "key": "field_5fd2d854a94a9",
-        "label": "Background Contract",
-        "name": "background_contract",
-        "type": "radio",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "33",
+          "width": "23",
           "class": "",
           "id": ""
         },
@@ -120,7 +119,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "33",
+          "width": "23",
           "class": "",
           "id": ""
         },
@@ -142,7 +141,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "33",
+          "width": "31",
           "class": "",
           "id": ""
         },
@@ -150,6 +149,7 @@
         "min": "",
         "max": 1,
         "step": "0.1",
+        "layout": "horizontal",
         "prepend": "Lighter",
         "append": "Darker"
       },
