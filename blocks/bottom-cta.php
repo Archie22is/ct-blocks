@@ -7,7 +7,6 @@ $_class .= !empty($background_type) ? ' bg-' . esc_attr($background_type) : '';
 $_class .= !empty($content_position) ? ' bottom-cta--position-' . esc_attr($content_position) : '';
 $_class .= !empty($content_alignment) ? ' bottom-cta--alignment-' . esc_attr($content_alignment) : '';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
-
 if (!empty($title)) : ?>
   <div class="rel <?php echo $_class; ?>">
     <?php echo (!empty($item_url)) ? '<a href="' . esc_attr($item_url) . '">' : false; ?>

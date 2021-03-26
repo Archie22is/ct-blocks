@@ -54,8 +54,8 @@ if (!empty($items)) :
   } else {
     the_block('sidebar-section', array(
       'class' => $_class,
-      'header' => (!empty($title) || !empty($descriptiom)) ? $header : false,
-      'content' => $content
+      'content' => $content,
+      'sidebar' => (!empty($title) || !empty($descriptiom)) ? $header : false,
     ));
   }
 endif;

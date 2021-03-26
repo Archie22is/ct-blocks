@@ -48,6 +48,13 @@
   max-width: 768px;
 }
 
+.bottom-cta--alignment-center {
+  & .bottom-cta__inner,
+  & .bottom-cta__inner * {
+    text-align: center;
+  }
+}
+
 .bottom-cta--alignment-left {
   & .bottom-cta__inner,
   & .bottom-cta__inner * {
