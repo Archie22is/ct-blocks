@@ -17,7 +17,7 @@ $youtube_id = !empty($matches) ? $matches[1] : '';
 
 ?>
 
-<section class="section video-center is-loading<?php if (!empty($class)) : echo ' ' . $class; endif; ?>" data-child-block="video-center">
+<section class="section video-center is-loading<?php if (!empty($class)) : echo ' ' . $class; endif; ?>" data-ct-block="video-center">
   <?php echo $header; ?>
   <?php if (!empty($youtube_id)) : ?>
     <div class="video-center__main">
