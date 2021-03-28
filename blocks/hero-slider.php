@@ -14,7 +14,6 @@ $carousel_settings = array(
   'pageDots' => !empty($enable_page_dots),
   'wrapAround' => true,
   'cellAlign' => 'center',
-  'autoPlay' => 5000,
   'pauseAutoPlayOnHover' => true,
   'groupCells' => 1
 );
@@ -32,29 +31,30 @@ $carousel_settings = array(
                 <div class="hero-slider__item-inner">
                   <picture class="image image--cover hero-slider__image js-image">
                     <?php
-                    $image_src = wp_get_attachment_image_src($item['image']['ID'], 'full', null);
                     $image_alt = get_post_meta($item['image']['ID'], '_wp_attachment_image_alt', true);
 
-                    printf('<source srcset="%1$s" media="%2$s">', $image_src[0], '(min-width: 1024px)');
+                    $image_srcset = wp_get_attachment_image_srcset($item['image']['ID'], 'full');
+
+                    printf('<source srcset="%1$s" media="%2$s">', $image_srcset, '(min-width: 768px)');
 
                     if (!empty($item['image_mobile'])) {
                       $mobile_image_src = wp_get_attachment_image_src($item['image_mobile']['ID'], 'full', null);
                       $mobile_image_alt = get_post_meta($item['image_mobile']['ID'], '_wp_attachment_image_alt', true);
 
-                      printf('<img data-sizes="auto" src="%1$s" alt="%2$s" width="%3$s" height="%4$s" class="%5$s">',
+                      printf('<img src="%1$s" alt="%2$s" width="%3$s" height="%4$s" class="%5$s">',
                         $mobile_image_src[0],
                         $mobile_image_alt,
                         $mobile_image_src[1],
                         $mobile_image_src[2],
-                        'image__img lazyload'
+                        'image__img'
                       );
                     } else {
-                      printf('<img data-sizes="auto" src="%1$s" alt="%2$s" width="%3$s" height="%4$s" class="%5$s">',
+                      printf('<img src="%1$s" alt="%2$s" width="%3$s" height="%4$s" class="%5$s">',
                         $image_src[0],
                         $image_alt,
                         $image_src[1],
                         $image_src[2],
-                        'image__img lazyload'
+                        'image__img'
                       );
                     }
                     ?>
