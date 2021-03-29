@@ -1,8 +1,5 @@
 <?php
 $container = codetot_site_container();
-$_class = 'section-post';
-$_class .= !empty($class) ? ' ' . $class : '';
-$_class .= !empty($block_preset) ? ' section-post--' . $block_preset : '';
 
 $post_args = array(
   'post_type' => 'post',
@@ -11,41 +8,41 @@ $post_args = array(
 );
 
 $post_query = new WP_Query($post_args);
-if ($post_query->have_posts()) :?>
-  <section class="<?php echo $_class; ?>">
-    <div class="<?php echo $container; ?> section-post__container">
-      <?php if (!empty($title)) : ?>
-        <div class="section-post__header">
-          <div class="section-post__inner">
-            <?php if (!empty($label)) : ?>
-              <p class="section-post__label"><?php echo $label; ?></p>
-            <?php endif; ?>
-            <h2 class="h2 section-post__title"><?php echo $title; ?></h2>
-          </div>
-        </div>
-      <?php endif; ?>
-      <div class="section-post_main">
-        <?php
-        the_block('post-grid', array(
-          'label' => !empty($label) ? $label : '',
-          'query' => $post_query,
-          'columns' => !empty($post_grid_columns) ? $post_grid_columns : '3',
-          'card_style' => !empty($post_card_style) ? $post_card_style : 'style-1'
-        ));
-        ?>
 
-        <?php
-        if (!empty($button_text)) {
-          the_block('button', array(
-            'class' => 'bottom-cta__button',
-            'size' => 'large',
-            'type' => $button_style,
-            'button' => $button_text,
-            'url' => $button_url
-          ));
-        }
-        ?>
-      </div>
-    </div>
-  </section>
-<?php endif;
+if (!empty($label) || !empty($title) || !empty($description)) {
+  $header = codetot_build_content_block(array(
+    'class' => 'section-header',
+    'alignment' => $header_alignment,
+    'label' => $label,
+    'title' => $title,
+    'description' => $description
+  ), 'section-post');
+}
+
+if ($post_query->have_posts()) :
+  while ($post_query->have_posts())  : $post_query->the_post();
+    $columns[] = get_block('post-card');
+  endwhile; wp_reset_postdata();
+endif;
+
+$content = codetot_build_grid_columns($columns, 'section-post', array(
+  'column_attributes' => 'data-aos="fade-up"',
+  'column_class' => 'default-section__col'
+));
+
+$_class = 'section-post';
+$_class .= !empty($class) ? ' ' . $class : '';
+$_class .= !empty($header_alignment) ? ' is-header-'.  $header_alignment : '';
+$_class .= !empty($columns) ? ' has-'. count($columns) .'-columns' : '';
+$_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
+$_class .= !empty($block_preset) ? ' section-post--' . $block_preset : '';
+
+if ($post_query->have_posts()) :
+
+  the_block('default-section', array(
+    'class' => $_class,
+    'header' => (!empty($title) || !empty($descriptiom)) ? $header : '',
+    'content' => $content
+  ));
+
+endif;

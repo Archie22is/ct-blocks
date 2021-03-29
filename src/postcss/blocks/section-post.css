@@ -1,11 +1,3 @@
-.section-post {
-  padding: 2em 0;
-}
-
-.section-post__header {
-  text-align: center;
-}
-
 .section-post--preset-1 {
   & .section-post__title {
     position: relative;
@@ -27,14 +19,14 @@
 
 .section-post--preset-2 {
   & .section-post__title {
-    font-weight: 300;
+    font-weight: var(--font-normal);
   }
 }
 
 .section-post--preset-3 {
   & .section-post__title {
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: var(--font-bold);
   }
 }
 
@@ -49,13 +41,4 @@
   & .section-post__title {
     text-transform: uppercase;
   }
-}
-
-.section-post__title {
-  font-weight: 500;
-}
-
-.section-post__label {
-  text-transform: uppercase;
-  color: var(--secondary);
 }
