@@ -30,9 +30,19 @@ $content = codetot_build_grid_columns($columns, 'section-post', array(
   'column_class' => 'default-section__col'
 ));
 
+$footer = !empty($button_text) && !empty($button_url) ?
+  get_block('button', array(
+    'class' => 'section-post__button',
+    'type' => !empty($button_style) ? $button_style : 'primary',
+    'button' => $button_text,
+    'url' => $button_url
+  ))
+: '';
+
 $_class = 'section-post';
 $_class .= !empty($class) ? ' ' . $class : '';
 $_class .= !empty($header_alignment) ? ' is-header-'.  $header_alignment : '';
+$_class .= !empty($footer_alignment) ? ' is-footer-'.  $footer_alignment : '';
 $_class .= !empty($columns) ? ' has-'. count($columns) .'-columns' : '';
 $_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
 $_class .= !empty($block_preset) ? ' section-post--' . $block_preset : '';
@@ -42,7 +52,8 @@ if ($post_query->have_posts()) :
   the_block('default-section', array(
     'class' => $_class,
     'header' => (!empty($title) || !empty($descriptiom)) ? $header : '',
-    'content' => $content
+    'content' => $content,
+    'footer' => $footer
   ));
 
 endif;
