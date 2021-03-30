@@ -518,6 +518,23 @@
     }
   }
 
+  & .testimonials__comment {
+    order: 2;
+  }
+
+  & .flickity-viewport {
+    overflow: unset;
+  }
+
+  & .testimonials__columns {
+    padding: calc(75px + 1em) 0 0;
+    overflow: hidden;
+
+    @media (--s) {
+      padding: calc(75px + 1em) 0;
+    }
+  }
+
   & .flickity-prev-next-button {
     background-color: var(--primary);
     display: none;
