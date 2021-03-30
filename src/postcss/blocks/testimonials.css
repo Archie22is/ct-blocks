@@ -324,6 +324,121 @@
   }
 }
 
+.testimonials--preset-4 {
+  & .testimonials__header {
+    color: var(--white);
+  }
+
+  & .testimonials__title {
+    position: relative;
+    padding-bottom: 0.75em;
+    margin-bottom: 0.75em;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      background-color: var(--primary);
+    }
+
+    &::before {
+      bottom: 7px;
+      width: 200px;
+      border-bottom: 1px solid var(--primary);
+      transform: translate(-50%, -50%);
+    }
+
+    &::after {
+      bottom: 0;
+      width: 8px;
+      height: 8px;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+
+  & .is-initialized {
+    & .testimonials__inner {
+      background-color: transparent;
+    }
+  }
+
+  & .testimonials__columns--main {
+    max-width: 400px;
+    margin: auto;
+
+    & .testimonials__column {
+      width: calc(100% / 3);
+    }
+
+    & .testimonials__profile {
+      display: flex;
+    }
+
+    & .testimonials__column.is-selected {
+      & .testimonials__image {
+        opacity: 1;
+        width: 90px;
+      }
+    }
+
+    & .testimonials__image {
+      opacity: 0.8;
+      margin: auto;
+      border: 3px solid var(--primary);
+      transition: 0.4s;
+    }
+  }
+
+  & .testimonials__columns--nav {
+    margin-top: 2em;
+
+    & .testimonials__profile {
+      margin-top: 0;
+    }
+
+    & .flickity-viewport {
+      max-width: 600px;
+      margin: auto;
+      text-align: center;
+      color: white;
+    }
+
+    & .testimonials__info,
+    & .testimonials__info > * {
+      color: var(--white);
+      font-style: normal;
+    }
+
+    & .flickity-prev-next-button {
+      top: 0;
+      background-color: transparent;
+      border: 0;
+      color: var(--primary);
+
+      & svg {
+        transition: 0.4s;
+      }
+    }
+
+    & .flickity-slider {
+      transform: none !important;
+    }
+
+    & .testimonials__column {
+      left: 0 !important;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      z-index: -1;
+    }
+
+    & .testimonials__column.is-selected {
+      opacity: 1;
+      z-index: 0;
+    }
+  }
+}
+
 .testimonials__container {
   z-index: 2;
 }
