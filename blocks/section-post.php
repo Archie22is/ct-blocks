@@ -51,7 +51,7 @@ if ($post_query->have_posts()) :
 
   the_block('default-section', array(
     'class' => $_class,
-    'header' => (!empty($title) || !empty($descriptiom)) ? $header : '',
+    'header' => (!empty($title) || !empty($description)) ? $header : '',
     'content' => $content,
     'footer' => $footer
   ));
