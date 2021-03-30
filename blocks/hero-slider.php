@@ -31,10 +31,10 @@ $carousel_settings = array(
                   <picture class="image image--cover hero-slider__image js-image">
                     <?php
                     $image_alt = get_post_meta($item['image']['ID'], '_wp_attachment_image_alt', true);
-                    $image_src = wp_get_attachment_image_src($item['image']['ID'], 'medium', null);
+                    $image_src = wp_get_attachment_image_src($item['image']['ID'], 'full', null);
                     $image_srcset = wp_get_attachment_image_srcset($item['image']['ID'], 'full');
 
-                    printf('<source srcset="%1$s" media="%2$s">', $image_srcset, '(min-width: 768px)');
+                    printf('<source srcset="%1$s" media="%2$s">', $image_srcset, '(min-width: 376px)');
 
                     if (!empty($item['image_mobile'])) {
                       $mobile_image_src = wp_get_attachment_image_src($item['image_mobile']['ID'], 'full', null);
