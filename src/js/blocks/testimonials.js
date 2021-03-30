@@ -1,6 +1,7 @@
 import { select, selectAll, on, getHeight, setStyle } from 'lib/dom'
 import carousel from 'lib/carousel'
 import { map } from 'lib/utils'
+require('flickity-as-nav-for')
 
 export default el => {
   const previous = select('.js-button--previous', el)
