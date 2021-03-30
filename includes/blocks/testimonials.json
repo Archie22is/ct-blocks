@@ -230,6 +230,25 @@
             "maxlength": ""
           },
           {
+            "key": "field_5fd1825f224b2",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+          },
+          {
             "key": "field_5fd182edb81b4",
             "label": "Testimonial",
             "name": "testimonial",
