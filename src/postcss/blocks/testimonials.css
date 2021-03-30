@@ -481,6 +481,42 @@
   & .testimonials__icon--close {
     display: none;
   }
+
+  & .testimonials__profile {
+    margin-top: 0 !important;
+    transform: translateY(calc(-75px - 1em)) !important;
+    order: 1;
+    margin-bottom: -75px;
+    text-align: center;
+  }
+
+  & .testimonials__image {
+    margin: 0 auto 1em;
+    width: 150px;
+    overflow: unset;
+
+    &::before {
+      z-index: 2;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: calc(100% + 20px);
+      height: calc(100% + 20px);
+      top: -10px;
+      left: -10px;
+      background-color: var(--white);
+      z-index: 1;
+      border-radius: 50%;
+    }
+
+    & img {
+      z-index: 3;
+      box-shadow: 0 0.125rem 0.25rem rgb(0, 0, 0, 0.3);
+      border-radius: 50%;
+    }
+  }
 }
 
 .testimonials__container {
