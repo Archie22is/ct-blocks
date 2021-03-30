@@ -12,7 +12,6 @@ $_class .= !empty($overlay) ? ' hero-slider--overlay' : '';
 $carousel_settings = array(
   'prevNextButtons' => !empty($enable_prev_next_buttons),
   'pageDots' => !empty($enable_page_dots),
-  'wrapAround' => true,
   'cellAlign' => 'center',
   'pauseAutoPlayOnHover' => true,
   'groupCells' => 1
