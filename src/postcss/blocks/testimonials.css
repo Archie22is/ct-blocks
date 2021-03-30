@@ -517,6 +517,19 @@
       border-radius: 50%;
     }
   }
+
+  & .flickity-prev-next-button {
+    background-color: var(--primary);
+    display: none;
+
+    & svg {
+      fill: var(--white);
+    }
+
+    @media (--s) {
+      display: block;
+    }
+  }
 }
 
 .testimonials__container {
