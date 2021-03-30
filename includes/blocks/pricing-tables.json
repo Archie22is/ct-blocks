@@ -330,7 +330,7 @@
             "key": "field_5fd9bf2501e10",
             "label": "Button URL",
             "name": "button_url",
-            "type": "url",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
