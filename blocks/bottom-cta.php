@@ -8,7 +8,7 @@ $_class .= !empty($content_position) ? ' bottom-cta--position-' . esc_attr($cont
 $_class .= !empty($content_alignment) ? ' bottom-cta--alignment-' . esc_attr($content_alignment) : '';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 if (!empty($title)) : ?>
-  <div class="rel <?php echo $_class; ?>">
+  <section class="rel <?php echo $_class; ?>">
     <?php echo (!empty($item_url)) ? '<a href="' . esc_attr($item_url) . '">' : false; ?>
       <div class="rel z-2 bottom-cta__wrapper">
         <div class="container bottom-cta__container">
@@ -47,5 +47,5 @@ if (!empty($title)) : ?>
              style="background-color: rgba(0, 0, 0, <?php echo esc_attr($overlay); ?>);"></div>
       <?php endif; ?>
     <?php echo (!empty($item_url)) ? '</a>' : false; ?>
-  </div>
+  </section>
 <?php endif; ?>
