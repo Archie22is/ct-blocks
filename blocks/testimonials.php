@@ -1,33 +1,30 @@
 <?php
 $container = codetot_site_container();
-if (!(empty($style))) :
-  if ($style === 'style-4') :
-    $carousel_settings = array(
-      'asNavFor' => '.js-slider-nav',
-      'contain' => true,
-      'pageDots' => false,
-      'prevNextButtons' => false,
-      'cellAlign' => 'center',
-      "draggable" => false,
-      'wrapAround' => true
-    );
+
+if (!(empty($block_preset))) :
+  $carousel_settings = array(
+    'contain' => true,
+    'pageDots' => ($block_preset === 'preset-4') ? false : true,
+    'prevNextButtons' => ($block_preset === 'preset-4') ? false : true,
+    'cellAlign' => 'center',
+    'wrapAround' => true
+  );
+  if ($block_preset === 'preset-4') :
     $carousel_settings_nav = array(
       'wrapAround' => true,
       'pageDots' => false,
-    );
-  else :
-    $carousel_settings = array(
-      'prevNextButtons' => true,
-      'pageDots' => true,
-      'groupCells' => 1,
-      'wrapAround' => true
+      'contain' => true,
+      'asNavFor' => '.js-slider-main',
+      'draggable' => false,
     );
   endif;
 endif;
 
 $_class = 'rel testimonials';
+$_class .= !empty($class) ? ' ' . $class : '';
 $_class .= !empty($overlay) ? ' testimonials--has-overlay' : '';
-$_class .= !empty($style) ? ' testimonials--' . esc_attr($style) : ' testimonials--style-1';
+$_class .= !empty($block_preset) ? ' testimonials--' . esc_attr($block_preset) : ' testimonials--preset-1';
+
 ?>
 <section class="<?php echo esc_attr($_class); ?>" data-ct-block="testimonials">
   <div class="rel <?php echo $container; ?> testimonials__container">
@@ -44,18 +41,20 @@ $_class .= !empty($style) ? ' testimonials--' . esc_attr($style) : ' testimonial
         <?php endif; ?>
       </header>
     <?php endif; ?>
-    <?php if (!empty($column) && $style === 'style-4') : ?>
+    <?php if (!empty($columns) && $block_preset === 'preset-4') : ?>
       <div class="testimonials__main">
         <div
-          class="testimonials__columns testimonials__columns--main js-slider-main"<?php if (!empty($carousel_settings)) : ?> data-carousel='<?= json_encode($carousel_settings); ?>'<?php endif; ?>>
+          class="testimonials__columns testimonials__columns--main js-slider-main" <?php if (!empty($carousel_settings)) : ?> data-carousel='<?= json_encode($carousel_settings); ?>'<?php endif; ?>>
           <?php foreach ($columns as $column) : ?>
             <div class="testimonials__column">
               <figure class="testimonials__inner">
                 <div class="testimonials__profile" data-aos="fade-up">
-                  <?php the_block('image', array(
-                    'image' => $column['image'],
-                    'class' => 'image--cover testimonials__image'
-                  )); ?>
+                  <?php if (!empty($column['image'])) : ?>
+                    <?php the_block('image', array(
+                      'image' => $column['image'],
+                      'class' => 'image--cover testimonials__image'
+                    )); ?>
+                  <?php endif; ?>
                 </div>
               </figure>
             </div>
@@ -68,23 +67,29 @@ $_class .= !empty($style) ? ' testimonials--' . esc_attr($style) : ' testimonial
               <figure class="testimonials__inner">
                 <div class="testimonials__profile" data-aos="fade-up">
                   <figcaption class="testimonials__info">
-                    <p><?php echo $column['name'] ?></p>
+                    <?php if (!empty($column['name'])) : ?>
+                      <p><?php echo $column['name'] ?></p>
+                    <?php endif; ?>
                     <?php if (!empty($column['profession'])) : ?>
                       <cite><?php echo $column['profession'] ?></cite>
                     <?php endif; ?>
                   </figcaption>
                 </div>
                 <blockquote class="testimonials__comment" data-aos="fade-up">
-                  <p><?php echo $column['testimonial']; ?></p>
+                  <?php if (!empty($column['title'])) : ?>
+                    <h3><?php echo $column['title']; ?></h3>
+                  <?php endif; ?>
+                  <?php if (!empty($column['testimonial'])) : ?>
+                    <p><?php echo $column['testimonial']; ?></p>
+                  <?php endif; ?>
                 </blockquote>
               </figure>
             </div>
           <?php endforeach; ?>
         </div>
       </div>
-    <?php endif; ?>
-    <?php if (!empty($columns) && $style !== 'style-4') : ?>
-      <div class="testimonials__main">
+    <?php else : ?>
+      <div class="testimonials__main ">
         <div
           class="testimonials__columns js-slider"<?php if (!empty($carousel_settings)) : ?> data-carousel='<?= json_encode($carousel_settings); ?>'<?php endif; ?>>
           <?php foreach ($columns as $column) : ?>
@@ -94,18 +99,27 @@ $_class .= !empty($style) ? ' testimonials--' . esc_attr($style) : ' testimonial
                   <div class="testimonials__icon testimonials__icon--open">
                     <?php codetot_svg('quotation-marks-open', true) ?>
                   </div>
-                  <p><?php echo $column['testimonial']; ?></p>
+                  <?php if (!empty($column['title'])) : ?>
+                    <h3><?php echo $column['title']; ?></h3>
+                  <?php endif; ?>
+                  <?php if (!empty($column['testimonial'])) : ?>
+                    <p><?php echo $column['testimonial']; ?></p>
+                  <?php endif; ?>
                   <div class="testimonials__icon testimonials__icon--close">
                     <?php codetot_svg('quotation-marks-close', true) ?>
                   </div>
                 </blockquote>
                 <div class="testimonials__profile" data-aos="fade-up">
-                  <?php the_block('image', array(
-                    'image' => $column['image'],
-                    'class' => 'image--cover testimonials__image'
-                  )); ?>
+                  <?php if (!empty($column['image'])) : ?>
+                    <?php the_block('image', array(
+                      'image' => $column['image'],
+                      'class' => 'image--cover testimonials__image'
+                    )); ?>
+                  <?php endif; ?>
                   <figcaption class="testimonials__info">
-                    <p><?php echo $column['name'] ?></p>
+                    <?php if (!empty($column['name'])) : ?>
+                      <p><?php echo $column['name'] ?></p>
+                    <?php endif; ?>
                     <?php if (!empty($column['profession'])) : ?>
                       <cite><?php echo $column['profession'] ?></cite>
                     <?php endif; ?>
@@ -128,6 +142,6 @@ $_class .= !empty($style) ? ' testimonials--' . esc_attr($style) : ' testimonial
   <?php endif; ?>
   <?php if (!empty($overlay)) : ?>
     <div class="testimonials__overlay"
-          style="background-color: rgba(0, 0, 0, <?php echo esc_attr($overlay); ?>);"></div>
+         style="background-color: rgba(0, 0, 0, <?php echo esc_attr($overlay); ?>);"></div>
   <?php endif; ?>
 </section>
