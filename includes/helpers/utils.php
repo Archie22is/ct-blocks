@@ -313,21 +313,26 @@ if (!function_exists('codetot_build_grid_columns')) {
       $grid_class = $args['grid_class'];
     }
 
-    if (!empty($args) && !empty($args['column_class'])) {
-      $column_class = $args['column_class'];
-    }
-
-    if (!empty($args) && !empty($args['column_attributes'])) {
-      $column_attributes = $args['column_attributes'];
-    }
-
     ob_start(); ?>
     <div
       class="grid <?php echo $prefix_class; ?>__grid<?php if (!empty($grid_class)) : echo ' ' . $grid_class; endif; ?>">
-      <?php foreach ($columns as $column) : ?>
+      <?php foreach ($columns as $column) :
+        $_column_class = 'grid__col';
+        $_column_class .= ' ' .$prefix_class . '__col';
+        $_column_class .= !empty($args) && !empty($args['column_class']) ? ' ' . $args['column_class'] : '';
+        $_column_class .= !empty($args) && is_array($column) && !empty($column['class']) ? ' ' . $column['class'] : '';
+        $_column_attr = !empty($args) && !empty($args['column_attributes']) ? ' ' . $args['column_attributes'] : '';
+
+        ?>
         <div
-          class="grid__col <?php echo $prefix_class; ?>__col<?php if (!empty($column_class)) : echo ' ' . $column_class; endif; ?>"<?php if (!empty($column_attributes)) : echo ' ' . $column_attributes; endif; ?>>
-          <?php echo $column; ?>
+          class="<?php echo $_column_class; ?>"<?php if (!empty($_column_attr)) : echo ' ' . $_column_attr; endif; ?>>
+          <?php
+          if (is_array($column) && !empty($column['content'])) {
+            echo $column['content'];
+          } else {
+            echo $column;
+          }
+          ?>
         </div>
       <?php endforeach; ?>
     </div>
