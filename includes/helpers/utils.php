@@ -277,13 +277,19 @@ if (!function_exists('codetot_build_content_block')) {
 
     ob_start();
     printf('<%s class="%s">', $block_tag, $_class);
-    if (isset($args['enable_container'])) {
-      printf('<div class="%s %s__container">', codetot_site_container(), $prefix_class);
-    }
-    echo implode('' . PHP_EOL, $output_elements);
-    if (isset($args['enable_container'])) {
+    if (isset($args['enable_container'])) : printf('<div class="%s %s__container">', codetot_site_container(), $prefix_class); endif;
+
+    if (!empty($args['before_content']) ) :
+      echo $args['before_content'];
+    endif;
+    echo implode('', $output_elements);
+
+    if (!empty($args['after_content']) ) :
+      echo $args['after_content'];
+    endif;
+    if (isset($args['enable_container'])) :
       printf('</div>');
-    }
+    endif;
     printf('</%s>', $block_tag);
     return ob_get_clean();
   }
