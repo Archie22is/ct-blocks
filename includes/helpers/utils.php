@@ -248,8 +248,7 @@ if (!function_exists('codetot_build_content_block')) {
    * @param $prefix_class
    * @return false|string
    */
-  function codetot_build_content_block($args, $prefix_class)
-  {
+  function codetot_build_content_block($args, $prefix_class) {
     $output_elements = [];
     $title_tag = (!empty($args['title_tag']) ? $args['title_tag'] : 'h2');
     $block_tag = (!empty($args['block_tag']) ? $args['block_tag'] : 'header');
@@ -259,7 +258,7 @@ if (!function_exists('codetot_build_content_block')) {
     }
 
     if (!empty($args['title'])) {
-      $output_elements['title'] = sprintf('<%1$s class="%2$s__title">%3$s</%4$s>',
+      $output_elements['label'] = sprintf('<%1$s class="%2$s__title">%3$s</%4$s>',
         $title_tag,
         $prefix_class,
         $args['title'],
@@ -277,13 +276,19 @@ if (!function_exists('codetot_build_content_block')) {
 
     ob_start();
     printf('<%s class="%s">', $block_tag, $_class);
-    if (isset($args['enable_container'])) {
-      printf('<div class="%s %s__container">', codetot_site_container(), $prefix_class);
-    }
-    echo implode('' . PHP_EOL, $output_elements);
-    if (isset($args['enable_container'])) {
+    if (isset($args['enable_container'])) : printf('<div class="%s %s__container">', codetot_site_container(), $prefix_class); endif;
+
+    if (!empty($args['before_content']) ) :
+      echo $args['before_content'];
+    endif;
+    echo implode('', $output_elements);
+
+    if (!empty($args['after_content']) ) :
+      echo $args['after_content'];
+    endif;
+    if (isset($args['enable_container'])) :
       printf('</div>');
-    }
+    endif;
     printf('</%s>', $block_tag);
     return ob_get_clean();
   }
