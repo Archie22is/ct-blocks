@@ -6,8 +6,14 @@ import { initMapScript } from 'lib/scripts'
 export default el => {
   // Map elements
   const mapEl = select('.js-map', el)
-  const defaultZoom = mapEl && getData('default-zoom', mapEl ? parseInt(getData('default-zoom', mapEl)) : 14
-  const clickedZoom = mapEl && getData('clicked-zoom', mapEl) ? parseInt(getData('clicked-zoom', mapEl)) : 18
+  const defaultZoom =
+    mapEl && getData('default-zoom', mapEl)
+      ? parseInt(getData('default-zoom', mapEl))
+      : 14
+  const clickedZoom =
+    mapEl && getData('clicked-zoom', mapEl)
+      ? parseInt(getData('clicked-zoom', mapEl))
+      : 18
   const mapMarkerEl = mapEl ? select('.js-marker', mapEl) : null
   let mapObj = null
   let loaded = false
