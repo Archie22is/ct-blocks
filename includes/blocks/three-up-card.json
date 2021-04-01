@@ -109,7 +109,7 @@
             "key": "field_5fa9as58471dc",
             "label": "Button URL",
             "name": "button_url",
-            "type": "url",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,

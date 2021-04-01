@@ -248,8 +248,7 @@ if (!function_exists('codetot_build_content_block')) {
    * @param $prefix_class
    * @return false|string
    */
-  function codetot_build_content_block($args, $prefix_class)
-  {
+  function codetot_build_content_block($args, $prefix_class) {
     $output_elements = [];
     $title_tag = (!empty($args['title_tag']) ? $args['title_tag'] : 'h2');
     $block_tag = (!empty($args['block_tag']) ? $args['block_tag'] : 'header');
@@ -259,7 +258,7 @@ if (!function_exists('codetot_build_content_block')) {
     }
 
     if (!empty($args['title'])) {
-      $output_elements['title'] = sprintf('<%1$s class="%2$s__title">%3$s</%4$s>',
+      $output_elements['label'] = sprintf('<%1$s class="%2$s__title">%3$s</%4$s>',
         $title_tag,
         $prefix_class,
         $args['title'],
