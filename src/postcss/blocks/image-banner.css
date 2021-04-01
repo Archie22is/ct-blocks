@@ -1,35 +1,29 @@
 .image-banner {
   position: relative;
-  display: block;
-  width: 100%;
 
-  @media (--m) {
-    &:hover {
+  &:hover {
+    @media (--m) {
       & .image-banner__image::after {
-        background: rgba(0, 0, 0, 0.56);
+        background-color: rgba(0, 0, 0, 0.25);
       }
     }
   }
 }
 
+.image-banner--radius {
+  border-radius: 6px;
+  overflow: hidden;
+}
+
 .image-banner__image {
-  @mixin ratio 9/16;
-  @mixin image-overlay 0.35;
-
-  width: 100%;
-  z-index: 1;
-
-  &::after {
-    transition: background-color 0.3s;
+  & img.image__img {
+    position: static;
+    width: 100%;
   }
 }
 
-.image-banner__content {
+.image-banner__link {
   @mixin abs-full;
-  @mixin flex-center;
 
-  width: 100%;
-  padding: 1em;
-  color: var(--white);
-  z-index: 2;
+  z-index: 3;
 }

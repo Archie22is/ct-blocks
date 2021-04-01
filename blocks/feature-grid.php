@@ -48,14 +48,14 @@ if (!empty($items)) :
   if ($layout === 'column') {
     the_block('default-section', array(
       'class' => $_class,
-      'header' => (!empty($title) || !empty($descriptiom)) ? $header : false,
+      'header' => (!empty($title) || !empty($description)) ? $header : false,
       'content' => $content
     ));
   } else {
     the_block('sidebar-section', array(
       'class' => $_class,
       'content' => $content,
-      'sidebar' => (!empty($title) || !empty($descriptiom)) ? $header : false,
+      'sidebar' => (!empty($title) || !empty($description)) ? $header : false,
     ));
   }
 endif;
