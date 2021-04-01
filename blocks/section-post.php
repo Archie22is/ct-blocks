@@ -19,9 +19,13 @@ if (!empty($label) || !empty($title) || !empty($description)) {
   ), 'section-post');
 }
 
+$card_style = 'style-' . get_global_option('codetot_woocommerce_product_card_style');
+
 if ($post_query->have_posts()) :
   while ($post_query->have_posts())  : $post_query->the_post();
-    $columns[] = get_block('post-card');
+    $columns[] = get_block('post-card', array(
+      'card_style' => !empty($card_style) ? $card_style : 'style-1'
+    ));
   endwhile; wp_reset_postdata();
 endif;
 
