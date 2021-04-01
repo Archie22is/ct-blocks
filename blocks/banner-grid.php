@@ -84,7 +84,7 @@ if (!empty($items)) :
   the_block('default-section', array(
     'class' => $_class,
     'attributes' => ($layout === 'slider') ? ' data-ct-block="slider"' : '',
-    'header' => (!empty($title) || !empty($descriptiom)) ? $header : false,
+    'header' => (!empty($title) || !empty($description)) ? $header : false,
     'content' => $content
   ));
 endif;
