@@ -5,11 +5,14 @@ $is_full_screen = !empty($enable_full_screen_layout) ? ' image-row--full-screen'
 $_class = 'image-row';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 $_class .= !empty($block_preset) ? ' image-row--' . esc_attr($block_preset) : '';
-$_class .= !empty($columns) ? ' image-row--' . count($columns) . '-columns' : '';
 $_class .= !empty($space_between) ? ' image-row--space-between' : '';
 $_class .= !empty($image_zoom) ? ' image-row--image-zoom' : '';
 $_class .= !empty($enable_slideshow) ? ' image-row--has-slider' : '';
-$_class .= !empty($header_alignment) ? ' image-row--'.  $header_alignment : '';
+$_class .= !empty($header_alignment) ? ' is-header-' .  $header_alignment : '';
+$_class .= !empty($enable_full_screen_layout) ? ' default-section--no-container' : '';
+
+$_attr = ' data-aos="fade-up"';
+$_attr .= ' data-ct-block="image-row"';
 
 if (!empty($enable_slideshow)) :
   $carousel_settings = array(
@@ -17,42 +20,48 @@ if (!empty($enable_slideshow)) :
     'pageDots' => false
   );
 endif;
-?>
-<div class="<?php echo $_class; ?> <?php if (!empty($is_full_screen)) : echo $is_full_screen; endif; ?>"
-     data-aos="fade-up" <?php echo !empty($enable_slideshow) ? 'data-ct-block="image-row"' : ''; ?>>
-  <div class="<?php echo $container; ?> image-row__container">
-    <div class="image-row__wrapper">
-      <div class="grid image-row__grid">
-        <?php if (!empty($title)) : ?>
-          <div class="image-row__header">
-            <h2 class="h2 image-row__title" data-aos="fade-up"><?php echo $title; ?></h2>
-          </div>
-        <?php endif; ?>
-      </div>
-      <div class="grid image-row__grid">
-        <?php if (!empty($enable_slideshow)) : ?>
-        <div class="image-row__slider js-slider" <?php if (!empty($carousel_settings)) : ?> data-carousel='<?= json_encode($carousel_settings); ?>'<?php endif; ?> style="width: 100%">
-        <?php endif; ?>
 
-          <?php foreach ($columns as $key => $column) : ?>
-            <div class="grid__col image-row__col image-row__col--<?php echo $column['column_width']; ?>">
-              <a class="image-row__link fancybox"
-                 href="<?php echo (!empty($image_zoom)) ? esc_url($column['image']['url']) : (!empty($column['url']) ? $column['url'] : 'javascript:void(0)'); ?>" <?php echo (!empty($image_zoom)) ? 'data-fancybox="img"' : '' ?>>
-                <?php the_block('image', array(
-                  'image' => $column['image']['ID'],
-                  'class' => 'image--cover image-row__image js-image'
-                )); ?>
-                <?php if (!empty($image_zoom)) : ?>
-                  <?php codetot_svg('zoom', true); ?>
-                <?php endif; ?>
-              </a>
-            </div>
-          <?php endforeach; ?>
+if (!empty($title)) {
+  $header = codetot_build_content_block(array(
+    'class' => 'section-header',
+    'alignment' => $header_alignment,
+    'title' => $title,
+  ), 'image-row');
+}
 
-        <?php if (!empty($enable_slideshow)) : ?>
-        </div>
-        <?php endif; ?>
-      </div>
-    </div>
-  </div>
-</div>
+// Main Content
+$_columns = !empty($columns) ? array_map(function ($item) {
+  return array(
+    'content' => get_block('image-banner', array(
+      'image' => $item['image'],
+      'url' => $item['url']
+    )),
+    'class' => 'image-row__col--' . $item['column_width']
+  );
+}, $columns) : [];
+
+if (!empty($enable_slideshow)) :
+
+  ob_start();
+  printf('<div class="image-row__slider js-slider" data-carousel="%s">', json_encode($carousel_settings));
+  foreach ($_columns as $item) {
+    printf('<div class="image-row__item">%s</div>', $item);
+  }
+  echo '</div>';
+  $content = ob_get_clean();
+
+else :
+
+  $content = codetot_build_grid_columns($_columns, 'image-row', array(
+    'column_attributes' => 'data-aos="fade-up"',
+    'column_class' => 'default-section__col image-row__col'
+  ));
+
+endif;
+
+the_block('default-section', array(
+  'class' => $_class,
+  'attributes' => ' data-ct-block="image-row"',
+  'header' => (!empty($title) || !empty($description)) ? $header : false,
+  'content' => $content
+));
