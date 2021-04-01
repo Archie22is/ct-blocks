@@ -1,28 +1,23 @@
-<?php
-
-$_class = 'image-banner';
-$_class .= !empty($class) ? ' ' . $class : '';
-if (!empty($image)) :
-  ob_start();
-  printf('<div class="image-banner__wrapper">%s</div>', get_block('image', array(
-    'image' => $image,
-    'class' => 'image--cover image-banner__image',
-    'lazyload' => false
-  )));
-  printf('<div class="image-banner__content"><div class="image-banner__inner">%s</div></div>', $content);
-  $_content = ob_get_clean();
-  if (!empty($_content)) :
-  ?>
-    <?php if (!empty($url)) :
-      $_class .= ' image-banner--has-link';
-      ?>
-      <a class="<?php echo $_class; ?>" href="<?php echo $url; ?>">
-        <?php echo $_content; ?>
-      </a>
-    <?php else : ?>
-      <div class="<?php echo $_class; ?>">
-        <?php echo $_content; ?>
-      </div>
-    <?php endif; ?>
+<div class="image-banner<?php if (!empty($class)) : echo ' ' . $class; endif; ?>">
+  <?php if (!empty($url)) : ?>
+    <a class="image-banner__link" href="<?php echo $url; ?>" title="<?php _e('Open a link', 'codetot'); ?>"></a>
   <?php endif; ?>
-<?php endif; ?>
+  <?php if (!empty($image)) : ?>
+    <picture class="image image--cover image-banner__image">
+      <?php
+      if (is_array($image)) {
+        $image = $image['ID'];
+      }
+      $mobile_image = wp_get_attachment_image_src($image, 'medium', null);
+      $desktop_image = wp_get_attachment_image_src($image, 'full', null);
+      printf('<source srcset="%1$s" media="(min-width: 376px)">', $desktop_image[0]);
+      printf('<img class="image__img" src="%1$s" width="%2$s" height="%3$s" alt="%4$s">',
+        $mobile_image[0],
+        $mobile_image[1],
+        $mobile_image[2],
+        ''
+      );
+      ?>
+    </picture>
+  <?php endif; ?>
+</div>

@@ -1,10 +1,10 @@
-.image-row {
-  padding: 0 0 2em;
-}
-
 .image-row__col {
   width: 100%;
   margin-top: 1.5em;
+
+  @media (--s) {
+    margin-top: 0;
+  }
 }
 
 .image-row__link {
@@ -69,8 +69,9 @@
 }
 
 .image-row__col--50 {
-  @media (--s) {
+  @media (--xs) {
     width: 50%;
+    margin-top: 0;
   }
 }
 
@@ -156,10 +157,6 @@
       }
     }
   }
-}
-
-.image-row__header {
-  max-width: 500px;
 }
 
 .image-row--center {

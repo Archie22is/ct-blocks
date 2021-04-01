@@ -68,6 +68,6 @@ the_block('default-section', array(
   'id' => !empty($id) ? $id : '',
   'attributes' => ' data-ct-block="logo-grid"',
   'class' => $_class,
-  'header' => (!empty($title) || !empty($descriptiom)) ? $header : false,
+  'header' => (!empty($title) || !empty($description)) ? $header : false,
   'content' => $content
 ));

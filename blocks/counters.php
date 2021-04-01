@@ -49,7 +49,7 @@ if (!empty($counters)) :
       'id' => !empty($id) ? esc_attr($id) : '',
       'attributes' => ' data-ct-block="counters" data-aos="fade-up"',
       'class' => $_class,
-      'header' => (!empty($title) || !empty($descriptiom)) ? $header : false,
+      'header' => (!empty($title) || !empty($description)) ? $header : false,
       'content' => $content
     ));
   } else {
@@ -57,7 +57,7 @@ if (!empty($counters)) :
       'id' => !empty($id) ? esc_attr($id) : '',
       'attributes' => ' data-ct-block="counters" data-aos="fade-up"',
       'class' => $_class,
-      'sidebar' => (!empty($title) || !empty($descriptiom)) ? $header : false,
+      'sidebar' => (!empty($title) || !empty($description)) ? $header : false,
       'content' => $content
     ));
   }
