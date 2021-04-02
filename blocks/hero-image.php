@@ -23,21 +23,6 @@ if (!empty($image)) :
       <div class="hero-image__overlay" style="background-color: rgba(0, 0, 0, <?php echo esc_attr($_overlay); ?>);"></div>
     <?php endif; ?>
     <?php
-    // $image_src_mb = wp_get_attachment_image_src($image['image']['ID'], 'full', null);
-    // $image_src_dk= wp_get_attachment_image_src($image['image_mobile']['ID'], 'full', null);
-
-    $mobile_image_size = wp_get_attachment_image_src($image['ID'], 'medium', null);
-    $mobile_image_srcset = wp_get_attachment_image_srcset($image['ID'], ' codetot-small');
-    $large_image_size = wp_get_attachment_image_src($image['ID'], 'large', null);
-    $desktop_image_size = wp_get_attachment_image_src($image['ID'], 'full', null);
-
-    $image_alt = get_post_meta($image['ID'], '_wp_attachment_image_alt', true);
-
-    printf('<source srcset="%1$s" media="%2$s">', $mobile_image_size[0], '(min-width: 375px)');
-    printf('<source srcset="%1$s" media="%2$s">', $large_image_size[0], '(min-width: 768px)');
-    printf('<source srcset="%1$s" media="%2$s">', $desktop_image_size[0], '(min-width: 1024px)');
-
-
     if (!empty($mobile_image)) {
       $mobile_image_src = wp_get_attachment_image_src($mobile_image['ID'], 'full', null);
       $mobile_image_alt = get_post_meta($mobile_image['ID'], '_wp_attachment_image_alt', true);
@@ -50,7 +35,15 @@ if (!empty($image)) :
         'image__img'
       );
     } else {
-      printf('<img data-sizes="auto ahihi" src="%1$s" alt="%2$s" width="%3$s" height="%4$s" class="%5$s">',
+      $mobile_image_size = wp_get_attachment_image_src($image['ID'], 'medium', null);
+      $large_image_size = wp_get_attachment_image_src($image['ID'], 'large', null);
+      $desktop_image_size = wp_get_attachment_image_src($image['ID'], 'full', null);
+      $image_alt = get_post_meta($image['ID'], '_wp_attachment_image_alt', true);
+
+      printf('<source srcset="%1$s" media="%2$s">', $mobile_image_size[0], '(max-width: 375px)');
+      printf('<source srcset="%1$s" media="%2$s">', $large_image_size[0], '(max-width: 1024px)');
+
+      printf('<img data-sizes="auto" src="%1$s" alt="%2$s" width="%3$s" height="%4$s" class="%5$s">',
         $desktop_image_size[0],
         $image_alt,
         $desktop_image_size[1],
