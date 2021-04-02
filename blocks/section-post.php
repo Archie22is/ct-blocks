@@ -21,7 +21,9 @@ if (!empty($label) || !empty($title) || !empty($description)) {
 
 if ($post_query->have_posts()) :
   while ($post_query->have_posts())  : $post_query->the_post();
-    $columns[] = get_block('post-card');
+    $columns[] = get_block('post-card', array(
+      'card_style' => !empty($post_card_style) ? $post_card_style : 'style-1'
+    ));
   endwhile; wp_reset_postdata();
 endif;
 
