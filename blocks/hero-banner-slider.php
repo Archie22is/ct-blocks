@@ -54,8 +54,12 @@ if (!empty($items)) : ?>
       <div class="hero-banner__slider-nav js-slider-nav" data-options='<?php echo json_encode($carousel_settings_nav); ?>'>
         <?php foreach ($navItems as $navItem) : ?>
           <div class="hero-banner__slider-nav-item">
-            <p class="label-text bold-text hero-banner__slider-nav-label"><?php echo $navItem['label']; ?></p>
-            <p class="hero-banner__slider-nav-title"><?php echo $navItem['title']; ?></p>
+          <?php if (!empty($navItem['label'])) : ?>
+              <p class="label-text bold-text hero-banner__slider-nav-label"><?php echo $navItem['label']; ?></p>
+            <?php endif; ?>
+            <?php if (!empty($navItem['title'])) : ?>
+              <p class="hero-banner__slider-nav-title"><?php echo $navItem['title']; ?></p>
+            <?php endif; ?>
           </div>
         <?php endforeach; ?>
       </div>
