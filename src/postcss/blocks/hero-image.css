@@ -22,7 +22,6 @@
 }
 
 .hero-image__image {
-
   & img.image__img {
     position: static;
     max-width: 100%;
