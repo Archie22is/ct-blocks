@@ -16,7 +16,7 @@ if (!empty($menu_obj)) :
         'menu' => $menu_id,
         'container' => false,
         'menu_class' => 'hero-banner__menu',
-        'depth' => 1
+        'depth' => 2
       )); ?>
     </div>
   </div>
