@@ -411,7 +411,7 @@
       @media (--m) {
         @mixin fade-out;
 
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         left: -4px;
