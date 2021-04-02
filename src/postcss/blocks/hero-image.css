@@ -22,8 +22,6 @@
 }
 
 .hero-image__image {
-  position: relative;
-  display: flex;
 
   & img.image__img {
     position: static;
