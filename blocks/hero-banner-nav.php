@@ -8,7 +8,6 @@ if (!empty($menu_obj)) :
 ?>
   <div class="hero-banner__nav">
     <div class="hero-banner__nav-header">
-      <span class="hero-banner__nav-icon fa fa-bars" aria-hidden="true"></span>
       <p class="hero-banner__nav-title"><?php echo $menu_title; ?></p>
     </div>
     <div class="hero-banner__nav-list">
@@ -16,7 +15,7 @@ if (!empty($menu_obj)) :
         'menu' => $menu_id,
         'container' => false,
         'menu_class' => 'hero-banner__menu',
-        'depth' => 1
+        'depth' => 2
       )); ?>
     </div>
   </div>
