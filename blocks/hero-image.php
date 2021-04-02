@@ -23,11 +23,6 @@ if (!empty($image)) :
       <div class="hero-image__overlay" style="background-color: rgba(0, 0, 0, <?php echo esc_attr($_overlay); ?>);"></div>
     <?php endif; ?>
     <?php
-    $image_src = wp_get_attachment_image_src($image['ID'], 'full', null);
-    $image_alt = get_post_meta($image['ID'], '_wp_attachment_image_alt', true);
-
-    printf('<source srcset="%1$s" media="%2$s">', $image_src[0], '(min-width: 375px)');
-
     if (!empty($mobile_image)) {
       $mobile_image_src = wp_get_attachment_image_src($mobile_image['ID'], 'full', null);
       $mobile_image_alt = get_post_meta($mobile_image['ID'], '_wp_attachment_image_alt', true);
@@ -37,15 +32,23 @@ if (!empty($image)) :
         $mobile_image_alt,
         $mobile_image_src[1],
         $mobile_image_src[2],
-        'image__img lazyload'
+        'image__img'
       );
     } else {
+      $mobile_image_size = wp_get_attachment_image_src($image['ID'], 'medium', null);
+      $large_image_size = wp_get_attachment_image_src($image['ID'], 'large', null);
+      $desktop_image_size = wp_get_attachment_image_src($image['ID'], 'full', null);
+      $image_alt = get_post_meta($image['ID'], '_wp_attachment_image_alt', true);
+
+      printf('<source srcset="%1$s" media="%2$s">', $mobile_image_size[0], '(max-width: 375px)');
+      printf('<source srcset="%1$s" media="%2$s">', $large_image_size[0], '(max-width: 1024px)');
+
       printf('<img data-sizes="auto" src="%1$s" alt="%2$s" width="%3$s" height="%4$s" class="%5$s">',
-        $image_src[0],
+        $desktop_image_size[0],
         $image_alt,
-        $image_src[1],
-        $image_src[2],
-        'image__img lazyload'
+        $desktop_image_size[1],
+        $desktop_image_size[2],
+        'image__img'
       );
     }
     ?>
