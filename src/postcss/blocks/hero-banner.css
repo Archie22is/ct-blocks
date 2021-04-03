@@ -43,7 +43,10 @@
 
     & .flickity-viewport {
       flex: 1 1 0;
-      height: auto !important;
+
+      @media (--m) {
+        height: auto !important;
+      }
     }
 
     & .hero-banner__slider-item {
@@ -146,7 +149,6 @@
   flex: 1 1 0;
   display: flex;
   flex-direction: column;
-  min-height: 65vh;
 
   @media (--xs) {
     min-height: 250px;
@@ -182,7 +184,6 @@
   @media (--s) {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -5px;
   }
 
   @media (--m) {
@@ -323,8 +324,17 @@
   }
 }
 
-.hero-banner__slider-nav {
-  height: 110px;
+.hero-banner__slider-nav-item {
+  height: 50px;
+
+  @media (--s) {
+    height: 72px;
+  }
+}
+
+.hero-banner__slider-nav-title {
+  font-weight: 700;
+  font-size: 1.15rem;
 }
 
 .hero-banner--preset-1 {
