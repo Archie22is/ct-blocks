@@ -251,7 +251,8 @@ if (!function_exists('codetot_build_content_block')) {
   function codetot_build_content_block($args, $prefix_class) {
     $output_elements = [];
     $title_tag = (!empty($args['title_tag']) ? $args['title_tag'] : 'h2');
-    $block_tag = (!empty($args['block_tag']) ? $args['block_tag'] : 'header');
+    $block_tag = (!empty($args['block_tag']) ? $args['block_tag'] : 'div');
+    $_class = (!empty($args['default_class'])) ? $args['default_class'] : $prefix_class . '__header';
 
     if (!empty($args['label'])) {
       $output_elements['label'] = sprintf('<p class="%1$s__label">%2$s</p>', $prefix_class, $args['label']);
@@ -270,7 +271,6 @@ if (!function_exists('codetot_build_content_block')) {
       $output_elements['description'] = sprintf('<div class="wysiwyg %1$s__description">%2$s</div>', $prefix_class, $args['description']);
     }
 
-    $_class = $prefix_class . '__header';
     $_class .= !empty($args['alignment']) ? ' ' . $prefix_class . '--' . $args['alignment'] . ' section-header--' . $args['alignment'] : '';
     $_class .= !empty($args['class']) ? ' ' . $args['class'] : '';
 
