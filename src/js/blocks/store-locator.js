@@ -15,13 +15,16 @@ initMapScript(GOOGLE_MAPS_API_KEY)
 
 const $ = jQuery
 
+const LOADINGCLASS = 'is-loading'
+
 const positions = []
 
 export default el => {
   const locationEls = selectAll('.js-data-location', el)
-  const areaEl = select('.js-area', el)
-  const provinceEl = select('.js-province', el)
-  const districtEl = select('.js-district', el)
+  const storeLocatorFormEl = select('.store-locator-form', el)
+  const areaFilterEl = select('.js-area', el)
+  const provinceFilterEl = select('.js-province', el)
+  const districtFilterEl = select('.js-district', el)
   const icons = {
     parking: {
       icon:
@@ -29,17 +32,17 @@ export default el => {
     }
   }
 
-  locationEls.forEach((ele, index) => {
+  locationEls.forEach(ele => {
     const positionEle = {
       position: {
         lat: parseFloat(getData('lat', ele)),
         lng: parseFloat(getData('lng', ele))
       },
       icon: 'parking',
-      content:
-        '<span class="store-locator__marker-title">' +
-        getData('title', ele) +
-        '</span>'
+      content: `<span class="store-locator__marker-title">${getData(
+        'title',
+        ele
+      )}</span>`
     }
 
     positions.push(positionEle)
@@ -55,96 +58,93 @@ export default el => {
 
     const InfoWindows = new google.maps.InfoWindow({})
 
-    positions.forEach(airport => {
+    positions.forEach(positionIndex => {
       const marker = new google.maps.Marker({
-        position: { lat: airport.position.lat, lng: airport.position.lng },
+        position: {
+          lat: positionIndex.position.lat,
+          lng: positionIndex.position.lng
+        },
         map: map,
-        icon: icons[airport.icon].icon
+        icon: icons[positionIndex.icon].icon
       })
 
-      if (marker.getAnimation() !== null) {
-        marker.setAnimation(null)
-      } else {
-        marker.setAnimation(google.maps.Animation.BOUNCE)
-      }
-
-      marker.addListener('click', () => {
+      marker.addListener('click', el => {
         map.setZoom(14)
         map.setCenter(marker.getPosition())
+        InfoWindows.setContent(positionIndex.content)
         InfoWindows.open(map, this)
-        InfoWindows.setContent(airport.content)
       })
+
+      console.log(positionIndex.content)
     })
   }
 
   setTimeout(() => {
     initMap()
-  }, 2000)
+  }, 3000)
 
-  let data = {
-    action: 'filter-store'
+  // Filter
+  const filter = (parentFilterEl, childFilterEl, childClassName) => {
+    $.ajax({
+      beforeSend: () => {
+        addClass(LOADINGCLASS, storeLocatorFormEl)
+      },
+      success: () => {
+        const valueId = $(parentFilterEl).val()
+        const optionChildEls = selectAll('option', childFilterEl)
+
+        if (optionChildEls) {
+          map(optionChildEl => {
+            if (hasClass(`${childClassName}-${valueId}`, optionChildEl)) {
+              removeClass('hide', optionChildEl)
+            } else {
+              addClass('hide', optionChildEl)
+            }
+
+            const selectedDefaultEL = select(
+              `.${childClassName}-${valueId}`,
+              childFilterEl
+            )
+
+            $(childFilterEl).val($(selectedDefaultEL).val()).change()
+          }, optionChildEls)
+        }
+      },
+      complete: () => {
+        removeClass(LOADINGCLASS, storeLocatorFormEl)
+      }
+    })
   }
 
-  console.log(areaEl)
-
-  if (areaEl) {
+  if (areaFilterEl) {
     on(
       'change',
       () => {
-        $.ajax({
-          data: data,
-          success: () => {
-            const valueId = $(areaEl).val()
-            const provinceEls = select('option', provinceEl)
-
-            if (provinceEls) {
-              map((index, province) => {
-                if (hasClass('.js-province-' + valueId, province)) {
-                  removeClass('hide', province)
-                } else {
-                  addClass('hide', province)
-                }
-
-                if (index === 0) {
-                  $(provinceEl).attr('selected', 'true')
-                }
-              }, provinceEls)
-            }
-          }
-        })
+        filter(areaFilterEl, provinceFilterEl, 'js-province')
+        setTimeout(() => {
+          filter(provinceFilterEl, districtFilterEl, 'js-district')
+        }, 10)
       },
-      areaEl
+      areaFilterEl
     )
   }
 
-  if (provinceEl) {
+  if (provinceFilterEl) {
     on(
       'change',
       () => {
-        $.ajax({
-          data: data,
-          success: () => {
-            const valueId = $(provinceEl).val()
-            const districtEls = select('option', districtEl)
-
-            if (districtEls) {
-              map((index, district) => {
-                console.log(district)
-                if (hasClass('.js-district-' + valueId, district)) {
-                  removeClass('hide', district)
-                } else {
-                  addClass('hide', district)
-                }
-
-                if (index === 0) {
-                  $(districtEl).attr('selected', 'true')
-                }
-              }, districtEls)
-            }
-          }
-        })
+        filter(provinceFilterEl, districtFilterEl, 'js-district')
       },
-      provinceEl
+      provinceFilterEl
     )
   }
+
+  on(
+    'load',
+    () => {
+      filter(areaFilterEl, provinceFilterEl, 'js-province')
+      filter(provinceFilterEl, districtFilterEl, 'js-district')
+    },
+    window
+  )
 }

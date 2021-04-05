@@ -11,7 +11,7 @@ $province_args = array(
 $category_province_store = get_terms($category_name, $province_args);
 ?>
 
-<div class="store-locator-form">
+<div class="store-locator-form js-store-locator-form">
   <div class="store-locator-form__area">
     <select name="" id="" class="js-area">
       <?php
