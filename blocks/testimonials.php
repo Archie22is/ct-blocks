@@ -2,21 +2,29 @@
 $container = codetot_site_container();
 
 if (!(empty($block_preset))) :
-  $carousel_settings = array(
-    'contain' => true,
-    'pageDots' => ($block_preset === 'preset-4') ? false : true,
-    'prevNextButtons' => ($block_preset === 'preset-4') ? false : true,
-    'cellAlign' => 'center',
-    'wrapAround' => true
-  );
   if ($block_preset === 'preset-4') :
     $carousel_settings_nav = array(
       'wrapAround' => true,
       'pageDots' => false,
       'contain' => true,
-      'asNavFor' => '.js-slider-main',
       'draggable' => false,
     );
+    $carousel_settings = array(
+      'contain' => true,
+      'pageDots' =>  false,
+      'prevNextButtons' => false,
+      'cellAlign' => 'center',
+      'asNavFor' =>  '.js-slider-nav',
+      'wrapAround' => true
+    );
+    else :
+      $carousel_settings = array(
+        'contain' => true,
+        'pageDots' =>  true,
+        'prevNextButtons' => true,
+        'cellAlign' => 'center',
+        'wrapAround' => true
+      );
   endif;
 endif;
 
