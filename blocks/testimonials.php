@@ -15,7 +15,8 @@ if (!(empty($block_preset))) :
       'prevNextButtons' => false,
       'cellAlign' => 'center',
       'asNavFor' =>  '.js-slider-nav',
-      'wrapAround' => true
+      'wrapAround' => true,
+      'draggable' => false,
     );
     else :
       $carousel_settings = array(
