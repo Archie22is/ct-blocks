@@ -1,0 +1,128 @@
+{
+  "layout_55fcf2eb3392e": {
+    "key": "layout_55fcf2eb3392e",
+    "name": "store_locator",
+    "label": "Store locator",
+    "display": "block",
+    "sub_fields": [
+      {
+        "key": "field_60214b8339ad0",
+        "label": "Class",
+        "name": "class",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_60214b94339d1",
+        "label": "Anchor Name",
+        "name": "anchor_name",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_5fcf3f339149f",
+        "label": "Sidebar",
+        "name": "sidebar",
+        "type": "repeater",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "collapsed": "",
+        "min": 0,
+        "max": 0,
+        "layout": "row",
+        "button_label": "Add Sidebar Item",
+        "sub_fields": [
+          {
+            "key": "field_5fcf3f33914a0",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+          },
+          {
+            "key": "field_5fcf1113914a0",
+            "label": "Address",
+            "name": "address",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+          },
+          {
+            "key": "field_5fcf3f3397749",
+            "label": "Phone",
+            "name": "phone",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+          }
+        ]
+      }
+    ],
+    "min": "",
+    "max": ""
+  }
+}
