@@ -1,19 +1,20 @@
-/* global google, GOOGLE_MAPS_API_KEY */
+/* global jQuery, google, GOOGLE_MAPS_API_KEY */
 import { selectAll, getData } from 'lib/dom'
 import { initMapScript } from 'lib/scripts'
 initMapScript(GOOGLE_MAPS_API_KEY)
 
+const $ = jQuery
+
+const positions = []
+
 export default el => {
   const locationEls = selectAll('.js-data-location', el)
-
-  var icons = {
+  const icons = {
     parking: {
       icon:
         'https://tarantelleromane.files.wordpress.com/2016/10/map-marker.png?w=50'
     }
   }
-
-  const positions = []
 
   locationEls.forEach((ele, index) => {
     const positionEle = {
@@ -31,7 +32,7 @@ export default el => {
     positions.push(positionEle)
   })
 
-  function initMap() {
+  const initMap = () => {
     const uk = positions[0].position
 
     const map = new google.maps.Map(document.getElementById('map'), {
@@ -39,10 +40,10 @@ export default el => {
       center: uk
     })
 
-    var InfoWindows = new google.maps.InfoWindow({})
+    const InfoWindows = new google.maps.InfoWindow({})
 
-    positions.forEach(function (airport) {
-      var marker = new google.maps.Marker({
+    positions.forEach(airport => {
+      const marker = new google.maps.Marker({
         position: { lat: airport.position.lat, lng: airport.position.lng },
         map: map,
         icon: icons[airport.icon].icon
@@ -54,7 +55,7 @@ export default el => {
         marker.setAnimation(google.maps.Animation.BOUNCE)
       }
 
-      marker.addListener('click', function () {
+      marker.addListener('click', () => {
         map.setZoom(14)
         map.setCenter(marker.getPosition())
         InfoWindows.open(map, this)
@@ -66,4 +67,26 @@ export default el => {
   setTimeout(() => {
     initMap()
   }, 2000)
+
+  let data = {
+    action: 'filter-store'
+  }
+
+  $('.js-area select').change(() => {
+    $.ajax({
+      data: data,
+      success: () => {
+        const valueId = $('.js-area select').val()
+        const districtEls = $('.js-province option')
+
+        districtEls.each((e, ele) => {
+          $('.js-province').find('option').addClass('hide')
+          $('.js-province')
+            .find('.js-province-' + valueId)
+            .removeClass('hide')
+          $('.js-province select').val('Select district')
+        })
+      }
+    })
+  })
 }
