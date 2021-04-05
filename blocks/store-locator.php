@@ -11,7 +11,8 @@ $_class = 'store-locator';
 $map_items =['ahihi'];
 $sidebar_columns = !empty($sidebar) ? array_map(function($item) {
   return get_block('store-locator-item', array(
-    'item' => $item
+    'item' => $item,
+    'class' => "js-data-location"
   ));
 }, $sidebar) : [];
 

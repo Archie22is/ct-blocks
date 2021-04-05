@@ -71,7 +71,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-              "width": "",
+              "width": "33",
               "class": "",
               "id": ""
             },
@@ -90,7 +90,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-              "width": "",
+              "width": "33",
               "class": "",
               "id": ""
             },
@@ -109,7 +109,45 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-              "width": "",
+              "width": "34",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+          },
+          {
+            "key": "field_5fcf3f3399981",
+            "label": "LAT",
+            "name": "lat",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "50",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+          },
+          {
+            "key": "field_5fcf3f4416981",
+            "label": "LNG",
+            "name": "lng",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "50",
               "class": "",
               "id": ""
             },

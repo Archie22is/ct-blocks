@@ -45,17 +45,30 @@
   margin-bottom: 1em;
   padding: 0 0 1em;
   border-bottom: 1px dotted var(--dark);
-
-  &:last-child {
-    border-bottom: none;
-  }
 }
 
 .store-locator-item__title {
   font-size: 0.9rem;
   margin-bottom: 0.75em;
+  cursor: pointer;
 }
 
 .store-locator-item__address {
   cursor: pointer;
+}
+
+.store-locator-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2em;
+
+  & > * {
+    flex: 1 1 auto;
+
+    & > * {
+      width: calc(100% - 1em);
+      padding: 0.5em;
+    }
+  }
 }
