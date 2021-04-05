@@ -1,6 +1,16 @@
 /* global jQuery, google, GOOGLE_MAPS_API_KEY */
-import { selectAll, getData } from 'lib/dom'
+import {
+  select,
+  selectAll,
+  getData,
+  on,
+  hasClass,
+  removeClass,
+  addClass
+} from 'lib/dom'
 import { initMapScript } from 'lib/scripts'
+import { map } from 'lib/utils'
+
 initMapScript(GOOGLE_MAPS_API_KEY)
 
 const $ = jQuery
@@ -9,6 +19,9 @@ const positions = []
 
 export default el => {
   const locationEls = selectAll('.js-data-location', el)
+  const areaEl = select('.js-area', el)
+  const provinceEl = select('.js-province', el)
+  const districtEl = select('.js-district', el)
   const icons = {
     parking: {
       icon:
@@ -72,21 +85,66 @@ export default el => {
     action: 'filter-store'
   }
 
-  $('.js-area select').change(() => {
-    $.ajax({
-      data: data,
-      success: () => {
-        const valueId = $('.js-area select').val()
-        const districtEls = $('.js-province option')
+  console.log(areaEl)
 
-        districtEls.each((e, ele) => {
-          $('.js-province').find('option').addClass('hide')
-          $('.js-province')
-            .find('.js-province-' + valueId)
-            .removeClass('hide')
-          $('.js-province select').val('Select district')
+  if (areaEl) {
+    on(
+      'change',
+      () => {
+        $.ajax({
+          data: data,
+          success: () => {
+            const valueId = $(areaEl).val()
+            const provinceEls = select('option', provinceEl)
+
+            if (provinceEls) {
+              map((index, province) => {
+                if (hasClass('.js-province-' + valueId, province)) {
+                  removeClass('hide', province)
+                } else {
+                  addClass('hide', province)
+                }
+
+                if (index === 0) {
+                  $(provinceEl).attr('selected', 'true')
+                }
+              }, provinceEls)
+            }
+          }
         })
-      }
-    })
-  })
+      },
+      areaEl
+    )
+  }
+
+  if (provinceEl) {
+    on(
+      'change',
+      () => {
+        $.ajax({
+          data: data,
+          success: () => {
+            const valueId = $(provinceEl).val()
+            const districtEls = select('option', districtEl)
+
+            if (districtEls) {
+              map((index, district) => {
+                console.log(district)
+                if (hasClass('.js-district-' + valueId, district)) {
+                  removeClass('hide', district)
+                } else {
+                  addClass('hide', district)
+                }
+
+                if (index === 0) {
+                  $(districtEl).attr('selected', 'true')
+                }
+              }, districtEls)
+            }
+          }
+        })
+      },
+      provinceEl
+    )
+  }
 }

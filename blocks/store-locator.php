@@ -31,6 +31,7 @@ $content = codetot_build_grid_columns($maps, 'store-locator', array(
   'column_attributes' => 'data-aos="fade-up"',
   'column_class' => ''
 )); ?>
+<section data-ct-block="store-locator" data-aos="fade-up">
 
 <div class="container">
   <?php the_block('store-locator-form'); ?>
@@ -39,9 +40,10 @@ $content = codetot_build_grid_columns($maps, 'store-locator', array(
 <?php
 the_block('sidebar-section', array(
   'id' => !empty($id) ? esc_attr($id) : '',
-  'attributes' => ' data-ct-block="store-locator" data-aos="fade-up"',
+  'attributes' => ' data-aos="fade-up"',
   'class' => $_class,
   'sidebar' => $sidebar,
   'content' => $content
 ));
 ?>
+</div>

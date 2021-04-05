@@ -1,5 +1,5 @@
 <?php
-
+$category_name = 'store_locator';
 $province_args = array(
   'orderby' => 'menu_order',
   'order' => 'asc',
@@ -8,16 +8,12 @@ $province_args = array(
   'parent' => 0
 );
 
-$category_province_store = get_terms('store_locator', $province_args);
-
-
-foreach ($category_province_store as $category) :
-  // var_dump($category);
-endforeach;
+$category_province_store = get_terms($category_name, $province_args);
 ?>
+
 <div class="store-locator-form">
-  <div class="store-locator-form__area js-area">
-    <select name="" id="">
+  <div class="store-locator-form__area">
+    <select name="" id="" class="js-area">
       <?php
       foreach ($category_province_store as $category) : ?>
         <option value=<?php  echo $category->term_id;?>>
@@ -27,22 +23,37 @@ endforeach;
       ?>
     </select>
   </div>
-  <div class="store-locator-form__province js-province">
-    <select name="" id=""> <?php
+  <div class="store-locator-form__province">
+    <select name="" id="" class="js-province">
+    <?php
       foreach ($category_province_store as $category) {
         $child_arg = array('hide_empty' => false, 'parent' => $category->term_id);
-        $child_cat = get_terms('store_locator', $child_arg);
+        $child_cat = get_terms($category_name, $child_arg);
 
         foreach ($child_cat as $child_term) {
-          echo '<option class="js-province-'.$category->term_id.'">' . $child_term->name . '</option>'; //Child Category
+          echo '<option class="js-province-'.$category->term_id.'"'. 'value="' . $child_term->term_id .'">' . $child_term->name . '</option>'; //Child Category
         }
       }
       ?>
     </select>
   </div>
-  <div class="store-locator-form__district js-district">
-    <select name="" id="">
-      <option value="">Viet Nam</option>
+  <div class="store-locator-form__district">
+    <select name="" id="" class="js-district">
+      <?php
+        foreach ($category_province_store as $category) {
+          $child_arg = array('hide_empty' => false, 'parent' => $category->term_id);
+          $child_cat = get_terms($category_name, $child_arg);
+
+          foreach ($child_cat as $child_term) {
+            $district_arg = array('hide_empty' => false, 'parent' => $child_term->term_id);
+            $district_cat = get_terms($category_name, $district_arg);
+            foreach ($district_cat as $district_term) {
+              echo '<option class="js-district-'.$child_term->term_id.'"'. 'value="' . $district_term->term_id .'">' . $district_term->name . '</option>'; //Child Category
+            }
+          }
+        }
+      ?>
+      ?>
     </select>
   </div>
 </div>
