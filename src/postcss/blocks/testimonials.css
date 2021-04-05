@@ -457,7 +457,7 @@
     padding: 0.5em;
     transition: transform 0.4s;
 
-    @media (--s) {
+    @media (--sm) {
       @mixin column-item 3, 0;
     }
 
