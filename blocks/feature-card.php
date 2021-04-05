@@ -2,7 +2,8 @@
   $default_args = array(
     'title' => $title,
     'description' => !empty($description) ? $description : '',
-    'title_tag' => 'h3'
+    'title_tag' => 'h3',
+    'block_tag' => 'div'
   );
 
   $_content_args = !empty($content_args) ? wp_parse_args($content_args, $default_args) : $default_args;
