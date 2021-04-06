@@ -52,6 +52,7 @@ class Codetot_Block_Two_Up_Intro extends Codetot_Base_Block implements Codetot_B
       'block_preset',
       'content_alignment',
       'image',
+      'image_size',
       'image_position',
       'label',
       'title',

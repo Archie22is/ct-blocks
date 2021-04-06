@@ -15,6 +15,8 @@ $_class .= !empty($background_type) && $background_type !== 'white' ? ' section-
 $_class .= !empty($content_alignment) ? ' two-up-intro--alignment-' . esc_attr($content_alignment) : '';
 $_class .= !empty($image_position) ? ' two-up-intro--image-' . esc_attr($image_position) : '';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
+$_image_size = 'two-up-intro__image';
+$_image_size .= !empty($image_size) ? ' image--' . $image_size : 'image--cover';
 
 $container = codetot_site_container();
 if (!empty($image) || !empty($content)) :
@@ -22,12 +24,12 @@ if (!empty($image) || !empty($content)) :
   <section class="<?php echo $_class; ?>">
     <div class="two-up-intro__wrapper">
       <div class="<?php echo $container; ?> two-up-intro__container">
-        <div class="two-up-intro__grid">
+        <div class="f fw two-up-intro__grid">
           <?php if (!empty($image)) : ?>
             <div class="two-up-intro__col two-up-intro__col--image" data-aos="fade-up">
               <?php the_block('image', array(
                 'image' => $image,
-                'class' => 'image--cover two-up-intro__image'
+                'class' => $_image_size
               )); ?>
             </div>
           <?php endif; ?>
