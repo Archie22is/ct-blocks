@@ -106,7 +106,9 @@ export default el => {
               childFilterEl
             )
 
-            $(childFilterEl).val($(selectedDefaultEL).val()).change()
+            $(childFilterEl)
+              .val($(selectedDefaultEL).val())
+              .change()
           }, optionChildEls)
         }
         // const areaFilterValue = $(areaFilterEl).val()
