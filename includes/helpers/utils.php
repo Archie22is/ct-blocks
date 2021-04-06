@@ -386,3 +386,15 @@ if (!function_exists('codetot_build_slider_block')) {
     return ob_get_clean();
   }
 }
+
+if (!function_exists('codetot_get_min_max_numbers')) {
+  function codetot_get_min_max_numbers($items) {
+    $min_columns = array_column($items, 'min');
+    $max_columns = array_column($items, 'max');
+
+    return array(
+      'min' => min($min_columns),
+      'max' => max($max_columns)
+    );
+  }
+}
