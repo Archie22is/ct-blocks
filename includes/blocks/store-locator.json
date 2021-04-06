@@ -63,67 +63,10 @@
         "button_label": "Add Sidebar Item",
         "sub_fields": [
           {
-            "key": "field_5fcf3f33914a0",
-            "label": "Title",
-            "name": "title",
+            "key": "field_5fcf3f44164a0",
+            "label": "Class",
+            "name": "class",
             "type": "text",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-              "width": "33",
-              "class": "",
-              "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-          },
-          {
-            "key": "field_5fcf1113914a0",
-            "label": "Address",
-            "name": "address",
-            "type": "text",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-              "width": "33",
-              "class": "",
-              "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-          },
-          {
-            "key": "field_5fcf3f3397749",
-            "label": "Phone",
-            "name": "phone",
-            "type": "text",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-              "width": "34",
-              "class": "",
-              "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-          },
-          {
-            "key": "field_5fcf3f3399981",
-            "label": "LAT",
-            "name": "lat",
-            "type": "number",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -139,10 +82,10 @@
             "maxlength": ""
           },
           {
-            "key": "field_5fcf3f4416981",
-            "label": "LNG",
-            "name": "lng",
-            "type": "number",
+            "key": "field_5fcf3f33914a0",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,

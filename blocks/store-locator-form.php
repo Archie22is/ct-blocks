@@ -9,51 +9,38 @@ $province_args = array(
 );
 
 $category_province_store = get_terms($category_name, $province_args);
+
+$levels = ['area', 'province', 'district'];
 ?>
 
 <div class="store-locator-form js-store-locator-form">
-  <div class="store-locator-form__area">
-    <select name="" id="" class="js-area">
-      <?php
-      foreach ($category_province_store as $category) : ?>
-        <option value=<?php  echo $category->term_id;?>>
-          <?php  echo $category->name;?>
-        </option>
-      <?php endforeach;
-      ?>
-    </select>
-  </div>
-  <div class="store-locator-form__province">
-    <select name="" id="" class="js-province">
-    <?php
-      foreach ($category_province_store as $category) {
-        $child_arg = array('hide_empty' => false, 'parent' => $category->term_id);
-        $child_cat = get_terms($category_name, $child_arg);
 
-        foreach ($child_cat as $child_term) {
-          echo '<option class="js-province-'.$category->term_id.'"'. 'value="' . $child_term->term_id .'">' . $child_term->name . '</option>'; //Child Category
-        }
-      }
-      ?>
-    </select>
-  </div>
-  <div class="store-locator-form__district">
-    <select name="" id="" class="js-district">
-      <?php
-        foreach ($category_province_store as $category) {
-          $child_arg = array('hide_empty' => false, 'parent' => $category->term_id);
-          $child_cat = get_terms($category_name, $child_arg);
-
-          foreach ($child_cat as $child_term) {
-            $district_arg = array('hide_empty' => false, 'parent' => $child_term->term_id);
-            $district_cat = get_terms($category_name, $district_arg);
-            foreach ($district_cat as $district_term) {
-              echo '<option class="js-district-'.$child_term->term_id.'"'. 'value="' . $district_term->term_id .'">' . $district_term->name . '</option>'; //Child Category
+  <?php foreach ($levels as $level) { ?>
+    <div class="store-locator-form__<?php echo $level ?> select-wrapper">
+      <select class="js-<?php echo $level ?> store-locator-form__select">
+        <?php
+        foreach ($category_province_store as $category) : ?>
+          <?php
+          $child_args = array('hide_empty' => false, 'parent' => $category->term_id);
+          $child_cat = get_terms($category_name, $child_args);
+          if ($level === 'area') {
+            printf('<option value="%1$s">%2$s</option>', $category->term_id, $category->name);
+          } else {
+            foreach ($child_cat as $child_term) {
+              if ($level === 'province') {
+                printf('<option class="js-province-%1$s" value="%2$s">%3$s</option>', $category->term_id, $child_term->term_id, $child_term->name);
+              } else {
+                $district_args = array('hide_empty' => false, 'parent' => $child_term->term_id);
+                $district_cat = get_terms($category_name, $district_args);
+                foreach ($district_cat as $district_term) {
+                  printf('<option class="js-district-%1$s" value="%2$s">%3$s</option>', $child_term->term_id, $district_term->term_id, $district_term->name);
+                }
+              }
             }
           }
-        }
-      ?>
-      ?>
-    </select>
-  </div>
+        endforeach;
+        ?>
+      </select>
+    </div>
+  <?php }; ?>
 </div>

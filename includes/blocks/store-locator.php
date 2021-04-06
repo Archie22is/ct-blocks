@@ -43,11 +43,10 @@ class Codetot_Block_Store_Locator extends Codetot_Base_Block implements Codetot_
 
     $this->block_name = 'store-locator';
     $this->block_slug = 'store_locator';
-    $this->block_title = __('Store Locator', 'codetot');
+    $this->block_title = __('Store Locator', 'ct-blocks');
     $this->fields = [
       'class',
-      'anchor_name',
-      'sidebar'
+      'title'
     ];
 
     parent::__construct();

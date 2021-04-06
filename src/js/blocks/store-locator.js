@@ -15,9 +15,9 @@ initMapScript(GOOGLE_MAPS_API_KEY)
 
 const $ = jQuery
 
-const LOADINGCLASS = 'is-loading'
+const LOADING_CLASS = 'is-loading'
 
-const positions = []
+let positions = []
 
 export default el => {
   const locationEls = selectAll('.js-data-location', el)
@@ -33,6 +33,7 @@ export default el => {
   }
 
   locationEls.forEach(ele => {
+    // Filter form
     const positionEle = {
       position: {
         lat: parseFloat(getData('lat', ele)),
@@ -47,6 +48,7 @@ export default el => {
 
     positions.push(positionEle)
   })
+  console.log(positions)
 
   const initMap = () => {
     const uk = positions[0].position
@@ -74,8 +76,6 @@ export default el => {
         InfoWindows.setContent(positionIndex.content)
         InfoWindows.open(map, this)
       })
-
-      console.log(positionIndex.content)
     })
   }
 
@@ -87,7 +87,7 @@ export default el => {
   const filter = (parentFilterEl, childFilterEl, childClassName) => {
     $.ajax({
       beforeSend: () => {
-        addClass(LOADINGCLASS, storeLocatorFormEl)
+        addClass(LOADING_CLASS, storeLocatorFormEl)
       },
       success: () => {
         const valueId = $(parentFilterEl).val()
@@ -109,9 +109,28 @@ export default el => {
             $(childFilterEl).val($(selectedDefaultEL).val()).change()
           }, optionChildEls)
         }
+        // const areaFilterValue = $(areaFilterEl).val()
+        // const provinceFilterValue = $(provinceFilterEl).val()
+        // const districtFilterValue = $(districtFilterEl).val()
+
+        // console.log(areaFilterValue)
+        // console.log(provinceFilterValue)
+        // console.log(districtFilterValue)
+
+        // locationEls.forEach(ele => {
+        //   const tempData = getData('categories', ele).split(' ')
+
+        //   if (
+        //     tempData.includes(areaFilterValue) &&
+        //     tempData.includes(provinceFilterValue) &&
+        //     tempData.includes(districtFilterValue)
+        //   ) {
+        //     addClass('show', ele)
+        //   }
+        // })
       },
       complete: () => {
-        removeClass(LOADINGCLASS, storeLocatorFormEl)
+        removeClass(LOADING_CLASS, storeLocatorFormEl)
       }
     })
   }
