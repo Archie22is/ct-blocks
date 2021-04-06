@@ -5,6 +5,7 @@ import {
   addClass,
   removeClass,
   getData,
+  trigger,
   inViewPort
 } from 'lib/dom'
 import { map } from 'lib/utils'
@@ -71,5 +72,13 @@ export default el => {
       updateItemInstance()
     },
     sliderRangeEl
+  )
+
+  on(
+    'load',
+    e => {
+      trigger('change', sliderRangeEl)
+    },
+    window
   )
 }
