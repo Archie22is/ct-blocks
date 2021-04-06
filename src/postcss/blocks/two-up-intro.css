@@ -12,14 +12,6 @@
   @media (--s) {
     padding: 2em;
   }
-
-  @media (--m) {
-    padding: 4em;
-  }
-
-  @media (--ml) {
-    padding: 8em 4em;
-  }
 }
 
 .two-up-intro__footer {
