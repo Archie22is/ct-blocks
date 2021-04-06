@@ -42,6 +42,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  transition: all 0.3s;
 
   &.is-active {
     @mixin fade-in;
@@ -65,5 +66,124 @@
     &::before {
       content: '/';
     }
+  }
+}
+
+.pricing-calculator.is-content-alignment-center {
+  & .pricing-calculator__inner {
+    text-align: center;
+  }
+
+  & .noUi-target.pricing-calculator__range {
+    width: 75%;
+  }
+}
+
+.pricing-calculator.is-preset-1 {
+  & .pricing-calculator__inner {
+    padding: 4em 3em;
+    background: var(--white);
+    box-shadow: 0 0 49px -10px rgba(0, 0, 0, 0.2);
+
+    @media (--s) {
+      flex: 1 1 auto;
+    }
+  }
+
+  & .pricing-calculator__col {
+    @media (--s) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.pricing-calculator.is-preset-2 {
+  & .pricing-calculator__inner {
+    padding-bottom: 1em;
+    background: var(--white);
+    border: 1px solid var(--border);
+
+    @media (--s) {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+    }
+  }
+
+  & .pricing-calculator__range-slider {
+    width: 100%;
+  }
+
+  & .pricing-calculator__content {
+    @media (--s) {
+      display: flex;
+      flex-direction: column;
+      align-items: space-between;
+      flex: 1 1 0;
+      padding: 1em 0;
+    }
+  }
+
+  & .pricing-calculator__col {
+    @media (--s) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  & .pricing-calculator__sub-title {
+    margin-bottom: 0;
+    padding: 0.5em;
+    background: var(--dark);
+    color: var(--white);
+  }
+
+  & .pricing-calculator__cta,
+  & .pricing-calculator__left-intro,
+  & .pricing-calculator__right-intro {
+    padding: 0 20px;
+  }
+
+  & .pricing-calculator__left-intro {
+    @media (--s) {
+      margin-top: auto;
+    }
+  }
+
+  & .pricing-calculator__qty {
+    @mixin h1;
+  }
+}
+
+.pricing-calculator.is-preset-3 {
+  & .default-section__container--main {
+    @media (--s) {
+      max-width: var(--m);
+    }
+  }
+
+  & .pricing-calculator__grid {
+    @media (--s) {
+      margin: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+    }
+  }
+
+  & .pricing-calculator__col {
+    @media (--s) {
+      padding: 1em;
+
+      &:nth-child(2) {
+        border-left: 1px solid var(--border);
+      }
+    }
+  }
+
+  & .pricing-calculator__left-intro,
+  & .pricing-calculator__right-intro {
+    color: var(--dark);
+    opacity: 0.85;
   }
 }

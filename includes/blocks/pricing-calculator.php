@@ -47,6 +47,12 @@ class Codetot_Block_Pricing_Calculator extends Codetot_Base_Block implements Cod
     $this->block_slug = 'pricing_calculator';
     $this->block_title = __('Pricing Calculator', 'ct-blocks');
     $this->fields = [
+      // Settings
+      'class',
+      'anchor_name',
+      'block_preset',
+      'content_alignment',
+      // Fields
       'title',
       'description',
       'left_title',
