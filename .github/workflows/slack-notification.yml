@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Slack Notification
-        uses: rtCamp/action-slack-notify@v2.1.1
+        uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_USERNAME: 'GitHub'
           SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
