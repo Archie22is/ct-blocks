@@ -78,10 +78,21 @@ class Codetot_Base
     Codetot_Base_Public::instance();
     Codetot_Base_Admin_Acf::instance();
 
+    add_action('plugins_loaded', array($this, 'load_all_blocks'));
+  }
+
+  public function load_all_blocks() {
     $blocks_config_file = CODETOT_BLOCKS_DIR . '/blocks.json';
     $blocks_list = file_exists($blocks_config_file) ? file_get_contents($blocks_config_file) : [];
+    $blocks = json_decode($blocks_list, true);
 
-    $this->blocks = apply_filters('codetot_pro_blocks', json_decode($blocks_list, true));
+    if (class_exists('WooCommerce')) {
+      $woocommerce_blocks_file = CODETOT_BLOCKS_DIR . '/woocommerce-blocks.json';
+      $woocommerce_blocks_list = file_exists($woocommerce_blocks_file) ? file_get_contents($woocommerce_blocks_file) : [];
+      $blocks = array_merge($blocks, json_decode($woocommerce_blocks_list, true));
+    }
+
+    $this->blocks = apply_filters('codetot_pro_blocks', $blocks);
 
     $this->load_theme_blocks();
     $this->load_blocks();

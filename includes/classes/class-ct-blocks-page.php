@@ -29,8 +29,6 @@ class Codetot_Blocks_Page {
     add_action('wp', function() {
       add_filter('the_content', array($this, 'load_flexible_page_template'));
     });
-
-    add_action('codetot_flexible_page_row', array($this, 'load_default_blocks_template'));
   }
 
   /**
@@ -137,28 +135,9 @@ class Codetot_Blocks_Page {
             'maxlength' => '',
           ),
           array(
-            'key' => 'field_5ffc8d481j7bc6',
-            'label' => 'Enable Container',
-            'name' => 'enable_container',
-            'type' => 'true_false',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-              'width' => '33',
-              'class' => '',
-              'id' => '',
-            ),
-            'message' => 'Enable Container',
-            'default_value' => 1,
-            'ui' => 0,
-            'ui_on_text' => '',
-            'ui_off_text' => '',
-          ),
-          array(
             'key' => 'field_5fsad0c1967b',
-            'label' => 'Alignment',
-            'name' => 'alignment',
+            'label' => 'Content Alignment',
+            'name' => 'content_alignment',
             'type' => 'radio',
             'instructions' => '',
             'required' => 0,
@@ -168,11 +147,7 @@ class Codetot_Blocks_Page {
               'class' => '',
               'id' => '',
             ),
-            'choices' => array(
-              'align-l' => 'Align Left',
-              'align-c' => 'Align Center',
-              'align-r' => 'Align Right',
-            ),
+            'choices' => array(),
             'allow_null' => 0,
             'other_choice' => 0,
             'default_value' => '',
@@ -214,40 +189,6 @@ class Codetot_Blocks_Page {
         'max' => '',
       ),
     );
-  }
-
-  public function load_default_blocks_template() {
-    $row = get_row_layout();
-
-    switch($row):
-
-      case 'page_title':
-
-        $enable_container = get_sub_field('enable_container');
-        $alignment = get_sub_field('alignment');
-        $_class = get_sub_field('class');
-        $_class .= empty($enable_container) ? ' page-header--no-container' : '';
-        $_class .= !empty($alignment) ? ' ' . $alignment : ' align-l';
-
-        the_block('page-header', array(
-          'title' => get_sub_field('title'),
-          'class' => $_class
-        ));
-        break;
-
-      case 'page_content':
-
-        echo '<div class="mt-1 mb-1 page-content">';
-        echo '<div class="container">';
-        echo '<div class="wysiwyg page-content__inner">';
-        echo  get_sub_field('content');
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
-
-        break;
-
-    endswitch;
   }
 
   public function load_flexible_page_template($content) {
