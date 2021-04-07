@@ -285,7 +285,6 @@
       display: block;
       padding: 0.35em 20px;
       color: var(--dark);
-      font-size: 0.95rem;
 
       &:hover {
         background-color: var(--white);
@@ -347,7 +346,7 @@
 
   & .button.hero-banner__slider-button {
     background-color: transparent;
-    font-weight: 700;
+    font-weight: var(--font-bold);
     text-transform: uppercase;
     border: 0.2rem solid var(--secondary);
 
@@ -369,7 +368,7 @@
 
       color: var(--secondary);
       text-transform: uppercase;
-      font-weight: 600;
+      font-weight: var(--font-bold);
       border: 0;
       border-radius: 0;
     }
@@ -378,13 +377,13 @@
   & .hero-banner__row-title {
     @mixin small-text;
 
-    font-weight: 400;
+    font-weight: var(--font-normal);
   }
 
   & .hero-banner__row-description {
     @mixin large-text;
 
-    font-weight: 700;
+    font-weight: var(--font-bold);
     text-transform: uppercase;
   }
 
