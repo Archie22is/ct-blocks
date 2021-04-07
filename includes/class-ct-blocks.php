@@ -150,8 +150,17 @@ class Codetot_Base
   }
 
   public function register_theme_blocks($theme_settings) {
-    if (empty($theme_settings) || !is_array($theme_settings)) {
+    if (
+      empty($theme_settings) ||
+      !is_array($theme_settings) ||
+      empty($theme_settings['blocks'])
+    )
+    {
       return;
+    }
+
+    foreach($theme_settings['blocks'] as $block_name) {
+      require_once get_stylesheet_directory() . '/inc/blocks/'. esc_attr($block_name) . '.php';
     }
 
     add_action('ct_blocks_after_load_blocks', function() use($theme_settings) {
