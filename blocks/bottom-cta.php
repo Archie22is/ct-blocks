@@ -28,7 +28,8 @@ if (!empty($title)) : ?>
                     'size' => 'large',
                     'type' => $button['button_style'],
                     'button' => $button['button_text'],
-                    'url' => $button['button_url']
+                    'url' => $button['button_url'],
+                    'target' => $button['target']
                   ));
                 endforeach; ?>
               </div>
