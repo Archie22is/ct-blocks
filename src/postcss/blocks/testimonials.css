@@ -378,7 +378,7 @@
     & .testimonials__column.is-selected {
       & .testimonials__image {
         opacity: 1;
-        width: 90px;
+        width: 200px;
       }
     }
 
@@ -391,7 +391,8 @@
   }
 
   & .testimonials__columns--nav {
-    margin-top: 2em;
+    margin: auto;
+    max-width: 600px;
 
     & .testimonials__profile {
       margin-top: 0;
@@ -411,9 +412,8 @@
     }
 
     & .flickity-prev-next-button {
-      top: 0;
-      background-color: transparent;
-      border: 0;
+      top: -100px;
+      border: 1px solid var(--white);
       color: var(--primary);
 
       & svg {
