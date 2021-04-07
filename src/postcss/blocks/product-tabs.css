@@ -1,0 +1,155 @@
+.product-tabs__nav {
+  @mixin list-reset;
+
+  display: none;
+  position: relative;
+
+  @media (--s) {
+    display: flex;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}
+
+.product-tabs__item {
+  position: relative;
+  margin-right: 1.25em;
+  padding-bottom: 0.5em;
+  color: var(--dark);
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s;
+  }
+
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  &.is-active {
+    opacity: 1;
+
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+.product-tabs__select-wrapper {
+  @mixin select-wrapper;
+
+  margin-top: 1em;
+
+  @media (--s) {
+    display: none;
+  }
+
+  & select {
+    @mixin select-in-wrapper;
+  }
+}
+
+.product-tabs__tab-content {
+  &[aria-expanded] {
+    @mixin fade-out;
+
+    display: none;
+  }
+
+  &[aria-expanded='true'] {
+    @mixin fade-in;
+
+    display: block;
+  }
+}
+
+.product-tabs__slider {
+  & .flickity-prev-next-button {
+    width: 36px;
+    height: 36px;
+    padding: 5px;
+    background: var(--primary);
+    border-radius: 6px;
+
+    @media (--s) {
+      display: inline-flex;
+    }
+
+    &.previous {
+      @media (--s) {
+        left: 0;
+        transform: translate3d(-50%, -50%, 0);
+      }
+    }
+
+    &.next {
+      @media (--s) {
+        right: 0;
+        transform: translate3d(50%, -50%, 0);
+      }
+    }
+  }
+}
+
+.product-tabs.has-3-columns {
+  & .product.type-product {
+    @media (--s) {
+      width: 33.33%;
+    }
+  }
+}
+
+.product-tabs.has-4-columns {
+  & .product.type-product {
+    @media (--s) {
+      width: 50%;
+    }
+
+    @media (--m) {
+      width: 25%;
+    }
+  }
+}
+
+.product-tabs.has-5-columns {
+  & .product.type-product {
+    @media (--s) {
+      width: 33.33%;
+    }
+
+    @media (--l) {
+      width: 20%;
+    }
+  }
+}
+
+.product-tabs {
+  & .product.type-product {
+    flex: inherit;
+    max-width: inherit;
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px 0 0;
+
+    @media (--xs) {
+      width: 50%;
+    }
+  }
+
+  & .default-section__container--header {
+    display: flex;
+    flex-direction: column;
+  }
+}
