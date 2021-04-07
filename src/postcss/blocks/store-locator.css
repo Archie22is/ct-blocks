@@ -1,0 +1,157 @@
+.store-locator {
+  margin-top: 2em;
+  padding-bottom: 2em;
+  background-color: #f5f8fd;
+
+  @media (--s) {
+    margin-top: 3em;
+  }
+
+  & .hide {
+    display: none !important;
+  }
+
+  & .show {
+    display: block !important;
+  }
+
+  & .sidebar-section__block-grid {
+    min-height: 400px;
+    margin: 0;
+  }
+
+  & .sidebar-section__block--sidebar {
+    width: 100%;
+    max-height: 500px;
+    overflow-y: scroll;
+    max-width: 100%;
+
+    @media (--s) {
+      width: calc(100% / 3);
+    }
+
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      background-color: #f5f5f5;
+    }
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      background-color: #f5f5f5;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: #777;
+    }
+  }
+
+  & .sidebar-section__block--content {
+    width: 100%;
+    height: 500px;
+
+    @media (--s) {
+      width: calc(100% * (2 / 3));
+      padding-right: 0;
+    }
+
+    & .sidebar-section__inner,
+    & .store-locator__grid,
+    & .store-locator__col {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  & .sidebar-section__block--content .sidebar-section__inner {
+    background-color: #edebe8;
+  }
+}
+
+.is-loading {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.store-locator-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2em;
+  padding: 1em;
+  border-radius: 4px;
+
+  & > * {
+    width: calc(100% / 3 - 1em);
+
+    & > * {
+      width: 100%;
+      padding: 0.5em;
+      cursor: pointer;
+    }
+  }
+}
+
+#map {
+  height: 100%;
+}
+
+.store-locator__grid {
+  flex-direction: column;
+}
+
+.store-locator-item {
+  padding: 1em;
+  margin-bottom: 1em;
+  background-color: var(--white);
+
+  & svg {
+    width: 1em;
+  }
+
+  & span {
+    margin-right: 0.5em;
+  }
+
+  & .button {
+    padding: 0.35em 1em;
+    margin-top: 0.75em;
+    line-height: 1.75;
+
+    & span:not(.button--icon) {
+      margin-right: 0;
+    }
+  }
+}
+
+.store-locator-item__title {
+  font-size: 1.25rem;
+  margin-bottom: 0.75em;
+  cursor: pointer;
+}
+
+.store-locator-item__address {
+  cursor: pointer;
+}
+
+.sidebar-section__no-result {
+  font-weight: 600;
+  font-size: 1.25rem;
+  display: none;
+  padding: 0 1em;
+}
+
+.store-locator--preset-1 {
+  & .store-locator-item {
+    border: 1px solid gray;
+    border-radius: 3px;
+    margin-bottom: 1em;
+
+    & .button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
