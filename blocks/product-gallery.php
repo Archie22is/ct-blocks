@@ -23,7 +23,7 @@ $nav_slider_args = array(
 
 ?>
 
-<div class="images product-gallery<?php if (!empty($class)) : echo ' ' . $class; endif; ?>" data-child-block="product-gallery">
+<div class="images product-gallery<?php if (!empty($class)) : echo ' ' . $class; endif; ?>" data-ct-block="product-gallery">
   <div class="product-gallery__inner">
     <?php if (!empty($gallery_image_ids)) : ?>
       <div class="product-gallery__slider js-slider" data-carousel='<?php echo json_encode($slider_args); ?>'>

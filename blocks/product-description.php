@@ -4,7 +4,7 @@ $_height = !empty($height) ? : 350;
 $content = get_the_content();
 if(!empty($content)) : ?>
   <div class="product-description js-product-description"
-    data-child-block="product-description"
+    data-ct-block="product-description"
     data-max-height="<?php echo $_height; ?>"
     >
     <?php if (!empty($title)) : ?>

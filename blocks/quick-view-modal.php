@@ -1,4 +1,4 @@
-<div class="quick-view-modal" data-child-block="quick-view-modal">
+<div class="quick-view-modal" data-ct-block="quick-view-modal">
   <div class="quick-view-modal__wrapper" role="document">
     <button class="quick-view-modal__close-button js-close-modal" aria-label="<?php _e('Close', 'codetot-woocommerce'); ?>">
       <?php codetot_svg('close', true); ?>

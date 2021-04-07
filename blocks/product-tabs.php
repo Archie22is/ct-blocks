@@ -94,7 +94,7 @@ $content = ob_get_clean();
 
 the_block('default-section', array(
   'class' => $_class,
-  'attributes' => ' data-child-block="product-tabs"',
+  'attributes' => ' data-ct-block="product-tabs"',
   'header' => $header,
   'content' => $content
 ));

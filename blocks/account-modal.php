@@ -1,4 +1,4 @@
-<div class="account-modal" data-child-block="account-modal">
+<div class="account-modal" data-ct-block="account-modal">
   <div class="account-modal__wrapper">
     <div class="account-modal__header">
       <p class="account-modal__title"><?php _e('Sign In', 'ct-peakshop'); ?></p>

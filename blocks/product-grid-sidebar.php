@@ -11,7 +11,7 @@ $_class .= !empty($columns) ? ' product-grid-sidebar--' . esc_attr($columns) .'-
 ?>
 
 <?php if (!empty($categories)) : ?>
-  <section class="<?php echo $_class; ?>" data-child-block="product-grid-sidebar">
+  <section class="<?php echo $_class; ?>" data-ct-block="product-grid-sidebar">
     <div class="<?php echo $container; ?> product-grid-sidebar__container">
       <div class="product-grid-sidebar__inner">
         <div class="f product-grid-sidebar__grid">
