@@ -29,8 +29,6 @@ class Codetot_Blocks_Page {
     add_action('wp', function() {
       add_filter('the_content', array($this, 'load_flexible_page_template'));
     });
-
-    add_action('codetot_flexible_page_row', array($this, 'load_default_blocks_template'));
   }
 
   /**
@@ -214,40 +212,6 @@ class Codetot_Blocks_Page {
         'max' => '',
       ),
     );
-  }
-
-  public function load_default_blocks_template() {
-    $row = get_row_layout();
-
-    switch($row):
-
-      case 'page_title':
-
-        $enable_container = get_sub_field('enable_container');
-        $alignment = get_sub_field('alignment');
-        $_class = get_sub_field('class');
-        $_class .= empty($enable_container) ? ' page-header--no-container' : '';
-        $_class .= !empty($alignment) ? ' ' . $alignment : ' align-l';
-
-        the_block('page-header', array(
-          'title' => get_sub_field('title'),
-          'class' => $_class
-        ));
-        break;
-
-      case 'page_content':
-
-        echo '<div class="mt-1 mb-1 page-content">';
-        echo '<div class="container">';
-        echo '<div class="wysiwyg page-content__inner">';
-        echo  get_sub_field('content');
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
-
-        break;
-
-    endswitch;
   }
 
   public function load_flexible_page_template($content) {
