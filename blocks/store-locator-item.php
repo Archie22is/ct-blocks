@@ -28,7 +28,7 @@ if ($post_query->have_posts()) :
 
       if (!empty($button_text)) :
         the_block('button', array(
-          'class' => empty($button_url) ? 'js-marker-action' : false,
+          'class' => 'js-marker-action',
           'button' => $button_text,
           'type' => !empty($button_style) ? $button_style : false,
           'url' => !empty($button_url) ? $button_url : false,

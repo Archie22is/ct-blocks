@@ -8,6 +8,7 @@
     <?php
     if (!empty($item['button_text'])) :
       the_block('button', array(
+        'class' => 'js-marker-action',
         'button' => $item['button_text'],
         'type' => !empty($item['button_style']) ? $item['button_style'] : false,
         'url' => !empty($item['button_url']) ? $item['button_url'] : false,
