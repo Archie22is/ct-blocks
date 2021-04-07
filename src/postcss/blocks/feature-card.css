@@ -26,12 +26,6 @@
   padding-top: calc(1em / 6);
 }
 
-.feature-card__content {
-  flex: 1 1 auto;
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .feature-card__description {
   margin-bottom: 1em;
   display: -webkit-box;
@@ -97,6 +91,12 @@
 
   & .feature-card__image-wrapper {
     align-items: flex-start;
+  }
+
+  & .feature-card__content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   & .feature-card__footer {

@@ -12,18 +12,17 @@
 endif; ?>
 
 <div class="feature-card <?php echo (!empty($class)) ? $class : ''; ?>">
-<?php if (!empty($image_content)) : ?>
+<?php if (!empty($image_content) && !empty($icon_type)) : ?>
     <div class="feature-card__image-wrapper">
       <?php if ($icon_type === 'svg') : ?>
         <span class="feature-card__svg" aria-hidden="true"><?php echo $image_content; ?></span>
-      <?php elseif ($icon_type === 'image' && !empty($image_content)) : ?><?php
+      <?php else :
         the_block('image', array(
           'image' => $image_content,
           'class' => !empty($image_class) ? ' ' . esc_attr($image_class) . ' feature-card__image' : ' image--cover feature-card__image',
           'size' => 'full'
         ));
-        ?>
-      <?php endif; ?>
+      endif; ?>
     </div>
   <?php endif; ?>
   <div class="feature-card__content">
