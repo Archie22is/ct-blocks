@@ -163,3 +163,36 @@
 .cta-form__form ul {
   list-style-type: none;
 }
+
+.cta-form--sign-up {
+  margin-top: 0;
+
+  & .cta-form__header {
+    margin-bottom: 1em !important;
+  }
+
+  & form {
+    display: flex;
+  }
+
+  & .gform_body {
+    flex: 1 1 auto;
+  }
+
+  & input[type='text'] {
+    border-radius: 0;
+    border-right: 0;
+    outline: 0;
+  }
+
+  & input[type='submit'] {
+    height: 100%;
+    border-radius: 0;
+    padding: 0 1em;
+    min-width: 0 !important;
+  }
+
+  & .cta-form__col-inner {
+    padding-top: 0;
+  }
+}
