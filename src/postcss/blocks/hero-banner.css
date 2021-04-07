@@ -324,6 +324,14 @@
   }
 }
 
+.hero-banner__slider-nav {
+  display: none;
+
+  @media (--s) {
+    display: block;
+  }
+}
+
 .hero-banner__slider-nav-item {
   height: 50px;
 
