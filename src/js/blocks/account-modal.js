@@ -1,5 +1,4 @@
-import { on, addClass } from 'lib/dom'
-import { removeClass, selectAll } from 'lib/dom'
+import { on, addClass, removeClass, selectAll } from 'lib/dom'
 
 const VISIBLE_CLASS = 'account-modal--visible'
 
