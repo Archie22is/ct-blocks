@@ -30,3 +30,9 @@
 @import url('blocks/post-card.css');
 @import url('blocks/store-locator.css');
 @import url('blocks/social-form.css');
+@import url('blocks/product-grid-sidebar.css');
+@import url('blocks/product-tabs.css');
+@import url('blocks/category-grid.css');
+@import url('blocks/product-columns.css');
+@import url('blocks/product-card.css');
+@import url('blocks/sticky-mobile-checkout.css');
