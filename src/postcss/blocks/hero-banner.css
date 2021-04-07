@@ -340,11 +340,6 @@
   }
 }
 
-.hero-banner__slider-nav-title {
-  font-weight: 700;
-  font-size: 1.15rem;
-}
-
 .hero-banner--preset-1 {
   & .hero-banner__slider-content {
     padding-top: 18%;
