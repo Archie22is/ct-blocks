@@ -20,6 +20,22 @@ if ($post_query->have_posts()) :
       <h3 class="store-locator-item__title"><?php the_title(); ?></h3>
       <p class="f store-locator-item__address"><span class="f store-locator-item__icon"><?php codetot_svg('address', true); ?></span><?php echo $address['address']; ?></p>
       <a href="tel:<?php echo $hotline; ?>" class="f store-locator-item__phone"><span class="f store-locator-item__icon"><?php codetot_svg('hotline', true); ?></span><?php echo $hotline; ?></a>
+      <?php
+      $button_text = get_field('button_text');
+      $button_style = get_field('button_style');
+      $button_url = get_field('button_url');
+      $target = get_field('target');
+
+      if (!empty($button_text)) :
+        the_block('button', array(
+          'class' => empty($button_url) ? 'js-marker-action' : false,
+          'button' => $button_text,
+          'type' => !empty($button_style) ? $button_style : false,
+          'url' => !empty($button_url) ? $button_url : false,
+          'target' => !empty($target) ? $target : false
+        ));
+      endif;
+      ?>
     </div>
   <?php
   endwhile; wp_reset_postdata();

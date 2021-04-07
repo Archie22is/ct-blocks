@@ -12,13 +12,8 @@ const LOADING_CLASS = 'is-loading'
 export default el => {
   const mapContentEl = select('#map', el)
   const locationEls = selectAll('.js-data-location', el)
-  const storeLocatorFormEl = select('.store-locator-form', el)
   const sidebarSectionEl = select('.js-sidebar-section', el)
   const sidebarEl = select('.sidebar-section__inner', el)
-  const countryFilterEl = select('.js-country', el)
-  const provinceFilterEl = select('.js-province', el)
-  const districtFilterEl = select('.js-district', el)
-  const noResultEl = select('.js-no-result', el)
   const mapMarkerEl = select('.js-marker', el)
   const customMarkerImage = getData('marker', mapMarkerEl)
 
@@ -66,22 +61,29 @@ export default el => {
         InfoWindows.open(map, marker)
       })
 
-      let locationShowEls = selectAll('.show', sidebarEl)
-      if (locationShowEls[index]) {
+      let markerActionEls = selectAll('.js-marker-action', sidebarEl)
+      if (markerActionEls[index]) {
         on(
           'click',
           () => {
             google.maps.event.trigger(marker, 'click')
           },
-          locationShowEls[index]
+          markerActionEls[index]
         )
       }
     })
   }
 
   const mapFilter = () => {
+    const noResultEl = select('.js-no-result', el)
+
     setTimeout(() => {
-      removeClass('show', noResultEl)
+      if (getData('post-type', el)) {
+        removeClass('show', noResultEl)
+      } else {
+        addClass('show', locationEls)
+      }
+
       removeClass('hide', sidebarSectionEl)
 
       let positions = []
@@ -106,14 +108,14 @@ export default el => {
 
         initMap(positions)
       } else {
-        addClass('show', noResultEl)
+        if (getData('post-type', el)) {
+          addClass('show', noResultEl)
+        }
+
         addClass('hide', sidebarSectionEl)
       }
     }, 500)
   }
-
-  const provinceOptionEls = selectAll('option', provinceFilterEl)
-  const districtOptionEls = selectAll('option', districtFilterEl)
 
   const filter = selectEl => {
     $.ajax({
@@ -121,6 +123,12 @@ export default el => {
         addClass(LOADING_CLASS, el)
       },
       success: () => {
+        const countryFilterEl = select('.js-country', el)
+        const provinceFilterEl = select('.js-province', el)
+        const districtFilterEl = select('.js-district', el)
+        const provinceOptionEls = selectAll('option', provinceFilterEl)
+        const districtOptionEls = selectAll('option', districtFilterEl)
+
         const provinceFilter = () => {
           const countryValue = countryFilterEl.value
           levelFilter(
@@ -187,28 +195,40 @@ export default el => {
     })
   }
 
-  if (storeLocatorFormEl) {
-    const selects = selectAll('select', storeLocatorFormEl)
+  if (getData('post-type', el)) {
+    const storeLocatorFormEl = select('.store-locator-form', el)
 
-    if (selects) {
-      map(select => {
-        if (select) {
-          on(
-            'change',
-            el => {
-              filter(el.target)
-            },
-            select
-          )
-        }
-      }, selects)
+    if (storeLocatorFormEl) {
+      const selects = selectAll('select', storeLocatorFormEl)
+
+      if (selects) {
+        map(select => {
+          if (select) {
+            on(
+              'change',
+              el => {
+                filter(el.target)
+              },
+              select
+            )
+          }
+        }, selects)
+      }
     }
+  } else {
+    mapFilter()
   }
 
   on(
     'load',
     () => {
-      filter(countryFilterEl)
+      if (getData('post-type', el)) {
+        const countryFilterEl = select('.js-country', el)
+
+        filter(countryFilterEl)
+      } else {
+        mapFilter()
+      }
     },
     window
   )
