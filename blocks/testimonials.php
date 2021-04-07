@@ -8,6 +8,9 @@ if (!(empty($block_preset))) :
       'pageDots' => false,
       'contain' => true,
       'draggable' => false,
+      'prevNextButtons' => true,
+      'autoPlay' => 10000,
+      'pauseAutoPlayOnHover' => false
     );
     $carousel_settings = array(
       'contain' => true,
