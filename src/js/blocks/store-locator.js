@@ -1,13 +1,5 @@
 /* global jQuery, google, GOOGLE_MAPS_API_KEY */
-import {
-  select,
-  selectAll,
-  getData,
-  on,
-  hasClass,
-  removeClass,
-  addClass
-} from 'lib/dom'
+import { select, selectAll, getData, on, removeClass, addClass } from 'lib/dom'
 import { initMapScript } from 'lib/scripts'
 import { map } from 'lib/utils'
 
@@ -17,154 +9,206 @@ const $ = jQuery
 
 const LOADING_CLASS = 'is-loading'
 
-let positions = []
-
 export default el => {
+  const mapContentEl = select('#map', el)
   const locationEls = selectAll('.js-data-location', el)
   const storeLocatorFormEl = select('.store-locator-form', el)
-  const areaFilterEl = select('.js-area', el)
+  const sidebarSectionEl = select('.js-sidebar-section', el)
+  const sidebarEl = select('.sidebar-section__inner', el)
+  const countryFilterEl = select('.js-country', el)
   const provinceFilterEl = select('.js-province', el)
   const districtFilterEl = select('.js-district', el)
-  const icons = {
-    parking: {
-      icon:
-        'https://tarantelleromane.files.wordpress.com/2016/10/map-marker.png?w=50'
+  const noResultEl = select('.js-no-result', el)
+  const mapMarkerEl = select('.js-marker', el)
+  const customMarkerImage = getData('marker', mapMarkerEl)
+
+  // Filter
+  const levelFilter = (ChildFilterEl, optionEls, levelData, parentValue) => {
+    if (optionEls) {
+      map(optionEl => {
+        if (getData(levelData, optionEl) === parentValue) {
+          removeClass('hide', optionEl)
+          addClass('show', optionEl)
+        } else {
+          addClass('hide', optionEl)
+          removeClass('show', optionEl)
+        }
+      }, optionEls)
+
+      $(ChildFilterEl).val($(select('.show', ChildFilterEl)).val())
     }
   }
 
-  locationEls.forEach(ele => {
-    // Filter form
-    const positionEle = {
-      position: {
-        lat: parseFloat(getData('lat', ele)),
-        lng: parseFloat(getData('lng', ele))
-      },
-      icon: 'parking',
-      content: `<span class="store-locator__marker-title">${getData(
-        'title',
-        ele
-      )}</span>`
-    }
+  const initMap = positions => {
+    const mapPosition = positions[0].position
 
-    positions.push(positionEle)
-  })
-  console.log(positions)
-
-  const initMap = () => {
-    const uk = positions[0].position
-
-    const map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 12,
-      center: uk
+    const map = new google.maps.Map(mapContentEl, {
+      zoom: 14,
+      center: mapPosition
     })
 
-    const InfoWindows = new google.maps.InfoWindow({})
+    const InfoWindows = new google.maps.InfoWindow()
 
-    positions.forEach(positionIndex => {
+    positions.forEach((positionIndex, index) => {
       const marker = new google.maps.Marker({
         position: {
           lat: positionIndex.position.lat,
           lng: positionIndex.position.lng
         },
         map: map,
-        icon: icons[positionIndex.icon].icon
+        icon: customMarkerImage
       })
 
-      marker.addListener('click', el => {
-        map.setZoom(14)
+      marker.addListener('click', () => {
+        map.setZoom(15)
         map.setCenter(marker.getPosition())
         InfoWindows.setContent(positionIndex.content)
-        InfoWindows.open(map, this)
+        InfoWindows.open(map, marker)
       })
-    })
-  }
 
-  setTimeout(() => {
-    initMap()
-  }, 3000)
-
-  // Filter
-  const filter = (parentFilterEl, childFilterEl, childClassName) => {
-    $.ajax({
-      beforeSend: () => {
-        addClass(LOADING_CLASS, storeLocatorFormEl)
-      },
-      success: () => {
-        const valueId = $(parentFilterEl).val()
-        const optionChildEls = selectAll('option', childFilterEl)
-
-        if (optionChildEls) {
-          map(optionChildEl => {
-            if (hasClass(`${childClassName}-${valueId}`, optionChildEl)) {
-              removeClass('hide', optionChildEl)
-            } else {
-              addClass('hide', optionChildEl)
-            }
-
-            const selectedDefaultEL = select(
-              `.${childClassName}-${valueId}`,
-              childFilterEl
-            )
-
-            $(childFilterEl)
-              .val($(selectedDefaultEL).val())
-              .change()
-          }, optionChildEls)
-        }
-        // const areaFilterValue = $(areaFilterEl).val()
-        // const provinceFilterValue = $(provinceFilterEl).val()
-        // const districtFilterValue = $(districtFilterEl).val()
-
-        // console.log(areaFilterValue)
-        // console.log(provinceFilterValue)
-        // console.log(districtFilterValue)
-
-        // locationEls.forEach(ele => {
-        //   const tempData = getData('categories', ele).split(' ')
-
-        //   if (
-        //     tempData.includes(areaFilterValue) &&
-        //     tempData.includes(provinceFilterValue) &&
-        //     tempData.includes(districtFilterValue)
-        //   ) {
-        //     addClass('show', ele)
-        //   }
-        // })
-      },
-      complete: () => {
-        removeClass(LOADING_CLASS, storeLocatorFormEl)
+      let locationShowEls = selectAll('.show', sidebarEl)
+      if (locationShowEls[index]) {
+        on(
+          'click',
+          () => {
+            google.maps.event.trigger(marker, 'click')
+          },
+          locationShowEls[index]
+        )
       }
     })
   }
 
-  if (areaFilterEl) {
-    on(
-      'change',
-      () => {
-        filter(areaFilterEl, provinceFilterEl, 'js-province')
-        setTimeout(() => {
-          filter(provinceFilterEl, districtFilterEl, 'js-district')
-        }, 10)
-      },
-      areaFilterEl
-    )
+  const mapFilter = () => {
+    setTimeout(() => {
+      removeClass('show', noResultEl)
+      removeClass('hide', sidebarSectionEl)
+
+      let positions = []
+      let locationShowEls = selectAll('.show', sidebarEl)
+
+      if (locationShowEls.length !== 0) {
+        locationShowEls.forEach(ele => {
+          const title = getData('title', ele)
+          const contentString = `<span class="store-locator__marker-title">${title}</span>`
+
+          const positionEle = {
+            position: {
+              lat: parseFloat(getData('lat', ele)),
+              lng: parseFloat(getData('lng', ele))
+            },
+            icon: customMarkerImage,
+            content: contentString
+          }
+
+          positions.push(positionEle)
+        })
+
+        initMap(positions)
+      } else {
+        addClass('show', noResultEl)
+        addClass('hide', sidebarSectionEl)
+      }
+    }, 500)
   }
 
-  if (provinceFilterEl) {
-    on(
-      'change',
-      () => {
-        filter(provinceFilterEl, districtFilterEl, 'js-district')
+  const provinceOptionEls = selectAll('option', provinceFilterEl)
+  const districtOptionEls = selectAll('option', districtFilterEl)
+
+  const filter = selectEl => {
+    $.ajax({
+      beforeSend: () => {
+        addClass(LOADING_CLASS, el)
       },
-      provinceFilterEl
-    )
+      success: () => {
+        const provinceFilter = () => {
+          const countryValue = countryFilterEl.value
+          levelFilter(
+            provinceFilterEl,
+            provinceOptionEls,
+            'country',
+            countryValue
+          )
+        }
+
+        const districtFilter = () => {
+          const provinceValue = provinceFilterEl.value
+
+          levelFilter(
+            districtFilterEl,
+            districtOptionEls,
+            'province',
+            provinceValue
+          )
+        }
+
+        const sidebarFilter = () => {
+          const countryValue = countryFilterEl.value
+          const provinceValue = provinceFilterEl.value
+          const districtValue = districtFilterEl.value
+
+          locationEls.forEach(ele => {
+            const tempData = getData('categories', ele).split(' ')
+
+            if (
+              tempData.includes(countryValue) &&
+              tempData.includes(provinceValue) &&
+              tempData.includes(districtValue)
+            ) {
+              removeClass('hide', ele)
+              addClass('show', ele)
+            } else {
+              addClass('hide', ele)
+              removeClass('show', ele)
+            }
+          })
+        }
+
+        switch (selectEl) {
+          case countryFilterEl:
+            provinceFilter()
+            districtFilter()
+            sidebarFilter()
+            mapFilter()
+            break
+          case provinceFilterEl:
+            districtFilter()
+            sidebarFilter()
+            mapFilter()
+            break
+          default:
+            sidebarFilter()
+            mapFilter()
+        }
+      },
+      complete: () => {
+        removeClass(LOADING_CLASS, el)
+      }
+    })
+  }
+
+  if (storeLocatorFormEl) {
+    const selects = selectAll('select', storeLocatorFormEl)
+
+    if (selects) {
+      map(select => {
+        if (select) {
+          on(
+            'change',
+            el => {
+              filter(el.target)
+            },
+            select
+          )
+        }
+      }, selects)
+    }
   }
 
   on(
     'load',
     () => {
-      filter(areaFilterEl, provinceFilterEl, 'js-province')
-      filter(provinceFilterEl, districtFilterEl, 'js-district')
+      filter(countryFilterEl)
     },
     window
   )
