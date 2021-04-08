@@ -1,5 +1,5 @@
 .store-locator {
-  padding: 2em 0;
+  padding: 1em 0 3em;
   background-color: #f5f8fd;
 
   @media (--s) {
@@ -22,7 +22,7 @@
   & .sidebar-section__block--sidebar {
     width: 100%;
     max-height: 500px;
-    overflow-y: scroll;
+    overflow-y: auto;
     max-width: 100%;
 
     @media (--s) {
