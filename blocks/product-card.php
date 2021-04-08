@@ -14,7 +14,6 @@ $attr = '';
 
 if (!empty($gallery)) :
   $class .= ' product-card--has-hover-image';
-  $attr = ' data-ct-block="product-card"';
 endif;
 
 ?>
