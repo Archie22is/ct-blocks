@@ -82,6 +82,10 @@ class Codetot_Base
   }
 
   public function load_all_blocks() {
+    require_once CODETOT_BLOCKS_DIR . 'includes/classes/interface-block.php';
+    require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-block.php';
+    require_once CODETOT_BLOCKS_DIR . 'includes/helpers/utils.php';
+
     $blocks_config_file = CODETOT_BLOCKS_DIR . '/blocks.json';
     $blocks_list = file_exists($blocks_config_file) ? file_get_contents($blocks_config_file) : [];
     $blocks = json_decode($blocks_list, true);
@@ -199,10 +203,6 @@ class Codetot_Base
 
   public function load_blocks()
   {
-    require_once CODETOT_BLOCKS_DIR . 'includes/classes/interface-block.php';
-    require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-block.php';
-    require_once CODETOT_BLOCKS_DIR . 'includes/helpers/utils.php';
-
     do_action('ct_blocks_before_load_blocks');
 
     foreach ($this->blocks as $block) {
