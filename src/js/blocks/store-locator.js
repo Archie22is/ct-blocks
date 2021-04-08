@@ -77,44 +77,44 @@ export default el => {
   const mapFilter = () => {
     const noResultEl = select('.js-no-result', el)
 
-    setTimeout(() => {
-      if (getData('post-type', el)) {
-        removeClass('show', noResultEl)
-      } else {
-        addClass('show', locationEls)
-      }
+    if (getData('post-type', el)) {
+      removeClass('show', noResultEl)
+    } else {
+      addClass('show', locationEls)
+    }
 
-      removeClass('hide', sidebarSectionEl)
+    removeClass('hide', sidebarSectionEl)
 
-      let positions = []
-      let locationShowEls = selectAll('.show', sidebarEl)
+    let positions = []
+    let locationShowEls = selectAll('.show', sidebarEl)
 
-      if (locationShowEls.length !== 0) {
-        locationShowEls.forEach(ele => {
-          const title = getData('title', ele)
-          const contentString = `<span class="store-locator__marker-title">${title}</span>`
+    if (locationShowEls.length !== 0) {
+      locationShowEls.forEach(ele => {
+        const title = getData('title', ele)
+        const contentString = `<span class="store-locator__marker-title">${title}</span>`
 
-          const positionEle = {
-            position: {
-              lat: parseFloat(getData('lat', ele)),
-              lng: parseFloat(getData('lng', ele))
-            },
-            icon: customMarkerImage,
-            content: contentString
-          }
-
-          positions.push(positionEle)
-        })
-
-        initMap(positions)
-      } else {
-        if (getData('post-type', el)) {
-          addClass('show', noResultEl)
+        const positionEle = {
+          position: {
+            lat: parseFloat(getData('lat', ele)),
+            lng: parseFloat(getData('lng', ele))
+          },
+          icon: customMarkerImage,
+          content: contentString
         }
 
-        addClass('hide', sidebarSectionEl)
+        positions.push(positionEle)
+      })
+
+      setTimeout(() => {
+        initMap(positions)
+      }, 1000)
+    } else {
+      if (getData('post-type', el)) {
+        addClass('show', noResultEl)
       }
-    }, 500)
+
+      addClass('hide', sidebarSectionEl)
+    }
   }
 
   const filter = selectEl => {
