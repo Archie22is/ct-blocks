@@ -18,6 +18,10 @@ ob_start();
 </figure>
 <?php $item_content = ob_get_clean(); ?>
 
+<?php if(!empty($item['title'])) : ?>
+    <h3 class="logo-grid__item-title"><?php echo $item['title']; ?></h3>
+<?php endif; ?>
+
 <?php if ($_enable_slider) :
   echo $item_content;
 else :
