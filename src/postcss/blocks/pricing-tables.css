@@ -10,15 +10,50 @@
   width: 100%;
 }
 
-.pricing-tables__col--description {
-  width: 100%;
+.pricing-tables__header {
+  max-width: 800px;
 }
 
-.pricing-tables__col--header {
+.section-header--left {
+  &.pricing-tables__header {
+    text-align: left;
+    margin-left: 0;
+  }
+
+  & .pricing-tables__description {
+    margin-top: 1em;
+  }
+}
+
+.section-header--right {
+  &.pricing-tables__header {
+    text-align: right;
+    margin-right: 0;
+  }
+
+  & .pricing-tables__description {
+    margin-top: 1em;
+  }
+}
+
+.section-header--center {
+  &.pricing-tables__header {
+    text-align: center;
+    margin: auto;
+  }
+
+  & .pricing-tables__description {
+    margin-top: 1em;
+  }
+}
+
+.pricing-tables__title {
   width: 100%;
 }
 
 .pricing-tables__description {
+  width: 100%;
+
   & * {
     &:first-child {
       margin-top: 0;
@@ -26,27 +61,18 @@
   }
 }
 
-.pricing-tables--layout-1 {
-  & .pricing-tables__col--header {
-    text-align: center;
-  }
-
-  & .pricing-tables__col--description {
-    text-align: center;
-    margin-top: 1em;
-  }
-
+.pricing-tables--preset-1 {
   & .pricing-tables__col--main {
     margin-top: 1.5em;
   }
 }
 
-.pricing-tables--layout-3 {
-  & .pricing-tables__col--header {
+.pricing-tables--preset-3 {
+  & .pricing-tables__title {
     text-align: center;
   }
 
-  & .pricing-tables__col--description {
+  & .pricing-tables__description {
     margin-top: 1em;
     width: 100%;
 
@@ -75,23 +101,7 @@
   }
 }
 
-.pricing-tables--layout-2 {
-  & .pricing-tables__col--header {
-    width: 100%;
-
-    @media (--s) {
-      width: 50%;
-    }
-  }
-
-  & .pricing-tables__col--description {
-    width: 100%;
-
-    @media (--s) {
-      width: 50%;
-    }
-  }
-
+.pricing-tables--preset-2 {
   & .pricing-tables__col--main {
     margin-top: 1.5em;
   }
@@ -105,44 +115,66 @@
   }
 }
 
-.pricing-tables__item {
-  padding: 0 10px;
-  margin-top: 1em;
-  width: 100%;
-
-  @media (--m) {
-    padding: 0 16px;
-  }
+.pricing-tables__col,
+.pricing-tables__slider-item {
+  padding: 0 1em;
+  display: flex;
 }
 
-.pricing-tables--1-column {
-  @media (--s) {
-    & .pricing-tables__item {
-      width: 100%;
+.pricing-tables--2-columns {
+  & .pricing-tables__col {
+    @mixin column-item 2, 1em;
+
+    @media (--s) {
+      @mixin column-item 2, 2em;
+    }
+  }
+
+  & .pricing-tables__slider-item {
+    @mixin column-item 2, 0;
+
+    @media (--s) {
+      @mixin column-item 2, 0;
     }
   }
 }
 
-.pricing-tables--2-column {
-  @media (--s) {
-    & .pricing-tables__item {
-      width: 50%;
+.pricing-tables--3-columns {
+  & .pricing-tables__col {
+    @media (--xs) {
+      @mixin column-item 2, 1em;
+    }
+
+    @media (--s) {
+      @mixin column-item 3, 2em;
+    }
+  }
+
+  & .pricing-tables__slider-item {
+    @media (--xs) {
+      @mixin column-item 2, 0;
+    }
+
+    @media (--s) {
+      @mixin column-item 3, 0;
     }
   }
 }
 
-.pricing-tables--3-column {
-  @media (--s) {
-    & .pricing-tables__item {
-      width: 33.33%;
+.pricing-tables--4-columns {
+  & .pricing-tables__col {
+    @mixin column-item 2, 1em;
+
+    @media (--sm) {
+      @mixin column-item 4, 2em;
     }
   }
-}
 
-.pricing-tables--4-column {
-  @media (--s) {
-    & .pricing-tables__item {
-      width: 25%;
+  & .pricing-tables__slider-item {
+    @mixin column-item 2, 0;
+
+    @media (--sm) {
+      @mixin column-item 4, 0;
     }
   }
 }
@@ -194,4 +226,48 @@
     background: var(--white);
     color: var(--dark);
   }
+}
+
+.pricing-tables--button-circle {
+  @mixin slider-button-circle;
+}
+
+.pricing-tables--button-simple {
+  @mixin slider-button-simple;
+}
+
+.pricing-tables--button-square {
+  @mixin slider-button-square;
+}
+
+.pricing-tables--dots-dashes {
+  @mixin slider-button-dashes;
+}
+
+.pricing-tables--dots-square {
+  @mixin slider-dots-square;
+}
+
+.pricing-tables--dots-left {
+  @mixin slider-dots-left;
+}
+
+.pricing-tables--dots-right {
+  @mixin slider-dots-right;
+}
+
+.pricing-tables--button-top-left {
+  @mixin slider-button-top-left;
+}
+
+.pricing-tables--button-bottom-left {
+  @mixin slider-button-bottom-left;
+}
+
+.pricing-tables--button-top-right {
+  @mixin slider-button-top-right;
+}
+
+.pricing-tables--button-bottom-right {
+  @mixin slider-button-bottom-right;
 }
