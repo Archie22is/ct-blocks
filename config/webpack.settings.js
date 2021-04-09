@@ -43,7 +43,7 @@ module.exports = {
     port: 3000,
     watch: true,
     proxy: {
-      target: 'http://ecom.test',
+      target: 'http://cleverjunior.test/',
       proxyReq: [
         proxyReq => {
           proxyReq.setHeader('X-Codetot-Block-Header', 'development')
