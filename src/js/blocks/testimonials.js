@@ -1,6 +1,8 @@
-import { select, on, inViewPort } from 'lib/dom'
+import { select, on, inViewPort, hasClass } from 'lib/dom'
 import { throttle } from 'lib/utils'
 import carousel from 'lib/carousel'
+
+const body = document.body
 
 export default el => {
   const mainSliderEl = select('.js-slider-main', el)
@@ -15,6 +17,28 @@ export default el => {
   // eslint-disable-next-line no-unused-vars
   let slider = null
   let loaded = false
+
+  const resizeAfterLoadAssets = () => {
+    if (!mainSliderEl) {
+      return
+    }
+
+    const checkImageLoaded = () => {
+      if (hasClass('is-assets-loaded', body)) {
+        if (mainSlider) {
+          mainSlider.resize()
+        }
+
+        if (navSlider) {
+          navSlider.resize()
+        }
+
+        clearInterval(checkImage)
+      }
+    }
+
+    const checkImage = setInterval(checkImageLoaded, 300)
+  }
 
   const init = () => {
     if (loaded) {
@@ -43,6 +67,8 @@ export default el => {
     () => {
       if (inViewPort(el)) {
         init()
+
+        resizeAfterLoadAssets()
       }
     },
     window
@@ -53,6 +79,8 @@ export default el => {
     throttle(() => {
       if (inViewPort(el)) {
         init()
+
+        resizeAfterLoadAssets()
       }
     }, 100),
     window

@@ -1,6 +1,6 @@
 <div class="testimonials__column">
   <figure class="testimonials__inner">
-    <div class="testimonials__profile" data-aos="fade-up">
+    <div class="testimonials__profile">
       <?php if (!empty($column['image'])) : ?>
         <?php the_block('image', array(
           'image' => $column['image'],

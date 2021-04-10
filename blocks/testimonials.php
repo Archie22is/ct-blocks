@@ -19,8 +19,6 @@ if (!empty($columns) && $block_preset === 'preset-4') :
     'wrapAround' => true,
     'pageDots' => false,
     'prevNextButtons' => false,
-    'autoPlay' => 10000,
-    'resize' => true,
     'draggable' => false,
   );
   $carousel_settings = array(
@@ -29,8 +27,7 @@ if (!empty($columns) && $block_preset === 'preset-4') :
     'pageDots' =>  false,
     'prevNextButtons' => true,
     'cellAlign' => 'center',
-    'resize' => true,
-    'draggable' => false,
+    'draggable' => true,
   );
 
 ?>

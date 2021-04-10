@@ -6,8 +6,8 @@
     transition: all 0.5s;
 
     &:hover {
-      background-color: var(--primary);
-      border-color: var(--primary);
+      background-color: var(--secondary);
+      border-color: var(--secondary);
 
       & .flickity-button-icon {
         fill: var(--white);
@@ -53,7 +53,7 @@
   overflow: hidden;
 }
 
-.is-initialized {
+.is-ready {
   & .testimonials__column {
     height: 100%;
     display: flex;
@@ -65,7 +65,6 @@
     justify-content: flex-start;
     flex: 1 1 0;
     flex-direction: column;
-    background-color: var(--white);
   }
 
   & .testimonials__profile {
@@ -74,13 +73,19 @@
 }
 
 .testimonials__info {
+  margin: 0.5em 0;
   color: var(--black);
   font-weight: var(--font-bold);
 
+  & p {
+    color: var(--primary);
+  }
+
   & cite {
-    color: var(--gray);
     display: block;
     font-weight: var(--font-bold);
+    color: var(--dark);
+    font-style: normal;
   }
 }
 
@@ -246,6 +251,22 @@
   & .testimonials__icon {
     display: none;
   }
+
+  & .testimonials__columns--main {
+    width: 100%;
+    background-color: var(--primary);
+
+    & .testimonials__column.is-selected,
+    & .testimonials__column {
+      & .testimonials__inner {
+        transition: 0.4s;
+      }
+    }
+
+    & .testimonials__column:not(.is-selected) .testimonials__inner {
+      transform: scale(0.7);
+    }
+  }
 }
 
 .testimonials--preset-3 {
@@ -370,6 +391,10 @@
       display: flex;
     }
 
+    & .testimonials__image {
+      width: 200px;
+    }
+
     & .testimonials__column.is-selected {
       opacity: 1;
 
@@ -446,23 +471,31 @@
     }
   }
 
+  & .testimonials__columns {
+    padding: 0 0 0.5em 0;
+  }
+
   & .testimonials__column {
     width: 100%;
+    margin-bottom: 0.5em;
     padding: 0.5em;
 
     @media (--sm) {
       @mixin column-item 3, 0;
+
+      padding: 0 1em;
     }
   }
 
   & .testimonials__inner {
-    padding: 0.5em;
-    border: 1px solid var(--light);
-    box-shadow: 0 0.125rem 0.25rem rgb(0, 0, 0, 0.3);
-    border-radius: 4px;
+    margin-bottom: 2px;
+    padding: 1.5em 2em;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 
     @media (--s) {
-      padding: 1em 2.5em;
+      padding: 2em;
     }
   }
 
@@ -488,7 +521,6 @@
 
   & .flickity-prev-next-button {
     background-color: var(--primary);
-    display: none;
 
     & svg {
       fill: var(--white);
