@@ -10,8 +10,10 @@ $slider_options = array(
 $carousel_settings_nav = array(
   'pageDots' => false,
   'prevNextButtons' => false,
+  'groupCells' => 1,
   'percentage' => true,
-  'draggable' => false,
+  'draggable' => true,
+  'contain' => true,
   'cellAlign' => 'left',
   'asNavFor' => '.js-slider'
 );

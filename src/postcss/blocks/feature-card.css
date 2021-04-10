@@ -1,12 +1,19 @@
 .feature-card {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   flex: 1 1 0;
   transition: 0.4s;
   background-color: var(--white);
 
   & > * {
     width: 100%;
+  }
+
+  & .feature-card__content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -24,12 +31,6 @@
 .feature-card__icon {
   font-size: 6rem;
   padding-top: calc(1em / 6);
-}
-
-.feature-card__content {
-  flex: 1 1 auto;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .feature-card__description {
@@ -101,6 +102,12 @@
 
   & .feature-card__image-wrapper {
     align-items: flex-start;
+  }
+
+  & .feature-card__content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   & .feature-card__footer {
