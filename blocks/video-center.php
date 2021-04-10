@@ -1,4 +1,10 @@
 <?php
+
+$_class = 'video-center is-loading';
+$_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
+$_class .= !empty($background_contract) ? ' is-' . esc_attr($background_contract) . '-contract' : ' is-light-contract';
+$_class .= !empty($class) ? ' ' . $class : '';
+
 $default_settings = array(
   'title' => 'Default Title',
   'description' => '<p>Example Description text</p>'
@@ -17,7 +23,7 @@ $youtube_id = !empty($matches) ? $matches[1] : '';
 
 ?>
 
-<section class="section video-center is-loading<?php if (!empty($class)) : echo ' ' . $class; endif; ?>" data-ct-block="video-center">
+<section class="<?php echo $_class; ?>" data-ct-block="video-center">
   <?php echo $header; ?>
   <?php if (!empty($youtube_id)) : ?>
     <div class="video-center__main">

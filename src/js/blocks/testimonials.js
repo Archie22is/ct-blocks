@@ -1,64 +1,88 @@
-import { select, selectAll, on, getHeight, setStyle } from 'lib/dom'
+import { select, on, inViewPort, hasClass } from 'lib/dom'
+import { throttle } from 'lib/utils'
 import carousel from 'lib/carousel'
-import { map } from 'lib/utils'
-require('flickity-as-nav-for')
+
+const body = document.body
 
 export default el => {
-  const previous = select('.js-button--previous', el)
-  const next = select('.js-button--next', el)
+  const mainSliderEl = select('.js-slider-main', el)
+  const navSliderEl = select('.js-slider-nav', el)
+  const defaultSliderEl = select('.js-slider', el)
 
-  if (select('.js-slider-main', el)) {
-    const listMain = select('.js-slider-main', el)
-    const listNav = select('.js-slider-nav', el)
+  // Instances
+  // eslint-disable-next-line no-unused-vars
+  let navSlider = null
+  // eslint-disable-next-line no-unused-vars
+  let mainSlider = null
+  // eslint-disable-next-line no-unused-vars
+  let slider = null
+  let loaded = false
 
-    // eslint-disable-next-line no-unused-vars
-    let sliderMain = carousel(listMain)
-    // eslint-disable-next-line no-unused-vars
-    let sliderNav = carousel(listNav)
-  } else {
-    const list = select('.js-slider', el)
+  const resizeAfterLoadAssets = () => {
+    if (!mainSliderEl) {
+      return
+    }
 
-    const imageEl = select('.js-slider-image', el)
-    let slider = null
+    const checkImageLoaded = () => {
+      if (hasClass('is-assets-loaded', body)) {
+        if (mainSlider) {
+          mainSlider.resize()
+        }
 
-    const buttons = selectAll('.js-button--previous, .js-button--next', el)
+        if (navSlider) {
+          navSlider.resize()
+        }
 
-    const setHeightButton = () => {
-      if (imageEl) {
-        const imageHeight = getHeight(imageEl)
-
-        map(button => {
-          setStyle('top', imageHeight / 2, button)
-        }, buttons)
+        clearInterval(checkImage)
       }
     }
 
-    if (list) {
-      slider = carousel(list)
-
-      if (previous) {
-        on(
-          'click',
-          () => {
-            slider.previous()
-          },
-          previous
-        )
-      }
-
-      if (next) {
-        on(
-          'click',
-          () => {
-            slider.next()
-          },
-          next
-        )
-      }
-    }
-
-    setHeightButton()
-
-    on('resize', setHeightButton(), window)
+    const checkImage = setInterval(checkImageLoaded, 300)
   }
+
+  const init = () => {
+    if (loaded) {
+      return
+    }
+
+    if (mainSliderEl && navSliderEl) {
+      // eslint-disable-next-line no-unused-vars
+      let navSlider = carousel(navSliderEl)
+      // eslint-disable-next-line no-unused-vars
+      let mainSlider = carousel(mainSliderEl)
+
+      mainSlider.on('change', index => {
+        navSlider.select(index)
+      })
+    } else if (defaultSliderEl) {
+      // eslint-disable-next-line no-unused-vars
+      let slider = carousel(defaultSliderEl)
+    }
+
+    loaded = true
+  }
+
+  on(
+    'load',
+    () => {
+      if (inViewPort(el)) {
+        init()
+
+        resizeAfterLoadAssets()
+      }
+    },
+    window
+  )
+
+  on(
+    'scroll',
+    throttle(() => {
+      if (inViewPort(el)) {
+        init()
+
+        resizeAfterLoadAssets()
+      }
+    }, 100),
+    window
+  )
 }

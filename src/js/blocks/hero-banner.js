@@ -30,6 +30,4 @@ export default el => {
       ...defaultOptions
     })
   }
-
-  console.log(sliderOptions)
 }

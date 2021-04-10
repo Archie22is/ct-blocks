@@ -65,13 +65,13 @@ ob_start(); ?>
   <p class="hero-image__label" data-aos="fade-up"><?php echo esc_html($label); ?></p>
 <?php endif; ?>
 <?php if (!empty($title)) : ?>
-  <h1 class="hero-image__title" data-aos="fade-up"><?php echo $title; ?></h1>
+  <h1 class="hero-image__title"><?php echo $title; ?></h1>
 <?php endif; ?>
 <?php if (!empty($description)) : ?>
-  <div class="wysiwyg hero-image__description" data-aos="fade-up"><?php echo $description; ?></div>
+  <div class="wysiwyg hero-image__description"><?php echo $description; ?></div>
 <?php endif; ?>
 <?php if (!empty($buttons)) : ?>
-  <div class="hero-image__footer" data-aos="fade-up">
+  <div class="hero-image__footer">
     <?php the_block('button-group', array(
       'buttons' => $buttons,
       'class' => 'hero-image__button'
@@ -84,12 +84,15 @@ $content_html = ob_get_clean();
 if (!empty($image)) :
   ?>
   <section class="<?php echo $_class; ?>">
-    <?php
-      the_block('hero-image-default', array(
-        'container' => $container,
-        'image_html' => $image_html,
-        'content_html' => $content_html
-      ));
-    ?>
+    <?php echo $image_html; ?>
+    <div class="hero-image__wrapper">
+      <div class="hero-image__content">
+        <div class="<?php echo $container; ?> hero-image__container">
+          <div class="hero-image__inner">
+            <?php echo $content_html; ?>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 <?php endif; ?>
