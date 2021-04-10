@@ -1,64 +1,60 @@
-import { select, selectAll, on, getHeight, setStyle } from 'lib/dom'
+import { select, on, inViewPort } from 'lib/dom'
+import { throttle } from 'lib/utils'
 import carousel from 'lib/carousel'
-import { map } from 'lib/utils'
-require('flickity-as-nav-for')
 
 export default el => {
-  const previous = select('.js-button--previous', el)
-  const next = select('.js-button--next', el)
+  const mainSliderEl = select('.js-slider-main', el)
+  const navSliderEl = select('.js-slider-nav', el)
+  const defaultSliderEl = select('.js-slider', el)
 
-  if (select('.js-slider-main', el)) {
-    const listMain = select('.js-slider-main', el)
-    const listNav = select('.js-slider-nav', el)
+  // Instances
+  // eslint-disable-next-line no-unused-vars
+  let navSlider = null
+  // eslint-disable-next-line no-unused-vars
+  let mainSlider = null
+  // eslint-disable-next-line no-unused-vars
+  let slider = null
+  let loaded = false
 
-    // eslint-disable-next-line no-unused-vars
-    let sliderMain = carousel(listMain)
-    // eslint-disable-next-line no-unused-vars
-    let sliderNav = carousel(listNav)
-  } else {
-    const list = select('.js-slider', el)
-
-    const imageEl = select('.js-slider-image', el)
-    let slider = null
-
-    const buttons = selectAll('.js-button--previous, .js-button--next', el)
-
-    const setHeightButton = () => {
-      if (imageEl) {
-        const imageHeight = getHeight(imageEl)
-
-        map(button => {
-          setStyle('top', imageHeight / 2, button)
-        }, buttons)
-      }
+  const init = () => {
+    if (loaded) {
+      return
     }
 
-    if (list) {
-      slider = carousel(list)
+    if (mainSliderEl && navSliderEl) {
+      // eslint-disable-next-line no-unused-vars
+      let navSlider = carousel(navSliderEl)
+      // eslint-disable-next-line no-unused-vars
+      let mainSlider = carousel(mainSliderEl)
 
-      if (previous) {
-        on(
-          'click',
-          () => {
-            slider.previous()
-          },
-          previous
-        )
-      }
-
-      if (next) {
-        on(
-          'click',
-          () => {
-            slider.next()
-          },
-          next
-        )
-      }
+      mainSlider.on('change', index => {
+        navSlider.select(index)
+      })
+    } else if (defaultSliderEl) {
+      // eslint-disable-next-line no-unused-vars
+      let slider = carousel(defaultSliderEl)
     }
 
-    setHeightButton()
-
-    on('resize', setHeightButton(), window)
+    loaded = true
   }
+
+  on(
+    'load',
+    () => {
+      if (inViewPort(el)) {
+        init()
+      }
+    },
+    window
+  )
+
+  on(
+    'scroll',
+    throttle(() => {
+      if (inViewPort(el)) {
+        init()
+      }
+    }, 100),
+    window
+  )
 }

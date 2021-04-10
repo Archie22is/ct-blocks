@@ -14,7 +14,26 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "33",
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_5fd73339ce07d",
+        "label": "Anchor Name",
+        "name": "anchor_name",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
           "class": "",
           "id": ""
         },
@@ -26,14 +45,14 @@
       },
       {
         "key": "field_5fds4416et8a3",
-        "label": "Presets",
+        "label": "Block Preset",
         "name": "block_preset",
         "type": "select",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "33",
+          "width": "50",
           "class": "",
           "id": ""
         },
@@ -48,6 +67,50 @@
         "placeholder": ""
       },
       {
+        "key": "field_5fds4416et8a4",
+        "label": "Background Contract",
+        "name": "background_contract",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_5fds4416et8a5",
+        "label": "Background Color",
+        "name": "background_type",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
         "key": "field_5fd3rtee20546",
         "label": "Overlay",
         "name": "overlay",
@@ -56,7 +119,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "34",
+          "width": "50",
           "class": "",
           "id": ""
         },
@@ -68,30 +131,6 @@
         "append": "Darker"
       },
       {
-        "key": "field_5fd1a3sb81b1",
-        "label": "Background",
-        "name": "background",
-        "type": "image",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "",
-          "class": "",
-          "id": ""
-        },
-        "return_format": "array",
-        "preview_size": "thumbnail",
-        "library": "all",
-        "min_width": "",
-        "min_height": "",
-        "min_size": "",
-        "max_width": "",
-        "max_height": "",
-        "max_size": "",
-        "mime_types": ""
-      },
-      {
         "key": "field_5fd02f1edr1e0",
         "label": "Label",
         "name": "label",
@@ -100,7 +139,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "",
+          "width": "50",
           "class": "",
           "id": ""
         },
@@ -119,7 +158,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "",
+          "width": "50",
           "class": "",
           "id": ""
         },
@@ -173,7 +212,7 @@
             "name": "image",
             "type": "image",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
               "width": "",
@@ -252,7 +291,7 @@
             "key": "field_5fd182edb81b4",
             "label": "Testimonial",
             "name": "testimonial",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,

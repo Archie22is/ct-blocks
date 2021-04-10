@@ -46,9 +46,10 @@ class Codetot_Block_Testimonials extends Codetot_Base_Block implements Codetot_B
     $this->block_title = __('Testimonials', 'codetot');
     $this->fields = [
       'class',
+      'anchor_name',
       'block_preset',
-      'background',
-      'overlay',
+      'background_contract',
+      'background_type',
       'title',
       'label',
       'description',
