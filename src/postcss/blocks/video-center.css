@@ -45,6 +45,8 @@
 }
 
 .video-center {
+  position: relative;
+
   & .plyr,
   & .js-video {
     transition: all 0.3s;
@@ -67,5 +69,12 @@
     @mixin fade-in;
 
     display: flex;
+  }
+}
+
+.video-center.is-dark-contract {
+  & .video-center__title,
+  & .video-center__description * {
+    color: var(--white);
   }
 }

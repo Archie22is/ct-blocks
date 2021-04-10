@@ -47,6 +47,10 @@ class Codetot_Block_Video_Center extends Codetot_Base_Block implements Codetot_B
     $this->block_slug = 'video_center';
     $this->block_title = __('Video Center', 'codetot');
     $this->fields = [
+      'class',
+      'anchor_name',
+      'background_contract',
+      'background_type',
       'label',
       'title',
       'description',
