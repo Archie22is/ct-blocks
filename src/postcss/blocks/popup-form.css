@@ -1,7 +1,8 @@
 .popup-form {
   background-color: var(--white);
-  max-width: var(--m);
   margin: auto;
+  max-width: calc(100% - 2em);
+  width: 100%;
   border-radius: 10px;
   padding: 0;
   overflow: hidden;
@@ -15,6 +16,10 @@
   visibility: hidden;
   overflow-y: auto;
   max-height: 80%;
+
+  @media (--s) {
+    max-width: var(--m);
+  }
 
   &.is-show {
     top: 10%;
