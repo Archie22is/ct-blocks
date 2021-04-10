@@ -10,7 +10,7 @@
   }
 }
 
-.feature-grid.is-light-contract {
+.feature-grid.is-dark-contract {
   & .feature-grid__title {
     color: var(--white);
   }
