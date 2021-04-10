@@ -1,6 +1,8 @@
 <?php
 $container = codetot_site_container();
+
 $prefix_class = 'pricing-tables';
+
 $_class = 'rel ' . $prefix_class;
 $_class .= !empty($class) ? ' ' . $class : '';
 $_class .= !empty($background_image) ? ' section-bg' : ' section';
