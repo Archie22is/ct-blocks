@@ -19,12 +19,12 @@
 }
 
 .feature-grid.is-light-contract {
-  & .feature-grid__header {
-    color: var(--dark);
+  & .feature-grid__title {
+    color: var(--white);
   }
 
   & .feature-grid__description {
-    color: var(--dark);
+    color: var(--white);
   }
 }
 
@@ -36,19 +36,8 @@
   }
 }
 
-.feature-grid--center {
-  margin: auto;
-}
-
-.feature-grid--left {
-  margin: auto auto auto 0;
-}
-
-.feature-grid--right {
-  margin: auto 0 auto auto;
-}
-
-.feature-grid__label {
-  text-transform: uppercase;
-  font-weight: 600;
+.feature-grid.is-content-alignment-center {
+  & .default-section__container--header {
+    max-width: var(--s);
+  }
 }

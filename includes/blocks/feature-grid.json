@@ -45,26 +45,41 @@
       },
       {
         "key": "field_5fcdd285e6e4e",
-        "label": "Box Content",
+        "label": "Card Border",
         "name": "box_content",
-        "type": "checkbox",
+        "type": "true_false",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "25",
+          "width": "12",
           "class": "",
           "id": ""
         },
-        "choices": {
-          "boxed": "Boxed"
+        "message": "Enable",
+        "default_value": 0,
+        "ui": 0,
+        "ui_on_text": "",
+        "ui_off_text": ""
+      },
+      {
+        "key": "field_60712c6fcae3d",
+        "label": "Enable Slider",
+        "name": "enable_slider",
+        "type": "true_false",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "13",
+          "class": "",
+          "id": ""
         },
-        "allow_custom": 0,
-        "default_value": [],
-        "layout": "horizontal",
-        "toggle": 0,
-        "return_format": "value",
-        "save_custom": 0
+        "message": "Enable",
+        "default_value": 0,
+        "ui": 0,
+        "ui_on_text": "",
+        "ui_off_text": ""
       },
       {
         "key": "field_5fcdd3ccaef73",
@@ -79,11 +94,7 @@
           "class": "",
           "id": ""
         },
-        "choices": {
-          "left": "Left",
-          "center": "Center",
-          "right": "Right"
-        },
+        "choices": {},
         "default_value": false,
         "allow_null": 0,
         "multiple": 0,
@@ -105,8 +116,12 @@
           "class": "",
           "id": ""
         },
-        "choices": [],
-        "default_value": false,
+        "choices": {
+          "default": "Default Image Size",
+          "cover": "Cover Image",
+          "contain": "Contain Image"
+        },
+        "default_value": "default",
         "allow_null": 0,
         "multiple": 0,
         "ui": 0,
@@ -127,7 +142,12 @@
           "class": "",
           "id": ""
         },
-        "choices": [],
+        "choices": {
+          "2": "2 Columns",
+          "3": "3 Columns",
+          "4": "4 Columns",
+          "5": "5 Columns"
+        },
         "default_value": false,
         "allow_null": 0,
         "multiple": 0,
@@ -137,7 +157,7 @@
         "placeholder": ""
       },
       {
-        "key": "field_5fcdf85501f7f",
+        "key": "field_ngayminhxa4a9",
         "label": "Background Contract",
         "name": "background_contract",
         "type": "select",
@@ -149,10 +169,7 @@
           "class": "",
           "id": ""
         },
-        "choices": {
-          "light": "Light",
-          "dark": "Dark"
-        },
+        "choices": {},
         "default_value": false,
         "allow_null": 0,
         "multiple": 0,
@@ -162,7 +179,7 @@
         "placeholder": ""
       },
       {
-        "key": "field_5fcdf85501f7g",
+        "key": "field_60711e72eed0d",
         "label": "Background Color",
         "name": "background_type",
         "type": "select",
@@ -174,10 +191,7 @@
           "class": "",
           "id": ""
         },
-        "choices": {
-          "light": "Light",
-          "dark": "Dark"
-        },
+        "choices": {},
         "default_value": false,
         "allow_null": 0,
         "multiple": 0,
@@ -308,7 +322,7 @@
             "label": "SVG",
             "name": "icon_svg",
             "type": "textarea",
-            "instructions": "Copy svg",
+            "instructions": "",
             "required": 0,
             "conditional_logic": [
               [
@@ -438,21 +452,18 @@
             "prepend": "",
             "append": "",
             "maxlength": "",
-            "choices": {
-              "_self": "Same Window/Tab",
-              "_blank": "New Window/Tab"
-            }
+            "choices": {}
           },
           {
             "key": "field_60700ca928363",
             "label": "Button Style",
             "name": "button_style",
-            "type": "select",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-              "width": "25",
+              "width": "",
               "class": "",
               "id": ""
             },
@@ -461,7 +472,7 @@
             "prepend": "",
             "append": "",
             "maxlength": "",
-            "choices": []
+            "choices": {}
           }
         ]
       }
