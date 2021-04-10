@@ -46,7 +46,29 @@ class Codetot_Block_Pricing_Tables extends Codetot_Base_Block implements Codetot
     $this->block_name = 'pricing-tables';
     $this->block_slug = 'pricing_tables';
     $this->block_title = __('Pricing Tables', 'codetot');
-    $this->fields = ['item_style', 'layout', 'number_columns', 'background_contract', 'background_image', 'title', 'description', 'items'];
+    $this->fields = [
+      //setting
+    'layout',
+    'item_style',
+    'block_preset',
+    'header_alignment',
+    'number_columns',
+    'background_contract',
+    'background_image',
+    'enable_prev_next_buttons',
+    'previous_next_style',
+    'previous_next_alignment',
+    'enable_page_dots',
+    'page_dots_style',
+    'page_dots_alignment',
+    'cell_alignment',
+    'enable_autoplay',
+    'speed',
+    //Input
+    'title',
+    'description',
+    'items'
+  ];
 
     parent::__construct();
   }

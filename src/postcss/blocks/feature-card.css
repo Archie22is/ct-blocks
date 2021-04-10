@@ -89,6 +89,10 @@
   }
 }
 
+.feature-card__header {
+  width: 100%;
+}
+
 .feature-card--center {
   text-align: center;
 }

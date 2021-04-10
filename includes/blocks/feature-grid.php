@@ -50,6 +50,7 @@ class Codetot_Block_Feature_Grid extends Codetot_Base_Block implements Codetot_B
       'columns',
       'header_alignment',
       'background_contract',
+      'label',
       'title',
       'description',
       'box_content',
