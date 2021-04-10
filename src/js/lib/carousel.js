@@ -14,6 +14,12 @@ export default (el, options = {}) => {
     percentPosition: false,
     items: 1,
     watchCSS: false,
+    resize: true,
+    on: {
+      ready: () => {
+        addClass('is-ready', el)
+      }
+    },
     arrowShape: {
       x0: 10,
       x1: 50,
