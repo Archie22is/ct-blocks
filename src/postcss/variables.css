@@ -22,6 +22,7 @@
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   --font-normal: 400;
   --font-bold: 700;
+  --font-light: 300;
   --grid-gutter: 10px;
   --grid-gutter-m: 16px;
   --container-gutter: 20px;

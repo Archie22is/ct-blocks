@@ -242,12 +242,31 @@
             "maxlength": ""
           },
           {
+            "key": "field_5fd2f593333b1",
+            "label": "Button Attribute",
+            "name": "button_attr",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+          },
+          {
             "key": "field_5fd2f598b10b2",
             "label": "Button URL",
             "name": "button_url",
             "type": "text",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
               "width": "",
