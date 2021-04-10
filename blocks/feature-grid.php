@@ -19,6 +19,7 @@ if (!empty($title) || !empty($description)) {
   $header = codetot_build_content_block(array(
     'class' => 'section-header',
     'alignment' => $header_alignment,
+    'label' => $label,
     'title' => $title,
     'description' => $description
   ), 'feature-grid');

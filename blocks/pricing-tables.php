@@ -1,56 +1,78 @@
 <?php
 $container = codetot_site_container();
-$_class = 'rel pricing-tables';
+
+$prefix_class = 'pricing-tables';
+
+$_class = 'rel ' . $prefix_class;
 $_class .= !empty($class) ? ' ' . $class : '';
 $_class .= !empty($background_image) ? ' section-bg' : ' section';
-$_class .= !empty($background_contract) ? ' pricing-tables--' . esc_attr($background_contract) : '';
-$_class .= !empty($layout) ? ' pricing-tables--' . esc_attr($layout) : '';
-$_class .= !empty($number_columns) ? ' pricing-tables--' . esc_attr($number_columns) .'-column' : '';
+$_class .= !empty($background_contract) ? ' '. $prefix_class .'--' . esc_attr($background_contract) : '';
+$_class .= !empty($block_preset) ? ' '. $prefix_class .'--' . esc_attr($block_preset) : ''. $prefix_class .'--preset-1';
+$_class .= !empty($number_columns) ? ' '. $prefix_class .'--' . esc_attr($number_columns) .'-columns' : '';
+
+$_card_style = !empty($item_style) ? esc_attr($item_style) : 'style-1';
 ?>
-<section class="<?php echo $_class; ?>">
-  <div class="rel z-1 <?php echo $container; ?> pricing-tables__container">
-    <div class="grid pricing-tables__grid">
-      <?php if(!empty($title)) : ?>
-        <div class="grid__col pricing-tables__col pricing-tables__col--header" data-aos="fade-up">
-          <h2 class="pricing-tables__title"><?php echo $title ?></h2>
-        </div>
-      <?php endif; ?>
-      <?php if(!empty($description)) : ?>
-        <div class="grid__col pricing-tables__col pricing-tables__col--description" data-aos="fade-up">
-          <div class="wysiwyg pricing-tables__description">
-            <?php echo $description; ?>
-          </div>
-        </div>
-      <?php endif; ?>
-      <?php if(!empty($items)) : ?>
-        <div class="grid__col pricing-tables__col pricing-tables__col--main" data-aos="fade-up">
-          <div class="f fw pricing-tables__inner">
-            <?php foreach ($items as $item) : ?>
-              <div class="pricing-tables__item">
-                <?php the_block('pricing-box', array(
-                  'style' => !empty($item_style) ? $item_style : 'style-1',
-                  'distinctive' =>  $item['distinctive'],
-                  'title' => $item['title'],
-                  'pricing' => $item['pricing'],
-                  'unit' => $item['unit'],
-                  'items' => $item['listings'],
-                  'button_text' => $item['button_text'],
-                  'button_url' => $item['button_url']
-                ))
-                ?>
-              </div>
-            <?php endforeach; ?>
-          </div>
-        </div>
-      <?php endif; ?>
-    </div>
-  </div>
-  <?php if(!empty($background_image)): ?>
-    <div class="abs pricing-tables__background">
-      <?php the_block('image', array(
-        'image' => $background_image,
-        'class' => 'image--cover pricing-tables__background'
-      )); ?>
-    </div>
-  <?php endif; ?>
-</section>
+<?php
+if (!empty($title) || !empty($description)) {
+  $header = codetot_build_content_block(array(
+    'class' => 'section-header',
+    'alignment' => $header_alignment,
+    'title' => $title,
+    'description' => $description
+  ), $prefix_class);
+}
+
+// Main Content
+$columns = !empty($items) ? array_map(function($item) use ($_card_style) {
+  return get_block('pricing-box', array(
+    'style' => $_card_style,
+    'distinctive' =>  $item['distinctive'],
+    'title' => $item['title'],
+    'pricing' => $item['pricing'],
+    'unit' => $item['unit'],
+    'items' => $item['listings'],
+    'button_text' => $item['button_text'],
+    'button_url' => $item['button_url'],
+    'button_style' =>!empty($item['button_style']) ? esc_attr($item['button_style']) : 'primary',
+  ));
+}, $items) : [];
+
+if ($layout === 'slider') :
+  $_silder_class = '';
+  $_silder_class .= !empty($previous_next_style) ? ' ' . $prefix_class . '--button-' . esc_attr($previous_next_style) : ' ' . $prefix_class . '-button-circle';
+  $_silder_class .= !empty($previous_next_alignment) ? ' ' . $prefix_class . '--button-' . esc_attr($previous_next_alignment) : ' ' . $prefix_class . '--button-middle';
+  $_silder_class .= !empty($page_dots_style) ? ' ' . $prefix_class . '--dots-' . esc_attr($page_dots_style) : ' ' . $prefix_class . '--dots-circle';
+  $_silder_class .= !empty($page_dots_alignment) ? ' ' . $prefix_class . '--dots-' . esc_attr($page_dots_alignment) : ' ' . $prefix_class . '--dots-circle';
+  $_silder_class .= !empty($overlay) ? ' ' . $prefix_class . '--overlay' : '';
+
+  $slider_settings = array(
+    'contain' => true,
+    'draggable' => true,
+    'wrapAround' => true,
+    'pauseAutoPlayOnHover' => true,
+    'pageDots' => !empty($enable_page_dots),
+    'prevNextButtons' => !empty($enable_prev_next_buttons),
+    'cellAlign' => !empty($cell_alignment) ? $cell_alignment : 'center',
+    'autoPlay' => !empty($enable_autoplay) ? (!empty($speed) ? ($speed * 1000) : 5000) : false,
+  );
+
+  $content = codetot_build_slider($columns, $prefix_class, array(
+    'slider_class' => $_silder_class,
+    'slider_attributes' => 'data-aos="fade-up"',
+    'slider_settings' => $slider_settings,
+  ));
+else :
+  $content = codetot_build_grid_columns($columns, $prefix_class, array(
+    'column_attributes' => 'data-aos="fade-up"',
+    'column_class' => 'default-section__col'
+  ));
+endif;
+
+if (!empty($items)) :
+  the_block('default-section', array(
+    'class' => $_class,
+    'attributes' => ($layout === 'slider') ? ' data-ct-block="slider"' : '',
+    'header' => (!empty($title) || !empty($description)) ? $header : false,
+    'content' => $content
+  ));
+endif;

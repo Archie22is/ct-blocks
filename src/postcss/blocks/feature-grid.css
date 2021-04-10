@@ -47,3 +47,8 @@
 .feature-grid--right {
   margin: auto 0 auto auto;
 }
+
+.feature-grid__label {
+  text-transform: uppercase;
+  font-weight: 600;
+}

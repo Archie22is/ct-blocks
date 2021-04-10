@@ -259,7 +259,7 @@ if (!function_exists('codetot_build_content_block')) {
     }
 
     if (!empty($args['title'])) {
-      $output_elements['label'] = sprintf('<%1$s class="%2$s__title">%3$s</%4$s>',
+      $output_elements['title'] = sprintf('<%1$s class="%2$s__title">%3$s</%4$s>',
         $title_tag,
         $prefix_class,
         $args['title'],

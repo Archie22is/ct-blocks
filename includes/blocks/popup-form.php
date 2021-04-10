@@ -1,6 +1,6 @@
 <?php
 
-class Codetot_Block_Feature_Grid extends Codetot_Base_Block implements Codetot_Base_Block_Interface
+class Codetot_Block_Popup_Form extends Codetot_Base_Block implements Codetot_Base_Block_Interface
 {
   /**
    * @var string
@@ -22,14 +22,16 @@ class Codetot_Block_Feature_Grid extends Codetot_Base_Block implements Codetot_B
   /**
    * Singleton instance
    *
-   * @var Codetot_Block_Feature_Grid
+   * @var Codetot_Block_Popup_Form
    */
   private static $instance;
 
   /**
    * Get singleton instance.
    *
-   * @return Codetot_Block_Feature_Grid
+
+   * @return Codetot_Block_Popup_Form
+
    */
   public final static function instance() {
     if ( is_null( self::$instance ) ) {
@@ -41,27 +43,22 @@ class Codetot_Block_Feature_Grid extends Codetot_Base_Block implements Codetot_B
   public function __construct()
   {
 
-    $this->block_name = 'feature-grid';
-    $this->block_slug = 'feature_grid';
-    $this->block_title = __('Feature Grid', 'codetot');
+    $this->block_name = 'popup-form';
+    $this->block_slug = 'popup_form';
+    $this->block_title = __('Popup Form', 'codetot');
     $this->fields = [
       'class',
-      'layout',
-      'columns',
-      'header_alignment',
-      'background_contract',
+      'block_preset',
+      'select_form',
+      'action_attribute',
       'label',
       'title',
       'description',
-      'box_content',
-      'content_alignment',
-      'image_size',
-      'items',
-      'button_style'
+      'content'
     ];
 
     parent::__construct();
   }
 }
 
-Codetot_Block_Feature_Grid::instance();
+Codetot_Block_Popup_Form::instance();

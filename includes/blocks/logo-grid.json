@@ -154,7 +154,7 @@
         "key": "field_5fc896fbd5414",
         "label": "Description",
         "name": "description",
-        "type": "textarea",
+        "type": "wysiwyg",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
@@ -189,6 +189,25 @@
         "button_label": "Add Item",
         "sub_fields": [
           {
+            "key": "field_5fc9bd3434106",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "25",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+          },
+          {
             "key": "field_5fc89716d5416",
             "label": "Image",
             "name": "image",
@@ -207,8 +226,8 @@
             "min_width": "",
             "min_height": "",
             "min_size": "",
-            "max_width": 400,
-            "max_height": 400,
+            "max_width": "",
+            "max_height": "",
             "max_size": "",
             "mime_types": ""
           }
