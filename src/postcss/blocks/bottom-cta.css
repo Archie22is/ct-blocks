@@ -1,3 +1,9 @@
+.bottom-cta__inner {
+  @media (--m) {
+    padding: 4em 0;
+  }
+}
+
 .bottom-cta__label {
   margin-bottom: 0.5em;
 }
