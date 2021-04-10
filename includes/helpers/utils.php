@@ -343,7 +343,7 @@ if (!function_exists('codetot_build_grid_columns')) {
 }
 
 
-if (!function_exists('codetot_build_slider_block')) {
+if (!function_exists('codetot_build_slider')) {
   /**
    * Generate HTML markup for slider
    *
