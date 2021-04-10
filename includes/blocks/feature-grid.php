@@ -45,19 +45,19 @@ class Codetot_Block_Feature_Grid extends Codetot_Base_Block implements Codetot_B
     $this->block_slug = 'feature_grid';
     $this->block_title = __('Feature Grid', 'codetot');
     $this->fields = [
+      // Settings
       'class',
-      'layout',
-      'columns',
-      'header_alignment',
-      'background_contract',
-      'label',
-      'title',
-      'description',
+      'anchor_name',
       'box_content',
       'content_alignment',
       'image_size',
+      'columns',
+      'background_contract',
+      'background_type',
+      // Content
+      'title',
+      'description',
       'items',
-      'button_style'
     ];
 
     parent::__construct();
