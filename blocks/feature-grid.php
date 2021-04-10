@@ -38,13 +38,28 @@ $columns = !empty($items) ? array_map(function($item) use ($_card_class, $image_
   ));
 }, $items) : [];
 
-$content = codetot_build_grid_columns($columns, 'feature-grid', array(
-  'column_attributes' => 'data-aos="fade-up"',
-  'column_class' => 'default-section__col'
-));
+if ($enable_slider) {
+  $slider_settings = array(
+    'contain' => true,
+    'draggable' => true,
+    'pauseAutoPlayOnHover' => true,
+    'pageDots' => false
+  );
+
+  $content = codetot_build_slider($columns, 'feature-grid', array(
+    'slider_attributes' => 'data-aos="fade-up"',
+    'slider_settings' => $slider_settings,
+  ));
+} else {
+  $content = codetot_build_grid_columns($columns, 'feature-grid', array(
+    'column_attributes' => 'data-aos="fade-up"',
+    'column_class' => 'default-section__col'
+  ));
+}
 
 if (!empty($items)) :
   the_block('default-section', array(
+    'attributes' => $enable_slider ? ' data-ct-block="feature-grid"' : '',
     'class' => $_class,
     'header' => (!empty($title) || !empty($description)) ? $header : false,
     'content' => $content
