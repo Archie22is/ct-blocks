@@ -9,12 +9,12 @@
   & > * {
     width: 100%;
   }
+}
 
-  & .feature-card__content {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-  }
+.feature-card__content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .feature-card--boxed {
@@ -67,14 +67,24 @@
 
 .feature-card--image-default {
   & .feature-card__image {
-    width: 100%;
-    margin: auto;
+    width: auto;
+    margin: 1.5em auto 0;
+
+    @media (--m) {
+      margin: 2em auto 0;
+    }
 
     & .image__img {
       position: static;
       width: auto;
       max-width: 100%;
       height: auto;
+    }
+  }
+
+  &.feature-card--boxed {
+    & .feature-card__image {
+      margin-top: 0;
     }
   }
 }
