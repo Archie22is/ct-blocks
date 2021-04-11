@@ -10,7 +10,7 @@
         <?php endif; ?>
       </figcaption>
     </div>
-    <blockquote class="testimonials__comment">
+    <blockquote class="wysiwyg testimonials__comment">
       <?php if (!empty($column['title'])) : ?>
         <h3><?php echo $column['title']; ?></h3>
       <?php endif; ?>

@@ -456,10 +456,6 @@
 }
 
 .testimonials--preset-5 {
-  @media (--s) {
-    padding-bottom: 0;
-  }
-
   & .testimonials__main {
     margin-top: 0;
 
