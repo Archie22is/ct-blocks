@@ -43,18 +43,18 @@
 }
 
 .hero-slider__image {
-  @mixin ratio 4/3;
+  @mixin ratio 9/16;
 
   @media (--s) {
-    @mixin ratio 9/16;
-  }
-
-  @media (--ml) {
-    height: 600px;
+    min-height: 250px;
 
     &::before {
       content: none;
     }
+  }
+
+  @media (--ml) {
+    min-height: 400px;
   }
 }
 
