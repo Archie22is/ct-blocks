@@ -1,7 +1,7 @@
 <?php
 $container = codetot_site_container();
 
-$_class = 'rel setion-bg testimonials';
+$_class = 'rel section-bg testimonials';
 $_class .= !empty($class) ? ' ' . $class : '';
 $_class .= !empty($overlay) ? ' testimonials--has-overlay' : '';
 $_class .= !empty($block_preset) ? ' testimonials--' . esc_attr($block_preset) : ' testimonials--preset-1';
