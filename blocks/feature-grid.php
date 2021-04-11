@@ -9,7 +9,7 @@ $_class .= !empty($background_type) ? codetot_generate_block_background_class($b
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 $_class .= !empty($background_contract) ? ' is-' . $background_contract . '-contract' : '';
 
-$_card_class = 'feature-card';
+$_card_class = '';
 $_card_class .= !empty($image_size) ? ' feature-card--image-' . esc_attr($image_size) : '';
 $_card_class .= !empty($content_alignment) ? ' feature-card--' . $content_alignment : '';
 $_card_class .= !empty($box_content) ? ' feature-card--boxed' : '';

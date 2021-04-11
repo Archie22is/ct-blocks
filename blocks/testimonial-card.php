@@ -1,7 +1,7 @@
 <?php if (!empty($column)) : ?>
   <div class="testimonials__column">
     <figure class="testimonials__inner">
-      <blockquote class="testimonials__comment" data-aos="fade-up">
+      <blockquote class="wysiwyg testimonials__comment" data-aos="fade-up">
         <div class="testimonials__icon testimonials__icon--open">
           <?php codetot_svg('quotation-marks-open', true) ?>
         </div>
