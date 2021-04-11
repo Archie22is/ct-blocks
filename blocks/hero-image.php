@@ -81,7 +81,7 @@ ob_start(); ?>
 <?php
 $content_html = ob_get_clean();
 
-if (!empty($image)) :
+if (!empty($content_html)) :
   ?>
   <section class="<?php echo $_class; ?>">
     <?php echo $image_html; ?>
