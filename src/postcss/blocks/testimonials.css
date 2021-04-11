@@ -389,6 +389,9 @@
 
     & .testimonials__profile {
       display: flex;
+      transform: scale(0.8);
+      margin: 0 auto;
+      transition: transform 0.3s;
     }
 
     & .testimonials__image {
@@ -400,6 +403,10 @@
 
     & .testimonials__column.is-selected {
       opacity: 1;
+
+      & .testimonials__profile {
+        transform: scale(1);
+      }
 
       & .testimonials__image {
         opacity: 1;
