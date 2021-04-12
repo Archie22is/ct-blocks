@@ -7,6 +7,7 @@ export default el => {
   const contentEl = select('.js-content', el)
   const maxHeight = getData('max-height', el)
   const openEl = select('.js-open-trigger', el)
+
   const init = () => {
     const contentHeight = contentEl.scrollHeight || contentEl.offsetHeight
 
@@ -31,6 +32,4 @@ export default el => {
   }
 
   init()
-
-  on('resize', throttle(init, 250), window)
 }
