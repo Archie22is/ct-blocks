@@ -96,7 +96,7 @@
         "key": "field_5fd7247fac1b2",
         "label": "Select Form",
         "name": "select_form",
-        "type": "gravity_forms_field",
+        "type": "select",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
