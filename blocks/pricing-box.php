@@ -20,7 +20,12 @@ $_class .= !empty($distinctive) ? ' pricing-box--distinctive' : '';
     <div class="pricing-box__feature" data-aos="fade-up" data-aos-duration="800">
       <ul class="pricing-box__items">
         <?php foreach ($items as $item) : ?>
-          <li class="pricing-box__item"><?php echo $item['item']; ?></li>
+          <li class="pricing-box__item">
+          <?php if(!empty($list_icon['url'])) : ?>
+          <span><img src="<?php echo $list_icon['url']; ?>" alt=""></span>
+          <?php endif; ?>
+          <?php echo $item['item']; ?>
+          </li>
         <?php endforeach; ?>
       </ul>
     </div>

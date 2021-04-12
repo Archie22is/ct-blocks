@@ -22,6 +22,8 @@
 
   font-weight: 700;
   font-family: var(--font-heading);
+  width: 70px;
+  margin: 0 1em;
 }
 
 .noUi-target.pricing-calculator__range {
@@ -180,5 +182,40 @@
   & .pricing-calculator__right-intro {
     color: var(--dark);
     opacity: 0.85;
+  }
+}
+
+.pricing-calculator__control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pricing-calculator__action {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--primary);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: 0.4s;
+
+  & input {
+    opacity: 0;
+    position: absolute;
+  }
+
+  & svg {
+    width: 16px;
+    stroke: var(--primary);
+    transition: 0.4s;
+  }
+
+  &:hover {
+    background-color: var(--primary);
+    & svg {
+      stroke: var(--white);
+    }
   }
 }

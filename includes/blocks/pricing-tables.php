@@ -54,6 +54,7 @@ class Codetot_Block_Pricing_Tables extends Codetot_Base_Block implements Codetot
     'header_alignment',
     'number_columns',
     'background_contract',
+    'list_icon',
     'background_image',
     'enable_prev_next_buttons',
     'previous_next_style',

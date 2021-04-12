@@ -448,6 +448,33 @@
         "save_other_choice": 0
       },
       {
+        "key": "field_5fcf57749f349",
+        "label": "List Icon",
+        "name": "list_icon",
+        "type": "image",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "acfe_permissions": "",
+        "acfe_uploader": "wp",
+        "acfe_thumbnail": 0,
+        "return_format": "array",
+        "preview_size": "medium",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "100",
+        "max_height": "100",
+        "max_size": "",
+        "mime_types": ""
+      },
+      {
         "key": "field_5fcf5cd87f349",
         "label": "Background Image",
         "name": "background_image",
