@@ -20,11 +20,11 @@ $levels = ['country', 'province', 'district'];
       <select class="js-<?php echo $level ?> store-locator-form__select">
         <?php
         if ($level === 'country') {
-          printf('<option value="" disabled hidden>Choose Country</option>');
+          printf('<option>Choose Country</option>');
         } elseif ($level === 'province') {
-          printf('<option value="" disabled hidden>Choose Province</option>');
+          printf('<option>Choose Province</option>');
         } else {
-          printf('<option value="" disabled hidden>Choose District</option>');
+          printf('<option>Choose District</option>');
         }
         ?>
         <?php
