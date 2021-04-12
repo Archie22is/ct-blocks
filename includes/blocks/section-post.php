@@ -47,8 +47,10 @@ class Codetot_Block_Section_Post extends Codetot_Base_Block implements Codetot_B
     $this->fields = [
       'class',
       'block_preset',
+      'header_alignment',
       'label',
       'title',
+      'description',
       'category',
       'number_posts',
       'post_grid_columns',

@@ -28,7 +28,6 @@ if ($post_query->have_posts()) :
 endif;
 
 $content = codetot_build_grid_columns($columns, 'section-post', array(
-  'column_attributes' => 'data-aos="fade-up"',
   'column_class' => 'default-section__col'
 ));
 
