@@ -34,6 +34,18 @@
 
 .pricing-box__item {
   margin-top: 0.5em;
+  display: flex;
+  align-items: center;
+
+  & span {
+    display: inline-block;
+    width: 24px;
+    margin-right: 1em;
+  }
+
+  & img {
+    width: 100%;
+  }
 }
 
 .pricing-box--style-1 {

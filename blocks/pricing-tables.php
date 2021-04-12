@@ -23,7 +23,7 @@ if (!empty($title) || !empty($description)) {
 }
 
 // Main Content
-$columns = !empty($items) ? array_map(function($item) use ($_card_style) {
+$columns = !empty($items) ? array_map(function($item) use ($_card_style, $list_icon) {
   return get_block('pricing-box', array(
     'style' => $_card_style,
     'distinctive' =>  $item['distinctive'],
@@ -31,6 +31,7 @@ $columns = !empty($items) ? array_map(function($item) use ($_card_style) {
     'pricing' => $item['pricing'],
     'unit' => $item['unit'],
     'items' => $item['listings'],
+    'list_icon' => !empty($list_icon) ? $list_icon: false,
     'button_text' => $item['button_text'],
     'button_url' => $item['button_url'],
     'button_style' =>!empty($item['button_style']) ? esc_attr($item['button_style']) : 'primary',
@@ -52,7 +53,7 @@ if ($layout === 'slider') :
     'pauseAutoPlayOnHover' => true,
     'pageDots' => !empty($enable_page_dots),
     'prevNextButtons' => !empty($enable_prev_next_buttons),
-    'cellAlign' => !empty($cell_alignment) ? $cell_alignment : 'center',
+    'cellAlign' => !empty($cell_alignment) ? $cell_alignment : 'left',
     'autoPlay' => !empty($enable_autoplay) ? (!empty($speed) ? ($speed * 1000) : 5000) : false,
   );
 

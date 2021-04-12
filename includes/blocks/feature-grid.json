@@ -220,6 +220,25 @@
         "maxlength": ""
       },
       {
+        "key": "field_5fd33a3833337",
+        "label": "Label",
+        "name": "label",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
         "key": "field_5fc8a1a2746e4",
         "label": "Description",
         "name": "description",

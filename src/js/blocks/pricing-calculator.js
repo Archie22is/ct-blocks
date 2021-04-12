@@ -20,6 +20,8 @@ export default el => {
   const sliderRangeEl = select('.js-rangeslider', el)
   const numberEl = select('.js-number', el)
   const itemEls = selectAll('.js-item', el)
+  const plusEl = selectAll('.js-plus', el)
+  const minusEl = selectAll('.js-minus', el)
   let currentNumber = null
 
   const options = sliderRangeEl
@@ -60,6 +62,34 @@ export default el => {
         removeClass(ACTIVE_ITEM_CLASS, itemEl)
       }
     }, itemEls)
+  }
+
+  if (plusEl) {
+    on(
+      'click',
+      () => {
+        let count = sliderRangeEl.value
+        count++
+        sliderRangeEl.value = count
+        trigger('change', sliderRangeEl)
+      },
+      plusEl
+    )
+  }
+
+  if (minusEl) {
+    on(
+      'click',
+      () => {
+        if (sliderRangeEl.value > 1) {
+          let count = sliderRangeEl.value
+          count--
+          sliderRangeEl.value = count
+          trigger('change', sliderRangeEl)
+        }
+      },
+      minusEl
+    )
   }
 
   on(
