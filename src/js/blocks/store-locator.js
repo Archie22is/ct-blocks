@@ -77,11 +77,7 @@ export default el => {
   const mapFilter = () => {
     const noResultEl = select('.js-no-result', el)
 
-    if (getData('post-type', el)) {
-      removeClass('show', noResultEl)
-    } else {
-      addClass('show', locationEls)
-    }
+    addClass('show', locationEls)
 
     removeClass('hide', sidebarSectionEl)
 
@@ -222,13 +218,7 @@ export default el => {
   on(
     'load',
     () => {
-      if (getData('post-type', el)) {
-        const countryFilterEl = select('.js-country', el)
-
-        filter(countryFilterEl)
-      } else {
-        mapFilter()
-      }
+      mapFilter()
     },
     window
   )
