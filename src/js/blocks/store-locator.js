@@ -77,7 +77,11 @@ export default el => {
   const mapFilter = () => {
     const noResultEl = select('.js-no-result', el)
 
-    addClass('show', locationEls)
+    if (getData('post-type', el)) {
+      removeClass('show', noResultEl)
+    } else {
+      addClass('show', locationEls)
+    }
 
     removeClass('hide', sidebarSectionEl)
 
@@ -203,6 +207,8 @@ export default el => {
             on(
               'change',
               el => {
+                addClass('show', locationEls)
+
                 filter(el.target)
               },
               select
@@ -218,6 +224,7 @@ export default el => {
   on(
     'load',
     () => {
+      addClass('show', locationEls)
       mapFilter()
     },
     window
