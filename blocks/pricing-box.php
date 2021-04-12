@@ -12,8 +12,8 @@ $_class .= !empty($distinctive) ? ' pricing-box--distinctive' : '';
   <?php endif; ?>
   <?php if (!empty($pricing)) : ?>
     <div class="pricing-box__pricing">
-      <?php echo $pricing;
-      if (!empty($unit)) :echo ' ' . $unit; endif; ?>
+      <?php echo $pricing; ?>
+      <span> <?php if (!empty($unit)) :echo ' ' . $unit; endif; ?> </span>
     </div>
   <?php endif; ?>
   <?php if (!empty($items)) : ?>
