@@ -33,15 +33,14 @@
   z-index: 1;
 }
 
-.cta-form--style-1,
-.cta-form--style-2 {
+.cta-form--preset-1,
+.cta-form--preset-2 {
   & .cta-form__header {
     margin-bottom: 40px;
     position: relative;
   }
 
   & .cta-form__title {
-    text-align: center;
     margin: 5px auto;
   }
 
@@ -120,7 +119,7 @@
   }
 }
 
-.cta-form--style-2 {
+.cta-form--preset-2 {
   & .cta-form__grid {
     flex-direction: column-reverse;
 
