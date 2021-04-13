@@ -46,21 +46,19 @@ class Codetot_Block_Product_Grid_Sidebar extends Codetot_Base_Block implements C
     $this->block_title = __('Product_Grid_Sidebar', 'codetot');
     $this->fields = [
       'block_preset',
-      'layout',
-      'header_alignment',
-      'style_color',
+      'image_left',
+      'image_link',
       'title',
+      'numbers',
+      'layout',
+      'columns',
+      'style_color',
       'categories',
       'attribute',
-      'numbers',
-      'columns',
-      'image_sidebar_items',
-      'image_size',
       'button_text',
       'button_url',
       'button_target',
-      'button_style'
-    ];
+      'button_style'];
 
     parent::__construct();
   }
