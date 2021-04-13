@@ -90,6 +90,25 @@
         "ui_off_text": ""
       },
       {
+        "key": "field_5fd8677495699",
+        "label": "Label",
+        "name": "label",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "100",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
         "key": "field_5fd864a1a5699",
         "label": "Title",
         "name": "title",
@@ -108,7 +127,25 @@
         "append": "",
         "maxlength": ""
       },
-
+      {
+        "key": "field_5fd864a1a7749",
+        "label": "Description",
+        "name": "description",
+        "type": "wysiwyg",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
       {
         "key": "field_ds864ae0769a",
         "label": "Categories",
