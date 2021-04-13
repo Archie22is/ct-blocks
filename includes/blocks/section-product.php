@@ -46,9 +46,7 @@ class Codetot_Block_Section_Product extends Codetot_Base_Block implements Codeto
     $this->block_title = __('Section_Product', 'codetot');
     $this->fields = [
       'class',
-      'label',
       'title',
-      'description',
       'show_category',
       'show_shop_link',
       'section_align',
