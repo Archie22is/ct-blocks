@@ -49,6 +49,29 @@
         "save_other_choice": 0
       },
       {
+        "key": "field_600f9c3394966",
+        "label": "Header Alignment",
+        "name": "header_alignment",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": "left",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": "",
+        "layout": "horizontal"
+      },
+      {
         "key": "field_5fd737d71907a",
         "label": "Overlay",
         "name": "overlay",
@@ -129,9 +152,9 @@
       },
       {
         "key": "field_5fd7246cac1b1",
-        "label": "Content",
+        "label": "Description",
         "name": "content",
-        "type": "textarea",
+        "type": "wysiwyg",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
