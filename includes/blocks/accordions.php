@@ -44,7 +44,7 @@ class Codetot_Block_Accordions extends Codetot_Base_Block implements Codetot_Bas
 
     $this->block_name = 'accordions';
     $this->block_slug = 'accordions';
-    $this->block_title = __('Accordions', 'codetot');
+    $this->block_title = __('Accordions', 'ct-theme');
     $this->fields = [
       // Settings
       'class',

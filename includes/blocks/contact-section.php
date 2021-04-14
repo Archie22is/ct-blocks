@@ -43,7 +43,7 @@ class Codetot_Block_Contact_Section extends Codetot_Base_Block implements Codeto
 
     $this->block_name = 'contact-section';
     $this->block_slug = 'contact_section';
-    $this->block_title = __('Contact Section', 'codetot');
+    $this->block_title = __('Contact Section', 'ct-theme');
     $this->fields = [
       'class',
       'full_screen_layout',

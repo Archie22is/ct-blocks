@@ -45,7 +45,7 @@ class Codetot_Block_Hero_Slider extends Codetot_Base_Block implements Codetot_Ba
   {
     $this->block_name = 'hero-slider';
     $this->block_slug = 'hero_slider';
-    $this->block_title = __('Hero Slider', 'codetot');
+    $this->block_title = __('Hero Slider', 'ct-theme');
     $this->fields = [
       'class',
       'block_preset',

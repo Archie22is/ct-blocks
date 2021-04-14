@@ -45,7 +45,7 @@ class Codetot_Block_Hero_Image extends Codetot_Base_Block implements Codetot_Bas
   {
     $this->block_name = 'hero-image';
     $this->block_slug = 'hero_image';
-    $this->block_title = __('Hero Image', 'codetot');
+    $this->block_title = __('Hero Image', 'ct-theme');
     $this->fields = [
       'class',
       'content_alignment',

@@ -43,7 +43,7 @@ class Codetot_Block_Feature_Grid extends Codetot_Base_Block implements Codetot_B
 
     $this->block_name = 'feature-grid';
     $this->block_slug = 'feature_grid';
-    $this->block_title = __('Feature Grid', 'codetot');
+    $this->block_title = __('Feature Grid', 'ct-theme');
     $this->fields = [
       // Settings
       'class',

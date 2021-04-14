@@ -45,7 +45,7 @@ class Codetot_Block_Two_Up_Slider extends Codetot_Base_Block implements Codetot_
   {
     $this->block_name = 'two-up-slider';
     $this->block_slug = 'two_up_slider';
-    $this->block_title = __('Two Up Slider', 'codetot');
+    $this->block_title = __('Two Up Slider', 'ct-theme');
     $this->fields = ['content', 'button_text', 'button_url', 'images'];
 
     parent::__construct();
