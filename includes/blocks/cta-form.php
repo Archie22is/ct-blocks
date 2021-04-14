@@ -47,16 +47,17 @@ class Codetot_Block_Contact_Form extends Codetot_Base_Block implements Codetot_B
     $this->block_slug = 'cta_form';
     $this->block_title = __('Contact Form', 'codetot');
     $this->fields = [
-      'style',
       'class',
+      'block_preset',
+      'background_contract',
       'header_alignment',
+      'overlay',
+      'select_form',
       'title',
       'content',
-      'select_form',
       'image',
-      'background_image',
-      'background_types' ,
-      'overlay'
+      'form_alignment',
+      'background_image'
     ];
 
     parent::__construct();

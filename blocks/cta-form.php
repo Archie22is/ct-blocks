@@ -1,12 +1,14 @@
 <?php
 $container_class = codetot_site_container();
-$preset_class = 'cta-form section';
-$_class = 'cta-form cta-form--' . $style;
+$preset_class = 'cta-form';
+$_class = 'cta-form ';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 $_class .= !empty($block_preset) ? ' ' . $preset_class . '--' . esc_attr($block_preset) : '';
+$_class .= !empty($form_alignment) ? ' ' . $preset_class . '--form-' . esc_attr($form_alignment) : '';
 $_class .= !empty($header_alignment) ? ' is-header-'.  $header_alignment : '';
+$_class .= !empty($background_contract) ? ' '. $preset_class .'--' .esc_attr($background_contract) : '';
 $_class .= !empty($background_color) ? ' section-bg bg-' . esc_attr($background_color) : ' section';
-$_class .= !empty($overlay) ? ' ' . $prefix_class . '--has-overlay' : '';
+$_class .= !empty($overlay) ? ' ' . $preset_class . '--has-overlay' : '';
 $_class .= !empty($background_types) ? ' cta-form--' . esc_attr($background_types) : '';
 
 if (!empty($title) || !empty($content)) {
@@ -38,7 +40,7 @@ endif;
 if (!empty($select_form)) :
   if (!empty($image)):
     the_block('sidebar-section', array(
-      'class' => $preset_class. '__content',
+      'class' => $_class,
       'sidebar' => !empty($sidebar) ? $sidebar : false,
       'content' => $header . $form
     ));
