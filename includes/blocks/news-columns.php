@@ -43,7 +43,7 @@ class Codetot_Block_News_Columns extends Codetot_Base_Block implements Codetot_B
 
     $this->block_name = 'news-columns';
     $this->block_slug = 'news_columns';
-    $this->block_title = __('News Columns', 'codetot');
+    $this->block_title = __('News Columns', 'ct-theme');
     $this->fields = [
       'class',
       'block_preset',
