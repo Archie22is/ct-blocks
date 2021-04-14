@@ -54,6 +54,8 @@ class Codetot_Block_Product_Tabs extends Codetot_Base_Block implements Codetot_B
       'items',
     ];
 
+    $this->svg_icon = '<svg id="product_tabs" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 6h-6v-6h6v6zm9-6h-6v6h6v-6zm9 0h-6v6h6v-6zm0 8h-24v16h24v-16z"/></svg>';
+
     parent::__construct();
   }
 }

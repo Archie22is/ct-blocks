@@ -61,6 +61,8 @@ class Codetot_Block_Section_Post extends Codetot_Base_Block implements Codetot_B
       'button_style'
     ];
 
+    $this->svg_icon = '<svg id="section_post" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 18h6v6h-6v-6zm-9 6h6v-6h-6v6zm-9 0h6v-6h-6v6zm0-8h24v-16h-24v16z"/></svg>';
+
     parent::__construct();
   }
 }
