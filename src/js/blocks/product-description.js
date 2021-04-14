@@ -1,5 +1,4 @@
 import { select, on, getData, addClass, removeClass } from 'lib/dom'
-import { throttle } from 'lib/utils'
 
 const VISIBLE_CLASS = 'is-content-visible'
 

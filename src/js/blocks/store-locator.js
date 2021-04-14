@@ -1,7 +1,7 @@
 /* global jQuery, google, GOOGLE_MAPS_API_KEY */
 import { select, selectAll, getData, on, removeClass, addClass } from 'lib/dom'
 import { initMapScript } from 'lib/scripts'
-import { map } from 'lib/utils'
+import { map, isMobile } from 'lib/utils'
 
 initMapScript(GOOGLE_MAPS_API_KEY)
 
@@ -17,6 +17,7 @@ export default el => {
   const mapMarkerEl = select('.js-marker', el)
   const customMarkerImage = getData('marker', mapMarkerEl)
   const logoImage = getData('logo', mapMarkerEl)
+  const mapEl = select('#map', el)
 
   // Filter
   const levelFilter = (ChildFilterEl, optionEls, levelData, parentValue) => {
@@ -69,6 +70,12 @@ export default el => {
           'click',
           () => {
             google.maps.event.trigger(marker, 'click')
+            if (isMobile.any()) {
+              $('html,body').animate(
+                { scrollTop: $(mapEl).offset().top - 200 },
+                1000
+              )
+            }
           },
           markerActionEls[index]
         )
@@ -233,11 +240,30 @@ export default el => {
     mapFilter()
   }
 
+  const checkfilter = () => {
+    const countryFilterEl = select('.js-country', el)
+    const provinceFilterEl = select('.js-province', el)
+    const districtFilterEl = select('.js-district', el)
+    const provinceOptionEls = selectAll('option', provinceFilterEl)
+    const districtOptionEls = selectAll('option', districtFilterEl)
+
+    if (countryFilterEl.value === 'Choose Country') {
+      map(option => {
+        addClass('hide', option)
+      }, provinceOptionEls)
+
+      map(option => {
+        addClass('hide', option)
+      }, districtOptionEls)
+    }
+  }
+
   on(
     'load',
     () => {
       addClass('show', locationEls)
       mapFilter()
+      checkfilter()
     },
     window
   )
