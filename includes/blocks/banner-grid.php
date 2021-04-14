@@ -62,6 +62,16 @@ class Codetot_Block_Banner_Grid extends Codetot_Base_Block implements Codetot_Ba
       'items'
       ];
 
+    ob_start(); ?>
+    <svg id="banner_grid" width="24"
+      height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <path d="M5 14h14l-4.5 -4.5l4.5 -4.5h-14v16"/>
+    </svg>
+    <?php
+    $this->svg_icon = ob_get_clean();
+
     parent::__construct();
   }
 }
