@@ -167,3 +167,34 @@
     }
   }
 }
+
+.store-locator__content {
+  display: flex;
+  max-width: 250px;
+}
+
+.store-locator__image {
+  max-width: 80px !important;
+  margin-right: 1em;
+}
+
+.store-locator__info {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  justify-content: center;
+
+  & * {
+    margin-bottom: 0.45em;
+    display: block;
+    color: var(--dark);
+
+    &:first-child {
+      text-transform: uppercase;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

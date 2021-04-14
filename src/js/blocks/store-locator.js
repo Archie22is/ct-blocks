@@ -16,6 +16,7 @@ export default el => {
   const sidebarEl = select('.sidebar-section__inner', el)
   const mapMarkerEl = select('.js-marker', el)
   const customMarkerImage = getData('marker', mapMarkerEl)
+  const logoImage = getData('logo', mapMarkerEl)
 
   // Filter
   const levelFilter = (ChildFilterEl, optionEls, levelData, parentValue) => {
@@ -38,7 +39,7 @@ export default el => {
     const mapPosition = positions[0].position
 
     const map = new google.maps.Map(mapContentEl, {
-      zoom: 14,
+      zoom: 5,
       center: mapPosition
     })
 
@@ -51,11 +52,12 @@ export default el => {
           lng: positionIndex.position.lng
         },
         map: map,
+        animation: google.maps.Animation.DROP,
         icon: customMarkerImage
       })
 
       marker.addListener('click', () => {
-        map.setZoom(15)
+        map.setZoom(13)
         map.setCenter(marker.getPosition())
         InfoWindows.setContent(positionIndex.content)
         InfoWindows.open(map, marker)
@@ -91,8 +93,18 @@ export default el => {
     if (locationShowEls.length !== 0) {
       locationShowEls.forEach(ele => {
         const title = getData('title', ele)
-        const contentString = `<span class="store-locator__marker-title">${title}</span>`
-
+        const address = getData('address', ele)
+        const phone = getData('phone', ele)
+        const contentString = `
+        <div class="store-locator__content">
+          <img src="${logoImage}" class="store-locator__image" alt="">
+          <div class="store-locator__info">
+            <span>${title}</span>
+            <span>${address}</span>
+            <a href="tel:${phone}">${phone}</a>
+          </div>
+        </div>
+        `
         const positionEle = {
           position: {
             lat: parseFloat(getData('lat', ele)),
