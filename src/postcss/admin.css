@@ -68,10 +68,12 @@
 #poststuff {
   & .postbox#codetot-flexible-button {
     border: 0;
+    border-radius: 4px;
 
     & .postbox-header {
       background: var(--dark);
       border: 0;
+      border-radius: 4px 4px 0 0;
 
       & h2 {
         color: var(--white);
@@ -130,8 +132,8 @@
         }
 
         & > svg {
-          width: 16px;
-          height: 16px;
+          width: 32px;
+          height: 32px;
           margin-bottom: 5px;
           fill: var(--dark);
         }
@@ -144,8 +146,35 @@
       padding: 0;
       background: var(--light);
       font-size: 13px;
+      border-radius: 0 0 4px 4px;
     }
   }
+}
+
+.ct-blocks__metabox__footer {
+  padding: 2px 10px;
+  background: var(--white);
+  text-align: center;
+  border-top: 1px solid var(--border);
+  border-radius: 0 0 4px 4px;
+}
+
+.ct-blocks__metabox__copyright {
+  font-size: 12px;
+  color: var(--dark);
+  opacity: 0.75;
+
+  & a {
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 600;
+  }
+}
+
+.ct-blocks__metabox__copyright-icon {
+  display: inline-flex;
+  padding: 0 2px;
+  transform: translateY(4px);
 }
 
 .ct__svg {
