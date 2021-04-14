@@ -104,6 +104,14 @@
       cursor: pointer;
     }
   }
+
+  & select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+  }
 }
 
 #map {
@@ -170,7 +178,12 @@
 
 .store-locator__content {
   display: flex;
+  flex-direction: column;
   max-width: 250px;
+
+  @media (--xs) {
+    flex-direction: row;
+  }
 }
 
 .store-locator__image {
