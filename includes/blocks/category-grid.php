@@ -60,6 +60,11 @@ class Codetot_Block_Category_Grid extends Codetot_Base_Block implements Codetot_
       'button_styles'
     ];
 
+    ob_start();
+    echo '<svg id="category_grid" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 3h-12v-2h12v2zm0 3h-12v2h12v-2zm0 5h-12v2h12v-2zm0 5h-12v2h12v-2zm0 5h-12v2h12v-2zm-14-20h-10v10h10v-10zm0 12h-10v10h10v-10z"/></svg>';
+    $this->svg_icon = ob_get_clean();
+    $this->preview_image_url = CODETOT_BLOCKS_PLUGIN_URI . '/assets/img/category_grid.jpg';
+
     parent::__construct();
   }
 }
