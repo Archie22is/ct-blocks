@@ -57,6 +57,8 @@ class Codetot_Block_Popup_Form extends Codetot_Base_Block implements Codetot_Bas
       'content'
     ];
 
+    $this->svg_icon = '<svg id="popup_form" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M22 6v12h-16v-12h16zm2-6h-20v20h20v-20zm-22 22v-19h-2v21h21v-2h-19z"/></svg>';
+
     parent::__construct();
   }
 }
