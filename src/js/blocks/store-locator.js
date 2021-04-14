@@ -40,7 +40,7 @@ export default el => {
     const mapPosition = positions[0].position
 
     const map = new google.maps.Map(mapContentEl, {
-      zoom: 5,
+      zoom: 6,
       center: mapPosition
     })
 
@@ -58,7 +58,7 @@ export default el => {
       })
 
       marker.addListener('click', () => {
-        map.setZoom(13)
+        map.setZoom(10)
         map.setCenter(marker.getPosition())
         InfoWindows.setContent(positionIndex.content)
         InfoWindows.open(map, marker)
@@ -207,6 +207,8 @@ export default el => {
             sidebarFilter()
             mapFilter()
         }
+
+        checkfilter()
       },
       complete: () => {
         removeClass(LOADING_CLASS, el)
@@ -244,17 +246,13 @@ export default el => {
     const countryFilterEl = select('.js-country', el)
     const provinceFilterEl = select('.js-province', el)
     const districtFilterEl = select('.js-district', el)
-    const provinceOptionEls = selectAll('option', provinceFilterEl)
-    const districtOptionEls = selectAll('option', districtFilterEl)
 
     if (countryFilterEl.value === 'Choose Country') {
-      map(option => {
-        addClass('hide', option)
-      }, provinceOptionEls)
-
-      map(option => {
-        addClass('hide', option)
-      }, districtOptionEls)
+      addClass('is-loading', provinceFilterEl)
+      addClass('is-loading', districtFilterEl)
+    } else {
+      removeClass('is-loading', provinceFilterEl)
+      removeClass('is-loading', districtFilterEl)
     }
   }
 
