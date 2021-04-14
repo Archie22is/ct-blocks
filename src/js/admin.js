@@ -41,22 +41,26 @@ const init = () => {
       $dataLayoutEl.attr('href', 'javascript:void(0)')
 
       const markup =
-        '<svg width="20" height="20"> <use xlink:href="#' +
+        '<svg viewBox="0 0 24 24"> <use xlink:href="#' +
         nameImage +
         '" /> </svg>'
       $dataLayoutEl.prepend(markup)
 
-      $dataLayoutEl.on('mouseenter', function (e) {
+      const reset = () => {
         $previewBlockItemEls.html('')
+        $previewBlockEl.removeClass('active')
         $dataLayoutEls.removeClass('active')
+      }
+
+      $dataLayoutEl.on('mouseenter', function (e) {
+        reset()
+
         $(e.target).addClass('active')
         const imageUrl = getBlockImageUrl(nameImage)
 
-        if (!imageUrl || imageUrl === 'undefined') {
+        if (!imageUrl) {
           return
         }
-
-        console.log(imageUrl)
 
         $previewBlockItemEls.html(
           '<div class="ct__preview-block-item"><img src="' +
