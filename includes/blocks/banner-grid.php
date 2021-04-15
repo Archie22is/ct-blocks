@@ -31,8 +31,9 @@ class Codetot_Block_Banner_Grid extends Codetot_Base_Block implements Codetot_Ba
    *
    * @return Codetot_Block_Banner_Grid
    */
-  public final static function instance() {
-    if ( is_null( self::$instance ) ) {
+  public final static function instance()
+  {
+    if (is_null(self::$instance)) {
       self::$instance = new self();
     }
     return self::$instance;
@@ -43,7 +44,7 @@ class Codetot_Block_Banner_Grid extends Codetot_Base_Block implements Codetot_Ba
 
     $this->block_name = 'banner-grid';
     $this->block_slug = 'banner_grid';
-    $this->block_title = __('Banner Grid', 'codetot');
+    $this->block_title = __('Banner Grid', 'ct-theme');
     $this->fields = [
       'block_preset',
       'class',
@@ -60,7 +61,15 @@ class Codetot_Block_Banner_Grid extends Codetot_Base_Block implements Codetot_Ba
       'enable_autoplay',
       'speed',
       'items'
-      ];
+    ];
+
+    ob_start();
+    echo '<svg id="banner_grid" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M5 14h14l-4.5 -4.5l4.5 -4.5h-14v16" />
+    </svg>';
+    $this->svg_icon = ob_get_clean();
+    $this->preview_image_url = CODETOT_BLOCKS_PLUGIN_URI . '/assets/img/banner_grid.jpg';
 
     parent::__construct();
   }
