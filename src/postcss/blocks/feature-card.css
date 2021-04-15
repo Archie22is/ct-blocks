@@ -30,17 +30,6 @@
 
 .feature-card__description {
   margin-bottom: 1em;
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-}
-
-.feature-card__title {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
 }
 
 .feature-card__footer {

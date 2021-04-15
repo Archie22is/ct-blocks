@@ -24,9 +24,9 @@ class Codetot_Blocks_Page {
 
   public function __construct()
   {
-    $this->register_flexible_block_fields();
-
     add_action('wp', function() {
+      $this->register_flexible_block_fields();
+
       add_filter('the_content', array($this, 'load_flexible_page_template'));
     });
   }
@@ -59,7 +59,7 @@ class Codetot_Blocks_Page {
               'id' => '',
             ),
             'layouts' => $this->register_layout_fields(),
-            'button_label' => 'Add Block',
+            'button_label' => esc_html__('Add Block', 'ct-blocks'),
             'min' => '',
             'max' => '',
           ),
@@ -75,7 +75,7 @@ class Codetot_Blocks_Page {
         ),
         'menu_order' => 0,
         'position' => 'normal',
-        'style' => 'default',
+        'style' => 'seamless',
         'label_placement' => 'top',
         'instruction_placement' => 'label',
         'hide_on_screen' => array('the_content'),
@@ -87,106 +87,7 @@ class Codetot_Blocks_Page {
   }
 
   public function get_default_block_fields() {
-    return array(
-      'layout_5fc0dde27a510' => array(
-        'key' => 'layout_5fc0dde27a510',
-        'name' => 'page_title',
-        'label' => 'Page Title',
-        'display' => 'block',
-        'sub_fields' => array(
-          array(
-            'key' => 'field_5fc0de07de7c9',
-            'label' => 'Title',
-            'name' => 'title',
-            'type' => 'text',
-            'instructions' => '',
-            'required' => 1,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-              'width' => '',
-              'class' => '',
-              'id' => '',
-            ),
-            'default_value' => '',
-            'placeholder' => '',
-            'prepend' => '',
-            'append' => '',
-            'maxlength' => '',
-          ),
-          array(
-            'key' => 'field_5fc03add7de7c9',
-            'label' => 'Class',
-            'name' => 'class',
-            'type' => 'text',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-              'width' => '33',
-              'class' => '',
-              'id' => '',
-            ),
-            'default_value' => '',
-            'placeholder' => '',
-            'prepend' => '',
-            'append' => '',
-            'maxlength' => '',
-          ),
-          array(
-            'key' => 'field_5fsad0c1967b',
-            'label' => 'Content Alignment',
-            'name' => 'content_alignment',
-            'type' => 'radio',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-              'width' => '33',
-              'class' => '',
-              'id' => '',
-            ),
-            'choices' => array(),
-            'allow_null' => 0,
-            'other_choice' => 0,
-            'default_value' => '',
-            'layout' => 'vertical',
-            'return_format' => 'value',
-            'save_other_choice' => 0,
-          ),
-        ),
-        'min' => '',
-        'max' => '',
-      ),
-      'layout_5fc0dd6c6ab68' => array(
-        'key' => 'layout_5fc0dd6c6ab68',
-        'name' => 'page_content',
-        'label' => 'Page Content',
-        'display' => 'block',
-        'sub_fields' => array(
-          array(
-            'key' => 'field_5fc0ddd17a50f',
-            'label' => 'Content',
-            'name' => 'content',
-            'type' => 'wysiwyg',
-            'instructions' => '',
-            'required' => 1,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-              'width' => '',
-              'class' => '',
-              'id' => '',
-            ),
-            'default_value' => '',
-            'tabs' => 'all',
-            'toolbar' => 'full',
-            'media_upload' => 1,
-            'delay' => 0,
-          ),
-        ),
-        'min' => '',
-        'max' => '',
-      ),
-    );
+    return array();
   }
 
   public function load_flexible_page_template($content) {
