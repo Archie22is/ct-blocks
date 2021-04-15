@@ -31,7 +31,9 @@ $category_links_html = ob_get_clean();
 if (!empty($title) || !empty($description)) {
   $header = codetot_build_content_block(array(
     'class' => 'section-header',
+    'label' => !empty($label ) ? $label : false,
     'title' => $title,
+    'description' => $description,
     'after_content' => !empty($category_links_html) ? $category_links_html : false
   ), 'section-product');
 }
@@ -78,7 +80,6 @@ if ($query->have_posts()) :
 endif;
 
 $content = codetot_build_grid_columns($columns, 'section-product', array(
-  'column_attributes' => 'data-aos="fade-up"',
   'column_class' => 'products section-product__col'
 ));
 

@@ -1,10 +1,17 @@
-// global CODETOT_PLUGIN_URL
-;(function ($) {
-  var blockListEl = document.querySelector('.js-block-list')
-  var blockListHtml = document.querySelector('script[class="tmpl-popup"]')
+/* global CODETOT_BLOCKS_IMAGES, jQuery */
+import { select } from 'lib/dom'
+
+const $ = jQuery
+
+const blockImages = CODETOT_BLOCKS_IMAGES
+const getBlockImageUrl = blockName => blockImages[blockName]
+
+const init = () => {
+  var blockListEl = select('.js-block-list')
+  var blockListHtml = select('script[class="tmpl-popup"]')
   var $previewBlockEl = $('.js-preview-block')
   var $cloneEls = $('.acf-flexible-content:first > .clones')
-  var $previewBlockItemEls = $('.js-preview-block-items')
+  var $previewBlockItemEls = $(select('.js-preview-block-items'))
 
   if (blockListEl && blockListHtml) {
     blockListEl.innerHTML = blockListHtml.innerHTML
@@ -12,7 +19,7 @@
     updateBlockSidebar()
   }
 
-  function updateBlockSidebar () {
+  function updateBlockSidebar() {
     var $blockListEl = $('.js-block-list')
 
     if ($blockListEl.children().length === 0) {
@@ -33,27 +40,39 @@
       var nameImage = $dataLayoutEl.data('layout')
       $dataLayoutEl.attr('href', 'javascript:void(0)')
 
-      var markup =
-        '<svg width="20" height="20"> <use xlink:href="#' +
+      const markup =
+        '<svg viewBox="0 0 24 24"> <use xlink:href="#' +
         nameImage +
         '" /> </svg>'
       $dataLayoutEl.prepend(markup)
 
-      $dataLayoutEl.on('mouseenter', function () {
+      const reset = () => {
         $previewBlockItemEls.html('')
+        $previewBlockEl.removeClass('active')
         $dataLayoutEls.removeClass('active')
-        $(this).addClass('active')
-        URL_image = CODETOT_PLUGIN_URL + '/admin/images/' + nameImage + '.jpg'
+      }
+
+      $dataLayoutEl.on('mouseenter', function (e) {
+        reset()
+
+        $(e.target).addClass('active')
+        const imageUrl = getBlockImageUrl(nameImage)
+
+        if (!imageUrl) {
+          return
+        }
 
         $previewBlockItemEls.html(
           '<div class="ct__preview-block-item"><img src="' +
-            URL_image +
+            imageUrl +
             '" /></div>'
         )
 
-        $previewBlockEl.css({
-          top: $(this).offset().top - $(blockListEl).offset().top
-        })
+        $previewBlockEl
+          .css({
+            top: $(this).offset().top - $(blockListEl).offset().top
+          })
+          .addClass('active')
 
         if ($(window).width() < 850) {
           $blockListEl.addClass('active')
@@ -76,9 +95,8 @@
           .trigger('click')
       })
 
-      $dataLayoutEl.on('mouseenter', function () {
-        $previewBlockEl.addClass('active')
-        $blockListEl.addClass('active')
+      $dataLayoutEl.on('mouseleave', function (e) {
+        $(e.target).removeClass('active')
       })
     })
 
@@ -87,4 +105,6 @@
       $blockListEl.removeClass('active')
     })
   }
-})(jQuery)
+}
+
+document.addEventListener('DOMContentLoaded', init)
