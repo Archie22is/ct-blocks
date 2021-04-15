@@ -1,7 +1,7 @@
 /* global jQuery, google, GOOGLE_MAPS_API_KEY */
 import { select, selectAll, getData, on, removeClass, addClass } from 'lib/dom'
 import { initMapScript } from 'lib/scripts'
-import { map } from 'lib/utils'
+import { map, isMobile } from 'lib/utils'
 
 initMapScript(GOOGLE_MAPS_API_KEY)
 
@@ -17,6 +17,7 @@ export default el => {
   const mapMarkerEl = select('.js-marker', el)
   const customMarkerImage = getData('marker', mapMarkerEl)
   const logoImage = getData('logo', mapMarkerEl)
+  const mapEl = select('#map', el)
 
   // Filter
   const levelFilter = (ChildFilterEl, optionEls, levelData, parentValue) => {
@@ -39,7 +40,7 @@ export default el => {
     const mapPosition = positions[0].position
 
     const map = new google.maps.Map(mapContentEl, {
-      zoom: 5,
+      zoom: 6,
       center: mapPosition
     })
 
@@ -57,7 +58,7 @@ export default el => {
       })
 
       marker.addListener('click', () => {
-        map.setZoom(13)
+        map.setZoom(10)
         map.setCenter(marker.getPosition())
         InfoWindows.setContent(positionIndex.content)
         InfoWindows.open(map, marker)
@@ -69,6 +70,12 @@ export default el => {
           'click',
           () => {
             google.maps.event.trigger(marker, 'click')
+            if (isMobile.any()) {
+              $('html,body').animate(
+                { scrollTop: $(mapEl).offset().top - 200 },
+                1000
+              )
+            }
           },
           markerActionEls[index]
         )
@@ -200,6 +207,8 @@ export default el => {
             sidebarFilter()
             mapFilter()
         }
+
+        checkfilter()
       },
       complete: () => {
         removeClass(LOADING_CLASS, el)
@@ -233,11 +242,26 @@ export default el => {
     mapFilter()
   }
 
+  const checkfilter = () => {
+    const countryFilterEl = select('.js-country', el)
+    const provinceFilterEl = select('.js-province', el)
+    const districtFilterEl = select('.js-district', el)
+
+    if (countryFilterEl.value === 'Choose Country') {
+      addClass('is-loading', provinceFilterEl)
+      addClass('is-loading', districtFilterEl)
+    } else {
+      removeClass('is-loading', provinceFilterEl)
+      removeClass('is-loading', districtFilterEl)
+    }
+  }
+
   on(
     'load',
     () => {
       addClass('show', locationEls)
       mapFilter()
+      checkfilter()
     },
     window
   )
