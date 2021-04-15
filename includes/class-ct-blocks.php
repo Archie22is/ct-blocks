@@ -79,8 +79,6 @@ class Codetot_Base
 
     add_action('plugins_loaded', array($this, 'load_translation'));
 
-    include_once CODETOT_BLOCKS_DIR . 'includes/helpers.php';
-
     $this->load_dependencies();
 
     Codetot_Blocks_Assets::instance();
@@ -211,16 +209,17 @@ class Codetot_Base
 
   private function load_dependencies()
   {
+    include_once CODETOT_BLOCKS_DIR . 'includes/helpers/data.php';
     include_once CODETOT_BLOCKS_DIR . 'includes/helpers/blocks.php';
     include_once CODETOT_BLOCKS_DIR . 'includes/helpers/env.php';
     include_once CODETOT_BLOCKS_DIR . 'includes/helpers/utils.php';
 
+    require_once CODETOT_BLOCKS_DIR . 'includes/classes/interface-block.php';
+    require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-block.php';
+
+    require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-ct-blocks-templates.php';
     require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-ct-blocks-page.php';
     require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-ct-blocks-admin.php';
     require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-ct-blocks-assets.php';
-    require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-ct-blocks-templates.php';
-
-    require_once CODETOT_BLOCKS_DIR . 'includes/classes/interface-block.php';
-    require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-block.php';
   }
 }
