@@ -94,16 +94,19 @@ class Codetot_Base
       $this->child_theme_blocks = $this->get_child_theme_blocks();
     }
 
-    add_action('plugins_loaded', array($this, 'load_all_blocks'));
+    $this->register_plugin_blocks_classes();
+
+    if (codetot_is_supported_theme() && !empty($this->child_theme_blocks)) {
+      $this->register_child_theme_block_classes();
+    }
+
+    add_action('plugins_loaded', array($this, 'load_all_blocks_paths'));
   }
 
-  public function load_all_blocks() {
+  public function load_all_blocks_paths() {
     add_filter('ct_theme_block_paths', array($this, 'update_ct_theme_block_paths'));
     add_filter('ct_theme_block_parts_paths', array($this, 'update_block_parts_paths'));
     add_filter('ct_blocks_fields_paths', array($this, 'update_ct_blocks_fields_paths'));
-
-    $this->register_plugin_blocks_classes();
-    $this->register_child_theme_block_classes();
   }
 
   public function get_plugin_blocks() {
@@ -160,8 +163,8 @@ class Codetot_Base
   }
 
   public function update_ct_theme_block_paths($paths) {
-    if (codetot_is_supported_theme() && !empty($this->is_child_theme_settings['blocks_path'])) {
-      $paths[] = get_stylesheet_directory() . '/' . $this->is_child_theme_settings['blocks_path'];
+    if (codetot_is_supported_theme() && !empty($this->child_theme_settings['blocks_path'])) {
+      $paths[] = get_stylesheet_directory() . '/' . esc_attr($this->child_theme_settings['blocks_path']);
     }
 
     if (is_child_theme()) {
@@ -174,12 +177,12 @@ class Codetot_Base
   }
 
   public function update_block_parts_paths($paths) {
-    if (codetot_is_supported_theme() && !empty($this->is_child_theme_settings['blocks_parts'])) {
-      $paths[] = get_stylesheet_directory() . '/' . $this->child_theme_settings['blocks_parts'];
+    if (codetot_is_supported_theme() && !empty($this->child_theme_settings['blocks_parts'])) {
+      $paths[] = get_stylesheet_directory() . '/' . esc_attr($this->child_theme_settings['blocks_parts']);
     }
 
     if (is_child_theme()) {
-      $paths[] = get_template_directory() . '/block-parts/';
+      $paths[] = get_template_directory() . '/block-parts';
     }
 
     return $paths;
@@ -191,7 +194,7 @@ class Codetot_Base
     }
 
     if (is_child_theme()) {
-      $paths[] = get_template_directory() . '/inc/blocks/';
+      $paths[] = get_template_directory() . '/inc/blocks';
     }
 
     return $paths;
