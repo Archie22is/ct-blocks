@@ -199,7 +199,7 @@
 
 .store-locator__image {
   max-width: 80px !important;
-    margin: auto 1em auto auto;
+  margin: auto 1em auto auto;
 
   @media (--s) {
     margin: auto 1em 1em auto;
