@@ -44,7 +44,7 @@ class Codetot_Block_Counters extends Codetot_Base_Block implements Codetot_Base_
 
     $this->block_name = 'counters';
     $this->block_slug = 'counters';
-    $this->block_title = __('Counters', 'ct-theme');
+    $this->block_title = __('Counters', 'codetot');
     $this->fields = [
       // Settings
       'class',

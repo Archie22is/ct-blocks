@@ -43,7 +43,7 @@ class Codetot_Block_Logo_Grid extends Codetot_Base_Block implements Codetot_Base
 
     $this->block_name = 'logo-grid';
     $this->block_slug = 'logo_grid';
-    $this->block_title = __('Logo Grid', 'ct-theme');
+    $this->block_title = __('Logo Grid', 'codetot');
     $this->fields = [
       // Options
       'class',

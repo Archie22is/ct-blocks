@@ -45,7 +45,7 @@ class Codetot_Block_Contact_Form extends Codetot_Base_Block implements Codetot_B
 
     $this->block_name = 'cta-form';
     $this->block_slug = 'cta_form';
-    $this->block_title = __('Contact Form', 'ct-theme');
+    $this->block_title = __('Contact Form', 'codetot');
     $this->fields = [
       'class',
       'block_preset',

@@ -46,7 +46,7 @@ class Codetot_Block_Pricing_Tables extends Codetot_Base_Block implements Codetot
   {
     $this->block_name = 'pricing-tables';
     $this->block_slug = 'pricing_tables';
-    $this->block_title = __('Pricing Tables', 'ct-theme');
+    $this->block_title = __('Pricing Tables', 'codetot');
     $this->fields = [
       //setting
       'layout',

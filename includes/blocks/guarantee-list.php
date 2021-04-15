@@ -43,7 +43,7 @@ class Codetot_Block_Guarantee_List extends Codetot_Base_Block implements Codetot
 
     $this->block_name = 'guarantee-list';
     $this->block_slug = 'guarantee_list';
-    $this->block_title = __('Guarantee List', 'ct-theme');
+    $this->block_title = __('Guarantee List', 'codetot');
     $this->fields = [
       // Settings
       'class',
