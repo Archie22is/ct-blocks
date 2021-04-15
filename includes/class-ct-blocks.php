@@ -94,9 +94,6 @@ class Codetot_Base
       $this->child_theme_blocks = $this->get_child_theme_blocks();
     }
 
-    $this->register_plugin_blocks_classes();
-    $this->register_child_theme_block_classes();
-
     add_action('plugins_loaded', array($this, 'load_all_blocks'));
   }
 
@@ -104,6 +101,9 @@ class Codetot_Base
     add_filter('ct_theme_block_paths', array($this, 'update_ct_theme_block_paths'));
     add_filter('ct_theme_block_parts_paths', array($this, 'update_block_parts_paths'));
     add_filter('ct_blocks_fields_paths', array($this, 'update_ct_blocks_fields_paths'));
+
+    $this->register_plugin_blocks_classes();
+    $this->register_child_theme_block_classes();
   }
 
   public function get_plugin_blocks() {
@@ -186,7 +186,7 @@ class Codetot_Base
   }
 
   public function update_ct_blocks_fields_paths($paths) {
-    if (codetot_is_supported_theme() && !empty($this->is_child_theme_settings['blocks_inc'])) {
+    if (codetot_is_supported_theme() && !empty($this->child_theme_settings['blocks_inc'])) {
       $paths[] = get_stylesheet_directory() . '/' . $this->child_theme_settings['blocks_inc'];
     }
 

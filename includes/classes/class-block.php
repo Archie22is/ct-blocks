@@ -47,7 +47,7 @@ abstract class Codetot_Base_Block {
         }
       }
 
-      throw new Exception(sprintf(__('Block %s is not available.', 'ct-blocks'), $this->block_name . '.json'));
+      throw new Exception(sprintf(__('%s: Block %s is not available.', 'ct-blocks'), 'ct_blocks_fields_paths', $this->block_name . '.json'));
     } catch (Exception $e) {
       echo $e->getMessage();
       die();
