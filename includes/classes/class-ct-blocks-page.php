@@ -35,9 +35,7 @@ class Codetot_Blocks_Page {
    * @return mixed|void
    */
   public function register_layout_fields() {
-    $default_fields = $this->get_default_block_fields();
-
-    return apply_filters('codetot_layout_fields', $default_fields);
+    return apply_filters('codetot_layout_fields', []);
   }
 
   public function register_flexible_block_fields() {
