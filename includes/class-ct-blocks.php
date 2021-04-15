@@ -215,6 +215,7 @@ class Codetot_Base
     include_once CODETOT_BLOCKS_DIR . 'includes/helpers/env.php';
     include_once CODETOT_BLOCKS_DIR . 'includes/helpers/utils.php';
 
+    require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-ct-blocks-page.php';
     require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-ct-blocks-admin.php';
     require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-ct-blocks-assets.php';
     require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-ct-blocks-templates.php';
