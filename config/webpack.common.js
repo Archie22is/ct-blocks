@@ -1,12 +1,10 @@
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const WebpackBar = require('webpackbar')
-const ImageminPlugin = require('imagemin-webpack-plugin').default
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -128,24 +126,6 @@ module.exports = {
         ? settings.filename.minifiedCss
         : settings.filename.css,
       chunkFilename: '[id].css'
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: '**/*.{jpg,jpeg,png,gif}',
-          to: '[path][name].[ext]',
-          context: path.resolve(process.cwd(), settings.paths.src.base)
-        },
-        {
-          from: '**/*.svg',
-          to: '[path][name].[ext]',
-          context: path.resolve(process.cwd(), settings.paths.src.base)
-        }
-      ]
-    }),
-    new ImageminPlugin({
-      disable: !isProduction,
-      test: settings.ImageminPlugin.test
     }),
     // Lint CSS.
     new StyleLintPlugin({
