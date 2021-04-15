@@ -13,13 +13,7 @@ const init = () => {
   var $cloneEls = $('.acf-flexible-content:first > .clones')
   var $previewBlockItemEls = $(select('.js-preview-block-items'))
 
-  if (blockListEl && blockListHtml) {
-    blockListEl.innerHTML = blockListHtml.innerHTML
-
-    updateBlockSidebar()
-  }
-
-  function updateBlockSidebar() {
+  const updateBlockSidebar = () => {
     var $blockListEl = $('.js-block-list')
 
     if ($blockListEl.children().length === 0) {
@@ -104,6 +98,12 @@ const init = () => {
       $previewBlockEl.removeClass('active')
       $blockListEl.removeClass('active')
     })
+  }
+
+  if (blockListEl && blockListHtml) {
+    blockListEl.innerHTML = blockListHtml.innerHTML
+
+    updateBlockSidebar()
   }
 }
 
