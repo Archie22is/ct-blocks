@@ -19,7 +19,7 @@ const init = () => {
     updateBlockSidebar()
   }
 
-  function updateBlockSidebar() {
+  function updateBlockSidebar () {
     var $blockListEl = $('.js-block-list')
 
     if ($blockListEl.children().length === 0) {
