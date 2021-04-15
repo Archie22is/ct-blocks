@@ -51,7 +51,17 @@ class Codetot_Base
   /**
    * @var array
    */
-  private $blocks;
+  private $plugin_blocks;
+
+  /**
+   * @var array
+   */
+  private $child_theme_blocks;
+
+  /**
+   * @var array
+   */
+  private $child_theme_settings;
 
   /**
    * Define the core functionality of the plugin.
@@ -68,155 +78,148 @@ class Codetot_Base
     $this->plugin_name = CODETOT_BLOCKS_PLUGIN_SLUG;
 
     add_action('plugins_loaded', array($this, 'load_translation'));
-    add_filter('ct_theme_block_paths', array($this, 'load_block_paths'));
-    add_filter('ct_theme_block_parts_paths', array($this, 'load_block_parts_paths'));
 
     include_once CODETOT_BLOCKS_DIR . 'includes/helpers.php';
 
     $this->load_dependencies();
 
-    Codetot_Base_Public::instance();
-    Codetot_Base_Admin_Acf::instance();
+    Codetot_Blocks_Assets::instance();
+    Codetot_Blocks_Admin::instance();
+    Codetot_Blocks_Templates::instance();
 
-    add_action('plugins_loaded', array($this, 'load_all_blocks'));
+    $this->plugin_blocks = $this->get_plugin_blocks();
+
+    if (codetot_is_supported_theme()) {
+      $this->child_theme_settings = $this->get_child_theme_settings();
+      $this->child_theme_blocks = $this->get_child_theme_blocks();
+    }
+
+    $this->register_plugin_blocks_classes();
+
+    if (codetot_is_supported_theme() && !empty($this->child_theme_blocks)) {
+      $this->register_child_theme_block_classes();
+    }
+
+    add_action('plugins_loaded', array($this, 'load_all_blocks_paths'));
   }
 
-  public function load_all_blocks() {
-    require_once CODETOT_BLOCKS_DIR . 'includes/classes/interface-block.php';
-    require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-block.php';
-    require_once CODETOT_BLOCKS_DIR . 'includes/helpers/utils.php';
+  public function load_all_blocks_paths() {
+    add_filter('ct_theme_block_paths', array($this, 'update_ct_theme_block_paths'));
+    add_filter('ct_theme_block_parts_paths', array($this, 'update_block_parts_paths'));
+    add_filter('ct_blocks_fields_paths', array($this, 'update_ct_blocks_fields_paths'));
+  }
 
-    $blocks_config_file = CODETOT_BLOCKS_DIR . '/blocks.json';
-    $blocks_list = file_exists($blocks_config_file) ? file_get_contents($blocks_config_file) : [];
-    $blocks = json_decode($blocks_list, true);
+  public function get_plugin_blocks() {
+    $plugin_blocks = codetot_load_json_array(CODETOT_BLOCKS_DIR . '/blocks.json');
 
     if (class_exists('WooCommerce')) {
-      $woocommerce_blocks_file = CODETOT_BLOCKS_DIR . '/woocommerce-blocks.json';
-      $woocommerce_blocks_list = file_exists($woocommerce_blocks_file) ? file_get_contents($woocommerce_blocks_file) : [];
-      $blocks = array_merge($blocks, json_decode($woocommerce_blocks_list, true));
+      $woocommerce_blocks_list = codetot_load_json_array(CODETOT_BLOCKS_DIR . '/woocommerce-blocks.json');
+      $plugin_blocks = array_merge($plugin_blocks, json_decode($woocommerce_blocks_list, true));
     }
 
-    $this->blocks = apply_filters('codetot_pro_blocks', $blocks);
-
-    $this->load_theme_blocks();
-    $this->load_blocks();
+    return $plugin_blocks;
   }
 
-  public function is_supported_theme() {
-    $theme_tags = wp_get_theme()->Get('Tags') ?? [];
+  public function get_child_theme_settings() {
+    return codetot_load_json_array(get_stylesheet_directory() . '/blocks.json');
+  }
 
-    if (empty($theme_tags)) {
-      return false;
+  public function get_child_theme_blocks() {
+    return !empty($this->child_theme_settings['blocks']) ? $this->child_theme_settings['blocks'] : [];
+  }
+
+  public function get_missing_block_name_message($block_name) {
+    $error = new WP_Error('404', sprintf(__('Missing block class %s. Please contact Web Administrator.', 'ct-theme'), $block_name));
+
+    return $error->get_error_message();
+  }
+
+  public function register_plugin_blocks_classes() {
+    foreach ($this->plugin_blocks as $block_name) {
+      $file_path = CODETOT_BLOCKS_DIR . 'includes/blocks/' . esc_attr($block_name) . '.php';
+
+      if (file_exists($file_path)) {
+        require_once $file_path;
+      } else {
+        echo $this->get_missing_block_name_message($block_name);
+      }
+    }
+  }
+
+  public function register_child_theme_block_classes() {
+    if (empty($this->child_theme_blocks)) {
+      return;
     }
 
-    return in_array('codetot-theme', $theme_tags);
+    foreach($this->child_theme_blocks as $block_name) {
+      $file_path = get_stylesheet_directory() . '/inc/blocks/'. esc_attr($block_name) . '.php';
+
+      if (file_exists($file_path)) {
+        require_once $file_path;
+      } else {
+        echo $this->get_missing_block_name_message($block_name);
+      }
+    }
+  }
+
+  public function update_ct_theme_block_paths($paths) {
+    if (codetot_is_supported_theme() && !empty($this->child_theme_settings['blocks_path'])) {
+      $paths[] = get_stylesheet_directory() . '/' . esc_attr($this->child_theme_settings['blocks_path']);
+    }
+
+    if (is_child_theme()) {
+      $paths[] = get_template_directory() . '/blocks';
+    }
+
+    $paths[] = CODETOT_BLOCKS_DIR . 'blocks';
+
+    return $paths;
+  }
+
+  public function update_block_parts_paths($paths) {
+    if (codetot_is_supported_theme() && !empty($this->child_theme_settings['blocks_parts'])) {
+      $paths[] = get_stylesheet_directory() . '/' . esc_attr($this->child_theme_settings['blocks_parts']);
+    }
+
+    if (is_child_theme()) {
+      $paths[] = get_template_directory() . '/block-parts';
+    }
+
+    return $paths;
+  }
+
+  public function update_ct_blocks_fields_paths($paths) {
+    if (codetot_is_supported_theme() && !empty($this->child_theme_settings['blocks_inc'])) {
+      $paths[] = get_stylesheet_directory() . '/' . $this->child_theme_settings['blocks_inc'];
+    }
+
+    if (is_child_theme()) {
+      $paths[] = get_template_directory() . '/inc/blocks';
+    }
+
+    return $paths;
   }
 
   public function load_translation()
   {
     load_plugin_textdomain(
-      'codetot-base',
+      'ct-theme',
       false,
       CODETOT_BLOCKS_DIR . '/languages/'
     );
   }
 
-  public function load_block_paths($paths)
-  {
-    $paths[] = CODETOT_BLOCKS_DIR . 'blocks';
-
-    return $paths;
-  }
-
-  public function load_block_parts_paths($paths)
-  {
-    $paths[] = CODETOT_BLOCKS_DIR . 'blocks';
-
-    return $paths;
-  }
-
-  public function load_theme_blocks() {
-    if ($this->is_supported_theme()) {
-      $theme_settings_path = get_stylesheet_directory();
-      $theme_settings_json_file = $theme_settings_path . '/blocks.json';
-
-      if (!file_exists($theme_settings_json_file)) {
-        return;
-      }
-
-      $theme_settings_raw_content = file_get_contents($theme_settings_json_file);
-      $theme_settings = $theme_settings_raw_content !== false ? json_decode($theme_settings_raw_content, true) : null;
-
-      if (!empty($theme_settings['blocks'])) {
-        $this->register_theme_blocks($theme_settings);
-      }
-    }
-  }
-
-  public function register_theme_blocks($theme_settings) {
-    if (
-      empty($theme_settings) ||
-      !is_array($theme_settings) ||
-      empty($theme_settings['blocks'])
-    )
-    {
-      return;
-    }
-
-    foreach($theme_settings['blocks'] as $block_name) {
-      require_once get_stylesheet_directory() . '/inc/blocks/'. esc_attr($block_name) . '.php';
-    }
-
-    add_action('ct_blocks_after_load_blocks', function() use($theme_settings) {
-      foreach($theme_settings['blocks'] as $block_name) {
-        require_once get_stylesheet_directory() . '/' . $theme_settings['blocks_inc'] . '/' . $block_name . '.php';
-      }
-    });
-
-    add_action('ct_blocks_fields_paths', function($paths) use($theme_settings) {
-      $paths[] = get_stylesheet_directory() . '/' . $theme_settings['blocks_inc'];
-
-      return $paths;
-    });
-
-    add_action('ct_theme_block_paths', function($paths) use($theme_settings) {
-      $paths[] = get_stylesheet_directory() . '/' . $theme_settings['blocks_path'];
-
-
-      if (is_child_theme()) {
-        $paths[] = get_template_directory() . '/blocks';
-      }
-
-      return $paths;
-    });
-
-    add_action('ct_theme_block_parts_paths', function($paths) use($theme_settings) {
-      $paths[] = get_theme_file_path() . '/' . $theme_settings['blocks_part'];
-
-      if (is_child_theme()) {
-        $paths[] = get_template_directory() . '/block-parts';
-      }
-
-      return $paths;
-    });
-  }
-
-  public function load_blocks()
-  {
-    do_action('ct_blocks_before_load_blocks');
-
-    foreach ($this->blocks as $block) {
-      require_once CODETOT_BLOCKS_DIR . 'includes/blocks/' . $block . '.php';
-    }
-
-    do_action('ct_blocks_after_load_blocks');
-
-    require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-ct-blocks-page.php';
-  }
-
   private function load_dependencies()
   {
-    require_once CODETOT_BLOCKS_DIR . 'admin/class-admin-acf.php';
-    require_once CODETOT_BLOCKS_DIR . 'public/class-public.php';
+    include_once CODETOT_BLOCKS_DIR . 'includes/helpers/blocks.php';
+    include_once CODETOT_BLOCKS_DIR . 'includes/helpers/env.php';
+    include_once CODETOT_BLOCKS_DIR . 'includes/helpers/utils.php';
+
+    require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-ct-blocks-admin.php';
+    require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-ct-blocks-assets.php';
+    require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-ct-blocks-templates.php';
+
+    require_once CODETOT_BLOCKS_DIR . 'includes/classes/interface-block.php';
+    require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-block.php';
   }
 }

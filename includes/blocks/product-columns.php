@@ -43,7 +43,7 @@ class Codetot_Block_Product_Columns extends Codetot_Base_Block implements Codeto
 
     $this->block_name = 'product-columns';
     $this->block_slug = 'product_columns';
-    $this->block_title = esc_html__('Product Columns', 'ct-peakshop');
+    $this->block_title = esc_html__('Product Columns', 'ct-theme');
     $this->fields = [
       // Settings
       'class',
@@ -56,6 +56,8 @@ class Codetot_Block_Product_Columns extends Codetot_Base_Block implements Codeto
       'description',
       'items',
     ];
+
+    $this->svg_icon = '<svg id="product_columns" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 6h-6v-6h6v6zm9-6h-6v6h6v-6zm9 0h-6v6h6v-6zm-18 9h-6v6h6v-6zm9 0h-6v6h6v-6zm9 0h-6v6h6v-6zm-18 9h-6v6h6v-6zm9 0h-6v6h6v-6zm9 0h-6v6h6v-6z"/></svg>';
 
     parent::__construct();
   }

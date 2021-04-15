@@ -50,7 +50,7 @@ if ( ! function_exists( 'the_block' ) ) {
         if (WP_DEBUG) {
           var_dump($available_paths);
         }
-        throw new Exception(sprintf(__('Block %s is not available.', 'codetot'), $block_name));
+        throw new Exception(sprintf(__('%s: Block %s is not available.', 'codetot'), 'ct_theme_block_paths', $block_name));
       }
     } catch (Exception $e) {
       echo $e->getMessage();
@@ -98,7 +98,7 @@ if (!function_exists('the_block_part')) {
           var_dump($available_paths);
         }
 
-        throw new Exception(sprintf(__('Block part %s is not available.', 'codetot'), $path_name));
+        throw new Exception(sprintf(__('%s: Block part %s is not available.', 'codetot'), 'ct_theme_block_parts_paths', $path_name));
       }
     } catch (Exception $e) {
       echo $e->getMessage();
