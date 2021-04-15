@@ -24,9 +24,11 @@ class Codetot_Blocks_Page {
 
   public function __construct()
   {
-    add_action('wp', function() {
+    add_action('init', function() {
       $this->register_flexible_block_fields();
+    });
 
+    add_action('wp', function() {
       add_filter('the_content', array($this, 'load_flexible_page_template'));
     });
   }
