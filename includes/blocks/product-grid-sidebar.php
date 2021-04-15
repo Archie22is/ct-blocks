@@ -31,9 +31,8 @@ class Codetot_Block_Product_Grid_Sidebar extends Codetot_Base_Block implements C
    *
    * @return Codetot_Block_Product_Grid_Sidebar
    */
-  public final static function instance()
-  {
-    if (is_null(self::$instance)) {
+  public final static function instance() {
+    if ( is_null( self::$instance ) ) {
       self::$instance = new self();
     }
     return self::$instance;
@@ -44,7 +43,7 @@ class Codetot_Block_Product_Grid_Sidebar extends Codetot_Base_Block implements C
 
     $this->block_name = 'product-grid-sidebar';
     $this->block_slug = 'product_grid_sidebar';
-    $this->block_title = __('Product_Grid_Sidebar', 'ct-theme');
+    $this->block_title = __('Product_Grid_Sidebar', 'codetot');
     $this->fields = [
       'block_preset',
       'layout',
@@ -62,8 +61,6 @@ class Codetot_Block_Product_Grid_Sidebar extends Codetot_Base_Block implements C
       'button_target',
       'button_style'
     ];
-      
-  $this->svg_icon = '<svg id="product_grid_sidebar" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 3h-11v-2h11v2zm0 3h-11v2h11v-2zm0 5h-11v2h11v-2zm0 5h-11v2h11v-2zm0 5h-11v2h11v-2zm-13-20h-11v22h11v-22z"/></svg>';
 
     parent::__construct();
   }

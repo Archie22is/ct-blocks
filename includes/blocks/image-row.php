@@ -43,7 +43,7 @@ class Codetot_Block_Image_Row extends Codetot_Base_Block implements Codetot_Base
 
     $this->block_name = 'image-row';
     $this->block_slug = 'image_row';
-    $this->block_title = __('Image Row', 'ct-theme');
+    $this->block_title = __('Image Row', 'codetot');
     $this->fields = [
       'class',
       'block_preset',

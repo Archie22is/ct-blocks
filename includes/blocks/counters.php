@@ -31,9 +31,8 @@ class Codetot_Block_Counters extends Codetot_Base_Block implements Codetot_Base_
    *
    * @return Codetot_Block_Counters
    */
-  public final static function instance()
-  {
-    if (is_null(self::$instance)) {
+  public final static function instance() {
+    if ( is_null( self::$instance ) ) {
       self::$instance = new self();
     }
     return self::$instance;
@@ -44,7 +43,7 @@ class Codetot_Block_Counters extends Codetot_Base_Block implements Codetot_Base_
 
     $this->block_name = 'counters';
     $this->block_slug = 'counters';
-    $this->block_title = __('Counters', 'ct-theme');
+    $this->block_title = __('Counters', 'codetot');
     $this->fields = [
       // Settings
       'class',
@@ -60,9 +59,6 @@ class Codetot_Block_Counters extends Codetot_Base_Block implements Codetot_Base_
       'description',
       'counters'
     ];
-
-    $this->svg_icon = '<svg id="counters" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M0 21l12-18 12 18h-24zm12-16.197l-10.132 15.197h20.263l-10.131-15.197" /></svg>';
-    $this->preview_image_url = CODETOT_BLOCKS_PLUGIN_URI . '/assets/img/counters.jpg';
 
     parent::__construct();
   }

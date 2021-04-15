@@ -43,7 +43,7 @@ class Codetot_Block_Social_Form extends Codetot_Base_Block implements Codetot_Ba
 
     $this->block_name = 'social-form';
     $this->block_slug = 'social_form';
-    $this->block_title = __('Social Form', 'ct-theme');
+    $this->block_title = __('Social Form', 'codetot');
     $this->fields = [
       'class',
       'social_title',

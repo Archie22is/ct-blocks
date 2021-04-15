@@ -45,7 +45,7 @@ class Codetot_Block_Popup_Form extends Codetot_Base_Block implements Codetot_Bas
 
     $this->block_name = 'popup-form';
     $this->block_slug = 'popup_form';
-    $this->block_title = __('Popup Form', 'ct-theme');
+    $this->block_title = __('Popup Form', 'codetot');
     $this->fields = [
       'class',
       'block_preset',
@@ -56,8 +56,6 @@ class Codetot_Block_Popup_Form extends Codetot_Base_Block implements Codetot_Bas
       'description',
       'content'
     ];
-
-    $this->svg_icon = '<svg id="popup_form" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M22 6v12h-16v-12h16zm2-6h-20v20h20v-20zm-22 22v-19h-2v21h21v-2h-19z"/></svg>';
 
     parent::__construct();
   }
