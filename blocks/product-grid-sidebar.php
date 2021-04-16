@@ -12,6 +12,7 @@ if (!empty($categories)) :
 
 //HEADER
 ob_start();
+echo '<div class="'.$preset_class.'__menu-items js-sidebar-block">';
 foreach ($categories as $category):
   echo '<li class="' . $preset_class . '__item">';
   echo '<a href="' . esc_url(get_term_link($category->term_id)) . '" class="' . $preset_class . '__item-link">';
@@ -19,6 +20,10 @@ foreach ($categories as $category):
   echo '</a>';
   echo '</li>';
 endforeach;
+echo '</div>';
+echo '<button class="' . $preset_class . '__menu js-trigger" aria-label="Open a mobile menu">';
+codetot_svg('menu', true);
+echo '  </button>';
 
 if (!empty($button_text) && !empty($button_url)) :
   echo '<div class="' . $preset_class . '__cta">';
@@ -123,6 +128,7 @@ endif;
 //END CONTENT
 
 the_block('default-section', array(
+  'attributes' => ' data-ct-block="product-grid-sidebar"',
   'class' => $_class,
   'header' => !empty($header) ? $header : false,
   'content' => $content
