@@ -1,12 +1,13 @@
 {
 	"name": "CT Blocks",
 	"version": "4.0.3",
-	"download_url": "https://license.codetot.com/update.php?package=ct-blocks",
+	"download_url": "https://plugins.codetot.com/update.php?package=ct-blocks",
 	"homepage": "http://codetot.com",
 	"requires": "4.6",
 	"tested": "5.7",
 	"stable": "5.7",
 	"last_updated": "2021-04-16 08:00:00",
+	"upgrade_notice": "Please backup before installing our update.",
 	"author": "CODE TOT JSC",
 	"author_homepage": "https://codetot.com",
 	"sections": {
