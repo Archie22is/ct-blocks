@@ -25,18 +25,6 @@ $_columns = array_map(function($product_category) {
   ));
 }, $product_categories);
 
-if (!empty($enable_button) && count($enable_button) !== 0) :
-  $_columns[] = get_block('button', array(
-    'class' => 'category-grid__col-inner category-grid__button',
-    'button' => $button_text,
-    'type' => !empty($button_style) ? $button_style : '',
-    'url' => !empty($button_url) ? $button_url : '',
-    'attr' => !empty($button_attr) ? $button_attr : '',
-    'target' => !empty($target) ? $target : '',
-    'icon' => 'right-arrow'
-  ));
-endif;
-
 $content = codetot_build_grid_columns($_columns, 'category-grid');
 
 $_class = 'category-grid bg-white section-bg';
