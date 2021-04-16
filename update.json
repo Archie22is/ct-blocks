@@ -1,0 +1,28 @@
+{
+	"name": "CT Blocks",
+	"version": "4.0.3",
+	"download_url": "https://license.codetot.com/update.php?package=ct-blocks",
+	"homepage": "http://codetot.com",
+	"requires": "4.6",
+	"tested": "5.7",
+  "stable": "5.7",
+	"last_updated": "2021-04-16 08:00:00",
+	"author": "CODE TOT JSC",
+	"author_homepage": "https://codetot.com",
+	"sections": {
+		"description": "This is a block library to build a high performance web. We focus on speed, minimal but easy to edit pages. Blocks (or sections) are group of fields, easy to navigate all blocks and build your own content.",
+    "support": "Please backup before update this patch, or you can contact our team at <a href='mailto:support@codetot.com' target='_blank'>support@codetot.com</a> about this update."
+  },
+  "icons" : {
+		"1x" : "http://license.test/wp-content/plugins/ct-blocks/plugin-update-checker/images/icon-128x128.png",
+		"2x" : "http://license.test/wp-content/plugins/ct-blocks/plugin-update-checker/images/icon-256x256.png"
+  },
+	"banners": {
+		"low": "http://license.test/wp-content/plugins/ct-blocks/plugin-update-checker/images/banner-772x250.png",
+		"high": "http://license.test/wp-content/plugins/ct-blocks/plugin-update-checker/images/banner-1544x500.png"
+	},
+	"rating": 100,
+	"num_ratings": 5,
+	"downloaded": "500+",
+	"active_installs": "1000"
+}
