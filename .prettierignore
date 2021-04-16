@@ -10,3 +10,5 @@ dynamic-assets/
 variables.css
 .circleci/
 .github/
+plugin-update-checker/
+update.json
