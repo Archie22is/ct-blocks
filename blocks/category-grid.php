@@ -30,7 +30,7 @@ $content = codetot_build_grid_columns($_columns, 'category-grid');
 $_class = 'category-grid bg-white section-bg';
 $_class .= !empty($class) ? ' ' . $class : '';
 $_class .= !empty($style) ? ' category-grid--' . esc_attr($style) : ' category-grid--1';
-$_class .= !empty($columns) ? ' has-' . $columns . '-columns' : ' has-5-columns';
+$_class .= !empty($columns_count) ? ' has-' . $columns_count . '-columns' : ' has-5-columns';
 
 
 if (!empty($product_categories) && !is_wp_error($product_categories)) :

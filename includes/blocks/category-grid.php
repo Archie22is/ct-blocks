@@ -50,7 +50,7 @@ class Codetot_Block_Category_Grid extends Codetot_Base_Block implements Codetot_
       'class',
       'style',
       'title',
-      'columns',
+      'columns_count',
       'sub_title',
       'select_categories'
     ];

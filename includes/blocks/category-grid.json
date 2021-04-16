@@ -64,15 +64,7 @@
           "class": "",
           "id": ""
         },
-        "choices": {
-          "no": "Default",
-          "2": "2 columns",
-          "3": "3 columns",
-          "4": "4 columns",
-          "5": "5 columns",
-          "6": "6 columns",
-          "auto": "Auto"
-        },
+        "choices": {},
         "allow_null": 0,
         "other_choice": 0,
         "default_value": "4",
