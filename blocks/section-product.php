@@ -38,7 +38,9 @@ if (!empty($title) || !empty($description)) {
   ), 'section-product');
 }
 
-if (!empty($categories)) :
+if (empty($categories)) :
+  echo '<div class="container">You do not have any category, please enter the category to display the product section</div>';
+else :
   if (!empty($attribute)) :
     if ($attribute == 'featured') {
       $product_args = array(
@@ -70,35 +72,35 @@ if (!empty($categories)) :
     }
     $query = new WP_Query($product_args);
   endif;
-endif;
 
-$columns = [];
-if ($query->have_posts()) :
-  while ($query->have_posts())  : $query->the_post();
-    $columns[] = get_block('product-card');
-  endwhile; wp_reset_postdata();
-endif;
+  $products = [];
+  if ($query->have_posts()) :
+    while ($query->have_posts())  : $query->the_post();
+      $products[] = get_block('product-card');
+    endwhile; wp_reset_postdata();
+  endif;
 
-$content = codetot_build_grid_columns($columns, 'section-product', array(
-  'column_class' => 'products section-product__col'
-));
-
-$footer = !empty($button_text) && !empty($button_url) ?
-  get_block('button', array(
-    'class' => 'section-product_button',
-    'type' => !empty($button_style) ? $button_style : 'primary',
-    'button' => $button_text,
-    'url' => $button_url
-  ))
-: '';
-
-if ($query->have_posts()) :
-
-  the_block('default-section', array(
-    'class' => $_class,
-    'header' => (!empty($title) || !empty($description)) ? $header : '',
-    'content' => $content,
-    'footer' => $footer
+  $content = codetot_build_grid_columns($products, 'section-product', array(
+    'column_class' => 'products section-product__col'
   ));
 
+  $footer = !empty($button_text) && !empty($button_url) ?
+    get_block('button', array(
+      'class' => 'section-product_button',
+      'type' => !empty($button_style) ? $button_style : 'primary',
+      'button' => $button_text,
+      'url' => $button_url
+    ))
+  : '';
+
+  if ($query->have_posts()) :
+
+    the_block('default-section', array(
+      'class' => $_class,
+      'header' => (!empty($title) || !empty($description)) ? $header : '',
+      'content' => $content,
+      'footer' => $footer
+    ));
+
+  endif;
 endif;
