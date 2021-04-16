@@ -14,7 +14,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "15",
+          "width": "25",
           "class": "",
           "id": ""
         },
@@ -33,7 +33,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "15",
+          "width": "25",
           "class": "",
           "id": ""
         },
@@ -44,30 +44,6 @@
         "maxlength": ""
       },
       {
-        "key": "field_5fthaof884db8",
-        "label": "Main Layout",
-        "name": "layout",
-        "type": "radio",
-        "instructions": "",
-        "required": 1,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "25",
-          "class": "",
-          "id": ""
-        },
-        "choices": {
-          "row": "Left Header - Right Content",
-          "column": "Top Header - Bottom Content"
-        },
-        "allow_null": 0,
-        "other_choice": 0,
-        "default_value": "",
-        "layout": "vertical",
-        "return_format": "value",
-        "save_other_choice": 0
-      },
-      {
         "key": "field_5fthathao4db8",
         "label": "Item Layout",
         "name": "layout_items",
@@ -76,7 +52,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "20",
+          "width": "25",
           "class": "",
           "id": ""
         },
@@ -86,7 +62,7 @@
         },
         "allow_null": 0,
         "other_choice": 0,
-        "default_value": "",
+        "default_value": "column",
         "layout": "vertical",
         "return_format": "value",
         "save_other_choice": 0
@@ -153,10 +129,7 @@
           "class": "",
           "id": ""
         },
-        "choices": {
-          "left": "Left",
-          "center": "Center"
-        },
+        "choices": {},
         "allow_null": 0,
         "other_choice": 0,
         "default_value": "",
