@@ -189,7 +189,7 @@
       },
       {
         "key": "field_5fd181e3b81b0",
-        "label": "Columns",
+        "label": "Items",
         "name": "columns",
         "type": "repeater",
         "instructions": "",

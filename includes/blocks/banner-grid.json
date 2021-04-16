@@ -103,12 +103,7 @@
           "class": "",
           "id": ""
         },
-        "choices": {
-          "1": "1 column",
-          "2": "2 columns",
-          "3": "3 columns",
-          "4": "4 columns"
-        },
+        "choices": {},
         "allow_null": 0,
         "other_choice": 0,
         "default_value": "2",

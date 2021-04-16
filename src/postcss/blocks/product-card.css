@@ -338,9 +338,13 @@
         }
 
         & .product__content {
-          background-color: var(--primary);
-          border: 1px solid var(--primary);
-          color: var(--white);
+          color: var(--primary);
+
+          @media (--m) {
+            background-color: var(--primary);
+            border: 1px solid var(--primary);
+            color: var(--white);
+          }
         }
 
         & .product__meta-inner {
