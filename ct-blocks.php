@@ -9,7 +9,7 @@
  * Plugin Name:       CT Blocks
  * Plugin URI:        https://codetot.com
  * Description:       Block library for web builder. Requires a license and work only with CT Theme and child theme.
- * Version:           4.1.3
+ * Version:           4.1.4
  * Author:            CODE TOT JSC
  * Author URI:        https://codetot.com
  * License:           GPL-2.0+
@@ -23,7 +23,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'CODETOT_BLOCKS_VERSION', '4.1.3' );
+define( 'CODETOT_BLOCKS_VERSION', '4.1.4' );
 define( 'CODETOT_BLOCKS_PLUGIN_SLUG', 'ct-blocks' );
 define( 'CODETOT_BLOCKS_PLUGIN_NAME', esc_html_x('CT Blocks', 'plugin name', 'ct-blocks'));
 define( 'CODETOT_BLOCKS_DIR', plugin_dir_path(__FILE__));
