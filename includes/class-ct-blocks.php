@@ -110,7 +110,7 @@ class Codetot_Base
   public function get_plugin_blocks() {
     $plugin_blocks = codetot_load_json_array(CODETOT_BLOCKS_DIR . '/blocks.json');
 
-    if (is_plugin_active('woocommerce/woocommerce.php')) {
+    if (file_exists(WP_PLUGIN_DIR . '/woocommerce/woocommerce.php')) {
       $woocommerce_blocks_list = codetot_load_json_array(CODETOT_BLOCKS_DIR . '/woocommerce-blocks.json');
       $plugin_blocks = array_merge($plugin_blocks, $woocommerce_blocks_list);
     }
