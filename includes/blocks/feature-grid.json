@@ -277,7 +277,7 @@
         "collapsed": "",
         "min": 0,
         "max": 0,
-        "layout": "row",
+        "layout": "block",
         "button_label": "Add Item",
         "sub_fields": [
           {
@@ -443,7 +443,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-              "width": "",
+              "width": "25",
               "class": "",
               "id": ""
             },
@@ -457,12 +457,12 @@
             "key": "field_60700ca428362",
             "label": "Button Target",
             "name": "button_target",
-            "type": "text",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-              "width": "",
+              "width": "25",
               "class": "",
               "id": ""
             },
@@ -477,12 +477,12 @@
             "key": "field_60700ca928363",
             "label": "Button Style",
             "name": "button_style",
-            "type": "text",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-              "width": "",
+              "width": "25",
               "class": "",
               "id": ""
             },
