@@ -75,7 +75,7 @@ jobs:
             - 'f2:c2:4b:d3:72:1b:b7:b2:3f:6b:4b:41:78:e8:f4:ba'
       - run:
           name: Run update script
-          command: ssh runcloud@${REMOTE_IP_ADDRESS} 'cd webapps/plugin-update && ./update.sh ct-blocks'
+          command: ssh codetot-repository@${REMOTE_IP_ADDRESS} 'cd webapps/plugin-update && ./update.sh ct-blocks'
 
 workflows:
   version: 2

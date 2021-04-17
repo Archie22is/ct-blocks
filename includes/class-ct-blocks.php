@@ -175,8 +175,8 @@ class Codetot_Base
   }
 
   public function update_block_parts_paths($paths) {
-    if (codetot_is_supported_theme() && !empty($this->child_theme_settings['blocks_parts'])) {
-      $paths[] = get_stylesheet_directory() . '/' . esc_attr($this->child_theme_settings['blocks_parts']);
+    if (codetot_is_supported_theme() && !empty($this->child_theme_settings['blocks_part'])) {
+      $paths[] = get_stylesheet_directory() . '/' . esc_attr($this->child_theme_settings['blocks_part']);
     }
 
     if (is_child_theme()) {
