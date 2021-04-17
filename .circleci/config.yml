@@ -20,7 +20,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - 'f2:c2:4b:d3:72:1b:b7:b2:3f:6b:4b:41:78:e8:f4:ba'
+            - '85:6e:5d:a6:3b:97:82:a2:6b:de:20:67:1f:f8:ba:d0'
       - run:
           name: Install dependencies and Build assets
           command: |
@@ -36,14 +36,14 @@ jobs:
             else
               exit 0
             fi
-  release:
+  package:
     docker:
       - image: cimg/node:12.18
     steps:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - 'f2:c2:4b:d3:72:1b:b7:b2:3f:6b:4b:41:78:e8:f4:ba'
+            - '85:6e:5d:a6:3b:97:82:a2:6b:de:20:67:1f:f8:ba:d0'
       - run:
           name: Install dependencies and Build assets
           command: |
@@ -53,7 +53,7 @@ jobs:
             rm -rf src/
             rm -rf postcss.config.js
             rm -rf package*.json
-            rm -rf .babelrc .browserslistrc .editorconfig .eslintrc.js .prettierignore .stylelintrc .gitignore
+            rm -rf .babelrc .browserslistrc .editorconfig .eslintrc.js .prettierignore .stylelintrc
             git add .
             git commit -m "Release package"
             git push origin HEAD:production-temp --force
@@ -61,6 +61,24 @@ jobs:
             git merge origin/production-temp --no-ff --no-edit
             git push origin HEAD:production
             git push origin :production-temp
+
+  release:
+    machine:
+      enabled: true
+    steps:
+      - checkout
+      - run:
+          name: Fix ssh Could not resolve hostname
+          command: |
+            ssh-keyscan ${REMOTE_IP_ADDRESS} >> ~/.ssh/known_hosts # Add live server IP to known hosts.
+
+      - add_ssh_keys: # add private SSH key from CircleCI account based on fingerprint.
+          fingerprints:
+            - 'f2:c2:4b:d3:72:1b:b7:b2:3f:6b:4b:41:78:e8:f4:ba'
+
+      - run:
+          name: Run update script
+          command: ssh runcloud@${REMOTE_IP_ADDRESS} 'cd webapps/plugin-update && ./update.sh ct-blocks'
 
 workflows:
   version: 2
@@ -75,7 +93,12 @@ workflows:
             branches:
               only: /(develop|feature\/ci)/
 
-      - release:
+      - package:
           filters:
             branches:
               only: master
+
+      - release:
+          filter:
+            branches:
+              only: production
