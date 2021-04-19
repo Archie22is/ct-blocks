@@ -400,7 +400,7 @@ if (!function_exists('codetot_get_min_max_numbers')) {
 }
 
 if (!function_exists('codetot_get_image_reponsive_html')) {
-  function codetot_get_image_reponsive_html($image, $mobile_image, $args = []) {
+  function codetot_get_image_reponsive_html($image, $args = []) {
     if (empty($image)) {
       return !empty($args['placeholder']) ? get_block('image-placeholder') : '';
     }
@@ -409,8 +409,8 @@ if (!function_exists('codetot_get_image_reponsive_html')) {
 
     ob_start();
 
-    if (!empty($mobile_image)) {
-      printf('<source srcset="%1$s" media="(max-width: %2$s)">', $mobile_image['url'], $_breakpoint);
+    if (!empty($args['mobile_image'])) {
+      printf('<source srcset="%1$s" media="(max-width: %2$s)">', $args['mobile_image']['url'], $_breakpoint);
     }
 
     ob_start();

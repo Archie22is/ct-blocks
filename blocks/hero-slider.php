@@ -32,8 +32,9 @@ $carousel_settings = array(
                     $image = !empty($item['image']) ? $item['image'] : [];
                     $mobile_image = !empty($item['image_mobile']) ? $item['image_mobile'] : [];
 
-                    echo codetot_get_image_reponsive_html($image, $mobile_image, array(
-                      'disable_lazyload' => true
+                    echo codetot_get_image_reponsive_html($image, array(
+                      'disable_lazyload' => true,
+                      'mobile_image' => $mobile_image,
                     ));
                     ?>
                   </picture>
