@@ -8,7 +8,7 @@ $_class .= !empty($background_contract) ? ' hero-image--' .esc_attr($background_
 $_class .= !empty($overlay) ? ' hero-image--has-overlay' : '';
 $_class .= (empty($fullscreen)) ? ' hero-image--no-fullscreen' : '';
 
-$_overlay = !empty($overlay) ? $overlay : null;
+$_overlay = !empty($overlay) ? $overlay : '0';
 
 $container = codetot_site_container();
 
@@ -24,33 +24,18 @@ if (!empty($image)) :
     <?php endif; ?>
     <?php
     if (!empty($mobile_image)) {
-      $mobile_image_src = wp_get_attachment_image_src($mobile_image['ID'], 'full', null);
-      $mobile_image_alt = get_post_meta($mobile_image['ID'], '_wp_attachment_image_alt', true);
-
-      printf('<img data-sizes="auto" src="%1$s" alt="%2$s" width="%3$s" height="%4$s" class="%5$s">',
-        $mobile_image_src[0],
-        $mobile_image_alt,
-        $mobile_image_src[1],
-        $mobile_image_src[2],
-        'image__img'
-      );
-    } else {
-      $mobile_image_size = wp_get_attachment_image_src($image['ID'], 'medium', null);
-      $large_image_size = wp_get_attachment_image_src($image['ID'], 'large', null);
-      $desktop_image_size = wp_get_attachment_image_src($image['ID'], 'full', null);
-      $image_alt = get_post_meta($image['ID'], '_wp_attachment_image_alt', true);
-
-      printf('<source srcset="%1$s" media="%2$s">', $mobile_image_size[0], '(max-width: 375px)');
-      printf('<source srcset="%1$s" media="%2$s">', $large_image_size[0], '(max-width: 1024px)');
-
-      printf('<img data-sizes="auto" src="%1$s" alt="%2$s" width="%3$s" height="%4$s" class="%5$s">',
-        $desktop_image_size[0],
-        $image_alt,
-        $desktop_image_size[1],
-        $desktop_image_size[2],
-        'image__img'
-      );
+      printf('<source srcset="%1$s" media="(max-width: 360px)">', $mobile_image['url']);
     }
+
+    ob_start();
+
+    echo wp_get_attachment_image($image['ID'], 'full', null, array(
+      'class' => 'image__img'
+    ));
+    $desktop_image_html = ob_get_clean();
+    $desktop_image_html = str_replace(' loading="lazy"', '', $desktop_image_html);
+
+    echo $image_html;
     ?>
   </picture>
 <?php if(empty($fullscreen)) : ?>
