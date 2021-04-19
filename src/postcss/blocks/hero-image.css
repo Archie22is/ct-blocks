@@ -12,7 +12,7 @@
 
 .hero-image__overlay {
   display: none;
-  z-index: 1;
+  z-index: 2;
 
   @media (--s) {
     @mixin abs-full;
@@ -22,10 +22,13 @@
 }
 
 .hero-image__image {
-  display: flex;
+  display: block;
+
+  @media (--s) {
+    display: flex;
+  }
 
   & img.image__img {
-    position: static;
     max-width: 100%;
     height: auto;
 
