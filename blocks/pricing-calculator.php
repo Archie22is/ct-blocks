@@ -25,7 +25,7 @@ if (!empty($left_title) || !empty($left_intro)) : ?>
 
         <label for="plus" class="pricing-calculator__action plus">
           <input type="button" id="plus" class="js-minus">
-          <?php codetot_svg('plus', true); ?>
+          <?php codetot_svg('minus', true); ?>
         </label>
 
         <p class=" pricing-calculator__qty js-number">
@@ -33,7 +33,7 @@ if (!empty($left_title) || !empty($left_intro)) : ?>
         </p>
         <label id="minus" class="pricing-calculator__action plus">
           <input id="minus" type="button" class="js-plus">
-          <?php codetot_svg('minus', true); ?>
+          <?php codetot_svg('plus', true); ?>
         </label>
       </div>
 
