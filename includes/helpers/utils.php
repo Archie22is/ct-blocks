@@ -419,7 +419,10 @@ if (!function_exists('codetot_get_image_reponsive_html')) {
       'class' => 'image__img'
     ));
     $desktop_image_html = ob_get_clean();
-    $desktop_image_html = str_replace(' loading="lazy"', '', $desktop_image_html);
+
+    if (!empty($args['disable_lazyload'])) :
+      $desktop_image_html = str_replace(' loading="lazy"', '', $desktop_image_html);
+    endif;
 
     echo $desktop_image_html;
 

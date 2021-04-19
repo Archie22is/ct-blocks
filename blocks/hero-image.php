@@ -22,7 +22,9 @@ if (!empty($image)) :
     <?php if (!empty($overlay)) : ?>
       <div class="hero-image__overlay" style="background-color: rgba(0, 0, 0, <?php echo esc_attr($_overlay); ?>);"></div>
     <?php endif; ?>
-    <?php echo codetot_get_image_reponsive_html($image, $mobile_image); ?>
+    <?php echo codetot_get_image_reponsive_html($image, $mobile_image, array(
+      'disable_lazyload' => true
+    )); ?>
   </picture>
 <?php if(empty($fullscreen)) : ?>
   </div>
