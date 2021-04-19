@@ -32,24 +32,7 @@ $carousel_settings = array(
                     $image = !empty($item['image']) ? $item['image'] : [];
                     $mobile_image = !empty($item['image_mobile']) ? $item['image_mobile'] : [];
 
-                    if (!empty($image)) {
-
-                      if (!empty($mobile_image)) {
-                        printf('<source srcset="%1$s" media="(max-width: 360px)">', $mobile_image['url']);
-                      }
-
-                      ob_start();
-
-                      echo wp_get_attachment_image($image['ID'], 'full', null, array(
-                        'class' => 'image__img'
-                      ));
-                      $desktop_image_html = ob_get_clean();
-                      $desktop_image_html = str_replace(' loading="lazy"', '', $desktop_image_html);
-
-                      echo $desktop_image_html;
-                    } else {
-                      the_block('image-placeholder');
-                    }
+                    echo codetot_get_image_reponsive_html($image, $mobile_image);
                     ?>
                   </picture>
                   <?php if (!empty($overlay)) : ?>
