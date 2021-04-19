@@ -55,7 +55,7 @@
   }
 }
 
-.image.hero-banner__slider-image {
+.hero-banner__slider-image {
   @mixin abs-full;
   @mixin image-overlay 0.25;
 
@@ -74,7 +74,7 @@
   justify-content: flex-end;
 
   &:hover {
-    & .image.hero-banner__slider-image::after {
+    & .hero-banner__slider-image::after {
       background-color: rgba(0, 0, 0, 0.55);
     }
   }

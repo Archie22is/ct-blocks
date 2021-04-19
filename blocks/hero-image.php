@@ -22,21 +22,10 @@ if (!empty($image)) :
     <?php if (!empty($overlay)) : ?>
       <div class="hero-image__overlay" style="background-color: rgba(0, 0, 0, <?php echo esc_attr($_overlay); ?>);"></div>
     <?php endif; ?>
-    <?php
-    if (!empty($mobile_image)) {
-      printf('<source srcset="%1$s" media="(max-width: 360px)">', $mobile_image['url']);
-    }
-
-    ob_start();
-
-    echo wp_get_attachment_image($image['ID'], 'full', null, array(
-      'class' => 'image__img'
-    ));
-    $desktop_image_html = ob_get_clean();
-    $desktop_image_html = str_replace(' loading="lazy"', '', $desktop_image_html);
-
-    echo $desktop_image_html;
-    ?>
+    <?php echo codetot_get_image_reponsive_html($image, array(
+      'disable_lazyload' => true,
+      'mobile_image' => $mobile_image
+    )); ?>
   </picture>
 <?php if(empty($fullscreen)) : ?>
   </div>
