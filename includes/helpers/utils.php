@@ -398,3 +398,34 @@ if (!function_exists('codetot_get_min_max_numbers')) {
     );
   }
 }
+
+if (!function_exists('codetot_get_image_reponsive_html')) {
+  function codetot_get_image_reponsive_html($image, $args = []) {
+    if (empty($image)) {
+      return !empty($args['placeholder']) ? get_block('image-placeholder') : '';
+    }
+
+    $_breakpoint = !empty($args['breakpoint']) ? esc_attr($args['breakpoint']) : '360px';
+
+    ob_start();
+
+    if (!empty($args['mobile_image'])) {
+      printf('<source srcset="%1$s" media="(max-width: %2$s)">', $args['mobile_image']['url'], $_breakpoint);
+    }
+
+    ob_start();
+
+    echo wp_get_attachment_image($image['ID'], 'full', null, array(
+      'class' => 'image__img'
+    ));
+    $desktop_image_html = ob_get_clean();
+
+    if (!empty($args['disable_lazyload'])) :
+      $desktop_image_html = str_replace(' loading="lazy"', '', $desktop_image_html);
+    endif;
+
+    echo $desktop_image_html;
+
+    return ob_get_clean();
+  }
+}

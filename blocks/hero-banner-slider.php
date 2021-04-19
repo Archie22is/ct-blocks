@@ -23,14 +23,16 @@ if (!empty($items)) : ?>
     <div class="hero-banner__slider js-slider" data-options='<?php echo json_encode($slider_options); ?>'>
       <?php foreach ($items as $item) :
         $no_content = !empty($item['label']) || !empty($item['title']);
+
+        $item_class = 'hero-banner__slider-item';
+        $item_class .= $no_content ? ' hero-banner__slider-item--no-content' : '';
       ?>
-        <div class="hero-banner__slider-item<?php if ($no_content) : echo ' hero-banner__slider-item--no-content';
-                                            endif; ?>">
-          <?php the_block('image', array(
-            'image' => $item['image'],
-            'lazyload' => false,
-            'class' => 'image--cover hero-banner__slider-image'
-          )); ?>
+        <div class="<?php echo $item_class; ?>">
+          <picture class="hero-banner__slider-image">
+            <?php echo codetot_get_image_reponsive_html($item['image'], array(
+              'disable_lazyload' => true
+            )); ?>
+          </picture>
           <?php if (!empty($item['label']) || !empty($item['title'])) : ?>
             <div class="hero-banner__slider-content">
               <div class="hero-banner__slide__inner">
@@ -52,15 +54,15 @@ if (!empty($items)) : ?>
         </div>
       <?php endforeach; ?>
     </div>
-    <?php if (!empty($navItems)) : ?>
+    <?php if (!empty($nav_items)) : ?>
       <div class="hero-banner__slider-nav js-slider-nav" data-options='<?php echo json_encode($carousel_settings_nav); ?>'>
-        <?php foreach ($navItems as $navItem) : ?>
+        <?php foreach ($nav_items as $nav_item) : ?>
           <div class="hero-banner__slider-nav-item">
-          <?php if (!empty($navItem['label'])) : ?>
-              <p class="label-text bold-text hero-banner__slider-nav-label"><?php echo $navItem['label']; ?></p>
+          <?php if (!empty($nav_items['label'])) : ?>
+              <p class="label-text bold-text hero-banner__slider-nav-label"><?php echo $nav_items['label']; ?></p>
             <?php endif; ?>
-            <?php if (!empty($navItem['title'])) : ?>
-              <p class="hero-banner__slider-nav-title"><?php echo $navItem['title']; ?></p>
+            <?php if (!empty($nav_items['title'])) : ?>
+              <p class="hero-banner__slider-nav-title"><?php echo $nav_items['title']; ?></p>
             <?php endif; ?>
           </div>
         <?php endforeach; ?>
