@@ -35,7 +35,7 @@ if (!empty($image)) :
     $desktop_image_html = ob_get_clean();
     $desktop_image_html = str_replace(' loading="lazy"', '', $desktop_image_html);
 
-    echo $image_html;
+    echo $desktop_image_html;
     ?>
   </picture>
 <?php if(empty($fullscreen)) : ?>
