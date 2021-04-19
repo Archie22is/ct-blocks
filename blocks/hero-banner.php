@@ -25,7 +25,7 @@ if (!empty($slider_items)) : ?>
         <div class="grid__col hero-banner__col hero-banner__col--slider">
           <?php the_block('hero-banner-slider', array(
             'items' => $slider_items,
-            'navItems' => !empty($nav_slider_items) ? $nav_slider_items : false,
+            'nav_items' => !empty($nav_slider_items) ? $nav_slider_items : false,
             'block_preset' => $block_preset
           )); ?>
         </div>
