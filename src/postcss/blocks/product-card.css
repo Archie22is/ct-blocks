@@ -370,7 +370,8 @@
 }
 
 .has-product-card-style-3 {
-  & .product-card {
+  & .product-card,
+  & .product.type-product {
     height: 100%;
 
     &:hover {
