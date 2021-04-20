@@ -1,5 +1,6 @@
 <?php
 $category_name = 'store_locator';
+if (taxonomy_exists($category_name)) :
 $province_args = array(
   'orderby' => 'menu_order',
   'order' => 'asc',
@@ -53,3 +54,4 @@ $levels = ['country', 'province', 'district'];
     </div>
   <?php }; ?>
 </div>
+<?php endif; ?>
