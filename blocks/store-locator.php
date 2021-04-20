@@ -23,10 +23,6 @@ $container = codetot_site_container();
             <div class="sidebar-section__inner<?php echo (!post_type_exists('store')) ? ' show' : false ?>">
             <?php if(post_type_exists('store')) : ?>
               <?php the_block('store-locator-item'); ?>
-            <?php else: ?>
-              <?php the_block('store-locator-input-item', array(
-                'items' => $items
-              )); ?>
             <?php endif; ?>
             </div>
           </div>
