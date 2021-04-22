@@ -24,7 +24,7 @@ if (!empty($image)) :
     <?php endif; ?>
     <?php echo codetot_get_image_reponsive_html($image, array(
       'disable_lazyload' => true,
-      'mobile_image' => $mobile_image
+      'mobile_image' => !empty($mobile_image) ? $mobile_image : ''
     )); ?>
   </picture>
 <?php if(empty($fullscreen)) : ?>
