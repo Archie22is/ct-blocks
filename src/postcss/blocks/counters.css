@@ -1,21 +1,27 @@
-.counters.is-content-alignment-left {
-  & .counters__inner {
-    justify-content: flex-start;
-    text-align: left;
+.counters {
+  & .is-content-alignment-left {
+    & .counters__inner {
+      justify-content: flex-start;
+      text-align: left;
+    }
   }
 }
 
-.counters.is-content-alignment-center {
-  & .counters__inner {
-    justify-content: center;
-    text-align: center;
+.counters {
+  & .is-content-alignment-center {
+    & .counters__inner {
+      justify-content: center;
+      text-align: center;
+    }
   }
 }
 
-.counters.is-content-alignment-right {
-  & .counters__inner {
-    justify-content: flex-end;
-    text-align: right;
+.counters {
+  & .is-content-alignment-right {
+    & .counters__inner {
+      justify-content: flex-end;
+      text-align: right;
+    }
   }
 }
 
