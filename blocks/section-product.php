@@ -57,7 +57,7 @@ else :
             'field' => 'id',
             'terms' => wp_list_pluck($categories, 'term_id')
           ),
-        )
+        ),
       );
     } else {
       $product_args = codetot_get_product_query_by_type($attribute);
@@ -67,6 +67,12 @@ else :
           'taxonomy' => 'product_cat',
           'field' => 'id',
           'terms' => wp_list_pluck($categories, 'term_id')
+        )
+      );
+      $product_args['meta_query'] = array (
+        array(
+          'key' => '_stock_status',
+          'value' => 'instock'
         )
       );
     }
