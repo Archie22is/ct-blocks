@@ -21,7 +21,7 @@ $_class .= !empty($background_type) ? codetot_generate_block_background_class($b
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 
 $_card_class = !empty($layout_items) ? ' counters__col--layout-'. $layout_items : ' counters__col--layout-column';
-$_card_class .= !empty($content_alignment) ? ' counters__col--alignment-' . $content_alignment : ' counters__col--alignment-left';
+$_class .= !empty($content_alignment) ? ' is-content-alignment-'.  $content_alignment : '';
 
 if(!empty($title) || !empty($description)) {
   $header = codetot_build_content_block(array(
@@ -46,7 +46,7 @@ $content = codetot_build_grid_columns($columns, 'counters', array(
 if (!empty($counters)) :
   the_block('default-section', array(
     'id' => !empty($id) ? esc_attr($id) : '',
-    'attributes' => ' data-ct-block="counters" data-aos="fade-up"',
+    'attributes' => ' data-ct-block="counters"',
     'class' => $_class,
     'header' => (!empty($title) || !empty($description)) ? $header : false,
     'content' => $content

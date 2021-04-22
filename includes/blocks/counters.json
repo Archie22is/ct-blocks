@@ -81,7 +81,6 @@
           "id": ""
         },
         "choices": {
-          "1": "1 columns",
           "2": "2 columns",
           "3": "3 columns",
           "4": "4 columns",
@@ -90,7 +89,7 @@
         },
         "allow_null": 0,
         "other_choice": 0,
-        "default_value": "",
+        "default_value": "3",
         "layout": "horizontal",
         "return_format": "value",
         "save_other_choice": 0
