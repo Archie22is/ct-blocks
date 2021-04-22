@@ -7,7 +7,12 @@
   @mixin flex-center;
 
   position: relative;
+  padding: 1em 0;
   z-index: 3;
+
+  @media (--s) {
+    padding: 0;
+  }
 }
 
 .hero-image__overlay {
@@ -22,11 +27,7 @@
 }
 
 .hero-image__image {
-  display: block;
-
-  @media (--s) {
-    display: flex;
-  }
+  display: flex;
 
   & img.image__img {
     max-width: 100%;
