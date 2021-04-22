@@ -93,7 +93,7 @@
   & .hero-image__title,
   & .hero-image__description {
     @media (--s) {
-      color: var(--white);
+      color: var(--dark);
     }
   }
 }
