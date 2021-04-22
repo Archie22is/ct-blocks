@@ -202,7 +202,6 @@ export default el => {
           .then(button.removeAttr('disabled'))
           .then(resetVariations.trigger('click'))
           .then(closeModal())
-          .then(trigger('minicart.open', body))
           .then(initSlider)
           .then(deactivateLoader)
           .catch(function (error) {

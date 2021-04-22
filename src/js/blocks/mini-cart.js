@@ -31,6 +31,10 @@ const refresh = () => {
 export default el => {
   const closeButtons = selectAll('.js-mini-cart-close', el)
 
+  $(body).on('added_to_cart', () => {
+    trigger('minicart.open', body)
+  })
+
   on(
     'minicart.open',
     () => {
