@@ -21,7 +21,7 @@ $_class .= !empty($background_type) ? codetot_generate_block_background_class($b
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 
 $_card_class = !empty($layout_items) ? ' counters__col--layout-'. $layout_items : ' counters__col--layout-column';
-$_class .= !empty($content_alignment) ? ' is-content-alignment-'.  $content_alignment : '';
+$_card_class .= !empty($content_alignment) ? ' is-content-alignment-'.  $content_alignment : '';
 
 if(!empty($title) || !empty($description)) {
   $header = codetot_build_content_block(array(
