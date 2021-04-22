@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: CT Blocks\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-10 09:12+0000\n"
-"PO-Revision-Date: 2021-02-14 01:07+0000\n"
+"PO-Revision-Date: 2021-04-22 04:18+0000\n"
 "Last-Translator: \n"
 "Language-Team: Tiếng Việt\n"
 "Language: vi\n"
@@ -15,10 +15,15 @@ msgstr ""
 "X-Loco-Version: 2.5.0; wp-5.6.1\n"
 "X-Domain: ct-blocks"
 
-#: includes/classes/class-block.php:47
-#, php-format
-msgid "Block %s is not available."
+#: includes/classes/class-block.php:50
+#, fuzzy, php-format
+#| msgid "Block %s is not available."
+msgid "%s: Block %s is not available."
 msgstr "Blocks %s không có sẵn."
+
+#: includes/classes/class-ct-blocks-page.php:64
+msgid "Add Block"
+msgstr "Thêm khối"
 
 #. Description of the plugin
 msgid ""
@@ -28,7 +33,7 @@ msgstr ""
 "Thư viện block dành cho web builder. Yêu cầu key bản quyền và hoạt động với "
 "chỉ theme CT."
 
-#: public/class-public.php:46
+#: includes/classes/class-ct-blocks-templates.php:46
 msgid "Block Page"
 msgstr "Block Page Builder"
 
@@ -45,7 +50,19 @@ msgstr "Code Tốt - Block"
 msgid "https://codetot.com"
 msgstr "https://codetot.com"
 
+#: includes/helpers/utils.php:28
+msgid "Missing block name"
+msgstr "Thiếu tên khối"
+
 #: ct-blocks.php:28
 msgctxt "plugin name"
 msgid "CT Blocks"
 msgstr "Code Tốt - Block"
+
+#: includes/blocks/pricing-calculator.php:49
+msgid "Pricing Calculator"
+msgstr ""
+
+#: includes/blocks/store-locator.php:46
+msgid "Store Locator"
+msgstr ""
