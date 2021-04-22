@@ -1,13 +1,5 @@
 /* global jQuery,codetotConfig,wc_add_to_cart_variation_params */
-import {
-  select,
-  selectAll,
-  on,
-  getData,
-  addClass,
-  removeClass,
-  trigger
-} from 'lib/dom'
+import { select, selectAll, on, getData, addClass, removeClass } from 'lib/dom'
 import { minusBtn, plusBtn } from '../woocommerce/quantity'
 import { pipe } from 'lib/utils'
 import 'whatwg-fetch'
