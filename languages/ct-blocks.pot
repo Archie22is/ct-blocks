@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CT Blocks\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-10 09:16+0000\n"
+"POT-Creation-Date: 2021-04-22 04:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,9 +16,13 @@ msgstr ""
 "X-Loco-Version: 2.5.0; wp-5.6.1\n"
 "X-Domain: ct-blocks"
 
-#: includes/classes/class-block.php:47
+#: includes/classes/class-block.php:50
 #, php-format
-msgid "Block %s is not available."
+msgid "%s: Block %s is not available."
+msgstr ""
+
+#: includes/classes/class-ct-blocks-page.php:64
+msgid "Add Block"
 msgstr ""
 
 #. Description of the plugin
@@ -27,7 +31,7 @@ msgid ""
 "Theme and child theme."
 msgstr ""
 
-#: public/class-public.php:46
+#: includes/classes/class-ct-blocks-templates.php:46
 msgid "Block Page"
 msgstr ""
 
@@ -44,7 +48,19 @@ msgstr ""
 msgid "https://codetot.com"
 msgstr ""
 
+#: includes/helpers/utils.php:28
+msgid "Missing block name"
+msgstr ""
+
 #: ct-blocks.php:28
 msgctxt "plugin name"
 msgid "CT Blocks"
+msgstr ""
+
+#: includes/blocks/pricing-calculator.php:49
+msgid "Pricing Calculator"
+msgstr ""
+
+#: includes/blocks/store-locator.php:46
+msgid "Store Locator"
 msgstr ""
