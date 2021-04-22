@@ -83,7 +83,7 @@
 
 .hero-image--light {
   & .hero-image__wrapper {
-    background: var(--light);
+    background: var(--primary);
 
     @media (--s) {
       background: transparent;
