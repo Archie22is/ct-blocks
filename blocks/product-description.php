@@ -1,5 +1,5 @@
 <?php
-$_button_text = !empty($button_text) ? $button_text : __('Read more', 'ct-peakshop');
+$_button_text = !empty($button_text) ? $button_text : __('Read more', 'ct-blocks');
 $_height = !empty($height) ? : 350;
 $content = get_the_content();
 if(!empty($content)) : ?>
