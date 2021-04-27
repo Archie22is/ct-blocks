@@ -50,7 +50,6 @@ class Codetot_Block_Image_Row extends Codetot_Base_Block implements Codetot_Base
       'columns',
       'enable_full_screen_layout',
       'space_between',
-      'enable_slideshow',
       'header_alignment',
       'title',
       'image_zoom'
