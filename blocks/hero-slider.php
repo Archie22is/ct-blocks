@@ -44,7 +44,7 @@ $carousel_settings = array(
                   <?php if (!empty($item['description']) || !empty($item['title'])) : ?>
                     <div class="hero-slider__content js-content">
                       <div class="container hero-slider__container">
-                        <div class="hero-slider__box" data-aos="fade-up">
+                        <div class="hero-slider__box">
                           <?php if (!empty($item['label'])) : ?>
                             <p class="label-text bold-text hero-slider__label"><?php echo esc_html($item['label']); ?></p>
                           <?php endif; ?>

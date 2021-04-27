@@ -13,7 +13,7 @@ $_class .= !empty($class) ? ' ' . $class : '';
 <section class="<?php echo $_class; ?>" data-ct-block="contact-section">
   <div class="<?php echo $container; ?> contact-section__container">
     <div class="grid contact-section__grid contact-section__grid--primary">
-      <div class="grid__col contact-section__col contact-section__col--map" data-aos="fade-up">
+      <div class="grid__col contact-section__col contact-section__col--map">
         <?php if (!empty($google_maps)) : ?>
           <div class="contact-section__map-wrapper">
             <div class="contact-section__map js-map" data-default-zoom="14" data-clicked-zoom="18">
@@ -35,7 +35,7 @@ $_class .= !empty($class) ? ' ' . $class : '';
         <div class="contact-section__wrapper">
           <!-- Form vs Content -->
           <div class="grid contact-section__grid contact-section__grid--secondary">
-            <div class="grid__col contact-section__col contact-section__col--content" data-aos="fade-up">
+            <div class="grid__col contact-section__col contact-section__col--content">
               <div class="contact-section__content">
                 <div class="grid contact-section__grid contact-section__grid--tertiary">
                   <?php if (!empty($address)) : ?>
@@ -56,7 +56,7 @@ $_class .= !empty($class) ? ' ' . $class : '';
               </div>
             </div>
             <?php if (!empty($contact_form)) : ?>
-              <div class="grid__col contact-section__col contact-section__col--form" data-aos="fade-up">
+              <div class="grid__col contact-section__col contact-section__col--form">
                 <div
                   class="contact-section__form">
                   <?php echo do_shortcode('[gravityform id="' . $contact_form . '" title="true" description="false" ajax="true"]'); ?>

@@ -41,7 +41,6 @@ $columns = !empty($items) ? array_map(function($item) use($enable_slideshow) {
 }, $items) : [];
 
 $column_content = codetot_build_grid_columns($columns, 'logo-grid', array(
-  'column_attributes' => 'data-aos="fade-up"',
   'column_class' => 'logo-grid__col'
 ));
 

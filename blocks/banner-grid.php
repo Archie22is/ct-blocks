@@ -70,12 +70,10 @@ if ($layout === 'slider') :
 
   $content = codetot_build_slider($columns, $prefix_class, array(
     'slider_class' => $_silder_class,
-    'slider_attributes' => 'data-aos="fade-up"',
     'slider_settings' => $slider_settings,
   ));
 else :
   $content = codetot_build_grid_columns($columns, $prefix_class, array(
-    'column_attributes' => 'data-aos="fade-up"',
     'column_class' => 'default-section__col'
   ));
 endif;
