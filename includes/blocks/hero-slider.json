@@ -14,7 +14,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "25",
+          "width": "20",
           "class": "",
           "id": ""
         },
@@ -33,7 +33,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "25",
+          "width": "20",
           "class": "",
           "id": ""
         },
@@ -48,124 +48,15 @@
         "placeholder": ""
       },
       {
-        "key": "field_5fd879ca2938c",
-        "label": "Previous/Next Buttons",
-        "name": "enable_prev_next_buttons",
-        "type": "true_false",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "26",
-          "class": "",
-          "id": ""
-        },
-        "message": "Display previous/next buttons",
-        "default_value": 0,
-        "ui": 0,
-        "ui_on_text": "",
-        "ui_off_text": ""
-      },
-      {
-        "key": "field_5fe3fd0fc6aa3",
-        "label": "Previous/Next Style",
-        "name": "previous_next_style",
-        "type": "select",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": [
-          [
-            {
-              "field": "field_5fd879ca2938c",
-              "operator": "==",
-              "value": "1"
-            }
-          ]
-        ],
-        "wrapper": {
-          "width": "12",
-          "class": "",
-          "id": ""
-        },
-        "choices": {
-          "circle": "Circle",
-          "simple": "Simple",
-          "square": "Square"
-        },
-        "default_value": "circle",
-        "allow_null": 0,
-        "multiple": 0,
-        "ui": 0,
-        "return_format": "value",
-        "ajax": 0,
-        "placeholder": ""
-      },
-      {
-        "key": "field_5fe3fs09e6aa3",
-        "label": "Previous/Next Alignment",
-        "name": "previous_next_alignment",
-        "type": "select",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": [
-          [
-            {
-              "field": "field_5fd879ca2938c",
-              "operator": "==",
-              "value": "1"
-            }
-          ]
-        ],
-        "wrapper": {
-          "width": "12",
-          "class": "",
-          "id": ""
-        },
-        "choices": {
-          "top-left": "Top Left",
-          "top-right": "Top Right",
-          "middle": "Middle",
-          "bottom-left": "Bottom Left",
-          "bottom-right": "Bottom Right"
-        },
-        "default_value": "middle",
-        "allow_null": 0,
-        "multiple": 0,
-        "ui": 0,
-        "return_format": "value",
-        "ajax": 0,
-        "placeholder": ""
-      },
-      {
-        "key": "field_5fcfdsa17f33f",
-        "label": "Overlay",
-        "name": "overlay",
-        "type": "range",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "25",
-          "class": "",
-          "id": ""
-        },
-        "default_value": "",
-        "min": 0,
-        "max": 1,
-        "step": "0.1",
-        "prepend": "Lighter",
-        "append": "Darker"
-      },
-      {
         "key": "field_5fcf5ds87f33e",
-        "label": "Content Alignment",
+        "label": "Alignment",
         "name": "content_alignment",
-        "type": "radio",
+        "type": "select",
         "instructions": "",
         "required": 0,
         "conditional_logic": "",
         "wrapper": {
-          "width": "25",
+          "width": "20",
           "class": "",
           "id": ""
         },
@@ -178,48 +69,59 @@
         "save_other_choice": 0
       },
       {
-        "key": "field_5fcf5ds87f431",
-        "label": "Page Dots",
-        "name": "enable_page_dots",
+        "key": "field_5fcfdsa17f33f",
+        "label": "Overlay",
+        "name": "overlay",
+        "type": "range",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "40",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "min": 0,
+        "max": 1,
+        "step": "0.1",
+        "prepend": "Lighter",
+        "append": "Darker"
+      },
+      {
+        "key": "field_5fd879ca2938c",
+        "label": "Previous/Next Buttons",
+        "name": "enable_prev_next_buttons",
         "type": "true_false",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "26",
+          "width": "25",
           "class": "",
           "id": ""
         },
-        "message": "Display page dots navigation",
+        "message": "Visible",
         "default_value": 0,
         "ui": 0,
         "ui_on_text": "",
         "ui_off_text": ""
       },
       {
-        "key": "field_5fe3fd0ds3aa3",
-        "label": "Page Dots Style",
-        "name": "page_dots_style",
+        "key": "field_5fe3fd0fc6aa3",
+        "label": "Button Style",
+        "name": "previous_next_style",
         "type": "select",
         "instructions": "",
         "required": 0,
-        "conditional_logic": [
-          [
-            {
-              "field": "field_5fcf5ds87f431",
-              "operator": "==",
-              "value": "1"
-            }
-          ]
-        ],
+        "conditional_logic": 0,
         "wrapper": {
-          "width": "12",
+          "width": "25",
           "class": "",
           "id": ""
         },
         "choices": {
           "circle": "Circle",
-          "dashes": "Dashes",
           "simple": "Simple",
           "square": "Square"
         },
@@ -232,32 +134,44 @@
         "placeholder": ""
       },
       {
-        "key": "field_5fe3sa6ds3aa3",
-        "label": "Page Dots Alignment",
-        "name": "page_dots_alignment",
+        "key": "field_5fcf5ds87f431",
+        "label": "Page Dots",
+        "name": "enable_page_dots",
+        "type": "true_false",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "message": "Visible",
+        "default_value": 0,
+        "ui": 0,
+        "ui_on_text": "",
+        "ui_off_text": ""
+      },
+      {
+        "key": "field_5fe3fd0ds3aa3",
+        "label": "Dots Style",
+        "name": "page_dots_style",
         "type": "select",
         "instructions": "",
         "required": 0,
-        "conditional_logic": [
-          [
-            {
-              "field": "field_5fcf5ds87f431",
-              "operator": "==",
-              "value": "1"
-            }
-          ]
-        ],
+        "conditional_logic": 0,
         "wrapper": {
-          "width": "12",
+          "width": "25",
           "class": "",
           "id": ""
         },
         "choices": {
-          "center": "center",
-          "left": "left",
-          "right": "right"
+          "circle": "Circle",
+          "dashes": "Dashes",
+          "simple": "Simple",
+          "square": "Square"
         },
-        "default_value": "center",
+        "default_value": "circle",
         "allow_null": 0,
         "multiple": 0,
         "ui": 0,
@@ -394,7 +308,7 @@
             "name": "title",
             "type": "text",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
               "width": "50",
@@ -450,7 +364,7 @@
             "collapsed": "",
             "min": 0,
             "max": 2,
-            "layout": "row",
+            "layout": "block",
             "button_label": "Add Button",
             "sub_fields": [
               {
@@ -462,7 +376,7 @@
                 "required": 1,
                 "conditional_logic": 0,
                 "wrapper": {
-                  "width": "",
+                  "width": "25",
                   "class": "",
                   "id": ""
                 },
@@ -481,7 +395,7 @@
                 "required": 1,
                 "conditional_logic": 0,
                 "wrapper": {
-                  "width": "",
+                  "width": "25",
                   "class": "",
                   "id": ""
                 },
@@ -491,7 +405,6 @@
                 "append": "",
                 "maxlength": ""
               },
-              null,
               {
                 "key": "field_5fd97a0721f43",
                 "label": "Button Style",
@@ -501,19 +414,11 @@
                 "required": 1,
                 "conditional_logic": 0,
                 "wrapper": {
-                  "width": "",
+                  "width": "50",
                   "class": "",
                   "id": ""
                 },
-                "choices": {
-                  "primary": "Primary",
-                  "secondary": "Secondary",
-                  "dark": "Dark",
-                  "outline": "Outline",
-                  "outline-white": "Outline (Dark Background)",
-                  "link": "Link",
-                  "link-white": "Link (Dark Background)"
-                },
+                "choices": {},
                 "default_value": "primary",
                 "allow_null": 0,
                 "multiple": 0,
