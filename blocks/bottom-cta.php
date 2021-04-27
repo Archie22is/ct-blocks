@@ -23,13 +23,13 @@ if (!empty($title)) : ?>
         <div class="bottom-cta__inner">
           <?php echo (!empty($block_preset) && $block_preset === 'preset-1') ? '<div class="bottom-cta__box">' : '' ?>
             <?php if (!empty($label)) : ?>
-              <p class="label-text bottom-cta__label" data-aos="fade-up"><?php echo $label; ?></p>
+              <p class="label-text bottom-cta__label"><?php echo $label; ?></p>
             <?php endif; ?>
-            <h2 class="h2 bottom-cta__title" data-aos="fade-up"><?php echo $title; ?></h2>
-            <div class="bottom-cta__description" data-aos="fade-up"><?php echo $description; ?></div>
+            <h2 class="h2 bottom-cta__title"><?php echo $title; ?></h2>
+            <div class="bottom-cta__description"><?php echo $description; ?></div>
           <?php echo (!empty($block_preset) && $block_preset === 'preset-1') ? '</div>' : '' ?>
           <?php if (!empty($buttons)) : ?>
-            <div class="bottom-cta__footer" data-aos="fade-up">
+            <div class="bottom-cta__footer">
               <?php foreach ($buttons as $button) :
                 the_block('button', array(
                   'class' => 'bottom-cta__button',

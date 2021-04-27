@@ -15,7 +15,7 @@ $available_classes_key = array(
 $block_class = codetot_block_generate_class($available_classes_key, 'guarantee-list');
 
 if (!empty($items)) : ?>
-  <div class="<?php echo $block_class; ?>" data-aos="fade-up"<?php if(!empty($anchor_name)) : printf(' id="%s"', $anchor_name); endif; ?>>
+  <div class="<?php echo $block_class; ?>" <?php if(!empty($anchor_name)) : printf(' id="%s"', $anchor_name); endif; ?>>
     <div class="container guarantee-list__container">
       <div class="grid guarantee-list__grid">
         <?php foreach ($items as $item) : ?>

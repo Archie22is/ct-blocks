@@ -5,7 +5,7 @@ $_class .= !empty($items) ? ' image-gallery--' . count($items) . '-items' : '';
 $container = codetot_site_container();
 ?>
 <?php if(!empty($items)) : ?>
-  <div class="<?php echo $_class; ?>" data-aos="fade-up">
+  <div class="<?php echo $_class; ?>">
     <div class="<?php echo $container; ?> image-gallery__container">
       <div class="image-gallery__main">
         <div class="image-gallery__items">
