@@ -10,7 +10,7 @@ $_class .= !empty($image_zoom) ? ' image-row--image-zoom' : '';
 $_class .= !empty($header_alignment) ? ' is-header-' .  $header_alignment : '';
 $_class .= !empty($enable_full_screen_layout) ? ' default-section--no-container' : '';
 
-$_attr .= ' data-ct-block="image-row"';
+$_attr = ' data-ct-block="image-row"';
 
 if (!empty($title)) {
   $header = codetot_build_content_block(array(
@@ -36,6 +36,7 @@ $content = codetot_build_grid_columns($_columns, 'image-row', array(
 ));
 
 the_block('default-section', array(
+  'attributes' => $_attr,
   'class' => $_class,
   'header' => (!empty($title) || !empty($description)) ? $header : false,
   'content' => $content
