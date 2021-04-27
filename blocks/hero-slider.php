@@ -4,9 +4,7 @@ $_class .= !empty($block_preset) ? ' hero-slider--' . esc_attr($block_preset) : 
 $_class .= !empty($content_alignment) ? ' hero-slider--alignment-' . esc_attr($content_alignment) : ' hero-slider--alignment-left';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 $_class .= !empty($previous_next_style) ? ' hero-slider--button-' . esc_attr($previous_next_style) : ' hero-slider--button-circle';
-$_class .= !empty($previous_next_alignment) ? ' hero-slider--button-' . esc_attr($previous_next_alignment) : ' hero-slider--button-middle';
 $_class .= !empty($page_dots_style) ? ' hero-slider--dots-' . esc_attr($page_dots_style) : ' hero-slider--dots-circle';
-$_class .= !empty($page_dots_alignment) ? ' hero-slider--dots-' . esc_attr($page_dots_alignment) : ' hero-slider--dots-circle';
 $_class .= !empty($overlay) ? ' hero-slider--overlay' : '';
 
 $carousel_settings = array(

@@ -45,7 +45,7 @@ $content = codetot_build_grid_columns($columns, 'counters', array(
 
 if (!empty($counters)) :
   the_block('default-section', array(
-    'id' => !empty($id) ? esc_attr($id) : '',
+    'id' => !empty($anchor_name) ? esc_attr($anchor_name) : '',
     'attributes' => ' data-ct-block="counters"',
     'class' => $_class,
     'header' => (!empty($title) || !empty($description)) ? $header : false,
