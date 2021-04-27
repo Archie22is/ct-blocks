@@ -4,7 +4,7 @@ if (!empty($content) || !empty($images)) : ?>
     <div class="container two-up-slider__container">
       <div class="two-up-slider__wrapper js-wrapper">
         <div class="rel two-up-slider__grid">
-          <div class="rel two-up-slider__col two-up-slider__col--content" data-aos="fade-left">
+          <div class="rel two-up-slider__col two-up-slider__col--content">
             <div class="fa1 f fdc jcc two-up-slider__inner">
               <div class="wysiwyg two-up-slider__content">
                 <?= $content ?>

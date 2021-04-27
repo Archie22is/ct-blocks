@@ -24,7 +24,7 @@ $_class .= !empty($class) ? ' ' . $class : '';
         </div>
         <?php if (!empty($select_form)) : ?>
           <div class="grid social-form__col grid social-form__form">
-            <div class="social-form__form-content" data-aos="fade-up">
+            <div class="social-form__form-content">
               <?php
               echo do_shortcode('[gravityform id="' . esc_attr($select_form) . '" title="true" description="true" ajax="true"]');
               ?>

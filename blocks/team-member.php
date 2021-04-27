@@ -20,7 +20,7 @@ $_class .= !empty($item_style) ? ' team-member--item-style-' . esc_attr($item_st
     <div class="<?php echo $container; ?> team-member__container">
       <div class="grid team-member__grid">
         <?php if(!empty($title)) : ?>
-          <header class="grid__col team-member__col team-member__col--header" data-aos="fade-up">
+          <header class="grid__col team-member__col team-member__col--header">
             <?php if(!empty($label)) : ?>
               <p class="team-member__label"><?php echo $label; ?></p>
             <?php endif; ?>
@@ -28,14 +28,14 @@ $_class .= !empty($item_style) ? ' team-member--item-style-' . esc_attr($item_st
           </header>
         <?php endif; ?>
         <?php if(!empty($description)) : ?>
-          <div class="grid__col team-member__col team-member__col--description" data-aos="fade-up">
+          <div class="grid__col team-member__col team-member__col--description">
             <div class="wysiwyg team-member__description">
               <?php echo $description; ?>
             </div>
           </div>
         <?php endif; ?>
         <?php if(!empty($button_text) && !empty($button_url) && !empty($_button_style)) : ?>
-          <div class="grid__col team-member__col team-member__col--cta" data-aos="fade-up">
+          <div class="grid__col team-member__col team-member__col--cta">
             <?php
             the_block('button', array(
               'class' => 'team-member__button',
@@ -54,19 +54,19 @@ $_class .= !empty($item_style) ? ' team-member--item-style-' . esc_attr($item_st
             <?php if (!empty($item['url'])) :?>
                 <a href="<?php echo $item['url']; ?>" class="team-member__url">
             <?php endif; ?>
-                <div class="team-member__inner" data-aos="fade-up">
+                <div class="team-member__inner">
                   <?php the_block('image', array(
                     'image' => $item['image'],
                     'class' => 'image--cover team-member__image'
                   )); ?>
                   <?php if(!empty($item['title'])) : ?>
                     <div class="team-member__content">
-                      <h3 class="team-member__item-title" data-aos="fade-up"><?php echo $item['title']; ?></h3>
+                      <h3 class="team-member__item-title"><?php echo $item['title']; ?></h3>
                       <?php if(!empty($item['sub_title'])) : ?>
-                        <p class="team-member__item-sub-title" data-aos="fade-up"><?php echo $item['sub_title']; ?></p>
+                        <p class="team-member__item-sub-title"><?php echo $item['sub_title']; ?></p>
                       <?php endif; ?>
                       <?php if(!empty($item['description'])) : ?>
-                        <div class="wysiwyg team-member__item-description" data-aos="fade-up"><?php echo $item['description']; ?></div>
+                        <div class="wysiwyg team-member__item-description"><?php echo $item['description']; ?></div>
                       <?php endif; ?>
                     </div>
                   <?php endif; ?>

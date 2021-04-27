@@ -1,7 +1,7 @@
 <?php if (!empty($column)) : ?>
   <div class="testimonials__column">
     <figure class="testimonials__inner">
-      <blockquote class="wysiwyg testimonials__comment" data-aos="fade-up">
+      <blockquote class="wysiwyg testimonials__comment">
         <div class="testimonials__icon testimonials__icon--open">
           <?php codetot_svg('quotation-marks-open', true) ?>
         </div>
@@ -15,7 +15,7 @@
           <?php codetot_svg('quotation-marks-close', true) ?>
         </div>
       </blockquote>
-      <div class="testimonials__profile" data-aos="fade-up">
+      <div class="testimonials__profile">
         <?php if (!empty($column['image'])) : ?>
           <?php the_block('image', array(
             'image' => $column['image'],

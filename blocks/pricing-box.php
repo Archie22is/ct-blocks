@@ -4,7 +4,7 @@ $_class .= !empty($class) ? ' ' . $class : '';
 $_class .= !empty($style) ? ' pricing-box--' . $style : 'pricing-box--style-1';
 $_class .= !empty($distinctive) ? ' pricing-box--distinctive' : '';
 ?>
-<div class="<?php echo $_class; ?>" data-aos="fade-up">
+<div class="<?php echo $_class; ?>">
   <?php if (!empty($title)) : ?>
     <div class="pricing-box__header">
       <h3 class="pricing-box__title"><?php echo $title; ?></h3>
@@ -17,7 +17,7 @@ $_class .= !empty($distinctive) ? ' pricing-box--distinctive' : '';
     </div>
   <?php endif; ?>
   <?php if (!empty($items)) : ?>
-    <div class="pricing-box__feature" data-aos="fade-up" data-aos-duration="800">
+    <div class="pricing-box__feature">
       <ul class="pricing-box__items">
         <?php foreach ($items as $item) : ?>
           <li class="pricing-box__item">
@@ -31,7 +31,7 @@ $_class .= !empty($distinctive) ? ' pricing-box--distinctive' : '';
     </div>
   <?php endif; ?>
   <?php if (!empty($button_text) && !empty($button_url)) : ?>
-    <div class="align-c pricing-box__cta" data-aos="fade-up" data-aos-duration="800">
+    <div class="align-c pricing-box__cta">
       <?php
       the_block('button', array(
         'class' => 'pricing-box__button',

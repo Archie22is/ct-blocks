@@ -9,9 +9,9 @@ $_class .= !empty($number_categories) ? ' news-columns--' . $number_categories .
     <?php if (!empty($title)) : ?>
       <div class="news-columns__header">
         <?php if (!empty($label)) : ?>
-          <p class="news-columns__label" data-aos="fade-up"><?php echo $label; ?></p>
+          <p class="news-columns__label"><?php echo $label; ?></p>
         <?php endif; ?>
-        <h2 class="h2 news-columns__title" data-aos="fade-up"><?php echo $title; ?></h2>
+        <h2 class="h2 news-columns__title"><?php echo $title; ?></h2>
       </div>
     <?php endif; ?>
     <div class="news-columns__main">
@@ -32,10 +32,10 @@ $_class .= !empty($number_categories) ? ' news-columns--' . $number_categories .
           $post_query = new WP_Query($post_args);
           ?>
           <?php if ($post_query->have_posts()) : ?>
-            <div class="grid__col news-columns__col" data-aos="fade-up" data-aos-duration="800">
+            <div class="grid__col news-columns__col">
                 <h3 class="news-columns__post-title"><?php echo get_the_category_by_ID($category[$i]); ?></h3>
                 <?php if (!empty($post_query)) : ?>
-                  <div class="news-columns__post" data-aos="fade-up" data-aos-duration="800">
+                  <div class="news-columns__post">
                     <?php while ($post_query->have_posts()) : $post_query->the_post(); ?>
                       <a class="news-columns__link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                     <?php endwhile;

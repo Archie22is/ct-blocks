@@ -35,7 +35,6 @@ $columns = !empty($items) ? array_map(function($item) {
 }, $items) : [];
 
 $content = codetot_build_grid_columns($columns, 'accordions', array(
-  'column_attributes' => 'data-aos="fade-up"',
   'column_class' => $layout === 'column' ? 'w100 default-section__col js-row' : 'w100 sidebar-section__col js-row'
 ));
 

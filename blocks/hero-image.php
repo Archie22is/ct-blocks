@@ -36,7 +36,7 @@ $image_html = ob_get_clean();
 
 ob_start(); ?>
 <?php if (!empty($label)) : ?>
-  <p class="hero-image__label" data-aos="fade-up"><?php echo esc_html($label); ?></p>
+  <p class="hero-image__label"><?php echo esc_html($label); ?></p>
 <?php endif; ?>
 <?php if (!empty($title)) : ?>
   <h1 class="hero-image__title"><?php echo $title; ?></h1>
