@@ -31,12 +31,11 @@
 
   & img.image__img {
     max-width: 100%;
+    object-fit: cover;
     height: auto;
 
     @media (--s) {
       @mixin abs-full;
-
-      object-fit: cover;
     }
   }
 
@@ -240,14 +239,19 @@
 
 .hero-image--no-fullscreen {
   & .hero-image__image-container {
-    height: 100%;
-    position: absolute;
-    width: calc(100% - 2 * var(--container-gutter));
-    left: 50%;
-    transform: translateX(-50%);
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    max-height: 150px;
 
     @media (--s) {
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      position: absolute;
       width: calc(100% - 2 * var(--container-gutter-s));
+      padding: 0 var(--container-gutter);
+      max-height: 100%;
     }
 
     @media (--m) {
