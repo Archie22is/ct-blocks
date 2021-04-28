@@ -11,9 +11,9 @@ $default_settings = array(
 );
 
 $header = codetot_build_content_block(wp_parse_args(array(
-  'label' => $label,
-  'title' => $title,
-  'description' => $description,
+  'label' => !empty($label) ? $label : false,
+  'title' => !empty($title) ? $title : false,
+  'description' =>  !empty($description) ? $description : false,
   'enable_container' => true
 ), $default_settings), 'video-center');
 
