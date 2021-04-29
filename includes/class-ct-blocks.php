@@ -211,7 +211,6 @@ class Codetot_Base
   {
     include_once CODETOT_BLOCKS_DIR . 'includes/helpers/data.php';
     include_once CODETOT_BLOCKS_DIR . 'includes/helpers/blocks.php';
-    include_once CODETOT_BLOCKS_DIR . 'includes/helpers/env.php';
     include_once CODETOT_BLOCKS_DIR . 'includes/helpers/utils.php';
 
     require_once CODETOT_BLOCKS_DIR . 'includes/classes/interface-block.php';

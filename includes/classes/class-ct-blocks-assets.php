@@ -31,7 +31,7 @@ class Codetot_Blocks_Assets {
   }
 
 	public function __construct() {
-    $this->theme_environment = codetot_is_ct_blocks_localhost() ? '' : '.min';
+    $this->theme_environment = $this->is_localhost() ? '' : '.min';
 
     add_action('wp_enqueue_scripts', array($this, 'load_css'));
     add_action('wp_enqueue_scripts', array($this, 'load_js'));
@@ -43,5 +43,9 @@ class Codetot_Blocks_Assets {
 
   public function load_js() {
     wp_enqueue_script('codetot-blocks-script', CODETOT_BLOCKS_PLUGIN_URI . '/assets/js/blocks-script' . $this->theme_environment . '.js', array('jquery'), CODETOT_BLOCKS_VERSION, true);
+  }
+
+  public function is_localhost() {
+    return !empty($_SERVER['HTTP_X_CODETOT_BLOCK_HEADER']) && $_SERVER['HTTP_X_CODETOT_BLOCK_HEADER'] === 'development';
   }
 }
