@@ -1,48 +1,36 @@
 <?php
 $container = codetot_site_container();
 
-$available_classes_key = array(
-  'block_preset' => $block_preset,
-  'layout' => $layout,
-  'background_type' => $background_type,
-  'content_alignment' => $content_alignment,
-  'column' => count($items),
-  'fullscreen' => $fullscreen,
-  'hide_mobile' => ($hide_mobile === true),
-  'class' => $class
-);
+$_class = 'guarantee-list';
+$_class .= !empty($class) ? ' ' . $class : '';
+$_class .= !empty($columns) ? ' has-'. $columns .'-columns' : '';
+$_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
+$_class .= !empty($block_preset) ? ' guarantee-list--' . $block_preset : '';
+$_class .= !empty($fullscreen) ? ' guarantee-list--fullscreen' : '';
+$_class .= !empty($hide_mobile) ? ' section--hide-mobile' : '';
 
-$block_class = codetot_block_generate_class($available_classes_key, 'guarantee-list');
+$_anchor_name = !empty($anchor_name) ? ' id="'.$anchor_name.' "': '';
 
-if (!empty($items)) : ?>
-  <div class="<?php echo $block_class; ?>" <?php if(!empty($anchor_name)) : printf(' id="%s"', $anchor_name); endif; ?>>
-    <div class="container guarantee-list__container">
-      <div class="grid guarantee-list__grid">
-        <?php foreach ($items as $item) : ?>
-        <?php $image_content = ($item['icon_type'] === 'svg') ? $item['icon_svg'] : $item['icon_image']['ID']; ?>
-          <div class="grid__col guarantee-list__col">
-            <div class="guarantee-list__media-wrapper">
-              <?php if ($item['icon_type'] === 'svg') : ?>
-                <span class="guarantee-list__svg" aria-hidden="true"><?php echo $image_content; ?></span>
-              <?php elseif ($item['icon_type'] === 'image' && !empty($image_content)) : ?>
-                <?php
-                the_block('image', array(
-                  'image' => $image_content,
-                  'class' => !empty($image_class) ? ' ' . esc_attr($image_class) . ' guarantee-list__image' : ' image--cover guarantee-list__image',
-                  'size' => 'full'
-                ));
-                ?>
-              <?php endif; ?>
-            </div>
-            <div class="guarantee-list__content">
-              <p class="label-text bold-text uppercase-text guarantee-list__title"><?php echo $item['title']; ?></p>
-              <?php if (!empty($item['description'])) : ?>
-                <div class="small-text guarantee-list__description"><?php echo $item['description']; ?></div>
-              <?php endif; ?>
-            </div>
-          </div>
-        <?php endforeach; ?>
-      </div>
-    </div>
-  </div>
-<?php endif; ?>
+$columns = !empty($items) ? array_map(function($item) use ($layout, $content_alignment){
+  return get_block('guarantee-card', array(
+    'type' => $item['icon_type'],
+    'icon' => ($item['icon_type'] === 'svg') ? $item['icon_svg'] : $item['icon_image']['ID'],
+    'title' => $item['title'],
+    'description' => $item['description'],
+    'layout' => $layout,
+    'alignment' => $content_alignment
+  ));
+}, $items) : [];
+
+$content = codetot_build_grid_columns($columns, 'guarantee-list', array(
+  'column_class' => 'default-section__col'
+));
+
+if (!empty($items)) :
+  the_block('default-section', array(
+    'class' => $_class,
+    'attributes' => $_anchor_name,
+    'content' => $content
+  ));
+endif;
+

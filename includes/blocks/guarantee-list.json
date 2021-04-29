@@ -88,7 +88,7 @@
         "placeholder": ""
       },
       {
-        "key": "field_5fcdb6t884db8",
+        "key": "field_guaranteel884db8",
         "label": "Main Layout",
         "name": "layout",
         "type": "radio",
@@ -96,7 +96,7 @@
         "required": 1,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "25",
+          "width": "20",
           "class": "",
           "id": ""
         },
@@ -112,7 +112,7 @@
         "save_other_choice": 0
       },
       {
-        "key": "field_5fc99d5bb5db8",
+        "key": "field_guaranteelb5db8",
         "label": "Content Alignment",
         "name": "content_alignment",
         "type": "radio",
@@ -120,20 +120,48 @@
         "required": 1,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "25",
+          "width": "20",
           "class": "",
           "id": ""
         },
         "choices": {
           "left": "Left",
-          "top": "Top"
+          "center": "Center",
+          "right": "Right"
         },
         "allow_null": 0,
         "other_choice": 0,
-        "default_value": "image",
+        "default_value": "left",
         "layout": "horizontal",
         "return_format": "value",
         "save_other_choice": 0
+      },
+      {
+        "key": "field_guaranteelist1f7e",
+        "label": "Columns",
+        "name": "columns",
+        "type": "select",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "20",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "2": "2 Columns",
+          "3": "3 Columns",
+          "4": "4 Columns",
+          "5": "5 Columns"
+        },
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
       },
       {
         "key": "field_5fc9da7b42d88",
@@ -144,7 +172,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "25",
+          "width": "20",
           "class": "",
           "id": ""
         },
@@ -167,7 +195,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "25",
+          "width": "20",
           "class": "",
           "id": ""
         },

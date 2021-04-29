@@ -54,7 +54,7 @@ class Codetot_Block_Guarantee_List extends Codetot_Base_Block implements Codetot
       'content_alignment',
       'fullscreen',
       'hide_mobile',
-      // Input
+      'columns',
       'items'
     ];
 
