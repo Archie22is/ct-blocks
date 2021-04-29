@@ -1,0 +1,61 @@
+.guarantee-card {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.guarantee-card--row {
+  flex-direction: row;
+
+  & .guarantee-card__content {
+    width: auto;
+    flex: 1;
+  }
+
+  & .guarantee-card__wrapper {
+    margin-right: 1em;
+  }
+}
+
+.guarantee-card--column {
+  flex-direction: column;
+
+  & .guarantee-card__content {
+    margin-top: 1em;
+  }
+}
+
+.guarantee-card--left {
+  & .guarantee-card__content {
+    text-align: left;
+  }
+}
+
+.guarantee-card--center {
+  & .guarantee-card__content {
+    text-align: center;
+  }
+
+  & .guarantee-card__wrapper {
+    margin: auto;
+  }
+}
+
+.guarantee-card--right {
+  & .guarantee-card__content {
+    text-align: right;
+  }
+
+  & .guarantee-card__wrapper {
+    margin-left: auto;
+  }
+}
+
+.guarantee-card__wrapper {
+  width: 30%;
+}
+
+.guarantee-card__image {
+  & .image__img {
+    position: static;
+  }
+}
