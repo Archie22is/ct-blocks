@@ -39,12 +39,11 @@ $footer = !empty($button_text) && !empty($button_url) ?
     'url' => $button_url
   ))
 : '';
-
 $_class = 'section-post';
 $_class .= !empty($class) ? ' ' . $class : '';
 $_class .= !empty($header_alignment) ? ' is-header-'.  $header_alignment : '';
 $_class .= !empty($footer_alignment) ? ' is-footer-'.  $footer_alignment : '';
-$_class .= !empty($columns) ? ' has-'. count($columns) .'-columns' : '';
+$_class .= !empty($post_grid_columns) ? ' has-'. $post_grid_columns .'-columns' : '';
 $_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
 $_class .= !empty($block_preset) ? ' section-post--' . $block_preset : '';
 

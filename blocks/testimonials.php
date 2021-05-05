@@ -77,7 +77,7 @@ if (!empty($columns)) :
   the_block('default-section', array(
     'attributes' => ' data-ct-block="testimonials"',
     'class' => $_class,
-    'header' => $header,
+    'header' => !empty($title) && !empty($description) ? $header : false,
     'content' => $content
   ));
 
