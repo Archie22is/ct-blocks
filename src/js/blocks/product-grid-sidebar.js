@@ -13,17 +13,17 @@ export default el => {
     on(
       'click',
       e => {
-        toggleClass(VISIBLE_CLASS, content)
+        toggleClass(VISIBLE_CLASS, el)
       },
       button
     )
   }
 
   if (headerEl.offsetWidth < content.offsetWidth) {
-    addClass(VISIBLE_MENU, content.parentNode)
+    addClass(VISIBLE_MENU, el)
   }
 
   if (isMobile.any()) {
-    addClass(VISIBLE_MENU, content.parentNode)
+    addClass(VISIBLE_MENU, el)
   }
 }
