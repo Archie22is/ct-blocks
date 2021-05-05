@@ -387,6 +387,49 @@ if (!function_exists('codetot_build_slider')) {
   }
 }
 
+if (!function_exists('codetot_build_two_up_content')) {
+  /**
+   * Generate HTML markup for slider
+   *
+   * @param array $columns
+   * @param string $prefix_class
+   * @param array $args
+   * @return string
+   */
+  function codetot_build_two_up_content($prefix_class, $args = [])
+  {
+    if (!empty($args) && !empty($args['grid_class'])) {
+      $grid_class = $args['grid_class'];
+    }
+
+    if (!empty($args) && !empty($args['left_content'])) {
+      $left_content = $args['left_content'];
+    }
+
+    if (!empty($args) && !empty($args['right_content'])) {
+      $right_content = $args['right_content'];
+    }
+
+
+    ob_start(); ?>
+
+    <div class="grid two-up-content <?php echo $prefix_class; ?>__grid<?php if (!empty($grid_class)) : echo ' ' . $grid_class; endif; ?>">
+      <?php
+        $_column_class = 'grid__col two-up-content__col';
+        $_column_class .= ' ' .$prefix_class . '__col';
+        ?>
+        <div class="<?php echo $_column_class . $prefix_class . '__left'?> two-up-content__left">
+          <?php echo !empty($left_content) ? $left_content : ''; ?>
+        </div>
+        <div class="<?php echo $_column_class . $prefix_class . '__right'?> two-up-content__right">
+          <?php echo !empty($right_content) ? $right_content : ''; ?>
+        </div>
+    </div>
+  <?php
+    return ob_get_clean();
+  }
+}
+
 if (!function_exists('codetot_get_min_max_numbers')) {
   function codetot_get_min_max_numbers($items) {
     $min_columns = array_column($items, 'min');
