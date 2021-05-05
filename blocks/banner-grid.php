@@ -81,7 +81,7 @@ endif;
 if (!empty($items)) :
   the_block('default-section', array(
     'class' => $_class,
-    'attributes' => ($layout === 'slider') ? ' data-ct-block="slider"' : '',
+    'attributes' => ($layout === 'slider') ? ' data-ct-block="banner-grid"' : '',
     'header' => (!empty($title) || !empty($description)) ? $header : false,
     'content' => $content
   ));
