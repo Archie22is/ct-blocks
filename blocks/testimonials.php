@@ -4,7 +4,7 @@ $container = codetot_site_container();
 $_class = 'rel section-bg testimonials';
 $_class .= !empty($class) ? ' ' . $class : '';
 $_class .= !empty($overlay) ? ' testimonials--has-overlay' : '';
-$_class .= !empty($block_preset) ? ' testimonials--' . esc_attr($block_preset) : ' testimonials--preset-1';
+$_class .= !empty($block_preset) ? ' testimonials--preset-' . esc_attr($block_preset) : ' testimonials--preset-1';
 
 $header = codetot_build_content_block(array(
   'label' => $label,
