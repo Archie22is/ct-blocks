@@ -32,6 +32,22 @@
   }
 }
 
+.testimonials--dark {
+  color: var(--white) !important;
+
+  & * {
+    color: var(--white) !important;
+  }
+}
+
+.testimonials--light {
+  color: var(--dark) !important;
+
+  & * {
+    color: var(--dark) !important;
+  }
+}
+
 .testimonials__label {
   text-transform: uppercase;
   color: var(--secondary);
