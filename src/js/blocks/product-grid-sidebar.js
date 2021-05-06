@@ -1,29 +1,36 @@
-import { select, toggleClass, on, addClass } from 'lib/dom'
-import { isMobile } from 'lib/utils'
+import { select, toggleClass, on, addClass, removeClass } from 'lib/dom'
+import { isMobile, debounce } from 'lib/utils'
 
 const VISIBLE_CLASS = 'sidebar-category-visible'
-const VISIBLE_MENU = 'menu-visible'
+const MOBILE_MENU_CLASS = 'mobile-menu-visible'
 
 export default el => {
   const button = select('.js-trigger', el)
-  const content = select('.js-sidebar-block', el)
+  const contentEl = select('.js-sidebar-block', el)
   const headerEl = select('.product-grid-sidebar__header', el)
 
   if (button) {
     on(
       'click',
       e => {
-        toggleClass(VISIBLE_CLASS, content)
+        toggleClass(VISIBLE_CLASS, el)
       },
       button
     )
   }
 
-  if (headerEl.offsetWidth < content.offsetWidth) {
-    addClass(VISIBLE_MENU, content.parentNode)
+  const init = () => {
+    const headerWidth = headerEl.innerWidth || headerEl.clientWidth
+    const contentWidth = contentEl.innerWidth || contentEl.clientWidth
+
+    if (headerWidth <= contentWidth || isMobile.any()) {
+      addClass(MOBILE_MENU_CLASS, el)
+    } else {
+      removeClass(MOBILE_MENU_CLASS, el)
+    }
   }
 
-  if (isMobile.any()) {
-    addClass(VISIBLE_MENU, content.parentNode)
-  }
+  init()
+
+  on('resize', debounce(init, 400), window)
 }
