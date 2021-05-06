@@ -40,6 +40,25 @@
         "prepend": "",
         "append": "",
         "maxlength": ""
+      },
+      {
+        "key": "field_50214b7291acf",
+        "label": "Enable Title Page",
+        "name": "enable_title_page",
+        "type": "true_false",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "message": "",
+        "default_value": 0,
+        "ui": 0,
+        "ui_on_text": "",
+        "ui_off_text": ""
       }
     ],
     "min": "",
