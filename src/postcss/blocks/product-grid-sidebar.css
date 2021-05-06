@@ -108,7 +108,7 @@
   }
 }
 
-.product-grid-sidebar.menu-visible {
+.product-grid-sidebar.mobile-menu-visible {
   & .product-grid-sidebar__description {
     justify-content: space-between;
     align-items: center;
