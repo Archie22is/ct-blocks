@@ -93,21 +93,12 @@
   }
 }
 
-.hero-banner__slider-title,
-.hero-banner__slider-label {
-  color: var(--white);
-}
-
 .hero-banner__slider-label {
   margin-bottom: 0.5em;
 }
 
 .hero-banner__slider-footer {
   margin-top: 1em;
-
-  @media (--m) {
-    margin-top: 1.5em;
-  }
 }
 
 .grid.hero-banner__grid {
