@@ -108,61 +108,62 @@
   }
 }
 
-.menu-visible {
-  &.product-grid-sidebar__description {
+.product-grid-sidebar.mobile-menu-visible {
+  & .product-grid-sidebar__description {
     justify-content: space-between;
     align-items: center;
+  }
 
-    & .product-grid-sidebar__menu {
-      display: block;
+  &.sidebar-category-visible .product-grid-sidebar__menu-items {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  & .product-grid-sidebar__item {
+    margin-top: 0 !important;
+    width: 100%;
+    padding: 0 1em;
+
+    & a {
+      border-bottom: 1px solid var(--border);
+      width: 100%;
+      border-right: 0;
+      line-height: 2.25;
+      text-decoration: none;
     }
 
-    & .product-grid-sidebar__menu-items {
-      align-items: flex-start;
-      flex-direction: column;
-      border-radius: 4px;
-      box-shadow: 0 2px 6px 0 rgba(50, 50, 50, 0.33);
-      position: absolute;
-      width: 100%;
-      z-index: 3;
-      left: 0;
-      top: 100%;
-      background-color: var(--white);
-      transition: 0.4s;
-      transform: translateY(-20px);
-      opacity: 0;
-      visibility: hidden;
-      padding: 0.5em 0;
-      max-height: 250px;
-      overflow-y: auto;
-    }
-
-    & .product-grid-sidebar__item {
-      margin-top: 0 !important;
-      width: 100%;
-      padding: 0 1em;
-
+    &:last-child {
       & a {
-        border-bottom: 1px solid var(--gray);
-        width: 100%;
-        border-right: 0;
-        line-height: 2.25;
-      }
-
-      &:last-child {
-        & a {
-          border-bottom: 0;
-        }
+        border-bottom: 0;
       }
     }
+  }
 
-    & .sidebar-category-visible {
-      &.product-grid-sidebar__menu-items {
-        transform: translateY(0) !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-      }
-    }
+  & .product-grid-sidebar__menu {
+    display: block;
+  }
+
+  & .product-grid-sidebar__menu-items {
+    @mixin scrollbar;
+
+    align-items: flex-start;
+    flex-direction: column;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px 0 rgba(50, 50, 50, 0.33);
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+    left: 0;
+    top: 100%;
+    background-color: var(--white);
+    transition: 0.4s;
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    padding: 0.5em 0;
+    max-height: 250px;
+    overflow-y: auto;
   }
 }
 
