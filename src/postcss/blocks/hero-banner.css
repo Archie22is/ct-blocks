@@ -57,13 +57,14 @@
 
 .hero-banner__slider-image {
   @mixin abs-full;
-  @mixin image-overlay 0.25;
 
   width: 100%;
+  height: 100%;
   z-index: 1;
 
-  &::after {
-    transition: background-color 0.3s;
+  & .image__img {
+    height: 100%;
+    object-fit: cover;
   }
 }
 
@@ -72,12 +73,6 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-
-  &:hover {
-    & .hero-banner__slider-image::after {
-      background-color: rgba(0, 0, 0, 0.55);
-    }
-  }
 }
 
 .hero-banner__slider-content {
@@ -210,8 +205,6 @@
   }
 
   @media (--m) {
-    display: flex;
-    flex: 1 1 0;
     width: 100%;
     margin-top: 20px;
     padding: 0;
@@ -239,11 +232,8 @@
     }
   }
 
-  & .image-banner__wrapper,
-  & .image.image-banner__image {
-    @media (--m) {
-      @mixin abs-full;
-    }
+  & .image-banner__image {
+    @mixin ratio 5/12;
   }
 }
 
