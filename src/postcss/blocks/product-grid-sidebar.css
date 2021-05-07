@@ -1,16 +1,6 @@
 .product-grid-sidebar {
-  padding: 2em 0;
-
-  @media (--s) {
-    padding: 3em 0;
-  }
-
   & .product-card {
     margin-top: 0;
-  }
-
-  & .default-section__header {
-    margin-bottom: 1em;
   }
 
   & .sidebar-section__block--sidebar {

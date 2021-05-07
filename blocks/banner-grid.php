@@ -21,7 +21,7 @@
 
 $prefix_class = 'banner-grid';
 
-$_class = 'section-bg ' . $prefix_class;
+$_class = $prefix_class;
 $_class .= !empty($block_preset) ? ' ' . $prefix_class . '--style-' . esc_attr($block_preset) : '';
 $_class .= !empty($overlay) ? ' ' . $prefix_class . '--has-overlay' : '';
 $_class .= !empty($background_contract) ? ' ' . $prefix_class . '--' . esc_attr($background_contract) : '';
