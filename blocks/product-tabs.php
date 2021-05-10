@@ -73,16 +73,13 @@ foreach ($categories as $index => $category) :
  ?>
   <div class="product-tabs__tab-content" id="<?php echo $index; ?>" role="tabpanel" aria-expanded="<?php if ($index === 0) : echo 'true'; else: echo 'false'; endif; ?>">
     <?php
-      if ($count > 1) {
-        echo '<noscript>';
-      }
       $query = new WP_Query($product_args);
       if ( $query->have_posts() ) : ?>
       <div class="product-tabs__inner">
         <div class="products grid product-tabs__grid">
           <?php
           while ($query->have_posts())  : $query->the_post();
-            echo '<div class="product grid__col default-section__col product-tabs__col">';
+            echo '<div class="grid__col default-section__col product-tabs__col">';
               the_block('product-card');
             echo '</div>';
           endwhile; wp_reset_postdata();
@@ -95,9 +92,6 @@ foreach ($categories as $index => $category) :
         'content' => esc_html__('There is no product to display.', 'ct-blocks')
       ));
     endif;
-    if ($count > 1) {
-      echo '</noscript>';
-    }
     ?>
   </div>
   <?php
