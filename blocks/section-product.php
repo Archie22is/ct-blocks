@@ -1,6 +1,6 @@
 <?php
 $container = codetot_site_container();
-$_class = 'section-product products section';
+$_class = 'section-product section';
 $_class .= !empty($class) ? ' ' . $class : '';
 $_class .= !empty($columns) ? ' has-' . esc_attr($columns) . '-columns' : '';
 $_class .= !empty($section_align) ? ' is-header-' . esc_attr($section_align) . ' is-footer-' . esc_attr($section_align) : '';
@@ -89,6 +89,8 @@ else :
   $content = codetot_build_grid_columns($products, 'section-product', array(
     'column_class' => 'product default-section__col'
   ));
+
+  $content = str_replace('section-product__grid', 'products section-product__grid', $content);
 
   $footer = !empty($button_text) && !empty($button_url) ?
     get_block('button', array(
