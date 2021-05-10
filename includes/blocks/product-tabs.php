@@ -47,6 +47,7 @@ class Codetot_Block_Product_Tabs extends Codetot_Base_Block implements Codetot_B
     $this->fields = [
       'class',
       'header_alignment',
+      'footer_alignment',
       'label',
       'title',
       'description',
