@@ -5,6 +5,7 @@ $container = codetot_site_container();
 $_class = 'product-tabs';
 $_class .= !empty($class) ? ' ' . $class : '';
 $_class .= !empty($header_alignment) ? ' is-header-' . $header_alignment : '';
+$_class .= !empty($footer_alignment) ? ' is-footer-' . $footer_alignment : '';
 $_class .= !empty($header_alignment) ? ' product-tabs--nav-' . $header_alignment : '';
 $_class .= !empty($columns) ? ' has-' . $columns . '-columns' : '';
 
@@ -98,9 +99,20 @@ foreach ($categories as $index => $category) :
 endforeach;
 $content = ob_get_clean();
 
+$footer = !empty($button_text) && !empty($button_url) ?
+get_block('button', array(
+  'class' => 'product-tabs__button',
+  'type' => !empty($button_style) ? $button_style : 'primary',
+  'button' => $button_text,
+  'target' => $target,
+  'url' => $button_url
+))
+: '';
+
 the_block('default-section', array(
   'class' => $_class,
   'attributes' => ' data-ct-block="product-tabs"',
   'header' => $header,
-  'content' => $content
+  'content' => $content,
+  'footer' => $footer
 ));

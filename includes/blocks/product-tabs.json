@@ -48,6 +48,29 @@
         "placeholder": ""
       },
       {
+        "key": "field_tabs5fdkob70c9",
+        "label": "Footer Alignment",
+        "name": "footer_alignment",
+        "type": "radio",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": "left",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "layout": "horizontal",
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
         "key": "field_tabs5fd8677495699",
         "label": "Label",
         "name": "label",
