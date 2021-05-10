@@ -20,16 +20,6 @@
   }
 }
 
-.section-product {
-  & .default-section__container--header {
-    padding: 0;
-
-    @media (--s) {
-      @mixin container-from-s;
-    }
-  }
-}
-
 .section-product__categories-wrapper {
   @mixin scrollbar 5px;
 
