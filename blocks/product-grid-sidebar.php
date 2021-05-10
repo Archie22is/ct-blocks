@@ -1,7 +1,7 @@
 <?php
 $container = codetot_site_container();
 $preset_class = 'product-grid-sidebar';
-$_class = $preset_class;
+$_class = 'section '. $preset_class;
 
 $_class .= !empty($class) ? ' ' . $class : '';
 $_class .= !empty($header_alignment) ? ' is-header-'.  $header_alignment : '';
