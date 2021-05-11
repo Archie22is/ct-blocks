@@ -55,7 +55,5 @@
 }
 
 .guarantee-card__image {
-  & .image__img {
-    position: static;
-  }
+  @mixin ratio 1/1;
 }
