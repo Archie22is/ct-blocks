@@ -57,3 +57,10 @@
 .guarantee-card__image {
   @mixin ratio 1/1;
 }
+
+.is-dark-contract {
+  & .guarantee-card__title,
+  & .guarantee-card__description {
+    color: var(--white);
+  }
+}
