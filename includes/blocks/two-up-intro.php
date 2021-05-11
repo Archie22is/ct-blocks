@@ -46,7 +46,7 @@ class Codetot_Block_Two_Up_Intro extends Codetot_Base_Block implements Codetot_B
   {
     $this->block_name = 'two-up-intro';
     $this->block_slug = 'two_up_intro';
-    $this->block_title = __('Two Up Intro', 'ct-theme');
+    $this->block_title = __('Two Up Intro', 'ct-blocks');
     $this->fields = [
       'class',
       'block_preset',

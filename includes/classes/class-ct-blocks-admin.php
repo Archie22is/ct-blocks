@@ -63,7 +63,7 @@ class Codetot_Blocks_Admin {
       ) {
         add_meta_box(
           'codetot-flexible-button',
-          __('Web Builder Blocks', 'ct-theme'),
+          __('Web Builder Blocks', 'ct-blocks'),
           array($this, 'render_flexible_button_metabox'),
           '',
           'side',
@@ -74,10 +74,10 @@ class Codetot_Blocks_Admin {
 
   public function render_flexible_button_metabox() {
     $copyright_text = sprintf(
-      __('Build with <span class="ct-blocks__metabox__copyright-icon">%1$s</span> by <a href="%2$s" target="_blank">%3$s</a>', 'ct-theme'),
+      __('Build with <span class="ct-blocks__metabox__copyright-icon">%1$s</span> by <a href="%2$s" target="_blank">%3$s</a>', 'ct-blocks'),
       '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="red" d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z"/></svg>',
       'https://codetot.com',
-      esc_html__('CODE TOT JSC', 'ct-theme')
+      esc_html__('CODE TOT JSC', 'ct-blocks')
     );
   ?>
     <div class="ct__block-list js-block-list"></div>

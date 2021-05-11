@@ -44,7 +44,7 @@ class Codetot_Block_Product_Grid_Sidebar extends Codetot_Base_Block implements C
 
     $this->block_name = 'product-grid-sidebar';
     $this->block_slug = 'product_grid_sidebar';
-    $this->block_title = __('Product_Grid_Sidebar', 'ct-theme');
+    $this->block_title = __('Product_Grid_Sidebar', 'ct-blocks');
     $this->fields = [
       'block_preset',
       'layout',
