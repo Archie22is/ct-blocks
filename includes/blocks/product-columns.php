@@ -43,7 +43,7 @@ class Codetot_Block_Product_Columns extends Codetot_Base_Block implements Codeto
 
     $this->block_name = 'product-columns';
     $this->block_slug = 'product_columns';
-    $this->block_title = esc_html__('Product Columns', 'ct-theme');
+    $this->block_title = esc_html__('Product Columns', 'ct-blocks');
     $this->fields = [
       // Settings
       'class',

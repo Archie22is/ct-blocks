@@ -45,7 +45,7 @@ class Codetot_Block_Category_Grid extends Codetot_Base_Block implements Codetot_
 
     $this->block_name = 'category-grid';
     $this->block_slug = 'category_grid';
-    $this->block_title = __('Category Grid', 'ct-theme');
+    $this->block_title = __('Category Grid', 'ct-blocks');
     $this->fields = [
       'class',
       'style',

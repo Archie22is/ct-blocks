@@ -45,7 +45,7 @@ class Codetot_Block_Image_Gallery extends Codetot_Base_Block implements Codetot_
   {
     $this->block_name = 'image-gallery';
     $this->block_slug = 'image_gallery';
-    $this->block_title = __('Image Gallery', 'ct-theme');
+    $this->block_title = __('Image Gallery', 'ct-blocks');
     $this->fields = [
       'style',
       'items'

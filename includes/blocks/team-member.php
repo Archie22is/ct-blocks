@@ -43,7 +43,7 @@ class Codetot_Block_Team_Member extends Codetot_Base_Block implements Codetot_Ba
 
     $this->block_name = 'team-member';
     $this->block_slug = 'team_member';
-    $this->block_title = __('Team Member', 'ct-theme');
+    $this->block_title = __('Team Member', 'ct-blocks');
     $this->fields = [
       'class',
       'style',

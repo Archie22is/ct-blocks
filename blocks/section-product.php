@@ -19,7 +19,7 @@ if ($show_category && !empty($categories) && !is_wp_error($categories)) :
   if (!empty($show_shop_link)) :
     printf('<a class="section-product__link section-product__link--shop" href="%1$s"><span class="button__text">%2$s</span></a>',
       get_permalink(wc_get_page_id('shop')),
-      esc_html__('View all', 'ct-peakshop')
+      esc_html__('View all', 'ct-blocks')
     );
   endif;
   echo '</div>';

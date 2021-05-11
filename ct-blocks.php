@@ -8,7 +8,7 @@
  * @wordpress-plugin
  * Plugin Name:       CT Blocks
  * Plugin URI:        https://codetot.com
- * Description:       Block library for web builder. Requires a license and work only with CT Theme and child theme.
+ * Description:       Brings 20+ blocks to your custom page with modern design and flexible.
  * Version:           4.1.12
  * Author:            CODE TOT JSC
  * Author URI:        https://codetot.com

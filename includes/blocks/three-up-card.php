@@ -46,7 +46,7 @@ class Codetot_Block_Three_Up_Card extends Codetot_Base_Block implements Codetot_
   {
     $this->block_name = 'three-up-card';
     $this->block_slug = 'three_up_card';
-    $this->block_title = __('Three Up Card', 'ct-theme');
+    $this->block_title = __('Three Up Card', 'ct-blocks');
     $this->fields = [
       // Settings
       'anchor',

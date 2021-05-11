@@ -44,7 +44,7 @@ class Codetot_Block_Banner_Grid extends Codetot_Base_Block implements Codetot_Ba
 
     $this->block_name = 'banner-grid';
     $this->block_slug = 'banner_grid';
-    $this->block_title = __('Banner Grid', 'ct-theme');
+    $this->block_title = __('Banner Grid', 'ct-blocks');
     $this->fields = [
       'block_preset',
       'class',

@@ -43,7 +43,7 @@ class Codetot_Block_Section_Post extends Codetot_Base_Block implements Codetot_B
 
     $this->block_name = 'section-post';
     $this->block_slug = 'section_post';
-    $this->block_title = __('Section Post', 'ct-theme');
+    $this->block_title = __('Section Post', 'ct-blocks');
     $this->fields = [
       'class',
       'block_preset',

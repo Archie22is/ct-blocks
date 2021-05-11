@@ -44,7 +44,7 @@ class Codetot_Block_Bottom_Cta extends Codetot_Base_Block implements Codetot_Bas
 
     $this->block_name = 'bottom-cta';
     $this->block_slug = 'bottom_cta';
-    $this->block_title = __('Bottom CTA', 'ct-theme');
+    $this->block_title = __('Bottom CTA', 'ct-blocks');
     $this->fields = [
       'class',
       'block_preset',
