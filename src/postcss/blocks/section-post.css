@@ -1,3 +1,9 @@
+.section-post {
+  & .default-section__header {
+    margin-bottom: 1em;
+  }
+}
+
 .section-post--preset-1 {
   & .section-post__title {
     position: relative;
