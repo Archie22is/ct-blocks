@@ -1,6 +1,4 @@
 .section-post {
-
-  /** Because every .product-card has style margin-top 1em **/
   & .default-section__header {
     margin-bottom: 1em;
   }
