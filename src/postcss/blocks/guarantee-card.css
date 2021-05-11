@@ -51,11 +51,16 @@
 }
 
 .guarantee-card__wrapper {
-  width: 30%;
+  width: 48px;
 }
 
 .guarantee-card__image {
-  & .image__img {
-    position: static;
+  @mixin ratio 1/1;
+}
+
+.is-dark-contract {
+  & .guarantee-card__title,
+  & .guarantee-card__description {
+    color: var(--white);
   }
 }
