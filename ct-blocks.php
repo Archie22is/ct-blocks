@@ -58,13 +58,6 @@ register_deactivation_hook( __FILE__, 'deactivate_codetot_blocks' );
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-ct-blocks.php';
 
-require plugin_dir_path( __FILE__ ) . 'plugin-update-checker/plugin-update-checker.php';
-$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-	'https://plugins.codetot.com/ct-blocks.json',
-	__FILE__, //Full path to the main plugin file or functions.php.
-	'ct-blocks'
-);
-
 /**
  * Begins execution of the plugin.
  *
