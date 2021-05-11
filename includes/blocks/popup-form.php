@@ -45,7 +45,7 @@ class Codetot_Block_Popup_Form extends Codetot_Base_Block implements Codetot_Bas
 
     $this->block_name = 'popup-form';
     $this->block_slug = 'popup_form';
-    $this->block_title = __('Popup Form', 'ct-theme');
+    $this->block_title = __('Popup Form', 'ct-blocks');
     $this->fields = [
       'class',
       'block_preset',

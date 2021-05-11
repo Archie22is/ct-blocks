@@ -43,7 +43,7 @@ class Codetot_Block_Testimonials extends Codetot_Base_Block implements Codetot_B
 
     $this->block_name = 'testimonials';
     $this->block_slug = 'testimonials';
-    $this->block_title = __('Testimonials', 'ct-theme');
+    $this->block_title = __('Testimonials', 'ct-blocks');
     $this->fields = [
       'class',
       'anchor_name',

@@ -127,7 +127,7 @@ class Codetot_Base
   }
 
   public function get_missing_block_name_message($block_name) {
-    $error = new WP_Error('404', sprintf(__('Missing block class %s. Please contact Web Administrator.', 'ct-theme'), $block_name));
+    $error = new WP_Error('404', sprintf(__('Missing block class %s. Please contact Web Administrator.', 'ct-blocks'), $block_name));
 
     return $error->get_error_message();
   }
@@ -201,7 +201,7 @@ class Codetot_Base
   public function load_translation()
   {
     load_plugin_textdomain(
-      'ct-theme',
+      'ct-blocks',
       false,
       CODETOT_BLOCKS_DIR . '/languages/'
     );

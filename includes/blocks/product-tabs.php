@@ -43,7 +43,7 @@ class Codetot_Block_Product_Tabs extends Codetot_Base_Block implements Codetot_B
 
     $this->block_name = 'product-tabs';
     $this->block_slug = 'product_tabs';
-    $this->block_title = esc_html__('Product Tabs', 'ct-theme');
+    $this->block_title = esc_html__('Product Tabs', 'ct-blocks');
     $this->fields = [
       'class',
       'header_alignment',

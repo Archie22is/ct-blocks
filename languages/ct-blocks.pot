@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CT Blocks\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-22 04:16+0000\n"
+"POT-Creation-Date: 2021-05-11 14:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -21,26 +21,84 @@ msgstr ""
 msgid "%s: Block %s is not available."
 msgstr ""
 
+#: includes/blocks/accordions.php:47
+msgid "Accordions"
+msgstr ""
+
 #: includes/classes/class-ct-blocks-page.php:64
 msgid "Add Block"
 msgstr ""
 
-#. Description of the plugin
-msgid ""
-"Block library for web builder. Requires a license and work only with CT "
-"Theme and child theme."
+#: includes/blocks/banner-grid.php:47
+msgid "Banner Grid"
 msgstr ""
 
 #: includes/classes/class-ct-blocks-templates.php:46
 msgid "Block Page"
 msgstr ""
 
+#: includes/blocks/bottom-cta.php:47
+msgid "Bottom CTA"
+msgstr ""
+
+#: includes/blocks/breadcrumbs.php:59
+msgid "Breadcrumbs"
+msgstr ""
+
+#. Description of the plugin
+msgid "Brings 20+ blocks to your custom page with modern design and flexible."
+msgstr ""
+
+#: includes/classes/class-ct-blocks-admin.php:77
+#, php-format
+msgid ""
+"Build with <span class=\"ct-blocks__metabox__copyright-icon\">%1$s</span> by "
+"<a href=\"%2$s\" target=\"_blank\">%3$s</a>"
+msgstr ""
+
+#: includes/blocks/category-grid.php:48
+msgid "Category Grid"
+msgstr ""
+
 #. Author of the plugin
+#: includes/classes/class-ct-blocks-admin.php:80
 msgid "CODE TOT JSC"
+msgstr ""
+
+#: includes/blocks/cta-form.php:48
+msgid "Contact Form"
+msgstr ""
+
+#: includes/blocks/contact-section.php:46
+msgid "Contact Section"
+msgstr ""
+
+#: includes/blocks/counters.php:47
+msgid "Counters"
 msgstr ""
 
 #. Name of the plugin
 msgid "CT Blocks"
+msgstr ""
+
+#: includes/blocks/feature-grid.php:46
+msgid "Feature Grid"
+msgstr ""
+
+#: includes/blocks/guarantee-list.php:46
+msgid "Guarantee List"
+msgstr ""
+
+#: includes/blocks/hero-banner.php:46
+msgid "Hero Banner"
+msgstr ""
+
+#: includes/blocks/hero-image.php:48
+msgid "Hero Image"
+msgstr ""
+
+#: includes/blocks/hero-slider.php:48
+msgid "Hero Slider"
 msgstr ""
 
 #. URI of the plugin
@@ -48,8 +106,33 @@ msgstr ""
 msgid "https://codetot.com"
 msgstr ""
 
+#: includes/blocks/image-gallery.php:48
+msgid "Image Gallery"
+msgstr ""
+
+#: includes/blocks/image-row.php:46
+msgid "Image Row"
+msgstr ""
+
+#: includes/blocks/logo-grid.php:46
+msgid "Logo Grid"
+msgstr ""
+
+#: includes/class-ct-blocks.php:130
+#, php-format
+msgid "Missing block class %s. Please contact Web Administrator."
+msgstr ""
+
 #: includes/helpers/utils.php:28
 msgid "Missing block name"
+msgstr ""
+
+#: includes/helpers/data.php:57
+msgid "Missing svg file name"
+msgstr ""
+
+#: includes/blocks/news-columns.php:46
+msgid "News Columns"
 msgstr ""
 
 #: ct-blocks.php:28
@@ -57,10 +140,78 @@ msgctxt "plugin name"
 msgid "CT Blocks"
 msgstr ""
 
+#: includes/blocks/popup-form.php:48
+msgid "Popup Form"
+msgstr ""
+
 #: includes/blocks/pricing-calculator.php:49
 msgid "Pricing Calculator"
 msgstr ""
 
+#: includes/blocks/pricing-tables.php:49
+msgid "Pricing Tables"
+msgstr ""
+
+#: includes/blocks/product-columns.php:46
+msgid "Product Columns"
+msgstr ""
+
+#: includes/blocks/product-grid-sidebar.php:47
+msgid "Product Grid Sidebar"
+msgstr ""
+
+#: includes/blocks/product-tabs.php:46
+msgid "Product Tabs"
+msgstr ""
+
+#: includes/blocks/section-post.php:46
+msgid "Section Post"
+msgstr ""
+
+#: includes/blocks/section-product.php:47
+msgid "Section Product"
+msgstr ""
+
+#: includes/blocks/social-form.php:46
+msgid "Social Form"
+msgstr ""
+
 #: includes/blocks/store-locator.php:46
 msgid "Store Locator"
+msgstr ""
+
+#: includes/blocks/team-member.php:46
+msgid "Team Member"
+msgstr ""
+
+#: includes/blocks/testimonials.php:46
+msgid "Testimonials"
+msgstr ""
+
+#: blocks/product-tabs.php:93
+msgid "There is no product to display."
+msgstr ""
+
+#: includes/blocks/three-up-card.php:49
+msgid "Three Up Card"
+msgstr ""
+
+#: includes/blocks/two-up-intro.php:49
+msgid "Two Up Intro"
+msgstr ""
+
+#: includes/blocks/two-up-slider.php:48
+msgid "Two Up Slider"
+msgstr ""
+
+#: includes/blocks/video-center.php:48
+msgid "Video Center"
+msgstr ""
+
+#: blocks/section-product.php:22
+msgid "View all"
+msgstr ""
+
+#: includes/classes/class-ct-blocks-admin.php:66
+msgid "Web Builder Blocks"
 msgstr ""
