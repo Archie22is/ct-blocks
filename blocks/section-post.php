@@ -39,7 +39,7 @@ $footer = !empty($button_text) && !empty($button_url) ?
     'url' => $button_url
   ))
 : '';
-$_class = 'section-post';
+$_class = 'section-post is-mobile-horizontal';
 $_class .= !empty($class) ? ' ' . $class : '';
 $_class .= !empty($header_alignment) ? ' is-header-'.  $header_alignment : '';
 $_class .= !empty($footer_alignment) ? ' is-footer-'.  $footer_alignment : '';
