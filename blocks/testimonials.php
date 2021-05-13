@@ -15,7 +15,7 @@ $header = codetot_build_content_block(array(
 ), 'testimonials');
 
 ob_start();
-if (!empty($columns) && $block_preset === 'preset-4') :
+if (!empty($columns) && $block_preset === '4') :
   $carousel_settings_nav = array(
     'contain' => true,
     'wrapAround' => true,
