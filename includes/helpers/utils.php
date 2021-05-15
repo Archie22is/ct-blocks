@@ -19,7 +19,7 @@ if (!function_exists('get_block')) {
  * @param array $args
  * @return void|WP_Error
  */
-if ( ! function_exists( 'the_block' ) ) {
+if (!function_exists('the_block')) {
   function the_block($block_name, $args = array())
   {
     if (empty($block_name)) {
@@ -248,7 +248,8 @@ if (!function_exists('codetot_build_content_block')) {
    * @param $prefix_class
    * @return false|string
    */
-  function codetot_build_content_block($args, $prefix_class) {
+  function codetot_build_content_block($args, $prefix_class)
+  {
     $output_elements = [];
     $title_tag = (!empty($args['title_tag']) ? $args['title_tag'] : 'h2');
     $block_tag = (!empty($args['block_tag']) ? $args['block_tag'] : 'div');
@@ -259,7 +260,8 @@ if (!function_exists('codetot_build_content_block')) {
     }
 
     if (!empty($args['title'])) {
-      $output_elements['title'] = sprintf('<%1$s class="%2$s__title">%3$s</%4$s>',
+      $output_elements['title'] = sprintf(
+        '<%1$s class="%2$s__title">%3$s</%4$s>',
         $title_tag,
         $prefix_class,
         $args['title'],
@@ -276,14 +278,15 @@ if (!function_exists('codetot_build_content_block')) {
 
     ob_start();
     printf('<%s class="%s">', $block_tag, $_class);
-    if (isset($args['enable_container'])) : printf('<div class="%s %s__container">', codetot_site_container(), $prefix_class); endif;
+    if (isset($args['enable_container'])) : printf('<div class="%s %s__container">', codetot_site_container(), $prefix_class);
+    endif;
 
-    if (!empty($args['before_content']) ) :
+    if (!empty($args['before_content'])) :
       echo $args['before_content'];
     endif;
     echo implode('', $output_elements);
 
-    if (!empty($args['after_content']) ) :
+    if (!empty($args['after_content'])) :
       echo $args['after_content'];
     endif;
     if (isset($args['enable_container'])) :
@@ -314,18 +317,18 @@ if (!function_exists('codetot_build_grid_columns')) {
     }
 
     ob_start(); ?>
-    <div
-      class="grid <?php echo $prefix_class; ?>__grid<?php if (!empty($grid_class)) : echo ' ' . $grid_class; endif; ?>">
+    <div class="grid <?php echo $prefix_class; ?>__grid<?php if (!empty($grid_class)) : echo ' ' . $grid_class;
+                                                        endif; ?>">
       <?php foreach ($columns as $column) :
         $_column_class = 'grid__col';
-        $_column_class .= ' ' .$prefix_class . '__col';
+        $_column_class .= ' ' . $prefix_class . '__col';
         $_column_class .= !empty($args) && !empty($args['column_class']) ? ' ' . $args['column_class'] : '';
         $_column_class .= !empty($args) && is_array($column) && !empty($column['class']) ? ' ' . $column['class'] : '';
         $_column_attr = !empty($args) && !empty($args['column_attributes']) ? ' ' . $args['column_attributes'] : '';
 
-        ?>
-        <div
-          class="<?php echo $_column_class; ?>"<?php if (!empty($_column_attr)) : echo ' ' . $_column_attr; endif; ?>>
+      ?>
+        <div class="<?php echo $_column_class; ?>" <?php if (!empty($_column_attr)) : echo ' ' . $_column_attr;
+                                                    endif; ?>>
           <?php
           if (is_array($column) && !empty($column['content'])) {
             echo $column['content'];
@@ -336,7 +339,7 @@ if (!function_exists('codetot_build_grid_columns')) {
         </div>
       <?php endforeach; ?>
     </div>
-    <?php
+  <?php
 
     return ob_get_clean();
   }
@@ -372,8 +375,10 @@ if (!function_exists('codetot_build_slider')) {
 
     ob_start(); ?>
 
-    <div class="<?php echo $prefix_class; ?>__inner<?php if (!empty($slider_class)) : echo ' ' . $slider_class; endif; ?>"<?php if (!empty($slider_attributes)) : echo ' ' . $slider_attributes; endif; ?>>
-      <div class="<?php echo $prefix_class; ?>__slider js-slider" <?php if (!empty($slider_settings)) : ?> data-carousel='<?= json_encode($slider_settings); ?>'<?php endif; ?>>
+    <div class="<?php echo $prefix_class; ?>__inner<?php if (!empty($slider_class)) : echo ' ' . $slider_class;
+                                                    endif; ?>" <?php if (!empty($slider_attributes)) : echo ' ' . $slider_attributes;
+                                                                                                                            endif; ?>>
+      <div class="<?php echo $prefix_class; ?>__slider js-slider" <?php if (!empty($slider_settings)) : ?> data-carousel='<?= json_encode($slider_settings); ?>' <?php endif; ?>>
         <?php foreach ($columns as $column) : ?>
           <div class="<?php echo $prefix_class; ?>__slider-item js-slider-item">
             <?php echo $column; ?>
@@ -381,7 +386,7 @@ if (!function_exists('codetot_build_slider')) {
         <?php endforeach; ?>
       </div>
     </div>
-    <?php
+  <?php
 
     return ob_get_clean();
   }
@@ -398,40 +403,41 @@ if (!function_exists('codetot_build_two_up_content')) {
    */
   function codetot_build_two_up_content($prefix_class, $args = [])
   {
+    $columns = array();
+    $grid_class = 'grid two-up-content';
+    $default_column_class = 'grid__col two-up-content__col';
+
     if (!empty($args) && !empty($args['grid_class'])) {
-      $grid_class = $args['grid_class'];
+      $grid_class .=  '' . $args['grid_class'];
     }
 
     if (!empty($args) && !empty($args['left_content'])) {
-      $left_content = $args['left_content'];
+      $columns[] = array(
+        'content' => $args['left_content'],
+        'class' => sprintf('%s %s %s', $default_column_class, 'two-up-content__left', $prefix_class . '__left')
+      );
     }
 
     if (!empty($args) && !empty($args['right_content'])) {
-      $right_content = $args['right_content'];
+      $columns[] = array(
+        'content' => $args['right_content'],
+        'class' => sprintf('%s %s %s', $default_column_class, 'two-up-content__right', $prefix_class . '__right')
+      );
     }
 
-
     ob_start(); ?>
-
-    <div class="grid two-up-content <?php echo $prefix_class; ?>__grid<?php if (!empty($grid_class)) : echo ' ' . $grid_class; endif; ?>">
-      <?php
-        $_column_class = 'grid__col two-up-content__col';
-        $_column_class .= ' ' .$prefix_class . '__col';
-        ?>
-        <div class="<?php echo $_column_class .' '. $prefix_class . '__left'?> two-up-content__left">
-          <?php echo !empty($left_content) ? $left_content : ''; ?>
-        </div>
-        <div class="<?php echo $_column_class .' '. $prefix_class . '__right'?> two-up-content__right">
-          <?php echo !empty($right_content) ? $right_content : ''; ?>
-        </div>
+    <div class="<?php echo $grid_class; ?>">
+      <?php foreach ($columns as $column) :
+        printf('<div class="%1$s">%2$s</div>', $column['class'], $column['content']);
+      endforeach; ?>
     </div>
-  <?php
-    return ob_get_clean();
+<?php return ob_get_clean();
   }
 }
 
 if (!function_exists('codetot_get_min_max_numbers')) {
-  function codetot_get_min_max_numbers($items) {
+  function codetot_get_min_max_numbers($items)
+  {
     $min_columns = array_column($items, 'min');
     $max_columns = array_column($items, 'max');
 
@@ -443,7 +449,8 @@ if (!function_exists('codetot_get_min_max_numbers')) {
 }
 
 if (!function_exists('codetot_get_image_reponsive_html')) {
-  function codetot_get_image_reponsive_html($image, $args = []) {
+  function codetot_get_image_reponsive_html($image, $args = [])
+  {
     if (empty($image)) {
       return !empty($args['placeholder']) ? get_block('image-placeholder') : '';
     }
