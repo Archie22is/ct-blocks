@@ -136,6 +136,7 @@
 
   & .product-grid-sidebar__menu-items {
     @mixin scrollbar;
+    @mixin fade-out;
 
     align-items: flex-start;
     flex-direction: column;
@@ -147,10 +148,7 @@
     left: 0;
     top: 100%;
     background-color: var(--white);
-    transition: 0.4s;
     transform: translateY(-20px);
-    opacity: 0;
-    visibility: hidden;
     padding: 0.5em 0;
     max-height: 250px;
     overflow-y: auto;
