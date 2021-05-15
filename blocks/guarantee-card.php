@@ -13,8 +13,7 @@ $_class .= !empty($alignment) ? ' guarantee-card--' . esc_attr($alignment): '';
       <?php
       the_block('image', array(
         'image' => $icon,
-        'class' => 'guarantee-card__image',
-        'size' => 'full'
+        'class' => 'image--contain guarantee-card__image'
       ));
       ?>
     <?php endif; ?>

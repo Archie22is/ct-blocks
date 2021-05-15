@@ -15,7 +15,7 @@ $header = codetot_build_content_block(array(
 ), 'testimonials');
 
 ob_start();
-if (!empty($columns) && $block_preset === 'preset-4') :
+if (!empty($columns) && $block_preset === '4') :
   $carousel_settings_nav = array(
     'contain' => true,
     'wrapAround' => true,
@@ -77,7 +77,7 @@ if (!empty($columns)) :
   the_block('default-section', array(
     'attributes' => ' data-ct-block="testimonials"',
     'class' => $_class,
-    'header' => !empty($title) && !empty($description) ? $header : false,
+    'header' => $header,
     'content' => $content
   ));
 

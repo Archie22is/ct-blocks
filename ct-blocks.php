@@ -8,8 +8,8 @@
  * @wordpress-plugin
  * Plugin Name:       CT Blocks
  * Plugin URI:        https://codetot.com
- * Description:       Block library for web builder. Requires a license and work only with CT Theme and child theme.
- * Version:           4.1.10
+ * Description:       Brings 20+ blocks to your custom page with modern design and flexible.
+ * Version:           4.1.14
  * Author:            CODE TOT JSC
  * Author URI:        https://codetot.com
  * License:           GPL-2.0+
@@ -23,7 +23,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'CODETOT_BLOCKS_VERSION', '4.1.10' );
+define( 'CODETOT_BLOCKS_VERSION', '4.1.14' );
 define( 'CODETOT_BLOCKS_PLUGIN_SLUG', 'ct-blocks' );
 define( 'CODETOT_BLOCKS_PLUGIN_NAME', esc_html_x('CT Blocks', 'plugin name', 'ct-blocks'));
 define( 'CODETOT_BLOCKS_DIR', plugin_dir_path(__FILE__));
@@ -57,13 +57,6 @@ register_deactivation_hook( __FILE__, 'deactivate_codetot_blocks' );
  * admin-specific hooks, and public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-ct-blocks.php';
-
-require plugin_dir_path( __FILE__ ) . 'plugin-update-checker/plugin-update-checker.php';
-$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-	'https://plugins.codetot.com/ct-blocks.json',
-	__FILE__, //Full path to the main plugin file or functions.php.
-	'ct-blocks'
-);
 
 /**
  * Begins execution of the plugin.

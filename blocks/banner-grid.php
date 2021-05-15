@@ -21,11 +21,12 @@
 
 $prefix_class = 'banner-grid';
 
-$_class = 'section-bg ' . $prefix_class;
+$_class = $prefix_class;
 $_class .= !empty($block_preset) ? ' ' . $prefix_class . '--style-' . esc_attr($block_preset) : '';
 $_class .= !empty($overlay) ? ' ' . $prefix_class . '--has-overlay' : '';
 $_class .= !empty($background_contract) ? ' ' . $prefix_class . '--' . esc_attr($background_contract) : '';
 $_class .= !empty($background_type) ? ' bg-' . esc_attr($background_type) : '';
+$_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
 $_class .= !empty($content_position) ? ' ' . $prefix_class . '--' . esc_attr($content_position) : '';
 $_class .= !empty($columns_count) ? ' ' . $prefix_class . '--' . esc_attr($columns_count) . '-columns' : '';
 $_class .= !empty($full_screen_layout) ? ' ' . $prefix_class . '--full-screen' : '';

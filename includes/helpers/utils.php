@@ -418,10 +418,10 @@ if (!function_exists('codetot_build_two_up_content')) {
         $_column_class = ' grid__col two-up-content__col';
         $_column_class .= ' ' .$prefix_class . '__col';
         ?>
-        <div class="<?php echo $_column_class . ' ' . $prefix_class . '__left'?> two-up-content__left">
+        <div class="<?php echo $_column_class . ' ' . $prefix_class . '__left'; ?> two-up-content__left">
           <?php echo !empty($left_content) ? $left_content : ''; ?>
         </div>
-        <div class="<?php echo $_column_class . ' ' . $prefix_class . '__right'?> two-up-content__right">
+        <div class="<?php echo $_column_class . ' ' . $prefix_class . '__right'; ?> two-up-content__right">
           <?php echo !empty($right_content) ? $right_content : ''; ?>
         </div>
     </div>

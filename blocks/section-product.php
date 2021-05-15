@@ -19,7 +19,7 @@ if ($show_category && !empty($categories) && !is_wp_error($categories)) :
   if (!empty($show_shop_link)) :
     printf('<a class="section-product__link section-product__link--shop" href="%1$s"><span class="button__text">%2$s</span></a>',
       get_permalink(wc_get_page_id('shop')),
-      esc_html__('View all', 'ct-peakshop')
+      esc_html__('View all', 'ct-blocks')
     );
   endif;
   echo '</div>';
@@ -87,8 +87,10 @@ else :
   endif;
 
   $content = codetot_build_grid_columns($products, 'section-product', array(
-    'column_class' => 'products section-product__col'
+    'column_class' => 'product default-section__col'
   ));
+
+  $content = str_replace('section-product__grid', 'products section-product__grid', $content);
 
   $footer = !empty($button_text) && !empty($button_url) ?
     get_block('button', array(

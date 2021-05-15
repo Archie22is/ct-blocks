@@ -27,7 +27,7 @@ if ( ! function_exists( 'codetot_site_container' ) ) {
    */
   function codetot_site_container() {
     // boxed - fullwidth
-    return !empty(get_global_option('codetot_container_layout')) ? 'container ' . sprintf('container--%s', get_global_option('codetot_container_layout')) : 'container container--fullwidth';
+    return !empty(get_global_option('codetot_container_layout')) ? 'container ' . sprintf('container--%s', get_global_option('codetot_container_layout')) : 'container';
   }
 }
 
@@ -54,7 +54,7 @@ if (!function_exists('codetot_svg')) {
     if (empty($name)) {
       return new WP_Error(
         '404',
-        __('Missing svg file name', 'ct-theme')
+        __('Missing svg file name', 'ct-blocks')
       );
     }
 

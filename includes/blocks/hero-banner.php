@@ -43,7 +43,7 @@ class Codetot_Block_Hero_Banner extends Codetot_Base_Block implements Codetot_Ba
 
     $this->block_name = 'hero-banner';
     $this->block_slug = 'hero_banner';
-    $this->block_title = __('Hero Banner', 'ct-theme');
+    $this->block_title = __('Hero Banner', 'ct-blocks');
     $this->fields = [
       'class',
       'block_preset',
