@@ -27,7 +27,7 @@ if ( ! function_exists( 'codetot_site_container' ) ) {
    */
   function codetot_site_container() {
     // boxed - fullwidth
-    return !empty(get_global_option('codetot_container_layout')) ? 'container ' . sprintf('container--%s', get_global_option('codetot_container_layout')) : 'container container--fullwidth';
+    return !empty(get_global_option('codetot_container_layout')) ? 'container ' . sprintf('container--%s', get_global_option('codetot_container_layout')) : 'container';
   }
 }
 
