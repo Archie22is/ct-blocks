@@ -7,7 +7,7 @@ if (!empty($content) || !empty($images)) : ?>
           <div class="rel two-up-slider__col two-up-slider__col--content">
             <div class="fa1 f fdc jcc two-up-slider__inner">
               <div class="wysiwyg two-up-slider__content">
-                <?= $content ?>
+                <?php echo $content; ?>
               </div>
               <?php if (!empty($button_url) & !empty($button_text)) : ?>
                 <footer class="section-footer two-up-slider__footer">

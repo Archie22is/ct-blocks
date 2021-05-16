@@ -11,23 +11,25 @@ $_class .= !empty($columns) ? ' has-' . $columns . '-columns' : '';
 
 // Generate header
 ob_start(); ?>
-<?php if(!empty($title)) : ?>
-  <h2 class="h2 product-tabs__title"><?php echo $title; ?></h2>
-<?php endif; ?>
-<ul class="f product-tabs__nav" aria-controls="product-tabs__tab" role="tablist">
-  <?php $i=0; foreach ($categories as $index => $category) :
-    $i++; ?>
-    <li class="product-tabs__item" role="tab" aria-controls="<?php echo $index; ?>" aria-selected="<?php if ($index === 0) : echo 'true'; else: echo 'false'; endif; ?>"><?php echo esc_html( $category->name ); ?></li>
-  <?php endforeach; ?>
-</ul>
-<div class="select-wrapper product-tabs__select-wrapper">
-  <select class="product-tabs__select js-mobile">
-    <?php foreach ($categories as $index => $category) : ?>
-      <option value="<?php echo $index; ?>"><?php echo esc_html( $category->name ); ?></option>
-    <?php endforeach; ?>
-  </select>
-</div>
-<?php
+  <?php if(!empty($title)) : ?>
+    <h2 class="h2 product-tabs__title"><?php echo $title; ?></h2>
+  <?php endif; ?>
+  <?php if (!empty($categories)) : ?>
+    <ul class="f product-tabs__nav" aria-controls="product-tabs__tab" role="tablist">
+      <?php $i=0; foreach ($categories as $index => $category) :
+        $i++; ?>
+        <li class="product-tabs__item" role="tab" aria-controls="<?php echo $index; ?>" aria-selected="<?php if ($index === 0) : echo 'true'; else: echo 'false'; endif; ?>"><?php echo esc_html( $category->name ); ?></li>
+      <?php endforeach; ?>
+    </ul>
+    <div class="select-wrapper product-tabs__select-wrapper">
+      <select class="product-tabs__select js-mobile">
+        <?php foreach ($categories as $index => $category) : ?>
+          <option value="<?php echo $index; ?>"><?php echo esc_html( $category->name ); ?></option>
+        <?php endforeach; ?>
+      </select>
+    </div>
+  <?php endif; ?>
+  <?php
 $header = ob_get_clean();
 
 // Generate main content
