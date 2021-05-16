@@ -22,14 +22,14 @@
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   --font-normal: 400;
   --font-bold: 700;
-  --font-light: 300;
   --grid-gutter: 10px;
   --grid-gutter-m: 16px;
   --container-gutter: 20px;
-  --container-gutter-s: 30px;
-  --container-gutter-m: 30px;
-  --container-gutter-ml: 30px;
+  --container-gutter-s: 40px;
+  --container-gutter-m: 60px;
+  --container-gutter-ml: 80px;
   --container-max: 1280px;
+  --section-space: 2em;
   --xxs: 360px;
   --xs: 480px;
   --s: 768px;
@@ -38,9 +38,14 @@
   --ml: 1280px;
   --l: 1440px;
   --sidebar-width: 300px;
+  --small-sidebar-width: 250px;
+  --border-radius: 6px;
+  --header-breakpoint: 1024px;
+  --text-large: 1.15rem;
+  --text-small: 0.85rem;
 }
 
-@custom-media --xxs (min-width: 375px);
+@custom-media --xxs (min-width: 376px);
 @custom-media --xs (min-width: 480px);
 @custom-media --s (min-width: 768px);
 @custom-media --sm (min-width: 960px);
