@@ -1,10 +1,9 @@
 import Flickity from 'flickity'
 import {
   getModuleOptions,
+  loadNoscriptContent,
   on,
   addClass,
-  hasClass,
-  appendHtml,
   removeClass
 } from 'lib/dom'
 import { throttle } from 'lib/utils'
@@ -12,20 +11,6 @@ require('flickity-as-nav-for')
 
 const MODULE_NAME = 'carousel'
 const INIT_CLASS = 'is-initialized'
-
-const loadItem = itemEl => {
-  if (hasClass('is-not-loaded', itemEl)) {
-    const contextEls = itemEl.getElementsByTagName('noscript')
-    if (contextEls && contextEls.length) {
-      const context = contextEls[0].textContent || contextEls[0].innerHTML
-
-      itemEl.innerHTML = ''
-      appendHtml(itemEl, context)
-
-      removeClass('is-not-loaded', itemEl)
-    }
-  }
-}
 
 export default (el, options = {}) => {
   const defaults = {
@@ -36,6 +21,12 @@ export default (el, options = {}) => {
     items: 1,
     lazyload: false,
     watchCSS: false,
+    resize: true,
+    on: {
+      ready: () => {
+        addClass('is-ready', el)
+      }
+    },
     arrowShape: {
       x0: 10,
       x1: 50,
@@ -47,6 +38,10 @@ export default (el, options = {}) => {
   }
   const args = getModuleOptions(MODULE_NAME, el, defaults)
   const finalArgs = { ...args, ...options }
+
+  const resize = () => addClass(INIT_CLASS, el)
+  const reset = () => removeClass(INIT_CLASS, el)
+
   if (el.childElementCount > args.items) {
     const flickity = new Flickity(el, finalArgs)
 
@@ -54,20 +49,20 @@ export default (el, options = {}) => {
       flickity.on('change', () => {
         const currentSlide = flickity.selectedElement
 
-        loadItem(currentSlide)
+        loadNoscriptContent(currentSlide)
       })
     }
 
-    const resize = () => addClass(INIT_CLASS, el)
-    const reset = () => removeClass(INIT_CLASS, el)
     const handler = () => {
       reset()
       flickity.resize()
       resize()
     }
+
+    handler()
+
     on('change', handler, window)
     on('resize', throttle(handler, 300), window)
-    on('load', handler, window)
 
     return flickity
   }
