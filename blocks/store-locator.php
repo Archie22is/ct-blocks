@@ -1,11 +1,18 @@
 <?php
 $_class = 'store-locator js-store-locator';
 $_class .= !empty($block_preset) ? ' store-locator--' . esc_attr($block_preset) : false;
+$_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
 
+$tax_terms = get_terms(
+  array(
+      'taxonomy'   => 'store_locator',
+      'hide_empty' => true,
+  )
+);
 $container = codetot_site_container();
 ?>
 <section class="<?php echo $_class;?>" <?php echo (post_type_exists('store')) ? 'data-post-type="true"' : false; ?> data-ct-block="store-locator">
-<?php if(post_type_exists('store')) : ?>
+<?php if(post_type_exists('store') && !empty($tax_terms)) : ?>
   <div class="default-section__header">
     <div class="<?php echo $container; ?> default-section__container default-section__container--header">
       <?php the_block('store-locator-form'); ?>

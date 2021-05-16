@@ -1,12 +1,4 @@
 .store-locator {
-  padding: 1em 0 3em;
-  background-color: #f5f8fd;
-  margin-top: 2em;
-
-  @media (--s) {
-    padding-bottom: 3em;
-  }
-
   & .hide {
     display: none !important;
   }
