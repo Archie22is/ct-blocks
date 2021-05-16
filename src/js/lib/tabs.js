@@ -62,8 +62,6 @@ export default (el, customOptions = {}) => {
 
     const content = contextEls[0].textContent || contextEls[0].innerHTML
 
-    console.log(content)
-
     tabPanel.innerHTML = content
   }
 

@@ -38,6 +38,7 @@ if (!empty($product_categories) && !is_wp_error($product_categories)) :
   the_block('default-section', array(
     'class' => $_class,
     'header' => $header,
+    'lazyload' => true,
     'content' => $content
   ));
 

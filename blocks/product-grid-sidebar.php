@@ -109,13 +109,13 @@ if (!empty($attribute)) :
 endif;
 
 $product_columns = codetot_build_grid_columns($products, $preset_class, array(
-  'column_class' => 'products'
+  'grid_class' => 'products'
 ));
 
 if (!empty($image_sidebar_items)) :
   ob_start();
   the_block('sidebar-section', array(
-    'class' => $preset_class. '__content',
+    'class' => $preset_class. '__content sidebar-section--no-container',
     'sidebar' => !empty($sidebar) ? $sidebar : false,
     'content' => $product_columns
   ));
@@ -130,6 +130,7 @@ endif;
 the_block('default-section', array(
   'attributes' => ' data-ct-block="product-grid-sidebar"',
   'class' => $_class,
+  'lazyload' => true,
   'header' => !empty($header) ? $header : false,
   'content' => $content
 ));

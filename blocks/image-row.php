@@ -38,6 +38,7 @@ $content = codetot_build_grid_columns($_columns, 'image-row', array(
 the_block('default-section', array(
   'attributes' => $_attr,
   'class' => $_class,
+  'lazyload' => true,
   'header' => (!empty($title) || !empty($description)) ? $header : false,
   'content' => $content
 ));

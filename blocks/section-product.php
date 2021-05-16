@@ -105,6 +105,7 @@ else :
 
     the_block('default-section', array(
       'class' => $_class,
+      'lazyload' => true,
       'header' => (!empty($title) || !empty($description)) ? $header : '',
       'content' => $content,
       'footer' => $footer
