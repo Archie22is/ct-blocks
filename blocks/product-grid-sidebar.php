@@ -130,6 +130,7 @@ endif;
 the_block('default-section', array(
   'attributes' => ' data-ct-block="product-grid-sidebar"',
   'class' => $_class,
+  'lazyload' => true,
   'header' => !empty($header) ? $header : false,
   'content' => $content
 ));
