@@ -1,5 +1,5 @@
 /* global jQuery,codetotConfig,wc_add_to_cart_variation_params */
-import { select, selectAll, on, getData, addClass, removeClass } from 'lib/dom'
+import { select, on, getData, addClass, removeClass, delegate } from 'lib/dom'
 import { minusBtn, plusBtn } from '../woocommerce/quantity'
 import { pipe } from 'lib/utils'
 import 'whatwg-fetch'
@@ -15,7 +15,6 @@ const parseJSON = response => {
 }
 
 export default el => {
-  const triggerEls = selectAll('[data-quick-view-modal-id]')
   const closeEl = select('.js-close-modal', el)
   const sliderWrapperEl = select('.js-slider-wrapper', el)
   const contentWrapperEl = select('.js-content', el)
@@ -347,25 +346,25 @@ export default el => {
     })
   }
 
-  if (triggerEls && triggerEls.length) {
-    on(
-      'click',
-      e => {
-        const triggerEl = e.target
-        const postId = getData('quick-view-modal-id', triggerEl)
-        if (postId) {
-          currentPostId = postId
-          pipe(
-            openModal,
-            activateLoader,
-            clearExistingHtml,
-            fetchData
-          )(document.body)
-        }
-      },
-      triggerEls
-    )
-  }
+  delegate(
+    'click',
+    e => {
+      const triggerEl = e.target
+      const postId = getData('quick-view-modal-id', triggerEl)
+      console.log(triggerEl)
+      if (postId) {
+        currentPostId = postId
+        pipe(
+          openModal,
+          activateLoader,
+          clearExistingHtml,
+          fetchData
+        )(document.body)
+      }
+    },
+    '[data-quick-view-modal-id]',
+    body
+  )
 
   window.addEventListener(
     'keydown',
