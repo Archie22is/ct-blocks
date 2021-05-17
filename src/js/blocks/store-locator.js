@@ -243,29 +243,29 @@ export default el => {
     mapFilter()
   }
 
-  if (formfilter) {
-    const checkfilter = () => {
-      const countryFilterEl = select('.js-country', el)
-      const provinceFilterEl = select('.js-province', el)
-      const districtFilterEl = select('.js-district', el)
+  const checkfilter = () => {
+    const countryFilterEl = select('.js-country', el)
+    const provinceFilterEl = select('.js-province', el)
+    const districtFilterEl = select('.js-district', el)
 
-      if (countryFilterEl.value === 'Choose Country') {
-        addClass('is-loading', provinceFilterEl)
-        addClass('is-loading', districtFilterEl)
-      } else {
-        removeClass('is-loading', provinceFilterEl)
-        removeClass('is-loading', districtFilterEl)
-      }
+    if (countryFilterEl.value === 'Choose Country') {
+      addClass('is-loading', provinceFilterEl)
+      addClass('is-loading', districtFilterEl)
+    } else {
+      removeClass('is-loading', provinceFilterEl)
+      removeClass('is-loading', districtFilterEl)
     }
-
-    on(
-      'load',
-      () => {
-        checkfilter()
-      },
-      window
-    )
   }
+
+  on(
+    'load',
+    () => {
+      if (formfilter) {
+        checkfilter()
+      }
+    },
+    window
+  )
 
   on(
     'load',

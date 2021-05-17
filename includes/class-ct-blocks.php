@@ -86,6 +86,7 @@ class Codetot_Base
     Codetot_Blocks_Templates::instance();
 
     $this->plugin_blocks = $this->get_plugin_blocks();
+    $this->sibling_plugin_blocks_settings = $this->get_sibling_plugins_blocks_settings();
 
     if (codetot_is_supported_theme()) {
       $this->child_theme_settings = $this->get_child_theme_settings();
@@ -132,6 +133,27 @@ class Codetot_Base
     return $error->get_error_message();
   }
 
+  public function get_sibling_plugins_blocks_settings() {
+    $allowed_plugins = array(
+      'ct-tasks'
+    );
+    $output = [];
+
+    foreach($allowed_plugins as $plugin) {
+      if (is_plugin_active($plugin . '/' . $plugin . '.php')) {
+        $block_settings_file_path = WP_PLUGIN_DIR . '/' . $plugin . '/blocks.json';
+        $block_settings_raw = file_exists($block_settings_file_path) ? file_get_contents($block_settings_file_path) : null;
+        $block_settings = !empty($block_settings_raw) ? json_decode($block_settings_raw, true) : [];
+
+        if (!empty($block_settings)) {
+          $output[$plugin] = $block_settings;
+        }
+      }
+    }
+
+    return $output;
+  }
+
   public function register_plugin_blocks_classes() {
     foreach ($this->plugin_blocks as $block_name) {
       $file_path = CODETOT_BLOCKS_DIR . 'includes/blocks/' . esc_attr($block_name) . '.php';
@@ -169,6 +191,14 @@ class Codetot_Base
       $paths[] = get_template_directory() . '/blocks';
     }
 
+    if ($this->sibling_plugin_blocks_settings) {
+      foreach ($this->sibling_plugin_blocks_settings as $plugin => $settings) {
+        if (!empty($settings['blocks_path'])) :
+          $paths[] = WP_PLUGIN_DIR . '/' . $plugin . '/' . $settings['blocks_path'];
+        endif;
+      }
+    }
+
     $paths[] = CODETOT_BLOCKS_DIR . 'blocks';
 
     return $paths;
@@ -183,6 +213,14 @@ class Codetot_Base
       $paths[] = get_template_directory() . '/block-parts';
     }
 
+    if ($this->sibling_plugin_blocks_settings) {
+      foreach ($this->sibling_plugin_blocks_settings as $plugin => $settings) {
+        if (!empty($settings['blocks_part'])) :
+          $paths[] = WP_PLUGIN_DIR . '/' . $plugin . '/' . $settings['blocks_part'];
+        endif;
+      }
+    }
+
     return $paths;
   }
 
@@ -193,6 +231,14 @@ class Codetot_Base
 
     if (is_child_theme()) {
       $paths[] = get_template_directory() . '/inc/blocks';
+    }
+
+    if ($this->sibling_plugin_blocks_settings) {
+      foreach ($this->sibling_plugin_blocks_settings as $plugin => $settings) {
+        if (!empty($settings['blocks_inc'])) :
+          $paths[] = WP_PLUGIN_DIR . '/' . $plugin . '/' . $settings['blocks_inc'];
+        endif;
+      }
     }
 
     return $paths;
