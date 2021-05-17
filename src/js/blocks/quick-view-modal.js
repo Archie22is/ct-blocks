@@ -351,7 +351,6 @@ export default el => {
     e => {
       const triggerEl = e.target
       const postId = getData('quick-view-modal-id', triggerEl)
-      console.log(triggerEl)
       if (postId) {
         currentPostId = postId
         pipe(
