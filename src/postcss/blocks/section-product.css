@@ -44,8 +44,7 @@
 .section-product.has-3-columns,
 .section-product.has-4-columns,
 .section-product.has-5-columns,
-.section-product.has-6-columns,
-.section-product.has-8-columns {
+.section-product.has-6-columns {
   & .section-product__col {
     width: 50%;
 
@@ -69,25 +68,12 @@
 }
 
 .section-product.has-4-columns,
-.section-product.has-6-columns,
-.section-product.has-8-columns {
+.section-product.has-6-columns {
   & .section-product__col {
-    @media (--xs) {
+    @media (--s) {
       width: 25%;
 
       &:nth-child(-n + 4) {
-        margin-top: 0;
-      }
-    }
-  }
-}
-
-.section-product.has-8-columns {
-  & .section-product__col {
-    @media (--m) {
-      width: calc(100% / 8);
-
-      &:nth-child(-n + 8) {
         margin-top: 0;
       }
     }
@@ -176,16 +162,5 @@
     margin-right: 0.5em;
     padding: 0.125em 1em;
     display: inline-block;
-    background-color: var(--white);
-    border-radius: 24px;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-
-    @media (--s) {
-      box-shadow: unset;
-
-      &:hover {
-        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-      }
-    }
   }
 }

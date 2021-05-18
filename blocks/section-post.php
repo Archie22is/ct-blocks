@@ -51,6 +51,7 @@ if ($post_query->have_posts()) :
 
   the_block('default-section', array(
     'class' => $_class,
+    'lazyload' => is_front_page(),
     'header' => (!empty($title) || !empty($description)) ? $header : '',
     'content' => $content,
     'footer' => $footer
