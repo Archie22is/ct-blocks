@@ -35,25 +35,15 @@ $columns = !empty($items) ? array_map(function($item) {
 }, $items) : [];
 
 $content = codetot_build_grid_columns($columns, 'accordions', array(
-  'column_class' => $layout === 'column' ? 'w100 default-section__col js-row' : 'w100 sidebar-section__col js-row'
+  'column_class' => 'w100 default-section__col js-row'
 ));
 
 if (!empty($items)) :
-  if ($layout === 'column') {
-    the_block('default-section', array(
-      'id' => !empty($id) ? $id : '',
-      'attributes' => ' data-ct-block="accordions"',
-      'class' => $_class,
-      'header' => (!empty($title) || !empty($description)) ? $header : false,
-      'content' => $content
-    ));
-  } else {
-    the_block('sidebar-section', array(
-      'id' => !empty($id) ? $id : '',
-      'attributes' => ' data-ct-block="accordions"',
-      'class' => $_class,
-      'sidebar' => (!empty($title) || !empty($description)) ? $header : false,
-      'content' => $content
-    ));
-  }
+  the_block('default-section', array(
+    'id' => !empty($id) ? $id : '',
+    'attributes' => ' data-ct-block="accordions"',
+    'class' => $_class,
+    'header' => (!empty($title) || !empty($description)) ? $header : false,
+    'content' => $content
+  ));
 endif;
