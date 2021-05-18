@@ -44,8 +44,7 @@
 .section-product.has-3-columns,
 .section-product.has-4-columns,
 .section-product.has-5-columns,
-.section-product.has-6-columns,
-.section-product.has-8-columns {
+.section-product.has-6-columns {
   & .section-product__col {
     width: 50%;
 
@@ -69,25 +68,12 @@
 }
 
 .section-product.has-4-columns,
-.section-product.has-6-columns,
-.section-product.has-8-columns {
+.section-product.has-6-columns {
   & .section-product__col {
-    @media (--xs) {
+    @media (--s) {
       width: 25%;
 
       &:nth-child(-n + 4) {
-        margin-top: 0;
-      }
-    }
-  }
-}
-
-.section-product.has-8-columns {
-  & .section-product__col {
-    @media (--m) {
-      width: calc(100% / 8);
-
-      &:nth-child(-n + 8) {
         margin-top: 0;
       }
     }
