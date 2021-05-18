@@ -400,6 +400,7 @@
     }
 
     & .testimonials__profile {
+      width: 100%;
       display: flex;
       transform: scale(0.8);
       margin: 0 auto;
@@ -407,7 +408,7 @@
     }
 
     & .testimonials__image {
-      width: 200px;
+      width: 100%;
       margin: auto;
       border: 3px solid var(--primary);
       transition: 0.4s;
