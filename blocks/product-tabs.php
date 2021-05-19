@@ -78,6 +78,7 @@ foreach ($categories as $index => $category) :
     <?php
       $query = new WP_Query($product_args);
       if ( $query->have_posts() ) : ?>
+      <?php if ($index > 0) : echo '<noscript>'; endif;?>
       <div class="product-tabs__inner">
         <div class="products grid product-tabs__grid">
           <?php
@@ -89,6 +90,7 @@ foreach ($categories as $index => $category) :
           ?>
         </div>
       </div>
+      <?php if ($index > 0) : echo '</noscript>'; endif;?>
     <?php
     else :
       the_block('message-block', array(
