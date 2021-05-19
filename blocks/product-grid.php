@@ -12,7 +12,7 @@ if (!empty($query) || !empty($list)) : ?>
       <div class="product-grid__main">
         <?php
         if(!empty($columns)) {
-          echo '<div class ="products columns-'.$columns.'">';
+          echo '<ul class ="products columns-'.$columns.'">';
         }
         else {
           woocommerce_product_loop_start();
