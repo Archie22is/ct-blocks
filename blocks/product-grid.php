@@ -11,8 +11,13 @@ if (!empty($query) || !empty($list)) : ?>
       <?php endif; ?>
       <div class="product-grid__main">
         <?php
+        if(!empty($columns)) {
+          echo '<div class ="products columns-'.$columns.'">';
+        }
+        else {
+          woocommerce_product_loop_start();
+        }
 
-        woocommerce_product_loop_start();
 
         if ($query instanceof WP_Query && $query->have_posts()) {
           while ( $query->have_posts() ) :
