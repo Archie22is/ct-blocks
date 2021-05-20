@@ -140,13 +140,15 @@ class Codetot_Base
     $output = [];
 
     foreach($allowed_plugins as $plugin) {
-      if (is_plugin_active($plugin . '/' . $plugin . '.php')) {
-        $block_settings_file_path = WP_PLUGIN_DIR . '/' . $plugin . '/blocks.json';
-        $block_settings_raw = file_exists($block_settings_file_path) ? file_get_contents($block_settings_file_path) : null;
-        $block_settings = !empty($block_settings_raw) ? json_decode($block_settings_raw, true) : [];
+      if (function_exists('is_plugin_active')) {
+        if (is_plugin_active($plugin . '/' . $plugin . '.php')) {
+          $block_settings_file_path = WP_PLUGIN_DIR . '/' . $plugin . '/blocks.json';
+          $block_settings_raw = file_exists($block_settings_file_path) ? file_get_contents($block_settings_file_path) : null;
+          $block_settings = !empty($block_settings_raw) ? json_decode($block_settings_raw, true) : [];
 
-        if (!empty($block_settings)) {
-          $output[$plugin] = $block_settings;
+          if (!empty($block_settings)) {
+            $output[$plugin] = $block_settings;
+          }
         }
       }
     }
