@@ -5,7 +5,8 @@ import {
   addClass,
   removeClass,
   closest,
-  clickOrTouchStart
+  clickOrTouchStart,
+  getHeight
 } from 'lib/dom'
 import { map } from 'lib/utils'
 
@@ -26,9 +27,14 @@ export default el => {
     const contentInner = select('.js-content-inner', rowEl)
     const height = contentInner ? contentInner.scrollHeight : 0
 
-    if (contentEl && height > 0) {
-      contentEl.setAttribute('style', `height: ${height}px;`)
-      addClass(VISIBLE_CLASS, rowEl)
+    if (getHeight(contentEl) > 0) {
+      contentEl.setAttribute('style', `0`)
+      removeClass(VISIBLE_CLASS, rowEl)
+    } else {
+      if (contentEl && height > 0) {
+        contentEl.setAttribute('style', `height: ${height}px;`)
+        addClass(VISIBLE_CLASS, rowEl)
+      }
     }
   }
 
