@@ -90,18 +90,18 @@
 
 .testimonials__info {
   margin: 0.5em 0;
-  color: var(--black);
   font-weight: var(--font-bold);
 
   & p {
     color: var(--primary);
+    font-weight: var(--font-bold);
   }
 
   & cite {
     display: block;
     font-weight: var(--font-bold);
+    font-style: normal;
     color: var(--dark);
-    font-style: var(--font-normal);
   }
 }
 
