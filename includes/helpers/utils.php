@@ -408,7 +408,7 @@ if (!function_exists('codetot_build_two_up_content')) {
     $default_column_class = 'grid__col two-up-content__col';
 
     if (!empty($args) && !empty($args['grid_class'])) {
-      $grid_class .=  '' . $args['grid_class'];
+      $grid_class .=  ' ' . $args['grid_class'];
     }
 
     if (!empty($args) && !empty($args['left_content'])) {
