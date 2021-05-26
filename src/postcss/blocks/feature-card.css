@@ -28,12 +28,9 @@
   }
 }
 
-.feature-card__description {
-  margin-bottom: 1em;
-}
-
 .feature-card__footer {
   margin: auto auto 0;
+  padding-top: 1em;
 }
 
 .feature-card__image {
