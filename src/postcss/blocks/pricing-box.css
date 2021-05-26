@@ -68,7 +68,6 @@
     background: var(--primary);
     color: var(--white);
     font-size: 2.3rem;
-    font-weight: 500;
     padding-bottom: 0.5em;
   }
 
@@ -116,7 +115,6 @@
 
   & .pricing-box__pricing {
     font-size: 2.3rem;
-    font-weight: 500;
     padding: 0.75em 0;
   }
 
@@ -144,12 +142,10 @@
 
   & .pricing-box__title {
     color: var(--primary);
-    font-weight: 500;
   }
 
   & .pricing-box__pricing {
     font-size: 2.3rem;
-    font-weight: 500;
     padding-bottom: 0.75em;
     color: var(--primary);
     border-bottom: 2px solid var(--primary);
@@ -184,13 +180,8 @@
   background: var(--primary);
   color: var(--white);
 
-  & .pricing-box__title {
-    font-weight: 500;
-  }
-
   & .pricing-box__pricing {
     font-size: 2.3rem;
-    font-weight: 500;
     padding-bottom: 0.75em;
     border-bottom: 2px solid var(--white);
   }

@@ -201,7 +201,6 @@
 .store-locator__info {
   display: flex;
   flex-direction: column;
-  font-weight: 500;
   justify-content: center;
 
   & * {
