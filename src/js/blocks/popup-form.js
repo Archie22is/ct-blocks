@@ -37,6 +37,10 @@ export default el => {
 
             setStyle('overflow-y', 'hidden', body)
 
+            map(buttonEl => {
+              setStyle('pointer-events', 'none', buttonEl)
+            }, buttonEls)
+
             const overlayEl = select('.js-close-form', body)
 
             if (overlayEl) {
@@ -46,6 +50,10 @@ export default el => {
                   remove(e.target)
                   removeClass('is-show', el)
                   setStyle('overflow-y', 'auto', body)
+
+                  map(buttonEl => {
+                    setStyle('pointer-events', 'unset', buttonEl)
+                  }, buttonEls)
                 },
                 overlayEl
               )
