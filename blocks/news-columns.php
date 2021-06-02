@@ -11,7 +11,6 @@ $_class .= !empty($columns) ? ' has-'. $columns .'-columns' : '';
 
 $args = array(
   'post_type' => 'post',
-  'posts_per_page' => !empty($number_posts) ? $number_posts : '3',
   'tax_query' => array(
     array(
       'taxonomy' => 'category',
