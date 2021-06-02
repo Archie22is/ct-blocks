@@ -1,7 +1,3 @@
-.news-columns {
-  padding: 3em 0;
-}
-
 .news-columns--3-columns {
   & .news-columns__col {
     @mixin column-item 1, 1em;
@@ -65,8 +61,6 @@
 }
 
 .news-columns--style-1 {
-  background-color: #f2f4f6;
-
   & .news-columns__inner {
     margin-top: 2em;
   }

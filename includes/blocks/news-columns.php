@@ -47,11 +47,13 @@ class Codetot_Block_News_Columns extends Codetot_Base_Block implements Codetot_B
     $this->fields = [
       'class',
       'block_preset',
+      'columns',
+      'header_alignment',
+      'background_type',
       'label',
       'title',
-      'category',
-      'number_posts',
-      'number_categories'
+      'categories',
+      'number_posts'
     ];
 
     $this->svg_icon = '<svg id="news_columns" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 6h-6v-6h6v6zm9-6h-6v6h6v-6zm9 0h-6v6h6v-6zm-18 9h-6v6h6v-6zm9 0h-6v6h6v-6zm9 0h-6v6h6v-6zm-18 9h-6v6h6v-6zm9 0h-6v6h6v-6zm9 0h-6v6h6v-6z"/></svg>';
