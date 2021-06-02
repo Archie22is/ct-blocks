@@ -77,9 +77,3 @@
     justify-content: center;
   }
 }
-
-.product-tabs__col {
-  & .product-card {
-    height: 100%;
-  }
-}

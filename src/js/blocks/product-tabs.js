@@ -10,14 +10,6 @@ export default el => {
   const mobileSelect = select('.js-mobile', el)
   const triggerEls = el ? selectAll('[role="tab"]', el) : []
 
-  on(
-    'update',
-    e => {
-      console.log(e)
-    },
-    el
-  )
-
   const syncChanges = () => {
     if (tabState) {
       on(
