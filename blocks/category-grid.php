@@ -15,8 +15,8 @@ if (!empty($select_categories)) {
 $product_categories = get_terms('product_cat', $args);
 
 $header = codetot_build_content_block(array(
-  'title' => $title,
-  'description' => $sub_title
+  'title' => !empty($title) ? $title : '',
+  'description' => !empty($sub_title) ? $sub_title : ''
 ), 'category-grid');
 
 $_columns = array_map(function($product_category) {
