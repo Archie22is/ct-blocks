@@ -276,6 +276,8 @@ if (!function_exists('codetot_build_content_block')) {
     $_class .= !empty($args['alignment']) ? ' ' . $prefix_class . '--' . $args['alignment'] . ' section-header--' . $args['alignment'] : '';
     $_class .= !empty($args['class']) ? ' ' . $args['class'] : '';
 
+    if (!empty($output_elements)) :
+
     ob_start();
     printf('<%s class="%s">', $block_tag, $_class);
     if (isset($args['enable_container'])) : printf('<div class="%s %s__container">', codetot_site_container(), $prefix_class);
@@ -284,6 +286,7 @@ if (!function_exists('codetot_build_content_block')) {
     if (!empty($args['before_content'])) :
       echo $args['before_content'];
     endif;
+
     echo implode('', $output_elements);
 
     if (!empty($args['after_content'])) :
@@ -294,6 +297,12 @@ if (!function_exists('codetot_build_content_block')) {
     endif;
     printf('</%s>', $block_tag);
     return ob_get_clean();
+
+    else :
+
+      return '';
+
+    endif;
   }
 }
 

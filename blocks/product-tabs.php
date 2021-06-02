@@ -18,7 +18,7 @@ ob_start(); ?>
     <ul class="f product-tabs__nav" aria-controls="product-tabs__tab" role="tablist">
       <?php $i=0; foreach ($categories as $index => $category) :
         $i++; ?>
-        <li class="product-tabs__item" role="tab" aria-controls="<?php echo $index; ?>" aria-selected="<?php if ($index === 0) : echo 'true'; else: echo 'false'; endif; ?>"><?php echo esc_html( $category->name ); ?></li>
+        <li class="product-tabs__item" role="tab" aria-controls="<?php echo $index; ?>" aria-selected="<?php echo var_export($index === 0, true); ?>"><?php echo esc_html( $category->name ); ?></li>
       <?php endforeach; ?>
     </ul>
     <div class="select-wrapper product-tabs__select-wrapper">
@@ -73,31 +73,40 @@ foreach ($categories as $index => $category) :
       );
     }
   endif;
+
+  $query = new WP_Query($product_args);
  ?>
-  <div class="product-tabs__tab-content" id="<?php echo $index; ?>" role="tabpanel" aria-expanded="<?php if ($index === 0) : echo 'true'; else: echo 'false'; endif; ?>">
-    <?php
-      $query = new WP_Query($product_args);
-      if ( $query->have_posts() ) : ?>
-      <?php if ($index > 0) : echo '<noscript>'; endif;?>
-      <div class="product-tabs__inner">
-        <div class="products grid product-tabs__grid">
+  <div class="product-tabs__tab-content" id="<?php echo $index; ?>" role="tabpanel" aria-expanded="<?php echo var_export($index === 0, true); ?>">
+    <noscript>
+      <?php if ( $query->have_posts() ) : ?>
+        <div class="product-tabs__inner">
           <?php
-          while ($query->have_posts())  : $query->the_post();
-            echo '<div class="grid__col default-section__col product-tabs__col">';
-              the_block('product-card');
-            echo '</div>';
-          endwhile; wp_reset_postdata();
+          if (!empty($columns)) {
+            echo '<ul class ="products columns-' . esc_attr($columns) . '">';
+          } else {
+            woocommerce_product_loop_start();
+          }
+
+          while ( $query->have_posts() ) :
+            $query->the_post();
+
+            wc_get_template_part( 'content', 'product' );
+          endwhile;
+          wp_reset_postdata();
+
+          if (!empty($columns)) {
+            echo '</ul>';
+          } else {
+            woocommerce_product_loop_end();
+          }
           ?>
         </div>
-      </div>
-      <?php if ($index > 0) : echo '</noscript>'; endif;?>
-    <?php
-    else :
-      the_block('message-block', array(
-        'content' => esc_html__('There is no product to display.', 'ct-blocks')
-      ));
-    endif;
-    ?>
+      <?php else :
+        the_block('message-block', array(
+          'content' => esc_html__('There is no product to display.', 'ct-blocks')
+        ));
+      endif; ?>
+    </noscript>
   </div>
   <?php
 endforeach;
