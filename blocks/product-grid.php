@@ -1,47 +1,51 @@
 <?php
-$container_class = codetot_site_container();
 
-if (!empty($query) || !empty($list)) : ?>
-  <section class="product-grid<?php if (!empty($class)) : echo ' ' . $class; endif; ?>">
-    <div class="<?php echo $container_class; ?> product-grid__container">
-      <?php if (!empty($title)) : ?>
-        <div class="product-grid__header">
-          <h2 class="h2 product-grid__title"><?php echo esc_html($title); ?></h2>
-        </div>
-      <?php endif; ?>
-      <div class="product-grid__main">
-        <?php
-        if(!empty($columns)) {
-          echo '<ul class ="products columns-'.$columns.'">';
-        }
-        else {
-          woocommerce_product_loop_start();
-        }
+$_class = 'product-grid';
+$_class = !empty($class) ? ' ' . $class : '';
 
+$header = codetot_build_content_block(array(
+  'title' => !empty($title) ? $title : ''
+), 'product-grid');
 
-        if ($query instanceof WP_Query && $query->have_posts()) {
-          while ( $query->have_posts() ) :
-            $query->the_post();
+ob_start();
+if(!empty($columns)) {
+  echo '<ul class ="products columns-'. esc_attr($columns) . '">';
+} else {
+  woocommerce_product_loop_start();
+}
 
-            wc_get_template_part( 'content', 'product' );
-          endwhile;
-        }
+if ($query instanceof WP_Query && $query->have_posts()) {
+  while ( $query->have_posts() ) :
+    $query->the_post();
 
-        if (!empty($list) && is_array($list)) {
-          foreach ( $list as $item ) :
+    wc_get_template_part( 'content', 'product' );
+  endwhile;
+}
 
-            $post_object = get_post( $item->get_id() );
-            setup_postdata( $GLOBALS['post'] =& $post_object );
-            wc_get_template_part( 'content', 'product' );
+if (!empty($list) && is_array($list)) {
+  foreach ( $list as $item ) :
 
-          endforeach;
-        }
+    $post_object = get_post( $item->get_id() );
+    setup_postdata( $GLOBALS['post'] =& $post_object );
+    wc_get_template_part( 'content', 'product' );
 
-        wp_reset_postdata();
+  endforeach;
+}
 
-        woocommerce_product_loop_end();
-        ?>
-      </div>
-    </div>
-  </section>
-<?php endif; ?>
+wp_reset_postdata();
+
+if(!empty($columns)) {
+  echo '<ul class ="products columns-'.$columns.'">';
+} else {
+  woocommerce_product_loop_end();
+}
+
+$content = ob_get_clean();
+
+if (!empty($query) || !empty($list)) :
+  the_block('default-section', array(
+    'class' => $_class,
+    'header' => $header,
+    'content' => $content
+  ));
+endif;
