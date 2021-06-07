@@ -1,4 +1,9 @@
 .store-locator {
+  &.is-loading {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
   & .hide {
     display: none !important;
   }
@@ -73,11 +78,6 @@
       }
     }
   }
-}
-
-.is-loading {
-  opacity: 0.3;
-  pointer-events: none;
 }
 
 .store-locator-form {
