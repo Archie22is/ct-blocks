@@ -49,7 +49,6 @@ if ($layout === 'slider') :
   $slider_settings = array(
     'contain' => true,
     'draggable' => true,
-    'wrapAround' => true,
     'pauseAutoPlayOnHover' => true,
     'pageDots' => !empty($enable_page_dots),
     'prevNextButtons' => !empty($enable_prev_next_buttons),
