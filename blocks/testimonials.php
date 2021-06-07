@@ -18,14 +18,14 @@ ob_start();
 if (!empty($columns) && $block_preset === '4') :
   $carousel_settings_nav = array(
     'contain' => true,
-    'wrapAround' => true,
+    'wrapAround' => false,
     'pageDots' => false,
     'prevNextButtons' => false,
     'draggable' => false,
   );
   $carousel_settings = array(
     'contain' => true,
-    'wrapAround' => true,
+    'wrapAround' => false,
     'pageDots' =>  false,
     'prevNextButtons' => true,
     'cellAlign' => 'center',
