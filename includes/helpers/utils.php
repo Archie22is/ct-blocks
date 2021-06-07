@@ -278,25 +278,25 @@ if (!function_exists('codetot_build_content_block')) {
 
     if (!empty($output_elements)) :
 
-    ob_start();
-    printf('<%s class="%s">', $block_tag, $_class);
-    if (isset($args['enable_container'])) : printf('<div class="%s %s__container">', codetot_site_container(), $prefix_class);
-    endif;
+      ob_start();
+      printf('<%s class="%s">', $block_tag, $_class);
+      if (isset($args['enable_container'])) : printf('<div class="%s %s__container">', codetot_site_container(), $prefix_class);
+      endif;
 
-    if (!empty($args['before_content'])) :
-      echo $args['before_content'];
-    endif;
+      if (!empty($args['before_content'])) :
+        echo $args['before_content'];
+      endif;
 
-    echo implode('', $output_elements);
+      echo implode('', $output_elements);
 
-    if (!empty($args['after_content'])) :
-      echo $args['after_content'];
-    endif;
-    if (isset($args['enable_container'])) :
-      printf('</div>');
-    endif;
-    printf('</%s>', $block_tag);
-    return ob_get_clean();
+      if (!empty($args['after_content'])) :
+        echo $args['after_content'];
+      endif;
+      if (isset($args['enable_container'])) :
+        printf('</div>');
+      endif;
+      printf('</%s>', $block_tag);
+      return ob_get_clean();
 
     else :
 
@@ -382,12 +382,17 @@ if (!function_exists('codetot_build_slider')) {
       $slider_attributes = $args['slider_attributes'];
     }
 
-    ob_start(); ?>
+    ob_start();
 
-    <div class="<?php echo $prefix_class; ?>__inner<?php if (!empty($slider_class)) : echo ' ' . $slider_class;
-                                                    endif; ?>" <?php if (!empty($slider_attributes)) : echo ' ' . $slider_attributes;
-                                                                                                                            endif; ?>>
-      <div class="<?php echo $prefix_class; ?>__slider js-slider" <?php if (!empty($slider_settings)) : ?> data-carousel='<?= json_encode($slider_settings); ?>' <?php endif; ?>>
+    $block_class = $prefix_class . '__inner';
+    $block_class .= !empty($slider_class) ? ' ' . $slider_class : '';
+
+    $block_attributes = '';
+    $block_attributes .= !empty($slider_attributes) ? ' ' . $slider_attributes : '';
+    ?>
+
+    <div class="<?php echo $block_class; ?>__inner" <?php echo $block_attributes; ?>>
+      <div class="<?php echo $prefix_class; ?>__slider js-slider" <?php if (!empty($slider_settings)) : ?> data-carousel='<?php echo json_encode($slider_settings); ?>' <?php endif; ?>>
         <?php foreach ($columns as $column) : ?>
           <div class="<?php echo $prefix_class; ?>__slider-item js-slider-item">
             <?php echo $column; ?>
