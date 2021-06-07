@@ -493,3 +493,35 @@ if (!function_exists('codetot_get_image_reponsive_html')) {
     return ob_get_clean();
   }
 }
+
+if ( !function_exists('codetot_get_store_locator_filter_label')) {
+  function codetot_get_store_locator_filter_label($type) {
+    $placeholder = '';
+
+    if (empty($type)) {
+      return $placeholder;
+    }
+
+    $placeholder = '';
+
+    switch ($type) :
+      case 'country':
+        $placeholder = esc_html__('Choose Country', 'ct-blocks');
+        break;
+
+      case 'province':
+        $placeholder = esc_html__('Choose Province', 'ct-blocks');
+        break;
+
+      case 'district':
+        $placeholder = esc_html__('Choose District', 'ct-blocks');
+        break;
+
+      default:
+        $placeholder = esc_html__('Choose Location', 'ct-blocks');
+
+    endswitch;
+
+    return $placeholder;
+  }
+}
