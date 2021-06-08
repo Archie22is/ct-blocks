@@ -9,7 +9,7 @@
  * Plugin Name:       CT Blocks
  * Plugin URI:        https://codetot.com
  * Description:       Brings 20+ blocks to your custom page with modern design and flexible.
- * Version:           4.1.22
+ * Version:           4.1.23
  * Author:            CODE TOT JSC
  * Author URI:        https://codetot.com
  * License:           GPL-2.0+
@@ -23,7 +23,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'CODETOT_BLOCKS_VERSION', '4.1.22' );
+define( 'CODETOT_BLOCKS_VERSION', '4.1.23' );
 define( 'CODETOT_BLOCKS_PLUGIN_SLUG', 'ct-blocks' );
 define( 'CODETOT_BLOCKS_PLUGIN_NAME', esc_html_x('CT Blocks', 'plugin name', 'ct-blocks'));
 define( 'CODETOT_BLOCKS_DIR', plugin_dir_path(__FILE__));
