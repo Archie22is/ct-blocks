@@ -1,7 +1,5 @@
 .cta-form {
-  &.default-section {
-    padding: 2em 0;
-  }
+  position: relative;
 
   & .sidebar-section__inner {
     width: 100%;
@@ -27,6 +25,12 @@
     display: flex;
     align-items: center;
   }
+
+  & .default-section__header,
+  & .default-section__main {
+    position: relative;
+    z-index: 3;
+  }
 }
 
 .cta-form--form-right {
@@ -51,4 +55,20 @@
     text-align: center;
     margin: auto;
   }
+}
+
+.cta-form__background {
+  @mixin abs-full;
+
+  z-index: 1;
+}
+
+.cta-form__overlay {
+  @mixin abs-full;
+
+  z-index: 2;
+}
+
+.cta-form--dark {
+  color: var(--white);
 }

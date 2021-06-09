@@ -7,9 +7,11 @@ $_class .= !empty($block_preset) ? ' ' . $preset_class . '--' . esc_attr($block_
 $_class .= !empty($form_alignment) ? ' ' . $preset_class . '--form-' . esc_attr($form_alignment) : '';
 $_class .= !empty($header_alignment) ? ' is-header-'.  $header_alignment : '';
 $_class .= !empty($background_contract) ? ' '. $preset_class .'--' .esc_attr($background_contract) : '';
-$_class .= !empty($background_color) ? ' section-bg bg-' . esc_attr($background_color) : ' section';
+$_class .= (!empty($background_type) && (!empty($background_type) !== 'white')) ? ' bg-' . esc_attr($background_type) : '';
+$_class .= ((!empty($background_type) !== 'white') || !empty($background_image)) ? ' section-bg' : ' section';
+$_class .= !empty($background_image) ? ' rel bg-image' : '';
 $_class .= !empty($overlay) ? ' ' . $preset_class . '--has-overlay' : '';
-$_class .= !empty($background_types) ? ' cta-form--' . esc_attr($background_types) : '';
+
 
 if (!empty($title) || !empty($content)) {
   $header = codetot_build_content_block(array(
@@ -17,6 +19,18 @@ if (!empty($title) || !empty($content)) {
     'description' => $content
   ), $preset_class);
 }
+ob_start();
+if (!empty($background_image)) {
+the_block('image', array(
+  'class' => 'image--cover cta-form__background',
+  'image' => $background_image
+));
+}
+
+if (!empty($overlay)) { ?>
+  <div class="cta-form__overlay" style="background-color: rgba(0, 0, 0, <?php echo esc_attr($overlay); ?>);"></div>
+<?php }
+$background = ob_get_clean();
 
 ob_start();
 
@@ -41,12 +55,14 @@ if (!empty($select_form)) :
   if (!empty($image)):
     the_block('sidebar-section', array(
       'class' => $_class,
+      'before_header' => $background,
       'sidebar' => !empty($sidebar) ? $sidebar : false,
       'content' => $header . $form
     ));
   else :
   the_block('default-section', array(
     'class' => $_class,
+    'before_header' => $background,
     'header' => !empty($header) ? $header : false,
     'content' => $form
   ));
