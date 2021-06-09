@@ -1,14 +1,24 @@
-import { select, selectAll, on, trigger } from 'lib/dom'
+import { select, selectAll, on, trigger, hasClass } from 'lib/dom'
 import Tabs from 'lib/tabs'
+import carousel from 'lib/carousel'
 
 export default el => {
-  // eslint-disable-next-line no-unused-vars
-  const tabState = new Tabs(el, {
-    lazyload: true
-  })
-
   const mobileSelect = select('.js-mobile', el)
   const triggerEls = el ? selectAll('[role="tab"]', el) : []
+
+  const tabState = new Tabs(el, {
+    lazyload: true,
+    lazyloadCallback: (navItem, panelItem) => {
+      const sliderEl = select('.js-slider', panelItem)
+
+      // Check if slider exists
+      if (hasClass('flickity-enabled', sliderEl)) {
+        return
+      }
+
+      return carousel(sliderEl)
+    }
+  })
 
   const syncChanges = () => {
     if (tabState) {

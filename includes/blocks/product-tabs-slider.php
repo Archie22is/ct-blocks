@@ -44,7 +44,7 @@ class Codetot_Block_Product_Tabs_Slider extends Codetot_Base_Block implements Co
     $this->block_name = 'product-tabs-slider';
     $this->block_slug = 'product_tabs_slider';
     $this->block_title = __('Product Tabs Slider', 'ct-blocks');
-    $this->fields = ['class', 'header_alignment', 'columns','number', 'title', 'label', 'description','product_tabs'];
+    $this->fields = ['class', 'header_alignment', 'columns','number','background_type', 'title', 'label', 'description','product_tabs'];
 
     parent::__construct();
   }

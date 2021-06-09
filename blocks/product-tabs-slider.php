@@ -1,18 +1,18 @@
 <?php
 $container = codetot_site_container();
 
-
-$_class = 'product-tabs-slider';
-$_class .= !empty($class) ? ' ' . $class : '';
-$_class .= !empty($header_alignment) ? ' is-header-' . $header_alignment : '';
-$_class .= !empty($footer_alignment) ? ' is-footer-' . $footer_alignment : '';
-$_class .= !empty($header_alignment) ? ' product-tabs-slider--nav-' . $header_alignment : '';
-$_class .= !empty($columns) ? ' has-' . $columns . '-columns' : '';
-
 $carousel_settings = array(
   'prevNextButtons' => true,
   'pageDots' => false,
+  'groupCells' => true
 );
+$_class = 'product-tabs-slider';
+$_class .= !empty($class) ? ' ' . $class : '';
+$_class .= !empty($header_alignment) ? ' is-header-' . $header_alignment : '';
+$_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
+$_class .= !empty($header_alignment) ? ' product-tabs-slider--nav-' . $header_alignment : '';
+$_class .= !empty($columns) ? ' has-' . $columns . '-columns' : '';
+
 
 // Generate header
 ob_start(); ?>
@@ -88,34 +88,26 @@ foreach ($product_tabs as $index => $item) :
   $query = new WP_Query($product_args);
  ?>
   <div class="product-tabs__tab-content" id="<?php echo $index; ?>" role="tabpanel" aria-expanded="<?php echo var_export($index === 0, true); ?>">
+    <noscript>
       <?php if ( $query->have_posts() ) : ?>
-        <div class="product-tabs__inner">
-          <?php
-          if (!empty($columns)) {
-            echo '<ul class ="products columns-' . esc_attr($columns) . '">';
-          } else {
-            woocommerce_product_loop_start();
-          }
-
-          while ( $query->have_posts() ) :
-            $query->the_post();
-
-            wc_get_template_part( 'content', 'product' );
-          endwhile;
-          wp_reset_postdata();
-
-          if (!empty($columns)) {
-            echo '</ul>';
-          } else {
-            woocommerce_product_loop_end();
-          }
-          ?>
+        <div class="product-tabs-slider__inner">
+          <div class="product-tabs-slider__slider js-slider" data-carousel='<?php echo json_encode($carousel_settings); ?>'>
+            <?php
+            while ( $query->have_posts() ) :
+              $query->the_post();
+              the_block('product-card');
+            endwhile;
+            wp_reset_postdata();
+              echo '</div>';
+            ?>
+          </div>
         </div>
       <?php else :
         the_block('message-block', array(
           'content' => esc_html__('There is no product to display.', 'ct-blocks')
         ));
       endif; ?>
+    </noscript>
   </div>
   <?php
 endforeach;
