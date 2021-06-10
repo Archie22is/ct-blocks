@@ -74,17 +74,23 @@
   }
 
   & .news-columns__post {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 1em;
     background-color: white;
+    list-style: none;
+    padding: 1em;
+
+    & li {
+      border-bottom: 1px solid var(--light);
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
   }
 
   & .news-columns__link {
     display: block;
-    margin-bottom: 0.5em;
-    border-bottom: 1px solid #ddd;
     color: black;
+    padding: 0.5em 0;
 
     &:last-child {
       border-bottom: 0;
