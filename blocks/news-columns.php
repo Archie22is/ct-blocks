@@ -54,12 +54,12 @@ if($query->have_posts()) {
       <div class="grid__col default-section__col news-columns__col">
           <h3 class="news-columns__post-title"><?php echo get_the_category_by_ID($category); ?></h3>
           <?php if (!empty($post_query)) : ?>
-            <div class="news-columns__post">
+            <ul class="news-columns__post">
               <?php while ($post_query->have_posts()) : $post_query->the_post(); ?>
-                <a class="news-columns__link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                <li><a class="news-columns__link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
               <?php endwhile;
               wp_reset_postdata(); ?>
-            </div>
+            </ul>
           <?php endif; ?>
       </div>
     <?php endif;

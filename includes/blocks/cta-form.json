@@ -6,7 +6,7 @@
     "display": "block",
     "sub_fields": [
       {
-        "key": "field_5fd738691907c",
+        "key": "field_ctaform5fd738691907c",
         "label": "Class",
         "name": "class",
         "type": "text",
@@ -14,7 +14,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "33.33333",
+          "width": "25",
           "class": "",
           "id": ""
         },
@@ -25,7 +25,7 @@
         "maxlength": ""
       },
       {
-        "key": "field_5fc9e677498a3",
+        "key": "field_ctaform5fc9e677498a3",
         "label": "Presets",
         "name": "block_preset",
         "type": "select",
@@ -48,7 +48,29 @@
         "placeholder": ""
       },
       {
-        "key": "field_5fd2d774994a9",
+        "key": "field_ctaform5fkg325as70a9c8",
+        "label": "Background Type",
+        "name": "background_type",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_ctaform5fd2d774994a9",
         "label": "Background Contract",
         "name": "background_contract",
         "type": "radio",
@@ -69,7 +91,7 @@
         "save_other_choice": 0
       },
       {
-        "key": "field_600f9c3394966",
+        "key": "field_ctaform600f9c3394966",
         "label": "Header Alignment",
         "name": "header_alignment",
         "type": "select",
@@ -92,7 +114,7 @@
         "layout": "horizontal"
       },
       {
-        "key": "field_5fd737d71907a",
+        "key": "field_ctaform5fd737d71907a",
         "label": "Overlay",
         "name": "overlay",
         "type": "range",
@@ -112,7 +134,7 @@
         "append": ""
       },
       {
-        "key": "field_5fd7247fac1b2",
+        "key": "field_ctaform5fd7247fac1b2",
         "label": "Select Form",
         "name": "select_form",
         "type": "select",
@@ -128,7 +150,7 @@
         "allow_multiple": 0
       },
       {
-        "key": "field_5fd72453ac1b0",
+        "key": "field_ctaform5fd72453ac1b0",
         "label": "Title",
         "name": "title",
         "type": "text",
@@ -147,7 +169,7 @@
         "maxlength": ""
       },
       {
-        "key": "field_5fd7246cac1b1",
+        "key": "field_ctaform5fd7246cac1b1",
         "label": "Description",
         "name": "content",
         "type": "wysiwyg",
@@ -166,7 +188,7 @@
         "new_lines": ""
       },
       {
-        "key": "field_5fd726df7addf",
+        "key": "field_ctaform5fd726df7addf",
         "label": "Image",
         "name": "image",
         "type": "image",
@@ -190,7 +212,7 @@
         "mime_types": ""
       },
       {
-        "key": "field_600f9c3334366",
+        "key": "field_ctaform600f9c3334366",
         "label": "Form Alignment",
         "name": "form_alignment",
         "type": "select",
@@ -213,7 +235,7 @@
         "layout": "horizontal"
       },
       {
-        "key": "field_5fd72c0a3198b",
+        "key": "field_ctaform5fd72c0a3198b",
         "label": "Background Image",
         "name": "background_image",
         "type": "image",
