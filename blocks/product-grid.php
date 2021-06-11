@@ -45,6 +45,7 @@ $content = ob_get_clean();
 if (!empty($query) || !empty($list)) :
   the_block('default-section', array(
     'class' => $_class,
+    'lazyload' => true,
     'header' => $header,
     'content' => $content
   ));
