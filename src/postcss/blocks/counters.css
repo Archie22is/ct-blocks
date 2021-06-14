@@ -34,6 +34,18 @@
 .counters__count {
   margin-bottom: 0.5em;
   line-height: 1;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+
+  & .counters__count-number {
+    font-size: 3rem;
+  }
+
+  & .counters__unit {
+    margin-left: 0.25em;
+    font-size: 1.5rem;
+  }
 }
 
 .counters__col {
@@ -66,28 +78,11 @@
   & .counters__content {
     padding-left: 1em;
   }
-
-  & .counters__count {
-    display: flex;
-    align-items: center;
-  }
 }
 
 .counters__col--layout-column {
   & .counters__count {
     justify-content: center;
-    display: flex;
-    align-items: center;
-    font-weight: 700;
-  }
-
-  & .counters__count-number {
-    font-size: 3rem;
-  }
-
-  & .counters__unit {
-    margin-left: 0.25em;
-    font-size: 1.5rem;
   }
 }
 
