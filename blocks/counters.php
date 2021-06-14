@@ -13,13 +13,13 @@
  * - background_type
  */
 $_class = 'counters';
+$_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 $_class .= !empty($columns) ? ' has-' . $columns . '-columns' : '';
 $_class .= !empty($header_alignment) ? ' is-header-'.  $header_alignment : ' is-header-left';
 
 // Background Type
 $_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
-$_class .= !empty($class) ? ' ' . esc_attr($class) : '';
-
+$_class .= !empty($background_contract) ? ' is-' . $background_contract . '-contract' : '';
 $_card_class = !empty($layout_items) ? ' counters__col--layout-'. $layout_items : ' counters__col--layout-column';
 $_card_class .= !empty($content_alignment) ? ' is-content-alignment-'.  $content_alignment : '';
 
