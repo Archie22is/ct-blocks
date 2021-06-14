@@ -34,6 +34,18 @@
 .counters__count {
   margin-bottom: 0.5em;
   line-height: 1;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+
+  & .counters__count-number {
+    font-size: 3rem;
+  }
+
+  & .counters__unit {
+    margin-left: 0.25em;
+    font-size: 1.5rem;
+  }
 }
 
 .counters__col {
@@ -66,14 +78,15 @@
   & .counters__content {
     padding-left: 1em;
   }
+}
 
+.counters__col--layout-column {
   & .counters__count {
-    display: flex;
-    align-items: center;
+    justify-content: center;
   }
 }
 
-.counters.is-dark-contract {
+.is-dark-contract {
   & .counters__count-number,
   & .counters__unit,
   & .counters__title,
@@ -81,6 +94,12 @@
   & .counters__item-title,
   & .counters__item-description {
     color: var(--white);
+  }
+}
+
+.is-light-contract {
+  & .counters__count {
+    color: var(--primary);
   }
 }
 
