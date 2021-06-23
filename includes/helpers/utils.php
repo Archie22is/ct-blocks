@@ -256,7 +256,7 @@ if (!function_exists('codetot_build_content_block')) {
     $_class = (!empty($args['default_class'])) ? $args['default_class'] : $prefix_class . '__header';
 
     if (!empty($args['label'])) {
-      $output_elements['label'] = sprintf('<p class="%1$s__label">%2$s</p>', $prefix_class, $args['label']);
+      $output_elements['label'] = sprintf('<p class="%1$s__label%2$s">%3$s</p>', $prefix_class, (!empty($args['label_class']) ? ' ' . esc_attr($args['label_class']) : ''),$args['label']);
     }
 
     if (!empty($args['title'])) {
