@@ -4,7 +4,6 @@
   flex-direction: column;
   flex: 1 1 0;
   transition: 0.4s;
-  background-color: var(--white);
 
   & > * {
     width: 100%;
@@ -19,6 +18,7 @@
 
 .feature-card--boxed {
   padding: 1em;
+  background-color: var(--white);
   border: 1px solid var(--border);
   box-shadow: 0 12px 40px 0 rgba(55, 126, 249, 0.18);
   border-radius: var(--card-border-radius);
