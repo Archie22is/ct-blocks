@@ -79,6 +79,10 @@
   width: 100%;
 }
 
+.feature-card__title-link {
+  display: flex;
+}
+
 .feature-card--center {
   text-align: center;
 }
