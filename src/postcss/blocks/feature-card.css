@@ -17,14 +17,13 @@
 }
 
 .feature-card--boxed {
-  padding: 1em;
+  padding: 20px;
   background-color: var(--white);
   border: 1px solid var(--border);
-  box-shadow: 0 12px 40px 0 rgba(55, 126, 249, 0.18);
   border-radius: var(--card-border-radius);
 
   @media (--m) {
-    padding: 1.5em;
+    padding: 30px;
   }
 }
 
