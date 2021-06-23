@@ -104,3 +104,10 @@
     margin-right: 0;
   }
 }
+
+.feature-card--dark-contract {
+  & .feature-card__title,
+  & .feature-card__description {
+    color: var(--white);
+  }
+}

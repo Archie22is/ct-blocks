@@ -1,6 +1,6 @@
 <?php if (!empty($title) || !empty($description)) :
   $default_args = array(
-    'title' => $title,
+    'title' => !empty($title) ? $title : '',
     'description' => !empty($description) ? $description : '',
     'title_tag' => 'h3',
     'block_tag' => 'div'
