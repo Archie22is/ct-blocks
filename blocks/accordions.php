@@ -15,10 +15,9 @@ $container = codetot_site_container();
 
 $_class = 'accordions has-1-column';
 $_class .= !empty($block_preset) ? ' accordions--style-' . esc_attr($block_preset) : '';
-$_class .= !empty($is_fullwidth) ? ' accordions--no-container' : '';
-$_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
 $_class .= !empty($header_alignment) ? ' is-header-'.  $header_alignment : '';
 $_class .= !empty($block_preset) ? ' accordions--preset-' . esc_attr($block_preset) : '';
+$_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 
 $header = codetot_build_content_block(array(
