@@ -6,6 +6,149 @@
     "display": "block",
     "sub_fields": [
       {
+        "key": "field_5fdac8e79d678",
+        "label": "Preview",
+        "name": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_5fdac8e79d679",
+        "label": "Preview Image",
+        "name": "",
+        "type": "message",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "message": "<div class=\"js-custom-preview-block\" data-block=\"contact-section\"></div>",
+        "new_lines": "wpautop",
+        "esc_html": 0
+      },
+      {
+        "key": "field_5fdac8e79d680",
+        "label": "Content",
+        "name": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_5fdac8f79d682",
+        "label": "Google Maps",
+        "name": "google_maps",
+        "type": "google_map",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "center_lat": "",
+        "center_lng": "",
+        "zoom": "",
+        "height": ""
+      },
+      {
+        "key": "field_5fdaca8e9d683",
+        "label": "Address",
+        "name": "address",
+        "type": "wysiwyg",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "tabs": "all",
+        "toolbar": "full",
+        "media_upload": 1,
+        "delay": 0
+      },
+      {
+        "key": "field_5fdaca999d684",
+        "label": "Contact Information",
+        "name": "contact_information",
+        "type": "wysiwyg",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "tabs": "all",
+        "toolbar": "full",
+        "media_upload": 1,
+        "delay": 0
+      },
+      {
+        "key": "field_5fdacaa39d685",
+        "label": "Form",
+        "name": "contact_form",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "ajax": 0,
+        "return_format": "value",
+        "placeholder": ""
+      },
+      {
+        "key": "field_60d300f93eaaf",
+        "label": "Settings",
+        "name": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
         "key": "field_5fdac8e79d681",
         "label": "Class",
         "name": "class",
@@ -109,84 +252,6 @@
         "ui": 0,
         "return_format": "value",
         "ajax": 0,
-        "placeholder": ""
-      },
-      {
-        "key": "field_5fdac8f79d682",
-        "label": "Google Maps",
-        "name": "google_maps",
-        "type": "google_map",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "",
-          "class": "",
-          "id": ""
-        },
-        "center_lat": "",
-        "center_lng": "",
-        "zoom": "",
-        "height": ""
-      },
-      {
-        "key": "field_5fdaca8e9d683",
-        "label": "Address",
-        "name": "address",
-        "type": "wysiwyg",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "50",
-          "class": "",
-          "id": ""
-        },
-        "default_value": "",
-        "tabs": "all",
-        "toolbar": "full",
-        "media_upload": 1,
-        "delay": 0
-      },
-      {
-        "key": "field_5fdaca999d684",
-        "label": "Contact Information",
-        "name": "contact_information",
-        "type": "wysiwyg",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "50",
-          "class": "",
-          "id": ""
-        },
-        "default_value": "",
-        "tabs": "all",
-        "toolbar": "full",
-        "media_upload": 1,
-        "delay": 0
-      },
-      {
-        "key": "field_5fdacaa39d685",
-        "label": "Form",
-        "name": "contact_form",
-        "type": "select",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "50",
-          "class": "",
-          "id": ""
-        },
-        "choices": {},
-        "default_value": false,
-        "allow_null": 0,
-        "multiple": 0,
-        "ui": 0,
-        "ajax": 0,
-        "return_format": "value",
         "placeholder": ""
       },
       {
