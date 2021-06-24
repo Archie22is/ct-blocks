@@ -24,7 +24,7 @@ const init = () => {
         const blockImageUrl = getBlockImageUrl(blockName)
 
         if (blockImageUrl) {
-          previewEl.innerHTML = `<img class="preview-image" src="${blockImageUrl}" width="400" height="150">`
+          previewEl.innerHTML = `<img class="preview-image" src="${blockImageUrl}" width="400" height="auto">`
         }
       }, previewEls)
     }
