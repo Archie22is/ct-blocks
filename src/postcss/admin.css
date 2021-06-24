@@ -38,6 +38,11 @@
   & .acf-fc-layout-order {
     display: none;
   }
+
+  & .preview-image {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 .acf-field {

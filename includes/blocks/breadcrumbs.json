@@ -6,6 +6,39 @@
     "display": "block",
     "sub_fields": [
       {
+        "key": "field_5fe00eac73612",
+        "label": "Preview",
+        "name": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_5fe00eac73613",
+        "label": "Preview Image",
+        "name": "",
+        "type": "message",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "message": "<div class=\"js-custom-preview-block\" data-block=\"breadcrumbs\"></div>",
+        "new_lines": "wpautop",
+        "esc_html": 0
+      },
+      {
         "key": "field_5fe00eac73614",
         "label": "",
         "name": "",

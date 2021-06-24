@@ -68,7 +68,7 @@ class Codetot_Block_Accordions extends Codetot_Base_Block implements Codetot_Bas
       <path d="M0 13h16v3h-16v-3z"></path>
     </svg>';
     $this->svg_icon = ob_get_clean();
-    $this->preview_image_url = CODETOT_BLOCKS_PLUGIN_URI . '/assets/img/accordions.jpg';
+    $this->preview_image_url = CODETOT_BLOCKS_PLUGIN_URI . '/assets/img/accordions.png';
 
     parent::__construct();
   }

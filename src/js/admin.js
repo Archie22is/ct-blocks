@@ -1,5 +1,6 @@
 /* global CODETOT_BLOCKS_IMAGES, jQuery */
-import { select } from 'lib/dom'
+import { select, selectAll, getData } from 'lib/dom'
+import { map } from 'lib/utils'
 
 const $ = jQuery
 
@@ -12,6 +13,22 @@ const init = () => {
   var $previewBlockEl = $('.js-preview-block')
   var $cloneEls = $('.acf-flexible-content:first > .clones')
   var $previewBlockItemEls = $(select('.js-preview-block-items'))
+
+  const updatePreviewImages = () => {
+    const previewEls = selectAll('.js-custom-preview-block')
+
+    if (previewEls.length) {
+      map(previewEl => {
+        let blockName = getData('block', previewEl)
+        blockName = blockName.replace('-', '_', blockName)
+        const blockImageUrl = getBlockImageUrl(blockName)
+
+        if (blockImageUrl) {
+          previewEl.innerHTML = `<img class="preview-image" src="${blockImageUrl}" width="400" height="auto">`
+        }
+      }, previewEls)
+    }
+  }
 
   const updateBlockSidebar = () => {
     var $blockListEl = $('.js-block-list')
@@ -28,7 +45,7 @@ const init = () => {
       $(this).prop('disabled', false)
     })
 
-    var $dataLayoutEls = $blockListEl.find('a')
+    const $dataLayoutEls = $blockListEl.find('a')
     $dataLayoutEls.each(function () {
       var $dataLayoutEl = $(this)
       var nameImage = $dataLayoutEl.data('layout')
@@ -87,6 +104,8 @@ const init = () => {
           })
           .find('[data-layout="' + layout + '"]')
           .trigger('click')
+
+        updatePreviewImages()
       })
 
       $dataLayoutEl.on('mouseleave', function (e) {
@@ -104,6 +123,7 @@ const init = () => {
     blockListEl.innerHTML = blockListHtml.innerHTML
 
     updateBlockSidebar()
+    updatePreviewImages()
   }
 }
 
