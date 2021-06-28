@@ -20,8 +20,8 @@ const init = () => {
     if (previewEls.length) {
       map(previewEl => {
         let blockName = getData('block', previewEl)
-        blockName = blockName.replace('-', '_', blockName)
-        const blockImageUrl = getBlockImageUrl(blockName)
+        blockName = blockName ? blockName.replace('-', '_', blockName) : null
+        const blockImageUrl = blockName ? getBlockImageUrl(blockName) : null
 
         if (blockImageUrl) {
           previewEl.innerHTML = `<img class="preview-image" src="${blockImageUrl}" width="400" height="auto">`
