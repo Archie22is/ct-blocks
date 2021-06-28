@@ -1,41 +1,40 @@
 <?php
-$_class = 'pricing-box';
+$_class = 'f fdc pricing-box';
 $_class .= !empty($class) ? ' ' . $class : '';
-$_class .= !empty($style) ? ' pricing-box--' . $style : 'pricing-box--style-1';
-$_class .= !empty($distinctive) ? ' pricing-box--distinctive' : '';
+$_highlight_text = !empty($highlight_text) ? $highlight_text : esc_html__('Popular', 'ct-blocks');
 ?>
 <div class="<?php echo $_class; ?>">
   <?php if (!empty($title)) : ?>
     <div class="pricing-box__header">
+      <?php if (isset($is_highlight) && $is_highlight) : ?>
+        <span class="pricing-box__highlight-text"><?php echo $_highlight_text; ?></span>
+      <?php endif; ?>
       <h3 class="pricing-box__title"><?php echo $title; ?></h3>
-    </div>
-  <?php endif; ?>
-  <?php if (!empty($pricing)) : ?>
-    <div class="pricing-box__pricing">
-      <?php echo $pricing; ?>
-      <span> <?php if (!empty($unit)) :echo ' ' . $unit; endif; ?> </span>
-    </div>
-  <?php endif; ?>
-  <?php if (!empty($items)) : ?>
-    <div class="pricing-box__feature">
-      <ul class="pricing-box__items">
-        <?php foreach ($items as $item) : ?>
-          <li class="pricing-box__item">
-          <?php if(!empty($list_icon['url'])) : ?>
-          <span><img src="<?php echo $list_icon['url']; ?>" alt=""></span>
+      <?php if (!empty($pricing)) : ?>
+        <p class="pricing-box__price">
+          <span class="price"><?php echo $pricing; ?></span>
+          <?php if (!empty($unit)) : ?>
+            <span class="unit"><?php echo $unit; ?></span>
           <?php endif; ?>
-          <?php echo $item['item']; ?>
-          </li>
-        <?php endforeach; ?>
-      </ul>
+          <?php if (!empty($duration)) : ?>
+            <span class="duration"><?php echo $duration; ?></span>
+          <?php endif; ?>
+        </p>
+      <?php endif; ?>
+    </div>
+  <?php endif; ?>
+  <?php if (!empty($description)) : ?>
+    <div class="wysiwyg pricing-box__description">
+      <?php echo $description; ?>
     </div>
   <?php endif; ?>
   <?php if (!empty($button_text) && !empty($button_url)) : ?>
-    <div class="align-c pricing-box__cta">
+    <div class="pricing-box__footer">
       <?php
       the_block('button', array(
         'class' => 'pricing-box__button',
         'button' => $button_text,
+        'type' => !empty($button_type) ? $button_type : 'primary',
         'url' => $button_url
       ));
       ?>
