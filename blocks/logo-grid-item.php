@@ -1,42 +1,37 @@
 <?php
+
+$_class = 'f logo-grid__item';
+$_class .=  empty($item['url']) ? ' fdc logo-grid__item--no-link' : '';
+$_class .= !empty($class) ? ' ' . $class : '';
+
 $_enable_slider = isset($enable_slider) && $enable_slider ?? false;
-// var_dump($_enable_slider);
+$url = !empty($item['url']) ? $item['url'] : '';
+$target = !empty($item['target']) ? $item['target'] : '_self';
+
 // Build markup with slider enable
 ob_start();
 ?>
-
-<figure class="logo-grid__image-slider-wrapper">
   <?php
-  ob_start();
-  echo wp_get_attachment_image($item['image']['ID'], 'full', null, array(
-    'class' => 'logo-grid__image-slider lazyload js-image'
-  ));
-  $image_html = ob_get_clean();
-  $image_html = str_replace('src=""', 'data-sizes="auto" data-src="', $image_html);
-  $image_html = str_replace('srcset="', 'data-srcset="', $image_html);
-
-  echo $image_html;
-  ?>
-</figure>
-
-<?php $item_content = ob_get_clean(); ?>
-
-<?php if(!empty($item['title'])) : ?>
-  <h3 class="logo-grid__item-title"><?php echo $item['title']; ?></h3>
-<?php endif; ?>
-
-<?php if ($_enable_slider) :
-  echo $item_content;
-else :
-  $url = !empty($item['url']) ? $item['url'] : '#';
-  $target = !empty($item['target']) ? $item['target'] : '_self';
-
-  echo '<a href="'. $url .'" target="' . $target . '">';
   the_block('image', array(
-    'class' => 'image--contain logo-grid__image',
-    'size' => 'logo',
+    'class' => 'w100 image--default image--contain logo-grid__image',
     'image' => $item['image']
   ));
-  echo '</a>';
-endif; ?>
+  ?>
+  <?php if(!empty($item['title'])) : ?>
+    <p class="pt-05 logo-grid__item-title"><?php echo $item['title']; ?></p>
+  <?php endif; ?>
+<?php $item_content_html = ob_get_clean(); ?>
 
+<div class="<?php echo $_class; ?>">
+  <?php if (empty($url)) :
+    echo $item_content_html;
+  else :
+    printf('<a class="%1$s" href="%2$s" target="%3$s" rel="noreferrer">%4$s</a>',
+    'f fdc logo-grid__link',
+    $url,
+    $target,
+    $item_content_html
+  );
+  endif;
+  ?>
+</div>

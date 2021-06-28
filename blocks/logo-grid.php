@@ -12,17 +12,18 @@
 $container = codetot_site_container();
 
 $_class = 'logo-grid';
-$_class .= !empty($columns) ? ' logo-grid--'. $columns .'-columns' : '';
-$_class .= !empty($header_alignment) ? ' is-header-'.  $header_alignment : '';
+$_class .= !empty($columns) ? ' has-'. $columns .'-columns' : ' has-4-columns';
+$_class .= !empty($header_alignment) ? ' is-header-' .  $header_alignment : 'is-header-center';
 $_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
-$_class .= !empty($enable_slideshow) ? ' logo-grid--has-slider' : '';
+$_class .= !empty($enable_slideshow) ? ' logo-grid--has-slider' : ' logo-grid--no-slider';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 
 // $_class .= empty($description) ? ' logo-grid--no-description' : '';
 $_slider_options = empty($slider_options) ? array(
   'contain' => true,
   'pageDots' => false,
-  'autoPlay' => 5000
+  'autoPlay' => 5000,
+  'item' => $columns
 ) : $slider_options;
 
 $header = codetot_build_content_block(array(
@@ -33,29 +34,22 @@ $header = codetot_build_content_block(array(
 ), 'logo-grid');
 
 // Build column content
-$columns = !empty($items) ? array_map(function($item) use($enable_slideshow) {
+$columns = !empty($items) ? array_map(function($item) use($enable_slideshow, $header_alignment) {
   return get_block('logo-grid-item', array(
+    'class' => 'logo-grid__item--' . $header_alignment,
     'enable_slider' => $enable_slideshow,
     'item' => $item
   ));
 }, $items) : [];
 
 $column_content = codetot_build_grid_columns($columns, 'logo-grid', array(
-  'column_class' => 'logo-grid__col'
+  'column_class' => 'default-section__col'
 ));
 
 // Build slider content
 ob_start(); ?>
 <div class="logo-grid__slider js-slider" data-carousel='<?php echo json_encode($_slider_options); ?>'>
-  <?php foreach ($items as $item) : ?>
-    <div class="grid__col logo-grid__col">
-      <?php the_block('image', array(
-        'class' => 'image--contain logo-grid__image js-image',
-        'size' => 'logo',
-        'image' => $item['image']
-      )); ?>
-    </div>
-  <?php endforeach; ?>
+  <?php echo implode('' . PHP_EOL, $columns); ?>
 </div>
 <?php
 $slider_html = ob_get_clean();
