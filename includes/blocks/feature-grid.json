@@ -143,7 +143,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-              "width": "",
+              "width": "25",
               "class": "",
               "id": ""
             },
@@ -157,6 +157,25 @@
             "layout": "horizontal",
             "return_format": "value",
             "save_other_choice": 0
+          },
+          {
+            "key": "field_5fc888b69b64d",
+            "label": "Card Link",
+            "name": "enable_card_link",
+            "type": "true_false",
+            "instructions": "Click on a full card will open link.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "75",
+              "class": "",
+              "id": ""
+            },
+            "message": "Enable",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
           },
           {
             "key": "field_5fc8a1ba746e6",
@@ -256,8 +275,71 @@
             "new_lines": "",
             "tabs": "all",
             "toolbar": "full",
-            "media_upload": 1,
+            "media_upload": 0,
             "delay": 0
+          },
+          {
+            "key": "field_60700c9d28332",
+            "label": "Card Link",
+            "name": "card_link",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+              [
+                {
+                  "field": "field_5fc888b69b64d",
+                  "operator": "==",
+                  "value": "1"
+                }
+              ]
+            ],
+            "wrapper": {
+              "width": "50",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+          },
+          {
+            "key": "field_60700c9d28333",
+            "label": "Card Link Target",
+            "name": "card_link_target",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+              [
+                {
+                  "field": "field_5fc888b69b64d",
+                  "operator": "==",
+                  "value": "1"
+                }
+              ]
+            ],
+            "wrapper": {
+              "width": "50",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "_self",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "choices": {
+              "_self": "Same Window",
+              "_blank": "New Tab/Window"
+            },
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "return_format": "value"
           },
           {
             "key": "field_60700c9d28360",
@@ -266,7 +348,15 @@
             "type": "text",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+              [
+                {
+                  "field": "field_5fc888b69b64d",
+                  "operator": "!=",
+                  "value": "1"
+                }
+              ]
+            ],
             "wrapper": {
               "width": "25",
               "class": "",
@@ -285,7 +375,15 @@
             "type": "text",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+              [
+                {
+                  "field": "field_5fc888b69b64d",
+                  "operator": "!=",
+                  "value": "1"
+                }
+              ]
+            ],
             "wrapper": {
               "width": "25",
               "class": "",
@@ -304,7 +402,15 @@
             "type": "select",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+              [
+                {
+                  "field": "field_5fc888b69b64d",
+                  "operator": "!=",
+                  "value": "1"
+                }
+              ]
+            ],
             "wrapper": {
               "width": "25",
               "class": "",
@@ -315,10 +421,7 @@
             "prepend": "",
             "append": "",
             "maxlength": "",
-            "choices": {
-              "_self": "Cùng cửa sổ/tab",
-              "_blank": "Cửa sổ/Tab mới"
-            },
+            "choices": {},
             "multiple": 0,
             "allow_null": 0,
             "ui": 0,
@@ -332,13 +435,21 @@
             "type": "select",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+              [
+                {
+                  "field": "field_5fc888b69b64d",
+                  "operator": "!=",
+                  "value": "1"
+                }
+              ]
+            ],
             "wrapper": {
               "width": "25",
               "class": "",
               "id": ""
             },
-            "default_value": false,
+            "default_value": "primary",
             "placeholder": "",
             "prepend": "",
             "append": "",
@@ -446,7 +557,7 @@
       {
         "key": "field_5fcdd285e6e4e",
         "label": "Card Border",
-        "name": "box_content",
+        "name": "enable_card_border",
         "type": "true_false",
         "instructions": "",
         "required": 0,
@@ -463,23 +574,26 @@
         "ui_off_text": ""
       },
       {
-        "key": "field_60712c6fcae3d",
-        "label": "Enable Slider",
-        "name": "enable_slider",
-        "type": "true_false",
+        "key": "field_5fcdd3ccaef72",
+        "label": "Header Alignment",
+        "name": "header_alignment",
+        "type": "select",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "13",
+          "width": "25",
           "class": "",
           "id": ""
         },
-        "message": "Enable",
-        "default_value": 0,
+        "choices": {},
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
         "ui": 0,
-        "ui_on_text": "",
-        "ui_off_text": ""
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
       },
       {
         "key": "field_5fcdd3ccaef73",
@@ -505,8 +619,8 @@
       },
       {
         "key": "field_5fcdf91b02aba",
-        "label": "Image Size",
-        "name": "image_size",
+        "label": "Media Size",
+        "name": "media_size",
         "type": "select",
         "instructions": "",
         "required": 0,
@@ -516,8 +630,15 @@
           "class": "",
           "id": ""
         },
-        "choices": {},
-        "default_value": "default",
+        "choices": {
+          "image--default": "Image - Default",
+          "image--cover": "Image - Cover",
+          "image--contain": "Image - Contain",
+          "icon--24": "Icon - 24px",
+          "icon--36": "Icon - 36px",
+          "icon--48": "Icon - 48px"
+        },
+        "default_value": "image--default",
         "allow_null": 0,
         "multiple": 0,
         "ui": 0,

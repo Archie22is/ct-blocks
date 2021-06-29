@@ -16,101 +16,65 @@
   flex-direction: column;
 }
 
-.feature-card--boxed {
-  padding: 20px;
-  background-color: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--card-border-radius);
-
-  @media (--m) {
-    padding: 30px;
-  }
-}
-
-.feature-card__footer {
-  margin: auto auto 0;
-  padding-top: 1em;
-}
-
-.feature-card__image {
-  width: 100%;
-}
-
-.feature-card--image-contain,
-.feature-card--image-cover {
-  & .feature-card__image {
-    @mixin ratio 9/16;
-  }
-}
-
-.feature-card__icon-wrapper,
-.feature-card__image-wrapper {
-  @mixin flex-center;
-
-  margin-bottom: 1em;
-}
-
-.feature-card--image-default {
-  & .feature-card__image {
-    width: auto;
-    margin: 1.5em auto 0;
-
-    @media (--m) {
-      margin: 2em auto 0;
-    }
-
-    & .image__img {
-      position: static;
-      width: auto;
-      max-width: 100%;
-      height: auto;
-    }
-  }
-
-  &.feature-card--boxed {
-    & .feature-card__image {
-      margin-top: 0;
-    }
-  }
-}
-
-.feature-card__header {
-  width: 100%;
-}
-
 .feature-card__title-link {
   display: flex;
 }
 
-.feature-card--center {
-  text-align: center;
-}
-
-.feature-card--left {
-  text-align: left;
-
-  & .feature-card__content {
-    flex: 1 1 auto;
-    display: flex;
-    flex-wrap: wrap;
+.feature-card {
+  &.is-content-alignment-left {
+    text-align: left;
   }
 
-  & .feature-card__footer {
-    margin-left: 0;
+  &.is-content-alignment-center {
+    text-align: center;
+
+    & .feature-card__media-wrapper {
+      justify-content: center;
+    }
+  }
+
+  &.is-content-alignment-right {
+    text-align: right;
+  }
+
+  &.is-dark-contract {
+    & .feature-card__title,
+    & .feature-card__description {
+      color: var(--white);
+    }
+  }
+
+  &.has-border {
+    padding: 20px;
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--card-border-radius);
+
+    @media (--m) {
+      padding: 30px;
+    }
   }
 }
 
-.feature-card--right {
-  text-align: right;
+.feature-card__svg {
+  &.icon--24 {
+    @mixin icon 24px;
+  }
 
-  & .feature-card__footer {
-    margin-right: 0;
+  &.icon--36 {
+    @mixin icon 36px;
+  }
+
+  &.icon--48 {
+    @mixin icon 48px;
   }
 }
 
-.feature-card--dark-contract {
-  & .feature-card__title,
-  & .feature-card__description {
-    color: var(--white);
+.feature-card__image {
+  &.image--contain,
+  &.image--cover {
+    @mixin ratio 9/16;
+
+    width: 100%;
   }
 }
