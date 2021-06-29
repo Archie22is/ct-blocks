@@ -85,7 +85,7 @@ p.testimonial-card__title {
     background-color: rgba(0, 0, 0, 0.08);
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       border-width: 15px;
       border-style: solid;
