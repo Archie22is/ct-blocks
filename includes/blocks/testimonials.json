@@ -398,7 +398,7 @@
         "append": "Darker"
       },
       {
-        "key": "field_testimonialsa3198b",
+        "key": "field_5fd3rtee20547",
         "label": "Background Image",
         "name": "background_image",
         "type": "image",
@@ -420,6 +420,34 @@
         "max_height": "",
         "max_size": "",
         "mime_types": ""
+      },
+      {
+        "key": "field_5fd3rtee20548",
+        "label": "Columns Layout",
+        "name": "columns_layout",
+        "type": "select",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "1": "1 Column",
+          "2": "2 Columns",
+          "3": "3 Columns",
+          "4": "4 Columns",
+          "5": "5 Columns"
+        },
+        "default_value": "",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
       }
     ],
     "min": "",
