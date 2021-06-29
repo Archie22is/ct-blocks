@@ -9,6 +9,7 @@ $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 $_class .= !empty($background_contract) ? ' is-' . $background_contract . '-contract' : '';
 
 $_card_class = '';
+$_card_class .= $card_layout === 'column' ? 'f fw fdc is-column-layout' : 'f fw is-row-layout';
 $_card_class .= !empty($content_alignment) ? ' is-content-alignment-' . $content_alignment : '';
 $_card_class .= !empty($enable_card_border) ? ' has-border' : '';
 

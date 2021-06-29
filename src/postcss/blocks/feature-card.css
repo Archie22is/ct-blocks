@@ -1,35 +1,49 @@
-.feature-card {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  flex: 1 1 0;
-  transition: 0.4s;
+.feature-card--link {
+  & .feature-card__title {
+    transition: color 0.3s;
+  }
 
-  & > * {
-    width: 100%;
+  &:hover {
+    @media (--m) {
+      & .feature-card__title {
+        color: var(--primary);
+      }
+    }
   }
 }
 
+.feature-card,
 .feature-card__content {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.feature-card__title-link {
-  display: flex;
+  flex: 1 1 0;
 }
 
 .feature-card {
   &.is-content-alignment-left {
     text-align: left;
+
+    &.is-row-layout {
+      & .feature-card__media-wrapper {
+        align-items: flex-start;
+      }
+    }
   }
 
   &.is-content-alignment-center {
     text-align: center;
 
     & .feature-card__media-wrapper {
+      align-items: center;
       justify-content: center;
+    }
+
+    &.is-row-layout {
+      & .feature-card__media-wrapper {
+        align-items: center;
+      }
+
+      & .feature-card__content {
+        text-align: left;
+      }
     }
   }
 
@@ -45,15 +59,57 @@
   }
 
   &.has-border {
-    padding: 20px;
+    padding: 10px;
     background-color: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--card-border-radius);
 
-    @media (--m) {
+    @media (--s) {
+      padding: 20px;
+    }
+
+    @media (--l) {
       padding: 30px;
     }
   }
+
+  &.is-column-layout {
+    & .feature-card__content {
+      margin-top: 1em;
+    }
+  }
+
+  &.is-row-layout {
+    &.is-icon--24 {
+      & .feature-card__media-wrapper {
+        width: 24px;
+      }
+
+      & .feature-card__content {
+        width: calc(100% - 24px);
+      }
+    }
+
+    &.is-icon--36 {
+      & .feature-card__media-wrapper {
+        width: 36px;
+      }
+    }
+
+    &.is-icon--48 {
+      & .feature-card__media-wrapper {
+        width: 48px;
+      }
+    }
+
+    & .feature-card__content {
+      padding-left: 1em;
+    }
+  }
+}
+
+.feature-card__title {
+  @mixin large-text;
 }
 
 .feature-card__svg {

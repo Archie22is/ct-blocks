@@ -13,6 +13,8 @@
 endif;
 
 $_class = 'feature-card';
+$_class .= !empty($enable_card_link) && !empty($card_link) ? ' feature-card--link' : '';
+$_class .= !empty($media_size) ? ' is-' . esc_attr($media_size) : ' is-image--default';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 
 $media_class = !empty($media_size) ? 'is-' . $media_size : '';
@@ -39,10 +41,10 @@ if (!empty($button_text) && !empty($button_url) && empty($enable_card_link)) :
 endif;
 
 ob_start(); ?>
-  <div class="f fdc aic jcc feature-card__media-wrapper">
+  <div class="f fdc feature-card__media-wrapper">
     <?php echo $media_html; ?>
   </div>
-  <div class="mt-1 feature-card__content">
+  <div class="f fdc feature-card__content">
     <?php echo $content; ?>
     <?php
     if (!empty($cta_link_html)) :

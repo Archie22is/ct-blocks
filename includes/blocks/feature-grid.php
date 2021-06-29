@@ -50,6 +50,7 @@ class Codetot_Block_Feature_Grid extends Codetot_Base_Block implements Codetot_B
       'anchor_name',
       'columns',
       'enable_card_border',
+      'card_layout',
       'header_alignment',
       'content_alignment',
       'media_size',

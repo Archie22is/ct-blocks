@@ -574,6 +574,31 @@
         "ui_off_text": ""
       },
       {
+        "key": "field_5fcdd3ccaef71",
+        "label": "Card Layout",
+        "name": "card_layout",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "column": "Top Icon - Bottom Content",
+          "row": "Left Icon - Right Content"
+        },
+        "default_value": "column",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
         "key": "field_5fcdd3ccaef72",
         "label": "Header Alignment",
         "name": "header_alignment",
