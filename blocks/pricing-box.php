@@ -7,7 +7,7 @@ $_highlight_text = !empty($highlight_text) ? $highlight_text : esc_html__('Popul
   <?php if (!empty($title)) : ?>
     <div class="pricing-box__header">
       <?php if (isset($is_highlight) && $is_highlight) : ?>
-        <span class="pricing-box__highlight-text"><?php echo $_highlight_text; ?></span>
+        <span class="align-c pricing-box__highlight-text"><?php echo $_highlight_text; ?></span>
       <?php endif; ?>
       <h3 class="pricing-box__title"><?php echo $title; ?></h3>
       <?php if (!empty($pricing)) : ?>
@@ -32,7 +32,7 @@ $_highlight_text = !empty($highlight_text) ? $highlight_text : esc_html__('Popul
     <div class="pricing-box__footer">
       <?php
       the_block('button', array(
-        'class' => 'pricing-box__button',
+        'class' => 'align-c pricing-box__button',
         'button' => $button_text,
         'type' => !empty($button_type) ? $button_type : 'primary',
         'url' => $button_url

@@ -3,7 +3,7 @@
     "key": "layout_5fd9b85c98d5f",
     "name": "pricing_tables",
     "label": "Pricing Tables",
-    "display": "block",
+    "display": "row",
     "sub_fields": [
       {
         "key": "field_5fcry72222661",
