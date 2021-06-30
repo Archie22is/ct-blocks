@@ -34,7 +34,7 @@ $_highlight_text = !empty($highlight_text) ? $highlight_text : esc_html__('Popul
       the_block('button', array(
         'class' => 'align-c pricing-box__button',
         'button' => $button_text,
-        'type' => !empty($button_type) ? $button_type : 'primary',
+        'type' => $button_style,
         'url' => $button_url
       ));
       ?>
