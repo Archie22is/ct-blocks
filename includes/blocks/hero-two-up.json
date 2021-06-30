@@ -62,18 +62,18 @@
         "instructions": "",
         "required": 0,
         "conditional_logic": [
-            [
-                {
-                    "field": "field_60dbf9483d8a8",
-                    "operator": "==",
-                    "value": "image"
-                }
-            ]
+          [
+            {
+              "field": "field_60dbf9483d8a8",
+              "operator": "==",
+              "value": "image"
+            }
+          ]
         ],
         "wrapper": {
-            "width": "",
-            "class": "",
-            "id": ""
+          "width": "",
+          "class": "",
+          "id": ""
         },
         "return_format": "array",
         "preview_size": "medium",
@@ -94,18 +94,18 @@
         "instructions": "",
         "required": 0,
         "conditional_logic": [
-            [
-                {
-                    "field": "field_60dbf9483d8a8",
-                    "operator": "==",
-                    "value": "youtube"
-                }
-            ]
+          [
+            {
+              "field": "field_60dbf9483d8a8",
+              "operator": "==",
+              "value": "youtube"
+            }
+          ]
         ],
         "wrapper": {
-            "width": "",
-            "class": "",
-            "id": ""
+          "width": "",
+          "class": "",
+          "id": ""
         },
         "width": "",
         "height": ""
@@ -118,18 +118,18 @@
         "instructions": "",
         "required": 0,
         "conditional_logic": [
-            [
-                {
-                    "field": "field_60dbf9483d8a8",
-                    "operator": "==",
-                    "value": "mp4"
-                }
-            ]
+          [
+            {
+              "field": "field_60dbf9483d8a8",
+              "operator": "==",
+              "value": "mp4"
+            }
+          ]
         ],
         "wrapper": {
-            "width": "",
-            "class": "",
-            "id": ""
+          "width": "",
+          "class": "",
+          "id": ""
         },
         "default_value": "",
         "placeholder": "",
