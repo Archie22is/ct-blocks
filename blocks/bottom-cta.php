@@ -1,49 +1,77 @@
 <?php
-$_class = 'section-bg bottom-cta';
-$_class .= !empty($block_preset) ? ' bottom-cta--style-' . esc_attr($block_preset) : '';
-$_class .= !empty($overlay) ? ' bottom-cta--has-overlay' : '';
-$_class .= !empty($background_contract) ? ' bottom-cta--' . esc_attr($background_contract) : '';
-$_class .= !empty($background_type) ? ' bg-' . esc_attr($background_type) : '';
-$_class .= !empty($content_position) ? ' bottom-cta--position-' . esc_attr($content_position) : '';
-$_class .= !empty($content_alignment) ? ' bottom-cta--alignment-' . esc_attr($content_alignment) : '';
+
+/**
+ *
+  'class',
+  'anchor_name',
+  'content_alignment',
+  'background_image',
+  'background_overlay',
+  'background_type',
+  'block_preset',
+  'block_spacing',
+  'block_container',
+  'block_layout'
+ */
+
+$_class = 'bottom-cta';
+$_class .= !empty($background_image) ? ' rel has-background' : '';
+$_class .= !empty($content_alignment) ? ' is-content-alignment-' . esc_attr($content_alignment) : ' is-content-alignment-center';
+$_class .= !empty($block_spacing) ? ' is-vertical-spacing-' . esc_attr($block_spacing) : ' is-vertical-spacing-default';
+$_class .= !empty($block_layout) ? ' is-layout-' . esc_attr($block_layout) : ' is-layout-column';
+$_class .= !empty($overlay) ? ' has-overlay' : '';
+
+if (empty($block_container) || (!empty($block_container) && $block_container !== 'boxed')) {
+  $_class .= ' has-container-fullwidth';
+  $_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
+} else {
+  $_class .= ' section-bg has-container-boxed has-bg-' . esc_attr($background_type);
+}
+
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
-if (!empty($title)) : ?>
-  <section class="rel <?php echo $_class; ?>"<?php if (!empty($anchor_name)) : echo ' id="' . esc_attr($anchor_name) . '"'; endif; ?>>
-    <?php if (!empty($background_image)) : ?>
-      <?php the_block('image', array(
-        'image' => $background_image,
-        'class' => 'image--cover bottom-cta__background-image'
-      )); ?>
-    <?php endif; ?>
-    <?php if (!empty($overlay)) : ?>
-      <div class="bottom-cta__overlay" style="background-color: rgba(0, 0, 0, <?php echo esc_attr($overlay); ?>);"></div>
-    <?php endif; ?>
-    <div class="rel z-2 bottom-cta__wrapper">
-      <div class="container bottom-cta__container">
-        <div class="bottom-cta__inner">
-          <?php echo (!empty($block_preset) && $block_preset === 'preset-1') ? '<div class="bottom-cta__box">' : '' ?>
-            <?php if (!empty($label)) : ?>
-              <p class="label-text bottom-cta__label"><?php echo $label; ?></p>
-            <?php endif; ?>
-            <h2 class="h2 bottom-cta__title"><?php echo $title; ?></h2>
-            <div class="bottom-cta__description"><?php echo $description; ?></div>
-          <?php echo (!empty($block_preset) && $block_preset === 'preset-1') ? '</div>' : '' ?>
-          <?php if (!empty($buttons)) : ?>
-            <div class="bottom-cta__footer">
-              <?php foreach ($buttons as $button) :
-                the_block('button', array(
-                  'class' => 'bottom-cta__button',
-                  'size' => 'large',
-                  'type' => $button['button_style'],
-                  'button' => $button['button_text'],
-                  'url' => $button['button_url'],
-                  'target' => $button['target']
-                ));
-              endforeach; ?>
-            </div>
-          <?php endif; ?>
-        </div>
-      </div>
-    </div>
-  </section>
+
+$content = codetot_build_content_block(array(
+  'title' => !empty($title) ? $title : '',
+  'description' => !empty($description) ? $description : '',
+  'description_class' => 'mt-05',
+  'block_tag' => 'div'
+), 'bottom-cta');
+
+ob_start(); ?>
+<?php if (!empty($buttons)) : ?>
+  <div class="pt-1 bottom-cta__footer">
+    <?php foreach ($buttons as $button) :
+      the_block('button', array(
+        'class' => 'bottom-cta__button',
+        'size' => 'large',
+        'type' => $button['button_style'],
+        'button' => $button['button_text'],
+        'url' => $button['button_url'],
+        'target' => $button['target']
+      ));
+    endforeach; ?>
+  </div>
 <?php endif; ?>
+<?php $footer = ob_get_clean();
+
+$content .= $footer;
+
+ob_start(); ?>
+<?php if (!empty($background_image)) : ?>
+  <?php the_block('image', array(
+    'image' => $background_image,
+    'class' => 'image--cover bottom-cta__background-image'
+  )); ?>
+<?php endif; ?>
+<?php if (!empty($overlay)) : ?>
+  <div class="bottom-cta__overlay" style="background-color: rgba(0, 0, 0, <?php echo esc_attr($overlay); ?>);"></div>
+<?php endif; ?>
+<?php $background_html = ob_get_clean();
+
+the_block('default-section', array(
+  'id' => !empty($anchor_name) ? $anchor_name : '',
+  'class' => $_class,
+  'lazyload' => !empty($enable_lazyload),
+  'before_header' => $background_html,
+  'content' => $content
+));

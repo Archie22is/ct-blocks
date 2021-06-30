@@ -46,14 +46,17 @@ class Codetot_Block_Bottom_Cta extends Codetot_Base_Block implements Codetot_Bas
     $this->block_slug = 'bottom_cta';
     $this->block_title = __('Bottom CTA', 'ct-blocks');
     $this->fields = [
+      'enable_lazyload',
       'class',
-      'block_preset',
-      'content_position',
-      'background_contract',
-      'background_image',
-      'background_type',
+      'anchor_name',
       'content_alignment',
+      'background_image',
       'overlay',
+      'background_type',
+      'block_spacing',
+      'block_container',
+      'block_layout',
+      // Content
       'label',
       'title',
       'description',
