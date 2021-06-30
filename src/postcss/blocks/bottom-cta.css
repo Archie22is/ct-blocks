@@ -67,6 +67,14 @@
       }
     }
 
+    &.is-content-alignment-center {
+      & .default-section__inner {
+        @media (--ml) {
+          align-items: center;
+        }
+      }
+    }
+
     & .bottom-cta__footer {
       @media (--ml) {
         width: auto;
