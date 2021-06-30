@@ -6,7 +6,7 @@ $_class = 'rel ' . $prefix_class;
 $_class .= !empty($class) ? ' ' . $class : '';
 $_class .= !empty($background_image) ? ' section-bg' : ' section';
 $_class .= !empty($background_contract) ? ' '. $prefix_class .'--' . esc_attr($background_contract) : '';
-$_class .= !empty($block_preset) ? ' '. $prefix_class .'--' . esc_attr($block_preset) : ''. $prefix_class .'--preset-1';
+$_class .= !empty($block_preset) ? ' '. $prefix_class .'--' . esc_attr($block_preset) : ' '. $prefix_class .'--preset-1';
 $_class .= !empty($number_columns) ? ' has-' . esc_attr($number_columns) .'-columns' : ' has-3-columns';
 
 if (!empty($title) || !empty($description)) {
