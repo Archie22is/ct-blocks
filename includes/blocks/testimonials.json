@@ -3,11 +3,11 @@
     "key": "layout_fd02eb458d7s",
     "name": "testimonials",
     "label": "Testimonials",
-    "display": "block",
+    "display": "row",
     "sub_fields": [
       {
-        "key": "field_testimonialsmain",
-        "label": "Section Content",
+        "key": "field_5fd73339ce048",
+        "label": "Preview",
         "name": "",
         "type": "tab",
         "instructions": "",
@@ -22,10 +22,10 @@
         "endpoint": 0
       },
       {
-        "key": "field_5fd181e3b81b0",
-        "label": "Items",
-        "name": "columns",
-        "type": "repeater",
+        "key": "field_5fd73339ce049",
+        "label": "Preview Image",
+        "name": "",
+        "type": "message",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
@@ -34,117 +34,13 @@
           "class": "",
           "id": ""
         },
-        "collapsed": "",
-        "min": 0,
-        "max": 0,
-        "layout": "row",
-        "button_label": "Add Column",
-        "sub_fields": [
-          {
-            "key": "field_5fd18230b81b1",
-            "label": "Image",
-            "name": "image",
-            "type": "image",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-              "width": "",
-              "class": "",
-              "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-          },
-          {
-            "key": "field_5fd1825fb81b2",
-            "label": "Name",
-            "name": "name",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-              "width": "",
-              "class": "",
-              "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-          },
-          {
-            "key": "field_5fd18269b81b3",
-            "label": "Profession",
-            "name": "profession",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-              "width": "",
-              "class": "",
-              "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-          },
-          {
-            "key": "field_5fd1825f224b2",
-            "label": "Title",
-            "name": "title",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-              "width": "",
-              "class": "",
-              "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-          },
-          {
-            "key": "field_5fd182edb81b4",
-            "label": "Testimonial",
-            "name": "testimonial",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-              "width": "",
-              "class": "",
-              "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 4,
-            "new_lines": ""
-          }
-        ]
+        "message": "<div class=\"js-custom-preview-block\" data-block=\"testimonials\"></div>",
+        "new_lines": "wpautop",
+        "esc_html": 0
       },
       {
-        "key": "field_testimonialsheader",
-        "label": "Section Header",
+        "key": "field_5fd73339ce050",
+        "label": "Content",
         "name": "",
         "type": "tab",
         "instructions": "",
@@ -167,7 +63,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "50",
+          "width": "",
           "class": "",
           "id": ""
         },
@@ -186,7 +82,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "50",
+          "width": "",
           "class": "",
           "id": ""
         },
@@ -215,10 +111,132 @@
         "media_upload": 0,
         "delay": 0
       },
-
       {
-        "key": "field_testimonialsetting",
-        "label": "Section Setting",
+        "key": "field_5fd181e3b81b0",
+        "label": "Items",
+        "name": "columns",
+        "type": "repeater",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "collapsed": "",
+        "min": 0,
+        "max": 0,
+        "layout": "block",
+        "button_label": "Add Item",
+        "sub_fields": [
+          {
+            "key": "field_5fd18230b81b1",
+            "label": "Image",
+            "name": "image",
+            "type": "image",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "25",
+              "class": "",
+              "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+          },
+          {
+            "key": "field_5fd1825fb81b2",
+            "label": "Name",
+            "name": "name",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "25",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+          },
+          {
+            "key": "field_5fd18269b81b3",
+            "label": "Profession",
+            "name": "profession",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "25",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+          },
+          {
+            "key": "field_5fd1825f224b2",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "25",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+          },
+          {
+            "key": "field_5fd182edb81b4",
+            "label": "Testimonial",
+            "name": "testimonial",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": "",
+            "media_upload": 0,
+            "delay": 0
+          }
+        ]
+      },
+      {
+        "key": "field_5fd73339ce060",
+        "label": "Settings",
         "name": "",
         "type": "tab",
         "instructions": "",
@@ -279,7 +297,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "50",
+          "width": "25",
           "class": "",
           "id": ""
         },
@@ -289,6 +307,28 @@
         "multiple": 0,
         "ui": 0,
         "layout": "",
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_testimonial6s91ad4",
+        "label": "Header Alignment",
+        "name": "header_alignment",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
         "return_format": "value",
         "ajax": 0,
         "placeholder": ""
@@ -339,14 +379,14 @@
       },
       {
         "key": "field_5fd3rtee20546",
-        "label": "Overlay",
+        "label": "Background Overlay",
         "name": "overlay",
         "type": "range",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "50",
+          "width": "25",
           "class": "",
           "id": ""
         },
@@ -358,29 +398,7 @@
         "append": "Darker"
       },
       {
-        "key": "field_testimonial6s91ad4",
-        "label": "Header Alignment",
-        "name": "header_alignment",
-        "type": "select",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "25",
-          "class": "",
-          "id": ""
-        },
-        "choices": {},
-        "default_value": false,
-        "allow_null": 0,
-        "multiple": 0,
-        "ui": 0,
-        "return_format": "value",
-        "ajax": 0,
-        "placeholder": ""
-      },
-      {
-        "key": "field_testimonialsa3198b",
+        "key": "field_5fd3rtee20547",
         "label": "Background Image",
         "name": "background_image",
         "type": "image",
@@ -388,7 +406,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "50",
+          "width": "25",
           "class": "",
           "id": ""
         },
@@ -402,6 +420,34 @@
         "max_height": "",
         "max_size": "",
         "mime_types": ""
+      },
+      {
+        "key": "field_5fd3rtee20548",
+        "label": "Columns Layout",
+        "name": "columns_layout",
+        "type": "select",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "1": "1 Column",
+          "2": "2 Columns",
+          "3": "3 Columns",
+          "4": "4 Columns",
+          "5": "5 Columns"
+        },
+        "default_value": "",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
       }
     ],
     "min": "",

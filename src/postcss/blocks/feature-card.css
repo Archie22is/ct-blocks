@@ -17,6 +17,10 @@
   flex: 1 1 0;
 }
 
+.feature-card__footer {
+  margin-top: auto;
+}
+
 .feature-card {
   &.is-content-alignment-left {
     text-align: left;

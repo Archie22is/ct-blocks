@@ -48,12 +48,20 @@ export default el => {
     if (mainSliderEl && navSliderEl) {
       // eslint-disable-next-line no-unused-vars
       let navSlider = carousel(navSliderEl)
-      // eslint-disable-next-line no-unused-vars
-      let mainSlider = carousel(mainSliderEl)
+      const mainSliderOptions = {
+        on: {
+          change: function () {
+            if (mainSlider && navSlider) {
+              mainSlider.on('change', index => {
+                navSlider.select(index)
+              })
+            }
+          }
+        }
+      }
 
-      mainSlider.on('change', index => {
-        navSlider.select(index)
-      })
+      // eslint-disable-next-line no-unused-vars
+      let mainSlider = carousel(mainSliderEl, mainSliderOptions)
     } else if (defaultSliderEl) {
       // eslint-disable-next-line no-unused-vars
       let slider = carousel(defaultSliderEl)
