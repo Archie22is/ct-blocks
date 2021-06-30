@@ -40,7 +40,7 @@
       },
       {
         "key": "field_5fd314bc766ed",
-        "label": "Section Content",
+        "label": "Content",
         "name": "",
         "type": "tab",
         "instructions": "",
@@ -53,6 +53,44 @@
         },
         "placement": "top",
         "endpoint": 0
+      },
+      {
+        "key": "field_5fkhoab9121df",
+        "label": "Title",
+        "name": "title",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_5fda5dhieu1af",
+        "label": "Description",
+        "name": "description",
+        "type": "wysiwyg",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "tabs": "all",
+        "toolbar": "full",
+        "media_upload": 0,
+        "delay": 0
       },
       {
         "key": "field_5fd314bc766ef",
@@ -154,62 +192,8 @@
         ]
       },
       {
-        "key": "field_countersheader",
-        "label": "Section Header",
-        "name": "",
-        "type": "tab",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "",
-          "class": "",
-          "id": ""
-        },
-        "placement": "top",
-        "endpoint": 0
-      },
-      {
-        "key": "field_5fkhoab9121df",
-        "label": "Title",
-        "name": "title",
-        "type": "text",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "",
-          "class": "",
-          "id": ""
-        },
-        "default_value": "",
-        "placeholder": "",
-        "prepend": "",
-        "append": "",
-        "maxlength": ""
-      },
-      {
-        "key": "field_5fda5dhieu1af",
-        "label": "Description",
-        "name": "description",
-        "type": "wysiwyg",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "",
-          "class": "",
-          "id": ""
-        },
-        "default_value": "",
-        "tabs": "all",
-        "toolbar": "full",
-        "media_upload": 0,
-        "delay": 0
-      },
-      {
-        "key": "field_counterssetting",
-        "label": "Section Setting",
+        "key": "field_600fc66449eba",
+        "label": "Settings",
         "name": "",
         "type": "tab",
         "instructions": "",
@@ -296,10 +280,7 @@
           "class": "",
           "id": ""
         },
-        "choices": {
-          "light": "Light Background - Dark Text",
-          "dark": "Dark Background - White Text"
-        },
+        "choices": {},
         "default_value": false,
         "allow_null": 0,
         "multiple": 0,
@@ -339,7 +320,7 @@
         "key": "field_5fcdoi8386ebc",
         "label": "Header Alignment",
         "name": "header_alignment",
-        "type": "radio",
+        "type": "select",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
@@ -360,7 +341,7 @@
         "key": "field_5fd327ff799ac",
         "label": "Content Alignment",
         "name": "content_alignment",
-        "type": "radio",
+        "type": "select",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
@@ -381,7 +362,7 @@
         "key": "field_5fthathao4db8",
         "label": "Item Layout",
         "name": "layout_items",
-        "type": "radio",
+        "type": "select",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
@@ -391,8 +372,8 @@
           "id": ""
         },
         "choices": {
-          "row": "Row",
-          "column": "Column"
+          "row": "Left Number - Right Content",
+          "column": "Top Number - Bottom Content"
         },
         "allow_null": 0,
         "other_choice": 0,
