@@ -63,24 +63,26 @@ p.testimonial-card__title {
   }
 
   & .testimonial-card__title {
-    position: relative;
-    padding-bottom: 5px;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 25%;
-      height: 2px;
-      background: var(--primary);
-      border-radius: 2px;
-    }
+    position: absolute;
+    top: -10px;
+    left: 35px;
+    max-width: calc(100% - 70px);
+    margin-bottom: 0.25em;
+    padding: 5px 15px;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
 
   & .testimonial-card__inner {
     position: relative;
-    padding: 30px 38px;
+    margin-top: 15px;
+    padding: 30px 35px;
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0.08);
 
