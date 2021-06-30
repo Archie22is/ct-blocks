@@ -252,6 +252,7 @@ if (!function_exists('codetot_build_content_block')) {
   {
     $output_elements = [];
     $title_tag = (!empty($args['title_tag']) ? $args['title_tag'] : 'h2');
+    $title_class = !empty($args['title_class']) ? $args['title_class'] : '';
     $block_tag = (!empty($args['block_tag']) ? $args['block_tag'] : 'div');
     $_class = (!empty($args['default_class'])) ? $args['default_class'] : $prefix_class . '__header';
 
@@ -261,16 +262,23 @@ if (!function_exists('codetot_build_content_block')) {
 
     if (!empty($args['title'])) {
       $output_elements['title'] = sprintf(
-        '<%1$s class="%2$s__title">%3$s</%4$s>',
+        '<%1$s class="%2$s__title%3$s">%4$s</%5$s>',
         $title_tag,
         $prefix_class,
+        !empty($title_class) ? ' ' . esc_attr($title_class) : '',
         $args['title'],
         $title_tag
       );
     }
 
     if (!empty($args['description'])) {
-      $output_elements['description'] = sprintf('<div class="wysiwyg %1$s__description">%2$s</div>', $prefix_class, $args['description']);
+      $description_class = !empty($args['description_class']) ? $args['description_class'] : '';
+
+      $output_elements['description'] = sprintf('<div class="wysiwyg %1$s__description%2$s">%3$s</div>',
+        $prefix_class,
+        !empty($description_class) ? ' ' . $description_class : '',
+        $args['description']
+      );
     }
 
     $_class .= !empty($args['alignment']) ? ' ' . $prefix_class . '--' . $args['alignment'] . ' section-header--' . $args['alignment'] : '';

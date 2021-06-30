@@ -46,14 +46,17 @@ class Codetot_Block_Bottom_Cta extends Codetot_Base_Block implements Codetot_Bas
     $this->block_slug = 'bottom_cta';
     $this->block_title = __('Bottom CTA', 'ct-blocks');
     $this->fields = [
+      'enable_lazyload',
       'class',
-      'block_preset',
-      'content_position',
-      'background_contract',
-      'background_image',
-      'background_type',
+      'anchor_name',
       'content_alignment',
+      'background_image',
       'overlay',
+      'background_type',
+      'block_spacing',
+      'block_container',
+      'block_layout',
+      // Content
       'label',
       'title',
       'description',
@@ -68,7 +71,7 @@ class Codetot_Block_Bottom_Cta extends Codetot_Base_Block implements Codetot_Bas
       <path d="M16 10h-2c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2c.275 0 .5-.224.5-.5v-1c0-.276-.225-.5-.5-.5h-2c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2c.827 0 1.5.673 1.5 1.5v1c0 .827-.673 1.5-1.5 1.5z" />
     </svg>';
     $this->svg_icon = ob_get_clean();
-    $this->preview_image_url = CODETOT_BLOCKS_PLUGIN_URI . '/assets/img/bottom_cta.jpg';
+    $this->preview_image_url = CODETOT_BLOCKS_PLUGIN_URI . '/assets/img/bottom-cta.png';
 
     parent::__construct();
   }
