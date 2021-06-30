@@ -18,27 +18,6 @@
   }
 }
 
-.bottom-cta.is-content-alignment-center {
-  & .bottom-cta__inner,
-  & .bottom-cta__inner * {
-    text-align: center;
-  }
-}
-
-.bottom-cta.is-content-alignment-left {
-  & .bottom-cta__inner,
-  & .bottom-cta__inner * {
-    text-align: left;
-  }
-}
-
-.bottom-cta.is-content-alignment-right {
-  & .bottom-cta__inner,
-  & .bottom-cta__inner * {
-    text-align: right;
-  }
-}
-
 .bottom-cta {
   &.has-overlay,
   &.has-background {
@@ -79,6 +58,20 @@
       @media (--ml) {
         width: auto;
         padding-top: 0;
+      }
+    }
+  }
+
+  &.is-layout-column {
+    &.is-content-alignment-center {
+      & .default-section__inner {
+        text-align: center;
+      }
+    }
+
+    &.is-content-alignment-right {
+      & .default-section__inner {
+        text-align: right;
       }
     }
   }
