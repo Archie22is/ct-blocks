@@ -3,21 +3,20 @@ $container = codetot_site_container();
 
 $_class = 'feature-grid';
 $_class .= !empty($columns) ? ' has-'. $columns .'-columns' : '';
-$_class .= !empty($enable_slider) ? ' enable-slider' : '';
-$_class .= !empty($content_alignment) ? ' is-content-alignment-'.  $content_alignment : '';
+$_class .= !empty($header_alignment) ? ' is-header-'.  $header_alignment : ' is-header-left';
 $_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 $_class .= !empty($background_contract) ? ' is-' . $background_contract . '-contract' : '';
 
 $_card_class = '';
-$_card_class .= !empty($image_size) ? ' feature-card--image-' . esc_attr($image_size) : '';
-$_card_class .= !empty($content_alignment) ? ' feature-card--' . $content_alignment : '';
-$_card_class .= !empty($box_content) ? ' feature-card--boxed' : '';
+$_card_class .= $card_layout === 'column' ? 'f fw fdc is-column-layout' : 'f fw is-row-layout';
+$_card_class .= !empty($content_alignment) ? ' is-content-alignment-' . $content_alignment : '';
+$_card_class .= !empty($enable_card_border) ? ' has-border' : '';
 
 if (!empty($title) || !empty($description)) {
   $header = codetot_build_content_block(array(
     'class' => 'section-header',
-    'alignment' => $content_alignment,
+    'alignment' => $header_alignment,
     'label' => $label,
     'title' => $title,
     'description' => $description
@@ -25,18 +24,13 @@ if (!empty($title) || !empty($description)) {
 }
 
 // Main Content
-$columns = !empty($items) ? array_map(function($item) use ($_card_class, $image_size) {
-  return get_block('feature-card', array(
-    'class' => $_card_class,
-    'image_class' => !empty($image_size) ? 'image--' . $image_size : 'image--default',
-    'icon_type' => $item['icon_type'],
-    'image_content' => ($item['icon_type'] === 'svg') ? $item['icon_svg'] : $item['icon_image']['ID'],
-    'title' => $item['title'],
-    'description' => $item['description'],
-    'button_text' => $item['button_text'],
-    'button_url' => $item['button_url'],
-    'button_style' => $item['button_style'] ?? 'primary'
-  ));
+$columns = !empty($items) ? array_map(function($item) use ($_card_class, $media_size) {
+  $item['class'] = $_card_class;
+  $item['media_size'] = $media_size;
+  $item['image'] = $item['icon_image'];
+  $item['svg_icon'] = $item['icon_svg'];
+
+  return get_block('feature-card', $item);
 }, $items) : [];
 
 if ($enable_slider) {
