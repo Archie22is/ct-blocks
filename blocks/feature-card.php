@@ -12,19 +12,21 @@
   $content = codetot_build_content_block($_content_args, 'feature-card');
 endif;
 
+$_media_size = !empty($media_size) ? $media_size : 'image--default';
+
 $_class = 'feature-card';
 $_class .= !empty($enable_card_link) && !empty($card_link) ? ' feature-card--link' : '';
-$_class .= !empty($media_size) ? ' is-' . esc_attr($media_size) : ' is-image--default';
+$_class .= ' is-' . esc_attr($_media_size);
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 
-$media_class = !empty($media_size) ? 'is-' . $media_size : '';
+$media_class = 'is-' . $_media_size;
 
 if ($icon_type === 'svg' && !empty($svg_icon)) {
-  $media_html = sprintf('<span class="feature-card__svg %1$s" aria-hidden="true">%2$s</span>', $media_size, $svg_icon);
+  $media_html = sprintf('<span class="feature-card__svg %1$s" aria-hidden="true">%2$s</span>', $_media_size, $svg_icon);
 } elseif ($icon_type === 'image' && !empty($image)) {
   $media_html = get_block('image', array(
     'image' => $image,
-    'class' => $media_size . ' feature-card__image'
+    'class' => $_media_size . ' feature-card__image'
   ));
 } else {
   $media_html = '';

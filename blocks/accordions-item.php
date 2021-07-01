@@ -11,7 +11,9 @@
       </button>
       <div class="d-none accordions__item-content js-content" itemscope=""
            itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <div class="accordions__item-text js-content-inner" itemprop="text"><?php echo $item['content']; ?></div>
+        <div class="accordions__item-text js-content-inner" itemprop="text">
+          <div class="wysiwyg mb-1 accordions__content"><?php echo $item['content']; ?></div>
+        </div>
       </div>
     </div>
   </div>
