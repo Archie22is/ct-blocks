@@ -39,7 +39,6 @@ $content = codetot_build_grid_columns($columns, 'feature-grid', array(
 
 if (!empty($items)) :
   the_block('default-section', array(
-    'attributes' => $enable_slider ? ' data-ct-block="feature-grid"' : '',
     'class' => $_class,
     'header' => (!empty($title) || !empty($description)) ? $header : false,
     'content' => $content
