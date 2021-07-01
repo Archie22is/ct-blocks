@@ -252,6 +252,25 @@
         "endpoint": 0
       },
       {
+        "key": "field_5fd523de79d680",
+        "label": "Lazyload",
+        "name": "enable_lazyload",
+        "type": "true_false",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "15",
+          "class": "",
+          "id": ""
+        },
+        "message": "Enable",
+        "default_value": 1,
+        "ui": 0,
+        "ui_on_text": "",
+        "ui_off_text": ""
+      },
+      {
         "key": "field_5fd523de79d681",
         "label": "Class",
         "name": "class",
@@ -271,8 +290,27 @@
         "maxlength": ""
       },
       {
+        "key": "field_5fd523de79d682",
+        "label": "Anchor Name",
+        "name": "anchor_name",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
         "key": "field_5ftr324iaf8a3",
-        "label": "Presets",
+        "label": "Block Presets",
         "name": "block_preset",
         "type": "select",
         "instructions": "",
@@ -315,9 +353,31 @@
         "save_other_choice": 0
       },
       {
+        "key": "field_5fd050a24eb9a",
+        "label": "Background Type",
+        "name": "background_type",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
         "key": "field_5fd050a24eb9b",
-        "label": "Post Grid columns",
-        "name": "post_grid_columns",
+        "label": "Columns",
+        "name": "columns",
         "type": "select",
         "instructions": "",
         "required": 0,
@@ -328,15 +388,14 @@
           "id": ""
         },
         "choices": {
-          "1": "1",
-          "2": "2",
           "3": "3",
           "4": "4",
-          "5": "5"
+          "5": "5",
+          "6": "6"
         },
         "allow_null": 0,
         "other_choice": 0,
-        "default_value": "1",
+        "default_value": "3",
         "layout": "horizontal",
         "return_format": "value",
         "save_other_choice": 0
@@ -350,7 +409,7 @@
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "33",
+          "width": "",
           "class": "",
           "id": ""
         },
@@ -358,8 +417,7 @@
           "style-1": "Style 1",
           "style-2": "Style 2",
           "style-3": "Style 3",
-          "style-4": "Style 4",
-          "style-5": "Style 5"
+          "style-4": "Style 4"
         },
         "allow_null": 0,
         "other_choice": 0,

@@ -45,19 +45,24 @@ class Codetot_Block_Section_Post extends Codetot_Base_Block implements Codetot_B
     $this->block_slug = 'section_post';
     $this->block_title = __('Section Post', 'ct-blocks');
     $this->fields = [
+      // Settings
+      'enable_lazyload',
       'class',
+      'anchor_name',
       'block_preset',
       'header_alignment',
+      'background_type',
+      'columns',
+      'post_card_style',
+      // Content
+      'category',
+      'number_posts',
       'label',
       'title',
       'description',
-      'category',
-      'number_posts',
-      'post_grid_columns',
-      'post_card_style',
       'button_text',
       'button_url',
-      'target',
+      'button_target',
       'button_style'
     ];
 
