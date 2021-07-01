@@ -33,22 +33,9 @@ $columns = !empty($items) ? array_map(function($item) use ($_card_class, $media_
   return get_block('feature-card', $item);
 }, $items) : [];
 
-if ($enable_slider) {
-  $slider_settings = array(
-    'contain' => true,
-    'draggable' => true,
-    'pauseAutoPlayOnHover' => true,
-    'pageDots' => false
-  );
-
-  $content = codetot_build_slider($columns, 'feature-grid', array(
-    'slider_settings' => $slider_settings,
-  ));
-} else {
-  $content = codetot_build_grid_columns($columns, 'feature-grid', array(
-    'column_class' => 'default-section__col'
-  ));
-}
+$content = codetot_build_grid_columns($columns, 'feature-grid', array(
+  'column_class' => 'default-section__col'
+));
 
 if (!empty($items)) :
   the_block('default-section', array(
