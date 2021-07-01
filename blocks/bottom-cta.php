@@ -47,7 +47,7 @@ ob_start(); ?>
         'type' => $button['button_style'],
         'button' => $button['button_text'],
         'url' => $button['button_url'],
-        'target' => $button['target']
+        'target' => $button['button_target']
       ));
     endforeach; ?>
   </div>
