@@ -1,65 +1,67 @@
 <?php
-/**
- * Available class:
- * - two-up-intro--style-creative-box (image and content overlap)
- * - two-up-intro--size-large (large spacing)
- * - two-up-intro--style-gym (large text)
- * - two-up-intro--style-gym-2 (large block with dark background and white text)
- * - two-up-intro--no-container (no container - full width)
- * - two-up-intro--style-short (available space between 2 columns, top and bottom)
- */
+
+if (!empty($image_size) && empty($media_size) && is_user_logged_in() && current_user_can( 'manage_options' )) {
+  $error = new WP_Error('new_update', 'Please edit this page and update block Two Up Intro to new settings. This notice only available to Admin only. Contact dev@codetot.com for more information.');
+
+  printf('<pre>%s</pre>', $error->get_error_message());
+}
 
 $_class = 'two-up-intro';
-$_class .= !empty($background_type) ? ' bg-' . esc_attr($background_type) : '';
-$_class .= !empty($background_type) && $background_type !== 'white' ? ' section-bg' : ' section';
-$_class .= !empty($content_alignment) ? ' two-up-intro--alignment-' . esc_attr($content_alignment) : '';
-$_class .= !empty($image_position) ? ' two-up-intro--image-' . esc_attr($image_position) : '';
+$_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
+$_class .= !empty($background_contract) ? ' is-' . $background_contract . '-contract' : ' is-light-contract';
+$_class .= !empty($block_spacing) ? ' is-spacing-' . esc_attr($block_spacing) : ' is-spacing-default';
+$_class .= !empty($block_spacing) && $block_spacing === 'fullscreen' ? ' default-section--no-container' : '';
+$_class .= !empty($content_alignment) ? ' is-content-alignment-' . esc_attr($content_alignment) : ' is-content-alignment-left';
+$_class .= !empty($image_position) ? ' is-layout-' . esc_attr($image_position). '-image' : ' is-layout-left-image';
+$_class .= !empty($media_size) ? ' is-media-size-' . esc_attr($media_size) : ' is-media-size-default';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
-$_image_size = 'two-up-intro__image';
-$_image_size .= !empty($image_size) ? ' image--' . $image_size : 'image--cover';
 
-$container = codetot_site_container();
-if (!empty($image) || !empty($content)) :
+$main_content = '<div class="two-up-intro__inner">' . codetot_build_content_block(array(
+  'label' => !empty($label) ? $label : '',
+  'title' => !empty($title) ? $title : '',
+  'description' => !empty($content) ? $content : '',
+  'default_class' => 'two-up-intro__content'
+), 'two-up-intro');
+
+$default_image_sizes = ['default', 'cover', 'contain'];
+$large_media_sizes = ['cover-height-32', 'cover-height-151', 'flex-height'];
+
+$_image_class = !empty($media_size) && in_array($media_size, $default_image_sizes) ? 'image--hd image--' . $media_size : '';
+$_image_class .= ' two-up-intro__image';
+
+$_image_size = 'large';
+$_image_size = !empty($media_size) && in_array($media_size, $large_media_sizes) ? 'full' : 'large';
+
+ob_start();
+if (!empty($image)) :
+  the_block('image', array(
+    'image' => $image,
+    'class' => $_image_class,
+    'size' => $_image_size
+  ));
+endif;
+$media_content = ob_get_clean();
+
+ob_start();
+if (!empty($buttons)) :
   ?>
-  <section class="<?php echo $_class; ?>">
-    <div class="two-up-intro__wrapper">
-      <div class="<?php echo $container; ?> two-up-intro__container">
-        <div class="f fw two-up-intro__grid">
-          <?php if (!empty($image)) : ?>
-            <div class="two-up-intro__col two-up-intro__col--image">
-              <?php the_block('image', array(
-                'image' => $image,
-                'class' => $_image_size
-              )); ?>
-            </div>
-          <?php endif; ?>
-          <?php if (!empty($content)) : ?>
-            <div class="two-up-intro__col two-up-intro__col--content">
-              <div class="two-up-intro__inner">
-                <?php if (!empty($title)) : ?>
-                  <header class="two-up-intro__header">
-                    <?php if (!empty($label)) : ?>
-                      <p class="two-up-intro__label"><?php echo esc_html($label); ?></p>
-                    <?php endif; ?>
-                    <?php if (!empty($title)) : ?>
-                      <h2 class="two-up-intro__title"><?php echo esc_html($title); ?></h2>
-                    <?php endif; ?>
-                  </header>
-                <?php endif; ?>
-                <div class="wysiwyg two-up-intro__content"><?php echo $content; ?></div>
-                <?php if (!empty($buttons)) : ?>
-                  <div class="two-up-intro__footer">
-                    <?php the_block('button-group', array(
-                      'buttons' => $buttons,
-                      'class' => 'two-up-intro__buttons'
-                    )); ?>
-                  </div>
-                <?php endif; ?>
-              </div>
-            </div>
-          <?php endif; ?>
-        </div>
-      </div>
-    </div>
-  </section>
-<?php endif; ?>
+  <div class="pt-1 two-up-intro__footer">
+    <?php the_block('button-group', array(
+      'buttons' => $buttons,
+      'class' => 'two-up-intro__buttons'
+    )); ?>
+  </div>
+<?php endif;
+$buttons_html = ob_get_clean();
+
+$main_content .= $buttons_html . '</div>';
+
+$content = codetot_build_grid_columns(array(
+  $media_content,
+  $main_content
+), 'two-up-intro');
+
+the_block('default-section', array(
+  'class' => $_class,
+  'content' => $content
+));
