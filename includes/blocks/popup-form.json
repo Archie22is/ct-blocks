@@ -6,6 +6,55 @@
     "display": "row",
     "sub_fields": [
       {
+        "key": "field_60dee40a332dcb",
+        "label": "Preview",
+        "name": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_60dee40a332cc",
+        "label": "Preview Image",
+        "name": "",
+        "type": "message",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "message": "<div class=\"js-custom-preview-block\" data-block=\"popup-form\"></div>",
+        "new_lines": "wpautop",
+        "esc_html": 0
+      },
+      {
+        "key": "field_60dee40a332dcd",
+        "label": "Content",
+        "name": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
         "key": "field_60dee40a332da",
         "label": "Form",
         "name": "select_form",
