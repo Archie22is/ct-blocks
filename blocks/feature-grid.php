@@ -40,6 +40,7 @@ $content = codetot_build_grid_columns($columns, 'feature-grid', array(
 if (!empty($items)) :
   the_block('default-section', array(
     'class' => $_class,
+    'id' => !empty($anchor_name) ? $anchor_name : '',
     'header' => (!empty($title) || !empty($description)) ? $header : false,
     'content' => $content
   ));

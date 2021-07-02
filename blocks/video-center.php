@@ -23,7 +23,7 @@ $youtube_id = !empty($matches) ? $matches[1] : '';
 
 ?>
 
-<section class="<?php echo $_class; ?>" data-ct-block="video-center">
+<section class="<?php echo $_class; ?>" id="<?php echo !empty($anchor_name) ? $anchor_name : '' ?>" data-ct-block="video-center">
   <?php echo $header; ?>
   <?php if (!empty($youtube_id)) : ?>
     <div class="video-center__main">
