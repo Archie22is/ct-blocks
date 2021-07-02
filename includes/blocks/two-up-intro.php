@@ -67,6 +67,9 @@ class Codetot_Block_Two_Up_Intro extends Codetot_Base_Block implements Codetot_B
       'buttons'
     ];
 
+    $this->svg_icon = '<svg id="two_up_intro" viewBox="0 0 96 96"><path d="m9,12v75h75v-75h-75zm36,72h-33v-69h33v69zm36,0h-33v-69h33v69z"/></svg>';
+    $this->preview_image_url = CODETOT_BLOCKS_PLUGIN_URI . '/assets/img/two-up-intro.png';
+
     parent::__construct();
   }
 }
