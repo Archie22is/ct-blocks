@@ -18,7 +18,7 @@ if (!empty($buttons)) : ?>
   <div class="mt-1 hero-title__footer">
     <?php the_block('button-group', array(
       'buttons' => $buttons,
-      'class' => 'hero-title__button'
+      'class' => 'hero-title__buttons'
     )); ?>
   </div>
 <?php endif;

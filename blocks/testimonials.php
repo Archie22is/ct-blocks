@@ -43,6 +43,7 @@ if (!empty($columns)) :
   the_block('default-section', array(
     'before_header' => $background,
     'class' => $_class,
+    'id' => !empty($anchor_name) ? $anchor_name : '',
     'header' => $header,
     'content' => $content
   ));

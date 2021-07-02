@@ -40,16 +40,11 @@ $content = codetot_build_content_block(array(
 ob_start(); ?>
 <?php if (!empty($buttons)) : ?>
   <div class="pt-1 bottom-cta__footer">
-    <?php foreach ($buttons as $button) :
-      the_block('button', array(
-        'class' => 'bottom-cta__button',
-        'size' => 'large',
-        'type' => $button['button_style'],
-        'button' => $button['button_text'],
-        'url' => $button['button_url'],
-        'target' => $button['button_target']
-      ));
-    endforeach; ?>
+    <?php
+    the_block('button-group', array(
+      'buttons' => $buttons
+    ));
+    ?>
   </div>
 <?php endif; ?>
 <?php $footer = ob_get_clean();
