@@ -1,67 +1,10 @@
-/* global jQuery */
-import {
-  selectAll,
-  select,
-  addClass,
-  on,
-  getData,
-  setStyle,
-  remove,
-  removeClass
-} from 'lib/dom'
-import { map } from '../lib/utils'
-const $ = jQuery
-
-const body = document.body
-const overLayMarkup = '<div class="overlay-popup js-close-form"></div>'
-// const closeMarkup = '<div class="close-button js-close-form">x</div>'
+import Modal from 'lib/modal'
 
 export default el => {
-  // $(el).after(closeMarkup)
-  const actionAttribute = getData('action-attribute', el)
+  // eslint-disable-next-line no-unused-vars
+  const instance = new Modal(el, {
+    id: el.id
+  })
 
-  const buttonEls = selectAll('.button', body)
-
-  if (buttonEls) {
-    map(buttonEl => {
-      const isActionButton = getData('action', buttonEl)
-      if (isActionButton && isActionButton === actionAttribute) {
-        on(
-          'click',
-          () => {
-            addClass('is-show', el)
-
-            if (!select('overlay-popup', body)) {
-              $(body).prepend(overLayMarkup)
-            }
-
-            setStyle('overflow-y', 'hidden', body)
-
-            map(buttonEl => {
-              setStyle('pointer-events', 'none', buttonEl)
-            }, buttonEls)
-
-            const overlayEl = select('.js-close-form', body)
-
-            if (overlayEl) {
-              on(
-                'click',
-                e => {
-                  remove(e.target)
-                  removeClass('is-show', el)
-                  setStyle('overflow-y', 'auto', body)
-
-                  map(buttonEl => {
-                    setStyle('pointer-events', 'unset', buttonEl)
-                  }, buttonEls)
-                },
-                overlayEl
-              )
-            }
-          },
-          buttonEl
-        )
-      }
-    }, buttonEls)
-  }
+  console.log(instance)
 }
