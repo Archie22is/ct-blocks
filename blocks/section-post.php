@@ -59,6 +59,7 @@ $footer = !empty($button_text) && !empty($button_url) ?
 
 the_block('default-section', array(
   'class' => $_class,
+  'id' => !empty($anchor_name) ? $anchor_name : '',
   'lazyload' => $_enable_lazyload,
   'header' => (!empty($title) || !empty($description)) ? $header : '',
   'content' => $content,
