@@ -48,20 +48,27 @@ class Codetot_Block_Two_Up_Intro extends Codetot_Base_Block implements Codetot_B
     $this->block_slug = 'two_up_intro';
     $this->block_title = __('Two Up Intro', 'ct-blocks');
     $this->fields = [
+      // Settings
       'class',
+      'anchor_name',
       'block_preset',
+      'block_spacing',
       'content_alignment',
-      'image',
-      'image_size',
       'image_position',
+      'image_size',
+      'media_size',
+      'background_type',
+      'background_contract',
+      // Content
+      'image',
       'label',
       'title',
       'content',
-      'buttons',
-      'button_text',
-      'button_url',
-      'button_type'
+      'buttons'
     ];
+
+    $this->svg_icon = '<svg id="two_up_intro" viewBox="0 0 96 96"><path d="m9,12v75h75v-75h-75zm36,72h-33v-69h33v69zm36,0h-33v-69h33v69z"/></svg>';
+    $this->preview_image_url = CODETOT_BLOCKS_PLUGIN_URI . '/assets/img/two-up-intro.png';
 
     parent::__construct();
   }

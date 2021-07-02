@@ -20,7 +20,7 @@ const init = () => {
     if (previewEls.length) {
       map(previewEl => {
         let blockName = getData('block', previewEl)
-        blockName = blockName ? blockName.replace('-', '_', blockName) : null
+        blockName = blockName ? blockName.replace(/-/g, '_', blockName) : null
         const blockImageUrl = blockName ? getBlockImageUrl(blockName) : null
 
         if (blockImageUrl) {
