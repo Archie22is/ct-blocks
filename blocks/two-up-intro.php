@@ -63,5 +63,6 @@ $content = codetot_build_grid_columns(array(
 
 the_block('default-section', array(
   'class' => $_class,
+  'id' => $anchor_name,
   'content' => $content
 ));
