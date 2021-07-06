@@ -34,7 +34,7 @@
           "class": "",
           "id": ""
         },
-        "message": "<div class=\"js-custom-preview-block\" data-block=\"hero-title\"></div>",
+        "message": "<div class=\"js-custom-preview-block\" data-block=\"default-content\"></div>",
         "new_lines": "wpautop",
         "esc_html": 0
       },
