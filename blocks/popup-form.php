@@ -14,9 +14,12 @@ if (!empty($select_form)) :
 endif;
 $content = ob_get_clean();
 
+$_class = 'modal--popup-form';
+$_class .= !empty($class) ? ' ' . esc_attr($class) : '';
+
 the_block('modal', array(
   'attributes' => ' data-ct-block="popup-form"',
-  'class' => 'modal--popup-form',
+  'class' => $_class,
   'id' => esc_attr($form_id),
   'header' => !empty($header) ? $header : '',
   'content' => $content
