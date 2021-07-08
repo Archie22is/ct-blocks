@@ -26,7 +26,7 @@ $main_content = '<div class="two-up-intro__inner">' . codetot_build_content_bloc
 $default_image_sizes = ['default', 'cover', 'contain'];
 $large_media_sizes = ['cover-height-32', 'cover-height-151', 'flex-height'];
 
-$_image_class = !empty($media_size) && in_array($media_size, $default_image_sizes) ? 'image--hd image--' . $media_size : '';
+$_image_class = !empty($media_size) && in_array($media_size, $default_image_sizes) ? 'image--' . $media_size : '';
 $_image_class .= ' two-up-intro__image';
 
 $_image_size = 'large';
