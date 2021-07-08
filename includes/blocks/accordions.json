@@ -168,6 +168,25 @@
         "endpoint": 0
       },
       {
+        "key": "field_60214b8c91ac9",
+        "label": "Enable FAQPage Schema",
+        "name": "enable_schema",
+        "type": "true_false",
+        "instructions": "Improve SEO Score with FAQPage Schema. Don't enable multiple times on same page.",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "message": "Enable",
+        "default_value": 1,
+        "ui": 0,
+        "ui_on_text": "",
+        "ui_off_text": ""
+      },
+      {
         "key": "field_60214b8c91ad0",
         "label": "Class",
         "name": "class",
