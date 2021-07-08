@@ -45,7 +45,7 @@ $_attributes .= $_enable_schema ? ' itemscope itemtype="https://schema.org/FAQPa
 
 if (!empty($items)) :
   the_block('default-section', array(
-    'id' => !empty($id) ? $id : '',
+    'id' => !empty($anchor_name) ? $anchor_name : '',
     'attributes' => $_attributes,
     'class' => $_class,
     'header' => (!empty($title) || !empty($description)) ? $header : false,
