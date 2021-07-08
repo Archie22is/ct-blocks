@@ -14,7 +14,7 @@
 
 .feature-card,
 .feature-card__content {
-  flex: 1 1 0;
+  flex: 1 1 auto;
 }
 
 .feature-card__footer {
