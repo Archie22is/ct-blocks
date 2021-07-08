@@ -20,6 +20,8 @@ $_class .= !empty($block_preset) ? ' accordions--preset-' . esc_attr($block_pres
 $_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 
+$_enable_schema = isset($enable_schema) && $enable_schema || (!isset($enable_schema));
+
 $header = codetot_build_content_block(array(
   'class' => 'section-header',
   'alignment' => $header_alignment,
@@ -27,9 +29,10 @@ $header = codetot_build_content_block(array(
   'description' => $description
 ), 'accordions');
 
-$columns = !empty($items) ? array_map(function($item) {
+$columns = !empty($items) ? array_map(function($item) use ($_enable_schema) {
   return get_block('accordions-item', array(
-    'item' => $item
+    'item' => $item,
+    'enable_schema' => $_enable_schema
   ));
 }, $items) : [];
 
@@ -37,10 +40,13 @@ $content = codetot_build_grid_columns($columns, 'accordions', array(
   'column_class' => 'w100 default-section__col js-row'
 ));
 
+$_attributes = ' data-ct-block="accordions"';
+$_attributes .= $_enable_schema ? ' itemscope itemtype="https://schema.org/FAQPage"' : '';
+
 if (!empty($items)) :
   the_block('default-section', array(
     'id' => !empty($id) ? $id : '',
-    'attributes' => ' data-ct-block="accordions"',
+    'attributes' => $_attributes,
     'class' => $_class,
     'header' => (!empty($title) || !empty($description)) ? $header : false,
     'content' => $content

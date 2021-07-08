@@ -47,6 +47,7 @@ class Codetot_Block_Accordions extends Codetot_Base_Block implements Codetot_Bas
     $this->block_title = __('Accordions', 'ct-blocks');
     $this->fields = [
       // Settings
+      'enable_schema',
       'class',
       'anchor_name',
       'layout',
