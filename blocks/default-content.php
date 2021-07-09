@@ -6,7 +6,7 @@ $_class .= !empty($background_type) ? codetot_generate_block_background_class($b
 
 $header = codetot_build_content_block(array(
   'title' => !empty($title) ? $title : '',
-  'title_tag' => 'h3'
+  'title_tag' => 'h2'
 ), 'default-content');
 
 ob_start();
