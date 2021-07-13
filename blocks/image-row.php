@@ -39,6 +39,7 @@ the_block('default-section', array(
   'attributes' => $_attr,
   'class' => $_class,
   'lazyload' => true,
+  'tag' => !empty($title) ?  'section'  : 'div',
   'header' => (!empty($title) || !empty($description)) ? $header : false,
   'content' => $content
 ));
