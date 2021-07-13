@@ -95,7 +95,7 @@
     "flickity-as-nav-for": "^2.0.1",
     "flickity-imagesloaded": "^2.0.0",
     "nouislider": "^14.7.0",
-    "plyr": "^3.6.4",
+    "plyr": "^3.6.8",
     "tweezer.js": "^1.5.0",
     "whatwg-fetch": "^3.4.1"
   }
