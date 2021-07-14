@@ -289,6 +289,25 @@
         "maxlength": ""
       },
       {
+        "key": "field_testimonialss87f431",
+        "label": "Enable Slider",
+        "name": "enable_slider",
+        "type": "true_false",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "message": "Visible",
+        "default_value": 0,
+        "ui": 0,
+        "ui_on_text": "",
+        "ui_off_text": ""
+      },
+      {
         "key": "field_5fds4416et8a3",
         "label": "Block Preset",
         "name": "block_preset",
