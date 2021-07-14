@@ -1,8 +1,8 @@
 <?php
-$item_attributes = isset($enable_schema) && $enable_schema ? 'itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"' : null;
-$question_attributes = isset($enable_schema) && $enable_schema ? 'itemprop="name"' : null;
-$answer_attributes = isset($enable_schema) && $enable_schema ? 'itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"' : null;
-$answer_content_attributes = isset($enable_schema) && $enable_schema ? 'itemprop="text"' : null;
+$item_attributes = isset($enable_schema) && $enable_schema ? ' itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"' : null;
+$question_attributes = isset($enable_schema) && $enable_schema ? ' itemprop="name"' : null;
+$answer_attributes = isset($enable_schema) && $enable_schema ? ' itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"' : null;
+$answer_content_attributes = isset($enable_schema) && $enable_schema ? ' itemprop="text"' : null;
 
 if (!empty($item) && !empty($item['title']) && !empty($item['content'])) : ?>
 
