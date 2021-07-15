@@ -48,6 +48,7 @@ class Codetot_Block_Testimonials extends Codetot_Base_Block implements Codetot_B
       // Settings
       'class',
       'anchor_name',
+      'enable_slider',
       'block_preset',
       'header_alignment',
       'background_contract',
