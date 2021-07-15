@@ -63,13 +63,9 @@ if (!function_exists('codetot_svg')) {
     if (is_child_theme()) {
       $paths[] = get_stylesheet_directory() . '/assets/svg';
     }
-<<<<<<< HEAD
-    $paths[] =  CODETOT_BLOCKS_DIR  .'/assets/svg';
-=======
 
     $paths[] = get_template_directory() . '/assets/svg';
     $paths[] = CODETOT_BLOCKS_DIR . '/assets/svg';
->>>>>>> 92c8ae6... Fix missing icon svg
 
     $svg_content = '';
 
