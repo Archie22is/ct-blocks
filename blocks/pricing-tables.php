@@ -19,13 +19,13 @@ if (!empty($title) || !empty($description)) {
 }
 
 // Main Content
-$columns = !empty($items) ? array_map(function($item) use ($item_style, $content_alignment, $highlight_text) {
+$columns = !empty($items) ? array_map(function($item) use ($item_style, $icon_style, $content_alignment, $highlight_text) {
   $item_class = '';
   $item_class .= !empty($item['is_highlight']) ? ' pricing-box--highlight' : '';
   $item_class .= !empty($item_style) ? ' pricing-box--' . esc_attr($item_style) : ' pricing-box--style-1';
   $item_class .= !empty($content_alignment) ? ' is-alignment-' . esc_attr($content_alignment) : ' is-alignment-left';
   $item['highlight_text'] = !empty($highlight_text) ? $highlight_text : '';
-
+  $item['icon_style'] = !empty($icon_style) ? $icon_style : '';
   $item['class'] = $item_class;
 
   return get_block('pricing-box', $item);
