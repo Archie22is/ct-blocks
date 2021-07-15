@@ -61,7 +61,10 @@ if (!function_exists('codetot_svg')) {
     $paths = apply_filters('codetot_svg_paths', []);
     $svg_content = '';
 
-    $paths[] = CODETOT_BLOCKS_DIR . '/assets/svg';
+    if (is_child_theme()) {
+      $paths[] = get_stylesheet_directory() . '/assets/svg';
+    }
+    $paths[] =  CODETOT_BLOCKS_DIR  .'/assets/svg';
 
     foreach($paths as $path) {
       $file_path = $path . '/' . $name . '.svg';
