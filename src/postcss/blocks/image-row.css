@@ -102,4 +102,11 @@
   &.image-row--no-container {
     padding: 0 var(--container-gutter);
   }
+
+  &.is-dark-contract {
+    & .image-row__title,
+    & .image-row__description {
+      color: var(--white);
+    }
+  }
 }

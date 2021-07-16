@@ -49,6 +49,8 @@ class Codetot_Block_Image_Row extends Codetot_Base_Block implements Codetot_Base
       'lazyload',
       'class',
       'anchor_name',
+      'background_type',
+      'background_contract',
       'enable_full_screen_layout',
       'space_between',
       'header_alignment',
