@@ -66,6 +66,7 @@ if (!empty($video) || !empty($video_file) || !empty($video_url)) :
 
   the_block('default-section', array(
     'id' => !empty($id) ? $id : '',
+    'lazyload' => true,
     'attributes' => ' data-ct-block="video-center"',
     'class' => $_class,
     'header' => $header,
