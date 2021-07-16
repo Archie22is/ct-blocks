@@ -1,6 +1,10 @@
 <?php
-$_class = 'image-row';
+$prefix_class = 'image-row';
+
+$_class = $prefix_class;
 $_class .= !empty($space_between) ? ' image-row--space-between' : '';
+$_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
+$_class .= !empty($background_contract) ? ' is-' . $background_contract . '-contract' : '';
 $_class .= !empty($header_alignment) ? ' is-header-' .  $header_alignment : ' is-header-left';
 $_class .= !empty($content_alignment) ? ' is-content-alignment-' .  $content_alignment : ' is-content-alignment-left';
 $_class .= !empty($footer_alignment) ? ' is-footer-' .  $footer_alignment : ' is-footer-left';
@@ -24,20 +28,17 @@ $_columns = !empty($columns) ? array_map(function ($item) use ($_lazyload) {
     'class' => sprintf('image-row__col--%s', $item['column_width'])
   );
 
+  $image_content = get_block('image', array(
+    'image' => $item['image'],
+    'class' => 'image--default image-row__image',
+    'size' => !empty($enable_full_screen_layout) ? 'full' : 'large',
+    'lazyload' => $_lazyload
+  ));
+
   if (!empty($item['url'])) {
-    $output_item['content'] = get_block('image-banner', array(
-      'image' => $item['image'],
-      'url' => $item['url']
-    ));
-  } elseif (!empty($item['image_zoom'])) {
-    $output_item['content'] = sprintf('<a class="image-row__image-wrapper has-link" data-fancybox href="%s">', esc_url($item['image']['url']));
-    $output_item['content'] .= get_block('image', array(
-      'image' => $item['image'],
-      'class' => 'image--default image-row__image',
-      'size' => !empty($enable_full_screen_layout) ? 'full' : 'large',
-      'lazyload' => $_lazyload
-    ));
-    $output_item['content'] .= '</a>';
+    $output_item['content'] = sprintf('<a class="image-row__image-wrapper has-link" href="%1$s">%2$s</a>', esc_url($item['url']), $image_content);
+  } else {
+    $output_item['content'] = $image_content;
   }
 
   return $output_item;

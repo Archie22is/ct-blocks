@@ -145,25 +145,6 @@
             "placeholder": ""
           },
           {
-            "key": "field_5fd87shoo938c",
-            "label": "Image Zoom",
-            "name": "image_zoom",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-              "width": "20",
-              "class": "",
-              "id": ""
-            },
-            "message": "Enable",
-            "default_value": 0,
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
-          },
-          {
             "key": "field_5fc89d47f3e51",
             "label": "URL",
             "name": "url",
@@ -408,6 +389,50 @@
         "prepend": "",
         "append": "",
         "maxlength": ""
+      },
+      {
+        "key": "field_5fc997bdd6221",
+        "label": "Background Type",
+        "name": "background_type",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_5fc997bdd6222",
+        "label": "Background Contract",
+        "name": "background_contract",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
       },
       {
         "key": "field_5fc997bdd6223",
