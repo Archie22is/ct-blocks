@@ -1,45 +1,67 @@
 <?php
-$container = codetot_site_container();
-$is_full_screen = !empty($enable_full_screen_layout) ? ' image-row--full-screen' : '';
-
 $_class = 'image-row';
-$_class .= !empty($class) ? ' ' . esc_attr($class) : '';
-$_class .= !empty($block_preset) ? ' image-row--' . esc_attr($block_preset) : '';
 $_class .= !empty($space_between) ? ' image-row--space-between' : '';
-$_class .= !empty($image_zoom) ? ' image-row--image-zoom' : '';
-$_class .= !empty($header_alignment) ? ' is-header-' .  $header_alignment : '';
-$_class .= !empty($enable_full_screen_layout) ? ' default-section--no-container' : '';
+$_class .= !empty($header_alignment) ? ' is-header-' .  $header_alignment : ' is-header-left';
+$_class .= !empty($content_alignment) ? ' is-content-alignment-' .  $content_alignment : ' is-content-alignment-left';
+$_class .= !empty($footer_alignment) ? ' is-footer-' .  $footer_alignment : ' is-footer-left';
+$_class .= !empty($enable_full_screen_layout) ? ' default-section--no-container image-row--no-container' : '';
+$_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 
-$_attr = ' data-ct-block="image-row"';
+$_lazyload = !empty($lazyload) ?? true;
 
 if (!empty($title)) {
   $header = codetot_build_content_block(array(
     'class' => 'section-header',
     'alignment' => $header_alignment,
     'title' => $title,
+    'description' => !empty($description) ? $description : ''
   ), 'image-row');
 }
 
 // Main Content
-$_columns = !empty($columns) ? array_map(function ($item) {
-  return array(
-    'content' => get_block('image-banner', array(
+$_columns = !empty($columns) ? array_map(function ($item) use ($_lazyload) {
+  $output_item = array(
+    'class' => sprintf('image-row__col--%s', $item['column_width'])
+  );
+
+  if (!empty($item['url'])) {
+    $output_item['content'] = get_block('image-banner', array(
       'image' => $item['image'],
       'url' => $item['url']
-    )),
-    'class' => 'image-row__col--' . $item['column_width']
-  );
+    ));
+  } elseif (!empty($item['image_zoom'])) {
+    $output_item['content'] = sprintf('<a class="image-row__image-wrapper has-link" data-fancybox href="%s">', esc_url($item['image']['url']));
+    $output_item['content'] .= get_block('image', array(
+      'image' => $item['image'],
+      'class' => 'image--default image-row__image',
+      'size' => !empty($enable_full_screen_layout) ? 'full' : 'large',
+      'lazyload' => $_lazyload
+    ));
+    $output_item['content'] .= '</a>';
+  }
+
+  return $output_item;
 }, $columns) : [];
 
 $content = codetot_build_grid_columns($_columns, 'image-row', array(
   'column_class' => 'default-section__col image-row__col'
 ));
 
+ob_start(); ?>
+<?php if (!empty($buttons)) :
+  the_block('button-group', array(
+    'class' => 'image-row__buttons',
+    'buttons' => $buttons
+  ));
+endif; ?>
+<?php $footer = ob_get_clean();
+
 the_block('default-section', array(
-  'attributes' => $_attr,
+  'id' => !empty($id) ? $id : '',
   'class' => $_class,
-  'lazyload' => true,
-  'tag' => !empty($title) ?  'section'  : 'div',
-  'header' => (!empty($title) || !empty($description)) ? $header : false,
-  'content' => $content
+  'lazyload' => $_lazyload,
+  'tag' => !empty($title) ? 'section' : 'div',
+  'header' => $header,
+  'content' => $content,
+  'footer' => $footer
 ));
