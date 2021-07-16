@@ -661,7 +661,9 @@
           "image--contain": "Image - Contain",
           "icon--24": "Icon - 24px",
           "icon--36": "Icon - 36px",
-          "icon--48": "Icon - 48px"
+          "icon--48": "Icon - 48px",
+          "icon--60": "Icon - 60px",
+          "icon--80": "Icon - 80px"
         },
         "default_value": "image--default",
         "allow_null": 0,
