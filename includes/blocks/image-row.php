@@ -45,15 +45,23 @@ class Codetot_Block_Image_Row extends Codetot_Base_Block implements Codetot_Base
     $this->block_slug = 'image_row';
     $this->block_title = __('Image Row', 'ct-blocks');
     $this->fields = [
+      // Settings
+      'lazyload',
       'class',
-      'block_preset',
-      'columns',
+      'anchor_name',
       'enable_full_screen_layout',
       'space_between',
       'header_alignment',
+      'content_alignment',
+      'footer_alignment',
+      // Content
       'title',
-      'image_zoom'
+      'description',
+      'columns',
+      'buttons'
     ];
+
+    $this->preview_image_url = CODETOT_BLOCKS_PLUGIN_URI . '/assets/img/image-row.png';
 
     parent::__construct();
   }
