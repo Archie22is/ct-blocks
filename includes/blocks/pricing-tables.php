@@ -51,6 +51,7 @@ class Codetot_Block_Pricing_Tables extends Codetot_Base_Block implements Codetot
       //setting
       'class',
       'anchor_name',
+      'enable_slider',
       'block_preset',
       'item_style',
       'header_alignment',
