@@ -3,6 +3,16 @@
   & .flickity-page-dots {
     bottom: 25px;
   }
+
+  & .flickity-prev-next-button {
+    &.previous {
+      left: 20px;
+    }
+
+    &.next {
+      right: 20px;
+    }
+  }
 }
 
 .hero-link__item {
