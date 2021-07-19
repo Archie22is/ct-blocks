@@ -1,0 +1,36 @@
+
+.hero-link {
+  & .flickity-page-dots {
+    bottom: 25px;
+  }
+}
+
+.hero-link__item {
+  width: 100%;
+}
+
+.hero-link__image {
+  & .image__img {
+    position: static;
+  }
+}
+
+.hero-link--button-circle {
+  @mixin slider-button-circle;
+}
+
+.hero-link--button-simple {
+  @mixin slider-button-simple;
+}
+
+.hero-link--button-square {
+  @mixin slider-button-square;
+}
+
+.hero-link--dots-dashes {
+  @mixin slider-button-dashes;
+}
+
+.hero-link--dots-square {
+  @mixin slider-dots-square;
+}
