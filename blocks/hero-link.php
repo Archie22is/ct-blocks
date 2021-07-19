@@ -1,5 +1,4 @@
 <?php
-echo $enable_prev_next_buttons;
 $_class = 'hero-link';
 $_class .= !empty($class) ? ' ' . $class : '';
 $_class .= !empty($block_preset) ? ' hero-link--style-' . esc_attr($block_preset) : '';
