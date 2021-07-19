@@ -8,6 +8,13 @@ $_class .= !empty($background_image) ? ' section-bg' : ' section';
 $_class .= !empty($background_contract) ? ' '. $prefix_class .'--' . esc_attr($background_contract) : '';
 $_class .= !empty($block_preset) ? ' '. $prefix_class .'--' . esc_attr($block_preset) : ' '. $prefix_class .'--preset-1';
 $_class .= !empty($number_columns) ? ' has-' . esc_attr($number_columns) .'-columns' : ' has-3-columns';
+$_class .= !empty($enable_slider) ? ' ' . $prefix_class . '--slider' : '';
+
+$carousel_settings = array(
+  'prevNextButtons' => true,
+  'pageDots' => true,
+  'wrapAround' => true
+);
 
 if (!empty($title) || !empty($description)) {
   $header = codetot_build_content_block(array(
@@ -35,10 +42,30 @@ $content = codetot_build_grid_columns($columns, $prefix_class, array(
   'column_class' => 'default-section__col'
 ));
 
+if(!empty($enable_slider) == 1 ) {
+  ob_start();
+  if(!empty($columns)) : ?>
+    <div class="<?php echo $prefix_class; ?>__slider js-slider" <?php if (!empty($carousel_settings)) : ?> data-carousel='<?= json_encode($carousel_settings); ?>' <?php endif; ?>>
+      <?php foreach($columns as $column ) : ?>
+        <div class="<?php echo $prefix_class; ?>__item">
+          <?php echo $column; ?>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  <?php
+  endif;
+  $content = ob_get_clean();
+} else {
+  $content = codetot_build_grid_columns($columns, $prefix_class, array(
+    'column_class' => 'default-section__col'
+  ));
+  }
+
 if (!empty($items)) :
   the_block('default-section', array(
     'class' => $_class,
     'header' => (!empty($title) || !empty($description)) ? $header : false,
-    'content' => $content
+    'content' => $content,
+    'attributes' => 'data-ct-block="pricing-tables"'
   ));
 endif;
