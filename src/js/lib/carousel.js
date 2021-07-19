@@ -4,6 +4,8 @@ import {
   loadNoscriptContent,
   on,
   addClass,
+  hasClass,
+  appendHtml,
   removeClass
 } from 'lib/dom'
 import { throttle } from 'lib/utils'
@@ -69,3 +71,19 @@ export default (el, options = {}) => {
 
   return null
 }
+
+const loadImage = itemEl => {
+  if (hasClass('is-not-loaded', itemEl)) {
+    const contextEls = itemEl.getElementsByTagName('noscript')
+    if (contextEls && contextEls.length) {
+      const context = contextEls[0].textContent || contextEls[0].innerHTML
+
+      itemEl.innerHTML = ''
+      appendHtml(itemEl, context)
+
+      removeClass('is-not-loaded', itemEl)
+    }
+  }
+}
+
+export { loadImage }
