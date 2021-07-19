@@ -1,4 +1,4 @@
-import { select, getData, on } from 'lib/dom'
+import { select, getData } from 'lib/dom'
 import { loadImage } from 'lib/carousel'
 import Flickity from 'flickity'
 
@@ -11,24 +11,12 @@ export default el => {
       : {}
   // eslint-disable-next-line no-unused-vars
   let slider = null
-  let loaded = false
 
   if (sliderEl) {
-    on(
-      'load',
-      () => {
-        if (!loaded) {
-          slider = new Flickity(sliderEl, options)
-
-          slider.on('change', index => {
-            const currentSlide = slider.selectedElement
-            loadImage(currentSlide)
-          })
-
-          loaded = true
-        }
-      },
-      window
-    )
+    slider = new Flickity(sliderEl, options)
+    slider.on('change', index => {
+      const currentSlide = slider.selectedElement
+      loadImage(currentSlide)
+    })
   }
 }
