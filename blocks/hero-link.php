@@ -23,7 +23,7 @@ if(!empty($items)) : ?>
       <?php foreach($items as $key => $item) : ?>
         <div class="hero-link__item<?php if ($key > 0) : ?> is-not-loaded<?php endif; ?>">
           <?php if ($key > 0) : ?><noscript><?php endif; ?>
-            <div class="hero-link__inner">
+            <div class="hero-link__item-inner">
               <?php
               if($item['url']) {
                 echo '<a class="hero-link__url" href="'.$item['url'].'">';
