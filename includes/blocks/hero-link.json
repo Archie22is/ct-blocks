@@ -137,17 +137,17 @@
         "maxlength": ""
       },
       {
-      "key": "field_herolink6af8a3",
-      "label": "Presets",
-      "name": "block_preset",
-      "type": "select",
-      "instructions": "",
-      "required": 0,
-      "conditional_logic": 0,
-      "wrapper": {
-        "width": "20",
-        "class": "",
-        "id": ""
+        "key": "field_herolink6af8a3",
+        "label": "Presets",
+        "name": "block_preset",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "20",
+          "class": "",
+          "id": ""
         },
         "choices": {},
         "default_value": "1",
@@ -160,96 +160,96 @@
         "placeholder": ""
       },
       {
-      "key": "field_herolink79ca2938c",
-      "label": "Previous/Next Buttons",
-      "name": "enable_prev_next_buttons",
-      "type": "true_false",
-      "instructions": "",
-      "required": 0,
-      "conditional_logic": 0,
-      "wrapper": {
-        "width": "25",
-        "class": "",
-        "id": ""
+        "key": "field_herolink79ca2938c",
+        "label": "Previous/Next Buttons",
+        "name": "enable_prev_next_buttons",
+        "type": "true_false",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "message": "Visible",
+        "default_value": 0,
+        "ui": 0,
+        "ui_on_text": "",
+        "ui_off_text": ""
       },
-      "message": "Visible",
-      "default_value": 0,
-      "ui": 0,
-      "ui_on_text": "",
-      "ui_off_text": ""
-    },
-    {
-      "key": "field_herolinkfd0fc6aa3",
-      "label": "Button Style",
-      "name": "previous_next_style",
-      "type": "select",
-      "instructions": "",
-      "required": 0,
-      "conditional_logic": 0,
-      "wrapper": {
-        "width": "25",
-        "class": "",
-        "id": ""
+      {
+        "key": "field_herolinkfd0fc6aa3",
+        "label": "Button Style",
+        "name": "previous_next_style",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "circle": "Circle",
+          "simple": "Simple",
+          "square": "Square"
+        },
+        "default_value": "circle",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
       },
-      "choices": {
-        "circle": "Circle",
-        "simple": "Simple",
-        "square": "Square"
+      {
+        "key": "field_herolinks87f431",
+        "label": "Page Dots",
+        "name": "enable_page_dots",
+        "type": "true_false",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "message": "Visible",
+        "default_value": 0,
+        "ui": 0,
+        "ui_on_text": "",
+        "ui_off_text": ""
       },
-      "default_value": "circle",
-      "allow_null": 0,
-      "multiple": 0,
-      "ui": 0,
-      "return_format": "value",
-      "ajax": 0,
-      "placeholder": ""
-    },
-    {
-      "key": "field_herolinks87f431",
-      "label": "Page Dots",
-      "name": "enable_page_dots",
-      "type": "true_false",
-      "instructions": "",
-      "required": 0,
-      "conditional_logic": 0,
-      "wrapper": {
-        "width": "25",
-        "class": "",
-        "id": ""
-      },
-      "message": "Visible",
-      "default_value": 0,
-      "ui": 0,
-      "ui_on_text": "",
-      "ui_off_text": ""
-    },
-    {
-      "key": "field_herolinkd0ds3aa3",
-      "label": "Dots Style",
-      "name": "page_dots_style",
-      "type": "select",
-      "instructions": "",
-      "required": 0,
-      "conditional_logic": 0,
-      "wrapper": {
-        "width": "25",
-        "class": "",
-        "id": ""
-      },
-      "choices": {
-        "circle": "Circle",
-        "dashes": "Dashes",
-        "simple": "Simple",
-        "square": "Square"
-      },
-      "default_value": "circle",
-      "allow_null": 0,
-      "multiple": 0,
-      "ui": 0,
-      "return_format": "value",
-      "ajax": 0,
-      "placeholder": ""
-    }
+      {
+        "key": "field_herolinkd0ds3aa3",
+        "label": "Dots Style",
+        "name": "page_dots_style",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "circle": "Circle",
+          "dashes": "Dashes",
+          "simple": "Simple",
+          "square": "Square"
+        },
+        "default_value": "circle",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      }
     ],
     "min": "",
     "max": ""
