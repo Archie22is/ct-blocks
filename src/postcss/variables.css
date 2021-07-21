@@ -54,3 +54,4 @@
 @custom-media --l (min-width: 1440px);
 @custom-media --xl (min-width: 1600px);
 @custom-media --max-mobile (max-width: 479px);
+@custom-media --max-small-tablet (max-width: 767px);

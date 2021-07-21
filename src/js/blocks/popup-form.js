@@ -5,6 +5,4 @@ export default el => {
   const instance = new Modal(el, {
     id: el.id
   })
-
-  console.log(instance)
 }
