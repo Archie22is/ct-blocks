@@ -42,9 +42,7 @@ $columns = !empty($items) ? array_map(function($item) use($enable_slideshow, $he
   ));
 }, $items) : [];
 
-$column_content = codetot_build_grid_columns($columns, 'logo-grid', array(
-  'column_class' => 'default-section__col'
-));
+$column_content = codetot_build_grid_columns($columns, 'logo-grid');
 
 // Build slider content
 ob_start(); ?>
