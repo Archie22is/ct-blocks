@@ -62,6 +62,7 @@ if (!empty($select_form)) :
   else :
   the_block('default-section', array(
     'class' => $_class,
+    'attributes' => ' data-reveal="fade-up"',
     'before_header' => $background,
     'header' => !empty($header) ? $header : false,
     'content' => $form

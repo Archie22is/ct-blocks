@@ -11,7 +11,7 @@ $tax_terms = get_terms(
 );
 $container = codetot_site_container();
 ?>
-<section class="<?php echo $_class;?>" <?php echo (post_type_exists('store')) ? 'data-post-type="true"' : false; ?> data-ct-block="store-locator">
+<section class="<?php echo $_class;?>" <?php echo (post_type_exists('store')) ? 'data-post-type="true"' : false; ?> data-ct-block="store-locator" data-reveal="fade-up">
 <?php if(post_type_exists('store') && !empty($tax_terms)) : ?>
   <div class="default-section__header">
     <div class="<?php echo $container; ?> default-section__container default-section__container--header">

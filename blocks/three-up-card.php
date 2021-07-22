@@ -1,5 +1,5 @@
 <?php if (!empty($items)) : ?>
-  <div class="three-up-card">
+  <div class="three-up-card" data-reveal="fade-up">
     <div class="container three-up-card__container">
       <div class="grid three-up-card__grid">
         <?php foreach ($items as $item) : ?>

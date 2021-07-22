@@ -116,7 +116,7 @@ $content = ob_get_clean();
 if (!empty($product_tabs)) :
 the_block('default-section', array(
   'class' => $_class,
-  'attributes' => ' data-ct-block="product-tabs-slider"',
+  'attributes' => ' data-ct-block="product-tabs-slider" data-reveal="fade-up"',
   'header' => $header,
   'content' => $content,
 ));

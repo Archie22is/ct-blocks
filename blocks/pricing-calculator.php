@@ -99,7 +99,7 @@ $content = codetot_build_grid_columns($columns, 'pricing-calculator');
 the_block('default-section', array(
   'id' => !empty($anchor_name) ? $anchor_name : '',
   'class' => $_class,
-  'attributes' => ' data-ct-block="pricing-calculator"',
+  'attributes' => ' data-ct-block="pricing-calculator" data-reveal="fade-up"',
   'header' => $header,
   'content' => $content
 ));

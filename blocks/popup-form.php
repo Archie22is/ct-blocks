@@ -18,7 +18,7 @@ $_class = 'modal--popup-form';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 
 the_block('modal', array(
-  'attributes' => ' data-ct-block="popup-form"',
+  'attributes' => ' data-ct-block="popup-form" data-reveal="fade-up"',
   'class' => $_class,
   'id' => esc_attr($form_id),
   'header' => !empty($header) ? $header : '',

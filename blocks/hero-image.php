@@ -57,7 +57,7 @@ $content_html = ob_get_clean();
 
 if (!empty($content_html)) :
   ?>
-  <section class="<?php echo $_class; ?>">
+  <section class="<?php echo $_class; ?>" data-reveal="fade-up">
     <?php echo $image_html; ?>
     <div class="hero-image__wrapper">
       <div class="hero-image__content">

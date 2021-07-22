@@ -16,7 +16,7 @@ $_class .= !empty($number_columns) ? ' team-member--column-' . esc_attr($number_
 $_class .= !empty($item_style) ? ' team-member--item-style-' . esc_attr($item_style) : '';
 ?>
 <?php if(!empty($items)) : ?>
-  <section class="<?php echo $_class; ?>" data-ct-block="team-member">
+  <section class="<?php echo $_class; ?>" data-ct-block="team-member" data-reveal="fade-up">
     <div class="<?php echo $container; ?> team-member__container">
       <div class="grid team-member__grid">
         <?php if(!empty($title)) : ?>

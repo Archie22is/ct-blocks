@@ -65,6 +65,7 @@ $content = codetot_build_grid_columns(array(
 
 the_block('default-section', array(
   'class' => $_class,
+  'attributes' => ' data-reveal="fade-up"',
   'id' => $anchor_name,
   'content' => $content
 ));

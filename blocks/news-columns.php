@@ -70,6 +70,7 @@ $content = ob_get_clean();
 
 the_block('default-section', array(
   'class' => $_class,
+  'attributes' => ' data-reveal="fade-up"',
   'header' => !empty($title) ? $header : false,
   'content' => $content
 ));

@@ -12,7 +12,7 @@ if (!empty($display_left_menu) && !empty($menu)) {
 }
 
 if (!empty($slider_items)) : ?>
-  <section class="<?php echo $block_class; ?>" data-ct-block="hero-banner">
+  <section class="<?php echo $block_class; ?>" data-ct-block="hero-banner" data-reveal="fade-up">
     <div class="container hero-banner__container">
       <div class="grid hero-banner__grid">
         <?php if (!empty($display_left_menu) && !empty($menu)) : ?>
