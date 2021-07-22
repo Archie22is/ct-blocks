@@ -82,7 +82,7 @@ if (!empty($items)) :
   the_block('default-section', array(
     'class' => $_class,
     'lazyload' => false,
-    'attributes' => ($layout === 'slider') ? ' data-ct-block="banner-grid"' : '',
+    'attributes' => (($layout === 'slider') ? ' data-ct-block="banner-grid"' : '') . ' data-reveal="fade-up"',
     'header' => (!empty($title) || !empty($description)) ? $header : false,
     'content' => $content
   ));

@@ -66,6 +66,7 @@ ob_start(); ?>
 the_block('default-section', array(
   'id' => !empty($anchor_name) ? $anchor_name : '',
   'class' => $_class,
+  'attributes' => ' data-reveal="fade-up"',
   'lazyload' => !empty($enable_lazyload),
   'before_header' => $background_html,
   'content' => $content

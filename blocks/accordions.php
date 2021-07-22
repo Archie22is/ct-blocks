@@ -40,7 +40,7 @@ $content = codetot_build_grid_columns($columns, 'accordions', array(
   'column_class' => 'w100 default-section__col js-row'
 ));
 
-$_attributes = ' data-ct-block="accordions"';
+$_attributes = ' data-ct-block="accordions" data-reveal="fade-up"';
 $_attributes .= $_enable_schema ? ' itemscope itemtype="https://schema.org/FAQPage"' : '';
 
 if (!empty($items)) :

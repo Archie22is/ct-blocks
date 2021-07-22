@@ -66,7 +66,7 @@ $grid_html = ob_get_clean();
 
 ?>
 
-<section class="<?php echo $_class; ?>">
+<section class="<?php echo $_class; ?>" data-reveal="fade-up">
   <?php if ($enable_container) : ?>
     <div class="container hero-two-up__container"><?php echo $grid_html; ?></div>
   <?php else : ?>

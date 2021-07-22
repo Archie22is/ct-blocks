@@ -66,6 +66,6 @@ if (!empty($items)) :
     'class' => $_class,
     'header' => (!empty($title) || !empty($description)) ? $header : false,
     'content' => $content,
-    'attributes' => 'data-ct-block="pricing-tables"'
+    'attributes' => 'data-ct-block="pricing-tables" data-reveal="fade-up"'
   ));
 endif;
