@@ -25,7 +25,7 @@ if (!empty($buttons)) : ?>
 $button_html = ob_get_clean();
 ?>
 
-<section class="<?php echo $_class; ?>">
+<section class="<?php echo $_class; ?>" data-reveal="fade-up">
   <div class="hero-title__wrapper">
     <div class="container hero-title__container">
       <div class="hero-title__inner">

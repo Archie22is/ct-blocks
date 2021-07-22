@@ -9,7 +9,7 @@ $_class .= !empty($block_preset) ? ' guarantee-list--' . $block_preset : '';
 $_class .= !empty($fullscreen) ? ' guarantee-list--fullscreen' : '';
 $_class .= !empty($hide_mobile) ? ' section--hide-mobile' : '';
 
-$attributes = !empty($anchor_name) ? sprintf(' id="%s"', $anchor_name) : '';
+$attributes = (!empty($anchor_name) ? sprintf(' id="%s"', $anchor_name) : '') . ' data-reveal="fade-up"';
 
 $columns = !empty($items) ? array_map(function($item) use ($layout, $content_alignment){
   return get_block('guarantee-card', array(

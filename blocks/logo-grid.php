@@ -59,7 +59,7 @@ $content = !$enable_slideshow ? $column_content : $slider_html;
 
 the_block('default-section', array(
   'id' => !empty($id) ? $id : '',
-  'attributes' => ' data-ct-block="logo-grid"',
+  'attributes' => ' data-ct-block="logo-grid" data-reveal="fade-up"',
   'class' => $_class,
   'header' => (!empty($title) || !empty($description)) ? $header : false,
   'content' => $content

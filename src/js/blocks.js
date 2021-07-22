@@ -1,8 +1,9 @@
-import { selectAll, getData } from 'lib/dom'
-import { map } from 'lib/utils'
+import { selectAll, getData, on, addClass, setStyle } from 'lib/dom'
+import { map, throttle } from 'lib/utils'
 
 const blocks = selectAll('[data-ct-block]')
 const woocommerceBlocks = selectAll('[data-ct-woocommerce-block]')
+const body = document.body
 
 const initBlocks = () => {
   if (blocks && blocks.length) {
@@ -30,7 +31,44 @@ const initWooCommerceBlocks = () => {
   }
 }
 
+const initReveal = () => {
+  const revealEls = selectAll('[data-reveal]', body)
+
+  const revealActive = () => {
+    map(revealEl => {
+      let delayData = getData('reveal-delay', revealEl)
+      let durationData = getData('reveal-duration', revealEl)
+      delayData = delayData / 1000
+      durationData = durationData / 1000
+
+      if (delayData) {
+        setStyle('transition-delay', delayData + 's', revealEl)
+        setStyle('transition-duration', durationData + 's', revealEl)
+      }
+    }, revealEls)
+
+    map(revealEl => {
+      const revealElOffsetTop = revealEl.offsetTop
+
+      if (window.pageYOffset > revealElOffsetTop - window.screen.height * 0.8) {
+        addClass('js-reveal--active', revealEl)
+      }
+    }, revealEls)
+  }
+
+  revealActive()
+
+  on(
+    'scroll',
+    throttle(() => {
+      revealActive()
+    }, 50),
+    window
+  )
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initBlocks()
   initWooCommerceBlocks()
+  initReveal()
 })

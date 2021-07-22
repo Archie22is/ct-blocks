@@ -16,7 +16,7 @@ $carousel_settings = array(
 );
 
 if(!empty($items)) : ?>
-<div class="<?php echo $_class;?>" <?php if(!empty($id)) : ?> id="<?php echo $id; ?>"<?php endif; ?> data-ct-block="hero-link">
+<div class="<?php echo $_class;?>" <?php if(!empty($id)) : ?> id="<?php echo $id; ?>"<?php endif; ?> data-ct-block="hero-link" data-reveal="fade-up">
   <div class="hero-link__inner">
     <div class="hero-link__slider js-slider" <?php if (!empty($carousel_settings)) : ?> data-options='<?= json_encode($carousel_settings); ?>' <?php endif; ?>>
       <?php foreach($items as $key => $item) : ?>

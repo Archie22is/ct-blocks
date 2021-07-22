@@ -72,6 +72,7 @@ $_class .= !empty($class) ? ' ' . $class : '';
     <div class="contact-section__background-image">
       <?php the_block('image', array(
       'class' => 'image--cover js-image',
+      'attributes' => ' data-reveal="fade-up"',
       'size' => 'logo',
       'image' => $background_image
       )); ?>

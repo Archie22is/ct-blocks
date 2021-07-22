@@ -21,7 +21,7 @@ $nav_slider_args = array(
 
 ?>
 <?php if(!empty($banner_left) || !empty($banner_right)) : ?>
-<section class="<?php echo $_class; ?>" data-ct-block="hero-slider-sidebar">
+<section class="<?php echo $_class; ?>" data-ct-block="hero-slider-sidebar" data-reveal="fade-up">
   <div class="hero-slider-sidebar__container">
     <div class="hero-slider-sidebar__grid">
       <?php if(!empty($banner_left)) : ?>

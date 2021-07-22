@@ -1,6 +1,6 @@
 <?php
 if (!empty($content) || !empty($images)) : ?>
-  <section class="section two-up slider" data-ct-block="two-up-slider">
+  <section class="section two-up slider" data-ct-block="two-up-slider" data-reveal="fade-up">
     <div class="container two-up-slider__container">
       <div class="two-up-slider__wrapper js-wrapper">
         <div class="rel two-up-slider__grid">

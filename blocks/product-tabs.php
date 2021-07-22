@@ -124,7 +124,7 @@ get_block('button', array(
 
 the_block('default-section', array(
   'class' => $_class,
-  'attributes' => ' data-ct-block="product-tabs"',
+  'attributes' => ' data-ct-block="product-tabs" data-reveal="fade-up"',
   'header' => $header,
   'content' => $content,
   'footer' => $footer

@@ -17,7 +17,7 @@ $carousel_settings = array(
 ?>
 
 <?php if (!empty($items)) : ?>
-  <section class="<?php echo $_class; ?>" data-ct-block="hero-slider">
+  <section class="<?php echo $_class; ?>" data-ct-block="hero-slider" data-reveal="fade-up">
     <div class="hero-slider__wrapper">
       <div class="align-c hero-slider__inner">
         <?php if (!empty($items)) : ?>
