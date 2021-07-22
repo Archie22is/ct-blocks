@@ -24,24 +24,24 @@
     transition-delay: 5s;
   }
 
-  [data-reveal^="flip"][data-reveal^="flip"] {
+  [data-reveal^='flip'] {
     backface-visibility: hidden;
     transition-property: transform;
   }
 
-  [data-reveal="flip-left"] {
+  [data-reveal='flip-left'] {
     transform: perspective(2500px) rotateY(-100deg);
   }
 
-  [data-reveal="flip-right"] {
+  [data-reveal='flip-right'] {
     transform: perspective(2500px) rotateY(100deg);
   }
 
-  [data-reveal="flip-up"] {
+  [data-reveal='flip-up'] {
     transform: perspective(2500px) rotateX(-100deg);
   }
 
-  [data-reveal="flip-down"] {
+  [data-reveal='flip-down'] {
     transform: perspective(2500px) rotateX(100deg);
   }
 
