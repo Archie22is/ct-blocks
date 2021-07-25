@@ -24,6 +24,7 @@
 .accordions__item-header {
   border: none;
   padding: 0.5em 0;
+  text-align: left;
 
   & * {
     pointer-events: none;
@@ -42,6 +43,8 @@
 }
 
 .accordions__item-title {
+  flex-grow: 1;
+  flex-basis: 0;
   padding-right: 1em;
 }
 
