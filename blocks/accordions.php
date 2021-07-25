@@ -24,9 +24,9 @@ $_enable_schema = isset($enable_schema) && $enable_schema || (!isset($enable_sch
 
 $header = codetot_build_content_block(array(
   'class' => 'section-header',
-  'alignment' => $header_alignment,
-  'title' => $title,
-  'description' => $description
+  'alignment' => !empty($header_alignment) ? $header_alignment : 'left',
+  'title' => !empty($title) ? $title : '',
+  'description' => !empty($description) ? $description : ''
 ), 'accordions');
 
 $columns = !empty($items) ? array_map(function($item) use ($_enable_schema) {
