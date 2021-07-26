@@ -39,7 +39,7 @@ ob_start(); ?>
   <p class="hero-image__label"><?php echo esc_html($label); ?></p>
 <?php endif; ?>
 <?php if (!empty($title)) : ?>
-  <h1 class="hero-image__title"><?php echo $title; ?></h1>
+  <?php echo sprintf('<%1$s class="hero-image__title">%2$s</%1$s>', $title_tag, $title); ?>
 <?php endif; ?>
 <?php if (!empty($description)) : ?>
   <div class="wysiwyg hero-image__description"><?php echo $description; ?></div>
