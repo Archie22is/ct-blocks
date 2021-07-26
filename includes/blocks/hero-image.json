@@ -165,9 +165,9 @@
         "append": "Darker"
       },
       {
-        "key": "field_5fd2d32sw4a8",
-        "label": "Title Tag",
-        "name": "title_tag",
+        "key": "field_5fd2sdf223a9",
+        "label": "Section Title Tag",
+        "name": "section_title_tag",
         "type": "select",
         "instructions": "",
         "required": 0,
@@ -177,15 +177,10 @@
           "class": "",
           "id": ""
         },
-        "acfe_permissions": "",
-        "choices": {
-          "h1": "H1",
-          "h2": "H2",
-          "div": "Div"
-        },
+        "choices": {},
         "allow_null": 0,
         "other_choice": 0,
-        "default_value": "h1",
+        "default_value": "",
         "layout": "horizontal",
         "return_format": "value",
         "save_other_choice": 0

@@ -53,7 +53,7 @@ class Codetot_Block_Hero_Image extends Codetot_Base_Block implements Codetot_Bas
       'background_position',
       'background_contract',
       'overlay',
-      'title_tag',
+      'section_title_tag',
       'fullscreen',
       'image',
       'mobile_image',
