@@ -9,7 +9,7 @@ $_class .= !empty($overlay) ? ' hero-image--has-overlay' : '';
 $_class .= (empty($fullscreen)) ? ' hero-image--no-fullscreen' : '';
 
 $_overlay = !empty($overlay) ? $overlay : '0';
-$_title_tag = !empty($section_title_tag) ? $section_title_tag : 'h2';
+$_title_tag = !empty($section_title_tag) ? $section_title_tag : 'h1';
 $container = codetot_site_container();
 
 ob_start();
