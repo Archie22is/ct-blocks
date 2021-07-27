@@ -62,7 +62,7 @@ the_block('default-section', array(
   'class' => $_class,
   'lazyload' => $_lazyload,
   'tag' => !empty($title) ? 'section' : 'div',
-  'header' => $header,
+  'header' => (!empty($title) || !empty($description)) ? $header : false,
   'content' => $content,
-  'footer' => $footer
+  'footer' => (!empty($buttons)) ? $footer : false
 ));
