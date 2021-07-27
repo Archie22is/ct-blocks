@@ -11,7 +11,7 @@ $header = codetot_build_content_block(array(
 
 ob_start();
   if( !empty($content) ):
-  echo '<div class="wysiwyg">';
+  echo '<div class="wysiwyg default-content__description">';
   echo $content;
   echo '</div>';
 endif;
