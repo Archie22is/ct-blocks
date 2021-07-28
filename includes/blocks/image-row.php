@@ -56,6 +56,7 @@ class Codetot_Block_Image_Row extends Codetot_Base_Block implements Codetot_Base
       'header_alignment',
       'content_alignment',
       'footer_alignment',
+      'enable_lazyload',
       // Content
       'title',
       'description',
