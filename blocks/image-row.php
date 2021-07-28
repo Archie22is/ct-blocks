@@ -11,16 +11,14 @@ $_class .= !empty($footer_alignment) ? ' is-footer-' .  $footer_alignment : ' is
 $_class .= !empty($enable_full_screen_layout) ? ' default-section--no-container image-row--no-container' : '';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 
-$_lazyload = !empty($lazyload) ?? true;
+$_lazyload = !empty($enable_lazyload) ?? true;
 
-if (!empty($title)) {
-  $header = codetot_build_content_block(array(
-    'class' => 'section-header',
-    'alignment' => $header_alignment,
-    'title' => $title,
-    'description' => !empty($description) ? $description : ''
-  ), 'image-row');
-}
+$header = codetot_build_content_block(array(
+  'class' => 'section-header',
+  'alignment' => $header_alignment,
+  'title' => !empty($title) ? $title : '',
+  'description' => !empty($description) ? $description : ''
+), 'image-row');
 
 // Main Content
 $_columns = !empty($columns) ? array_map(function ($item) use ($_lazyload) {
