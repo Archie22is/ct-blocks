@@ -11,7 +11,7 @@ $_class .= !empty($footer_alignment) ? ' is-footer-' .  $footer_alignment : ' is
 $_class .= !empty($enable_full_screen_layout) ? ' default-section--no-container image-row--no-container' : '';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 
-$_lazyload = !empty($lazyload) ?? true;
+$_lazyload = !empty($enable_lazyload) ?? true;
 
 $header = codetot_build_content_block(array(
   'class' => 'section-header',
