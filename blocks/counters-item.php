@@ -1,9 +1,11 @@
 <?php
-var_dump($item);
-if (!empty($item)) : var_dump($item); ?>
+// var_dump($item);
+$media_class = 'icon-type--'.$item['icon_type'];
+
+if (!empty($item)): ?>
   <div class="f fdc counters-item <?php echo $class; ?>">
     <?php if (!empty($item['icon_svg']) || !empty($item['icon_image'])) : ?>
-      <div class="mb-05 counters__wrapper">
+      <div class="mb-05 counters__wrapper <?php echo $media_class; ?>">
         <?php if ($item['icon_type'] === 'svg' && !empty($item['icon_svg']) ) : ?>
           <span class="counters__svg" aria-hidden="true"><?php echo $item['icon_svg']; ?></span>
         <?php elseif ($item['icon_type'] === 'image' && !empty($item['icon_image'])) :

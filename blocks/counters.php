@@ -32,12 +32,16 @@ if(!empty($title) || !empty($description)) {
   ), 'counters');
 }
 
-// Main Content
-$columns = !empty($counters) ? array_map(function($item) {
+$columns = !empty($counters) ? array_map(function($item) use ($_card_class) {
   return get_block('counters-item', array(
-    'item' => $item
+    'item' => $item,
+    'class' => $_card_class
   ));
 }, $counters) : [];
+
+$content = codetot_build_grid_columns($columns, 'counters', array(
+  'column_class' => 'w100 default-section__col'
+));
 
 if (!empty($counters)) :
   the_block('default-section', array(
