@@ -1,14 +1,16 @@
-<?php if (!empty($item)) : ?>
-  <div class="f fdc counters__inner">
-    <?php if (!empty($item['icon']) || !empty($item['icon_image'])) : ?>
+<?php
+var_dump($item);
+if (!empty($item)) : var_dump($item); ?>
+  <div class="f fdc counters-item <?php echo $class; ?>">
+    <?php if (!empty($item['icon_svg']) || !empty($item['icon_image'])) : ?>
       <div class="mb-05 counters__wrapper">
-        <?php if ($item['icon_type'] === 'svg') : ?>
+        <?php if ($item['icon_type'] === 'svg' && !empty($item['icon_svg']) ) : ?>
           <span class="counters__svg" aria-hidden="true"><?php echo $item['icon_svg']; ?></span>
-        <?php elseif ($item['icon_type'] === 'image' && !empty($item['icon'])) :
+        <?php elseif ($item['icon_type'] === 'image' && !empty($item['icon_image'])) :
           the_block('image', array(
             'image' => $item['icon_image'],
             'size' => 'medium',
-            'class' => 'image--contain counters__image'
+            'class' => 'image--contain image--square counters__image'
           ));
         endif; ?>
       </div>
