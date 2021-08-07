@@ -70,6 +70,21 @@
 
     display: block;
   }
+
+  & .product-tabs__loader {
+    @mixin flex-center;
+
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &.is-loading {
+    & .product-tabs__loader {
+      opacity: 1;
+      min-height: 80px;
+    }
+  }
 }
 
 .product-tabs--nav-center {
