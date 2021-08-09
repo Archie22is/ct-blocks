@@ -16,7 +16,7 @@ $_class .= !empty($image_position) ? ' is-layout-' . esc_attr($image_position). 
 $_class .= !empty($media_size) ? ' is-media-size-' . esc_attr($media_size) : ' is-media-size-default';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 
-$main_content = '<div class="two-up-intro__inner">' . codetot_build_content_block(array(
+$main_content_html = codetot_build_content_block(array(
   'label' => !empty($label) ? $label : '',
   'title' => !empty($title) ? $title : '',
   'description' => !empty($content) ? $content : '',
@@ -56,7 +56,9 @@ if (!empty($buttons)) :
 <?php endif;
 $buttons_html = ob_get_clean();
 
-$main_content .= $buttons_html . '</div>';
+$main_content_html .= $buttons_html;
+
+$main_content = printf('<div class="two-up-intro__inner">%s</div>', $main_content_html);
 
 $content = codetot_build_grid_columns(array(
   $media_content,
@@ -64,8 +66,8 @@ $content = codetot_build_grid_columns(array(
 ), 'two-up-intro');
 
 the_block('default-section', array(
+  'lazyload' => (isset($enable_lazyload) && $enable_lazyload) || !isset($enable_lazyload),
   'class' => $_class,
-  'attributes' => ' data-reveal="fade-up"',
   'id' => $anchor_name,
   'content' => $content
 ));
