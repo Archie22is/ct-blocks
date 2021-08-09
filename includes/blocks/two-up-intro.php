@@ -49,6 +49,7 @@ class Codetot_Block_Two_Up_Intro extends Codetot_Base_Block implements Codetot_B
     $this->block_title = __('Two Up Intro', 'ct-blocks');
     $this->fields = [
       // Settings
+      'enable_lazyload',
       'class',
       'anchor_name',
       'block_preset',
