@@ -30,6 +30,7 @@ $_image_size = !empty($media_size) && in_array($media_size, $large_media_sizes) 
 $media_content = !empty($image) ? get_block('image', array(
   'image' => $image,
   'class' => $_image_class,
+  'lazyload' => isset($enable_lazyload) && $enable_lazyload,
   'size' => $_image_size
 )) : '';
 
