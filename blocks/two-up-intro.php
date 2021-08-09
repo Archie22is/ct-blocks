@@ -16,13 +16,6 @@ $_class .= !empty($image_position) ? ' is-layout-' . esc_attr($image_position). 
 $_class .= !empty($media_size) ? ' is-media-size-' . esc_attr($media_size) : ' is-media-size-default';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 
-$main_content_html = codetot_build_content_block(array(
-  'label' => !empty($label) ? $label : '',
-  'title' => !empty($title) ? $title : '',
-  'description' => !empty($content) ? $content : '',
-  'default_class' => 'two-up-intro__content'
-), 'two-up-intro');
-
 $default_image_sizes = ['default', 'cover', 'contain'];
 $has_full_hd_sizes = ['cover', 'contain'];
 $large_media_sizes = ['cover-height-32', 'cover-height-151', 'flex-height'];
@@ -34,17 +27,21 @@ $_image_class .= ' two-up-intro__image';
 $_image_size = 'large';
 $_image_size = !empty($media_size) && in_array($media_size, $large_media_sizes) ? 'full' : 'large';
 
-ob_start();
-if (!empty($image)) :
-  the_block('image', array(
-    'image' => $image,
-    'class' => $_image_class,
-    'size' => $_image_size
-  ));
-endif;
-$media_content = ob_get_clean();
+$media_content = !empty($image) ? get_block('image', array(
+  'image' => $image,
+  'class' => $_image_class,
+  'size' => $_image_size
+)) : '';
 
 ob_start();
+echo '<div class="two-up-intro__inner">';
+echo codetot_build_content_block(array(
+  'label' => !empty($label) ? $label : '',
+  'title' => !empty($title) ? $title : '',
+  'description' => !empty($content) ? $content : '',
+  'default_class' => 'two-up-intro__content'
+), 'two-up-intro');
+
 if (!empty($buttons)) :
   ?>
   <div class="pt-1 two-up-intro__footer">
@@ -54,11 +51,8 @@ if (!empty($buttons)) :
     )); ?>
   </div>
 <?php endif;
-$buttons_html = ob_get_clean();
-
-$main_content_html .= $buttons_html;
-
-$main_content = printf('<div class="two-up-intro__inner">%s</div>', $main_content_html);
+echo '</div>';
+$main_content = ob_get_clean();
 
 $content = codetot_build_grid_columns(array(
   $media_content,
