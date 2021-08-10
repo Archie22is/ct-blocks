@@ -17,14 +17,13 @@ $header = codetot_build_content_block(array(
   'description' => !empty($description) ? $description : ''
 ), 'testimonials');
 
-$carousel_settings = array(
+$_slider_options = empty($slider_options) ? array(
+  'contain' => true,
   'prevNextButtons' => true,
   'pageDots' => true,
   'cellAlign' => 'center',
-  'groupCells' => true,
-  'wrapAround' => true
-);
-
+  'groupCells' => true
+) : $slider_options;
 
 // Build background image and overlay
 ob_start();
@@ -39,41 +38,31 @@ if (!empty($overlay)) { ?>
 <?php }
 $background = ob_get_clean();
 
-if(!empty($enable_slider) == 1 ) {
-  ob_start();
-  if(!empty($columns)) : ?>
-    <div class="testimonials__slider js-slider" <?php if (!empty($carousel_settings)) : ?> data-carousel='<?= json_encode($carousel_settings); ?>' <?php endif; ?>>
-      <?php foreach($columns as $column ) : ?>
-        <div class="testimonials__item">
-          <?php the_block('testimonial-card', array(
-            'column' => $column
-          ));?>
-        </div>
-      <?php endforeach; ?>
-    </div>
-  <?php
-  endif;
-  $content = ob_get_clean();
-} else {
-  $_columns = !empty($columns) ? array_map(function($column) {
-    return get_block('testimonial-card', array(
-      'column' => $column
-    ));
-  }, $columns) : [];
-
-  $content = codetot_build_grid_columns($_columns, 'testimonials', array(
-    'column_class' => 'default-section__col'
+// Build column content
+$columns = !empty($columns) ? array_map(function($column) {
+  return get_block('testimonial-card', array(
+    'item' => $column
   ));
-}
+}, $columns) : [];
+$column_content = codetot_build_grid_columns($columns, 'testimonials', array(
+  'column_class' => 'default-section__col'
+));
 
-if (!empty($columns)) :
+$slider_html = codetot_build_slider($columns, 'testimonials', array(
+  'slider_settings' => $_slider_options
+));
+
+// Wrap content
+$content = !$enable_slider ? $column_content : $slider_html;
+
+if (!empty($content)) :
   the_block('default-section', array(
-    'before_header' => $background,
+    'attributes' => 'data-ct-block="testimonials"',
+    'before_header' => !empty($background) ? $background : '',
     'class' => $_class,
+    'lazyload' => (isset($enable_lazyload) && $lazyload) || !isset($lazyload),
     'id' => !empty($anchor_name) ? $anchor_name : '',
     'header' => $header,
-    'content' => $content,
-    'lazy' => true,
-     'attributes' => 'data-ct-block="testimonials"'
+    'content' => $content
   ));
 endif;

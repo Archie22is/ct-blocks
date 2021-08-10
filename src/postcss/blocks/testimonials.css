@@ -1,3 +1,14 @@
+.testimonial-card {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.testimonial-card__author-info {
+  & cite {
+    font-style: normal;
+  }
+}
+
 p.testimonial-card__title {
   @mixin large-text;
 
@@ -171,6 +182,13 @@ p.testimonial-card__title {
     border: 1px solid var(--light);
   }
 
+  &.bg-light {
+    & .testimonial-card__image-wrapper,
+    & .testimonial-card {
+      border-color: var(--gray);
+    }
+  }
+
   & .testimonial-card__author {
     text-align: center;
   }
@@ -182,13 +200,17 @@ p.testimonial-card__title {
     left: 50%;
     transform: translateX(-50%);
     border: 3px solid var(--light);
+    border-radius: 50%;
+    overflow: hidden;
   }
 
   & .testimonial-card__author-info {
     color: var(--primary);
+    font-weight: var(--font-bold);
 
     & cite {
       color: var(--dark);
+      font-weight: var(--font-normal);
     }
   }
 
@@ -203,14 +225,37 @@ p.testimonial-card__title {
 
   & .testimonials__slider {
     padding-bottom: 2em;
+
+    &.is-initialized {
+      & .testimonials__slider-item {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+    }
   }
 
   & .flickity-page-dots {
     bottom: 0;
   }
 
-  & .testimonials__item {
+  & .testimonials__slider-item {
     width: 100%;
+  }
+
+  & .testimonial-card {
+    flex: 1 0 auto;
+    flex-direction: column;
+  }
+
+  & .testimonial-card__comment {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+  }
+
+  & .testimonial-card__inner {
+    flex: 1 1 0;
   }
 
   & .flickity-prev-next-button {
@@ -232,28 +277,28 @@ p.testimonial-card__title {
 
   @media (--s) {
     &.has-2-columns {
-      & .testimonials__item {
+      & .testimonials__slider-item {
         width: calc((100% - var(--grid-gutter-m) * 1) / 2);
         margin-right: var(--grid-gutter-m);
       }
     }
 
     &.has-3-columns {
-      & .testimonials__item {
+      & .testimonials__slider-item {
         width: calc((100% - var(--grid-gutter-m) * 2) / 3);
         margin-right: var(--grid-gutter-m);
       }
     }
 
     &.has-4-columns {
-      & .testimonials__item {
+      & .testimonials__slider-item {
         width: calc((100% - var(--grid-gutter-m) * 3) / 4);
         margin-right: var(--grid-gutter-m);
       }
     }
 
     &.has-5-columns {
-      & .testimonials__item {
+      & .testimonials__slider-item {
         width: calc((100% - var(--grid-gutter-m) * 4) / 5);
         margin-right: var(--grid-gutter-m);
       }
