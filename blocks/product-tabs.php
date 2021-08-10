@@ -1,15 +1,19 @@
 <?php
-$container = codetot_site_container();
-
 
 $_class = 'product-tabs';
+$_class .= !empty($header_alignment) ? ' is-header-alignment-' . esc_html($header_alignment) : ' is-header-left';
+$_class .= !empty($footer_alignment) ? ' is-footer-alignment-' . esc_html($footer_alignment) : ' is-footer-left';
+$_class .= !empty($columns) ? ' has-' . $columns . '-columns' : ' has-4-columns';
 $_class .= !empty($class) ? ' ' . $class : '';
-$_class .= !empty($header_alignment) ? ' is-header-' . $header_alignment : '';
-$_class .= !empty($footer_alignment) ? ' is-footer-' . $footer_alignment : '';
-$_class .= !empty($header_alignment) ? ' product-tabs--nav-' . $header_alignment : '';
-$_class .= !empty($columns) ? ' has-' . $columns . '-columns' : '';
 
 $_columns = !empty($columns) && is_numeric($columns) ? $columns : 4;
+$_enable_lazyload = isset($enable_lazyload) && $enable_lazyload;
+
+$block_attributes = array(
+  'endpoint' => 'get_product_tabs_html',
+  'postsPerPage' => !empty($numbers) ? (int) $numbers : 8,
+  'queryType' => !empty($attribute) ? esc_attr($attribute) : 'on_sale'
+);
 
 $items = [];
 foreach($categories as $index => $category) :
@@ -17,7 +21,8 @@ foreach($categories as $index => $category) :
     'id' => esc_attr($category->slug),
     'name' => esc_html($category->name),
     'category_id' => esc_attr($category->term_id),
-    'is_active' => $index === 0
+    'is_active' => $index === 0,
+    'is_lazyload' => $_enable_lazyload
   );
 endforeach;
 
@@ -27,25 +32,16 @@ ob_start(); ?>
   <h2 class="h2 product-tabs__title"><?php echo $title; ?></h2>
 <?php endif; ?>
 <?php if (!empty($categories)) : ?>
-  <ul class="f product-tabs__nav" aria-controls="product-tabs__tab" role="tablist">
-    <?php foreach ($items as $item) : ?>
-      <?php printf('<li class="product-tabs__item" role="tab" aria-controls="%1$s" aria-selected="%2$s">%3$s</li>',
-        $item['id'],
-        var_export($item['is_active'], true),
-        $item['name']
-      ); ?>
-    <?php endforeach; ?>
-  </ul>
-  <div class="select-wrapper product-tabs__select-wrapper">
-    <select class="product-tabs__select js-mobile">
-      <?php foreach ($items as $item) :
-        printf('<option value="%1$s" %2$s>%3$s</option>',
+  <div class="mt-2 d-inline-flex product-tabs__nav-wrapper">
+    <ul class="f product-tabs__nav" aria-controls="product-tabs__tab" role="tablist">
+      <?php foreach ($items as $item) : ?>
+        <?php printf('<li class="rel product-tabs__item" role="tab" aria-controls="%1$s" aria-selected="%2$s">%3$s</li>',
           $item['id'],
-          $item['is_active'] ? ' selected' :'',
+          var_export($item['is_active'], true),
           $item['name']
-        );
-      endforeach; ?>
-    </select>
+        ); ?>
+      <?php endforeach; ?>
+    </ul>
   </div>
 <?php endif; ?>
 <?php
@@ -53,11 +49,54 @@ $header = ob_get_clean();
 
 // Generate main content
 ob_start();
-foreach ($items as $item) :
- ?>
+foreach ($items as $item) : ?>
   <div class="product-tabs__tab-content js-tab-content" data-category-id="<?php echo $item['category_id']; ?>" id="<?php echo $item['id']; ?>" role="tabpanel" aria-expanded="<?php echo var_export($item['is_active'], true); ?>">
     <div class="rel product-tabs__inner">
-      <ul class ="products columns-<?php echo esc_attr($_columns); ?> js-grid is-not-loaded"></ul>
+      <ul class ="products columns-<?php echo esc_attr($_columns); ?> js-grid<?php if (!$item['is_active'] || ($item['is_active'] && $item['is_lazyload'])) : ?> is-not-loaded<?php endif; ?>">
+        <?php
+        if ($item['is_active'] && !$item['is_lazyload']) :
+          $product_args = codetot_get_product_query_by_type($block_attributes['queryType']);
+          $product_args = wp_parse_args(array(
+            'posts_per_page' => $block_attributes['postsPerPage'],
+            'tax_query' => array(
+              array(
+                'taxonomy' => 'product_cat',
+                'field' => 'id',
+                'terms' => $item['category_id']
+              )
+              ),
+              'meta_query' => array (
+                array(
+                  'key' => '_stock_status',
+                  'value' => 'instock'
+                )
+              )
+          ), $product_args);
+
+          $product_query = new WP_Query($product_args);
+
+          if ($product_query->have_posts()) :
+            while ( $product_query->have_posts() ) :
+              $product_query->the_post();
+              wc_get_template_part( 'content', 'product' );
+            endwhile; wp_reset_postdata();
+          else :
+            printf('<li class="product no-product">%s</li>', esc_html__('There is no products available for this category.', 'ct-blocks'));
+          endif;
+        endif;
+          ?>
+      </ul>
+      <?php if ( !empty($display_product_category_link_button) ) : ?>
+        <div class="mt-2 product-tabs__footer">
+          <?php the_block('button', array(
+            'class' => 'product-tabs__button',
+            'type' => !empty($button_style) ? $button_style : 'primary',
+            'button' => sprintf(__('View all products in %s', 'ct-blocks'), $item['name']),
+            'target' => !empty($button_target) ? esc_attr($button_target) : '_self',
+            'url' => get_term_link((int) $item['category_id'], 'product_cat')
+          )); ?>
+        </div>
+      <?php endif; ?>
       <?php the_block('loader', array(
         'class' => 'loader--dark product-tabs__loader'
       )); ?>
@@ -67,25 +106,10 @@ foreach ($items as $item) :
 endforeach;
 $content = ob_get_clean();
 
-$footer = !empty($button_text) && !empty($button_url) ?
-  get_block('button', array(
-    'class' => 'product-tabs__button',
-    'type' => !empty($button_style) ? $button_style : 'primary',
-    'button' => $button_text,
-    'target' => $target,
-    'url' => $button_url
-  )) : '';
-
-$block_attributes = array(
-  'endpoint' => 'get_product_tabs_html',
-  'postsPerPage' => $numbers,
-  'queryType' => $attribute
-);
-
 the_block('default-section', array(
   'class' => $_class,
+  'lazyload' => (isset($enable_lazyload) && $enable_lazyload) || !isset($enable_lazyload),
   'attributes' => ' data-ct-block="product-tabs" data-settings=\'' . json_encode($block_attributes) . '\'',
   'header' => $header,
-  'content' => $content,
-  'footer' => $footer
+  'content' => $content
 ));
