@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* global codetotConfig */
 import {
   select,
@@ -7,29 +8,99 @@ import {
   getData,
   addClass,
   hasClass,
-  removeClass
+  removeClass,
+  loadNoscriptContent,
+  inViewPort
 } from 'lib/dom'
+import { map, throttle } from 'lib/utils'
 import Tabs from 'lib/tabs'
 require('whatwg-fetch')
 
 const parseJSON = response => response.json()
 
 export default el => {
-  // eslint-disable-next-line no-unused-vars
-  const tabState = new Tabs(el)
+  const contentEl = select('.js-main-content', el)
+  let tabState = null
+  let tabPanels = []
+  let mobileSelect = null
+  let desktopTriggerEls = []
+  let loaded = false
 
   const settings = getData('settings', el)
     ? JSON.parse(getData('settings', el))
     : {}
 
   const getRestUrl = categoryId => {
-    return `${codetotConfig.restUrl}/${settings.endpoint}/?category_id=${categoryId}&posts_per_page=${settings.postsPerPage}&query_type=${settings.queryType}`
+    return `${codetotConfig.ajax.restUrl}/${settings.endpoint}/?category_id=${categoryId}&posts_per_page=${settings.postsPerPage}&query_type=${settings.queryType}`
+  }
+
+  const init = () => {
+    if (loaded) {
+      return true
+    }
+
+    if (hasClass('is-not-loaded', contentEl)) {
+      loadNoscriptContent(contentEl)
+      removeClass('is-loading', el)
+    }
+
+    tabState = new Tabs(el)
+    mobileSelect = select('.js-mobile', el)
+    desktopTriggerEls = selectAll('[role="tab"]', el)
+    tabPanels = selectAll('.js-tab-content', el)
+
+    if (mobileSelect) {
+      on(
+        'change',
+        e => {
+          const options = selectAll('option', e.target)
+          let selectedOption = null
+          map(option => {
+            if (option.value === e.target.value) {
+              selectedOption = option
+            }
+          }, options)
+
+          trigger(
+            {
+              event: 'update',
+              data: {
+                currentIndex: options.indexOf(selectedOption)
+              }
+            },
+            el
+          )
+        },
+        mobileSelect
+      )
+    }
+
+    if (desktopTriggerEls) {
+      on(
+        'click',
+        e => {
+          trigger(
+            {
+              event: 'update',
+              data: {
+                currentIndex: desktopTriggerEls.indexOf(e.target)
+              }
+            },
+            el
+          )
+        },
+        desktopTriggerEls
+      )
+    }
+
+    loaded = true
   }
 
   on(
     'update',
     e => {
-      const currentTabEl = select('.js-tab-content.is-active', el)
+      const index = e.detail.currentIndex
+      const currentTabEl = tabPanels[index]
       const categoryId = currentTabEl
         ? getData('category-id', currentTabEl)
         : null
@@ -54,44 +125,17 @@ export default el => {
     el
   )
 
-  const mobileSelect = select('.js-mobile', el)
-  const triggerEls = el ? selectAll('[role="tab"]', el) : []
-
-  const syncChanges = () => {
-    if (tabState) {
-      on(
-        'update',
-        e => {
-          mobileSelect.value = e.detail.currentIndex
-        },
-        el
-      )
-    }
+  if (inViewPort(el)) {
+    init()
   }
 
-  if (mobileSelect) {
-    on(
-      'change',
-      e => {
-        if (tabState) {
-          trigger(
-            {
-              event: 'update',
-              data: {
-                currentIndex: parseInt(e.target.value)
-              }
-            },
-            el
-          )
-        }
-      },
-      mobileSelect
-    )
-
-    on('load', syncChanges, window)
-
-    if (triggerEls) {
-      on('click', syncChanges, triggerEls)
-    }
-  }
+  on(
+    'scroll',
+    throttle(() => {
+      if (inViewPort(el) && !loaded) {
+        init()
+      }
+    }, 300),
+    window
+  )
 }
