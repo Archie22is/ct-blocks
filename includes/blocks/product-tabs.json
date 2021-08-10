@@ -1,74 +1,58 @@
 {
   "layout_tabs5fd8a28w6b452": {
-    "key": "layout_tabs5fd8a28w6b452",
+    "key": "layout_60d4339d965g0",
     "name": "product_tabs",
     "label": "Product Tabs",
-    "display": "block",
+    "display": "row",
     "sub_fields": [
       {
-        "key": "field_tabs5fdasde79d681",
-        "label": "Class",
-        "name": "class",
-        "type": "text",
+        "key": "field_60d4339d965f8",
+        "label": "Preview",
+        "name": "",
+        "type": "tab",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "25",
+          "width": "",
           "class": "",
           "id": ""
         },
-        "default_value": "",
-        "placeholder": "",
-        "prepend": "",
-        "append": "",
-        "maxlength": ""
+        "placement": "top",
+        "endpoint": 0
       },
       {
-        "key": "field_tabs5fd56s39b70c9",
-        "label": "Header Alignment",
-        "name": "header_alignment",
-        "type": "radio",
+        "key": "field_60d433a7965f9",
+        "label": "Preview Image",
+        "name": "",
+        "type": "message",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "25",
+          "width": "",
           "class": "",
           "id": ""
         },
-        "choices": {},
-        "default_value": "left",
-        "allow_null": 0,
-        "multiple": 0,
-        "ui": 0,
-        "layout": "horizontal",
-        "return_format": "value",
-        "ajax": 0,
-        "placeholder": ""
+        "message": "<div class=\"js-custom-preview-block\" data-block=\"product-tabs\"></div>",
+        "new_lines": "wpautop",
+        "esc_html": 0
       },
       {
-        "key": "field_tabs5fdkob70c9",
-        "label": "Footer Alignment",
-        "name": "footer_alignment",
-        "type": "radio",
+        "key": "field_60d43342b45eb",
+        "label": "Content",
+        "name": "",
+        "type": "tab",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "25",
+          "width": "",
           "class": "",
           "id": ""
         },
-        "choices": {},
-        "default_value": "left",
-        "allow_null": 0,
-        "multiple": 0,
-        "ui": 0,
-        "layout": "horizontal",
-        "return_format": "value",
-        "ajax": 0,
-        "placeholder": ""
+        "placement": "top",
+        "endpoint": 0
       },
       {
         "key": "field_tabs5fd8677495699",
@@ -150,75 +134,58 @@
         "multiple": 0
       },
       {
-        "key": "field_tabs5fd864a4v0769b",
-        "label": "Attribute",
-        "name": "attribute",
-        "type": "select",
+        "key": "field_60d4334db45e1",
+        "label": "Settings",
+        "name": "",
+        "type": "tab",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "50",
+          "width": "",
           "class": "",
           "id": ""
         },
-        "choices": {
-          "normal": "Normal",
-          "featured": "Featured",
-          "total_sales": "Total Sales",
-          "top_rated": "Top Rated",
-          "on_sale": "On Sale"
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_60d4334db45h1",
+        "label": "Lazyload",
+        "name": "enable_lazyload",
+        "type": "true_false",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "15",
+          "class": "",
+          "id": ""
         },
-        "default_value": false,
-        "allow_null": 0,
-        "multiple": 0,
+        "message": "Enable",
+        "default_value": 1,
         "ui": 0,
-        "return_format": "value",
-        "ajax": 0,
-        "placeholder": ""
+        "ui_on_text": "",
+        "ui_off_text": ""
       },
       {
-        "key": "field_tabs5fda2dw2a107699",
-        "label": "Numbers",
-        "name": "numbers",
-        "type": "number",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "50",
-          "class": "",
-          "id": ""
-        },
-        "default_value": "",
-        "placeholder": "",
-        "prepend": "",
-        "append": "",
-        "maxlength": ""
-      },
-      {
-        "key": "field_tabs5fdas39b70c9",
-        "label": "Columns",
-        "name": "columns",
+        "key": "field_60d4334db45h3",
+        "label": "Product Category Link Button",
+        "name": "display_product_category_link_button",
         "type": "select",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "50",
+          "width": "",
           "class": "",
           "id": ""
         },
         "choices": {
-          "1": "1",
-          "2": "2",
-          "3": "3",
-          "4": "4",
-          "5": "5",
-          "6": "6",
-          "8": "8"
+          "none": "None",
+          "bottom": "After product grid"
         },
-        "default_value": "4",
+        "default_value": "none",
         "allow_null": 0,
         "multiple": 0,
         "ui": 0,
@@ -228,53 +195,23 @@
         "placeholder": ""
       },
       {
-        "key": "field_tabs5fd8fsa8f40f2",
-        "label": "Button Text",
-        "name": "button_text",
-        "type": "text",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "25",
-          "class": "",
-          "id": ""
-        },
-        "default_value": "",
-        "placeholder": "",
-        "prepend": "",
-        "append": "",
-        "maxlength": ""
-      },
-      {
-        "key": "field_tabs5fdaw456cf40f3",
-        "label": "Button URL",
-        "name": "button_url",
-        "type": "text",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "25",
-          "class": "",
-          "id": ""
-        },
-        "post_type": "",
-        "taxonomy": "",
-        "allow_null": 0,
-        "allow_archives": 1,
-        "multiple": 0
-      },
-      {
-        "key": "field_tabs623uatb95f5",
-        "label": "Target",
-        "name": "target",
+        "key": "field_60d4334db45e8",
+        "label": "Product Category Button Target",
+        "name": "button_target",
         "type": "select",
         "instructions": "",
         "required": 0,
-        "conditional_logic": 0,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_60d4334db45h3",
+              "operator": "==",
+              "value": "bottom"
+            }
+          ]
+        ],
         "wrapper": {
-          "width": "25",
+          "width": "",
           "class": "",
           "id": ""
         },
@@ -291,19 +228,168 @@
         "placeholder": ""
       },
       {
-        "key": "field_tabs60qscon95f6",
-        "label": "Button Style",
+        "key": "field_60d4334db45e9",
+        "label": "Product Category Button Style",
         "name": "button_style",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_60d4334db45h3",
+              "operator": "==",
+              "value": "bottom"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_60d4334db45e2",
+        "label": "Class",
+        "name": "class",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_60d4334db45e3",
+        "label": "Header Alignment",
+        "name": "header_alignment",
         "type": "select",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "25",
+          "width": "",
           "class": "",
           "id": ""
         },
         "choices": {},
+        "default_value": "left",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "layout": "horizontal",
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_60d4334db45e4",
+        "label": "Footer Alignment",
+        "name": "footer_alignment",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": "left",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "layout": "horizontal",
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_tabs5fda2dw2a107699",
+        "label": "Number of Products",
+        "name": "numbers",
+        "type": "number",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_60d4334db45e5",
+        "label": "Product Columns",
+        "name": "columns",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "2": "2",
+          "3": "3",
+          "4": "4",
+          "5": "5",
+          "6": "6"
+        },
+        "default_value": "4",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "layout": "horizontal",
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_tabs5fd864a4v0769b",
+        "label": "Product Query Attribute",
+        "name": "attribute",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "normal": "Normal",
+          "featured": "Featured",
+          "total_sales": "Total Sales",
+          "top_rated": "Top Rated",
+          "on_sale": "On Sale"
+        },
         "default_value": false,
         "allow_null": 0,
         "multiple": 0,
