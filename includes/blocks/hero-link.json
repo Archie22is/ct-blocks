@@ -35,8 +35,8 @@
           "id": ""
         },
         "collapsed": "",
-        "min": 1,
-        "max": 3,
+        "min": "",
+        "max": "",
         "layout": "row",
         "button_label": "Add Item",
         "sub_fields": [
