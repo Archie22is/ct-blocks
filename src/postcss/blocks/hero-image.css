@@ -26,25 +26,22 @@
   }
 }
 
-.hero-image__image {
+.hero-image__image-wrapper {
   display: flex;
-
-  & img.image__img {
-    max-width: 100%;
-    object-fit: cover;
-    height: auto;
-
-    @media (--s) {
-      @mixin abs-full;
-    }
-  }
+  pointer-events: none;
+  z-index: 2;
 
   @media (--s) {
     @mixin abs-full;
   }
+}
 
-  pointer-events: none;
-  z-index: 2;
+.hero-image__image {
+  @mixin ratio 9/16;
+
+  @media (--s) {
+    @mixin abs-full;
+  }
 }
 
 .hero-image__inner {

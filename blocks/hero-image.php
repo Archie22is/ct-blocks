@@ -18,15 +18,16 @@ if (!empty($image)) :
 <?php if(empty($fullscreen)) : ?>
   <div class="<?php echo $container; ?> hero-image__image-container">
 <?php endif; ?>
-  <picture class="hero-image__image">
+  <div class="rel hero-image__image-wrapper">
     <?php if (!empty($overlay)) : ?>
       <div class="hero-image__overlay" style="background-color: rgba(0, 0, 0, <?php echo esc_attr($_overlay); ?>);"></div>
     <?php endif; ?>
-    <?php echo codetot_get_image_reponsive_html($image, array(
-      'disable_lazyload' => true,
-      'mobile_image' => !empty($mobile_image) ? $mobile_image : ''
+    <?php the_block('image', array(
+      'image' => $image,
+      'size' => 'medium',
+      'class' => 'w100 image--cover hero-image__image'
     )); ?>
-  </picture>
+  </div>
 <?php if(empty($fullscreen)) : ?>
   </div>
 <?php endif; ?>
