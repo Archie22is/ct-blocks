@@ -25,6 +25,7 @@ if (!empty($image)) :
     <?php the_block('image', array(
       'image' => $image,
       'size' => 'medium',
+      'lazyload' => false,
       'class' => 'w100 image--cover hero-image__image'
     )); ?>
   </div>
