@@ -46,6 +46,7 @@ class Codetot_Block_Testimonials extends Codetot_Base_Block implements Codetot_B
     $this->block_title = __('Testimonials', 'ct-blocks');
     $this->fields = [
       // Settings
+      'enable_lazyload',
       'class',
       'anchor_name',
       'enable_slider',

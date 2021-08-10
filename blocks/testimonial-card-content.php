@@ -1,21 +1,21 @@
-<div class="testimonials__column">
+<div class="testimonials__item">
   <figure class="testimonials__inner">
     <div class="testimonials__profile">
       <figcaption class="testimonials__info">
-        <?php if (!empty($column['name'])) : ?>
-          <p><?php echo $column['name'] ?></p>
+        <?php if (!empty($item['name'])) : ?>
+          <p><?php echo $item['name'] ?></p>
         <?php endif; ?>
-        <?php if (!empty($column['profession'])) : ?>
-          <cite><?php echo $column['profession'] ?></cite>
+        <?php if (!empty($item['profession'])) : ?>
+          <cite><?php echo $item['profession'] ?></cite>
         <?php endif; ?>
       </figcaption>
     </div>
     <blockquote class="wysiwyg testimonials__comment">
-      <?php if (!empty($column['title'])) : ?>
-        <h3><?php echo $column['title']; ?></h3>
+      <?php if (!empty($item['title'])) : ?>
+        <h3><?php echo $item['title']; ?></h3>
       <?php endif; ?>
-      <?php if (!empty($column['testimonial'])) : ?>
-        <p><?php echo $column['testimonial']; ?></p>
+      <?php if (!empty($item['testimonial'])) : ?>
+        <p><?php echo $item['testimonial']; ?></p>
       <?php endif; ?>
     </blockquote>
   </figure>
