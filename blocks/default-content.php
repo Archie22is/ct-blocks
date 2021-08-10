@@ -19,7 +19,7 @@ $content = ob_get_clean();
 
 the_block('default-section', array(
   'id' => !empty($anchor_name) ? esc_html($anchor_name) : '',
-  'lazyload' => (isset($enable_lazyload) && $lazyload) || (!$lazyload),
+  'lazyload' => isset($enable_lazyload) && $enable_lazyload,
   'class' => $_class,
   'header' => $header,
   'content' => $content

@@ -49,6 +49,7 @@ if (!empty($counters)) :
     'attributes' => ' data-ct-block="counters"',
     'class' => $_class,
     'header' => (!empty($title) || !empty($description)) ? $header : false,
-    'content' => $content
+    'content' => $content,
+    'tag' => empty($title) ? 'div' : 'section'
   ));
 endif;
