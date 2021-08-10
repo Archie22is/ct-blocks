@@ -4,7 +4,6 @@ $_class = 'f logo-grid__item';
 $_class .=  empty($item['url']) ? ' fdc logo-grid__item--no-link' : '';
 $_class .= !empty($class) ? ' ' . $class : '';
 
-$_enable_slider = isset($enable_slider) && $enable_slider ?? false;
 $url = !empty($item['url']) ? $item['url'] : '';
 $target = !empty($item['target']) ? $item['target'] : '_self';
 
