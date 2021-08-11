@@ -25,7 +25,7 @@ if(!empty($items)) : ?>
             <div class="hero-link__item-inner">
               <?php
               if($item['url']) {
-                echo '<a class="hero-link__url" href="'.$item['url'].'">';
+                echo '<a class="hero-link__url" href="'.$item['url'].'" target="'.$item['button_target'].'">';
               }
                 the_block('image', array(
                   'image' => $item['image']['ID'],
