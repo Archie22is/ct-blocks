@@ -79,6 +79,25 @@
             },
             "default_value": "",
             "placeholder": ""
+          },
+          {
+            "key": "field_21c892sd47f3e52",
+            "label": "Link Target",
+            "name": "button_target",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "20",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
           }
         ]
       },
