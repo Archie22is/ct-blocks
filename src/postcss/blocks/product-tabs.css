@@ -111,9 +111,3 @@
     }
   }
 }
-
-.product-tabs--nav-center {
-  & .product-tabs__nav {
-    justify-content: center;
-  }
-}
