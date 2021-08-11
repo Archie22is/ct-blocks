@@ -40,16 +40,6 @@ export default el => {
       removeClass('is-loading', el)
     }
 
-    loadContent()
-
-    loaded = true
-  }
-
-  if (inViewPort(el)) {
-    init()
-  }
-
-  const loadContent = () => {
     const listEl = select('.js-grid', el)
 
     if (listEl && hasClass('is-not-loaded', listEl)) {
@@ -67,6 +57,12 @@ export default el => {
           removeClass('is-loading', el)
         })
     }
+
+    loaded = true
+  }
+
+  if (inViewPort(el)) {
+    init()
   }
 
   on(
