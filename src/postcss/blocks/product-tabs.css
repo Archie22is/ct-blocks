@@ -85,29 +85,33 @@
 
 .product-tabs__tab-content {
   &[aria-expanded] {
-    @mixin fade-out;
-
     display: none;
   }
 
   &[aria-expanded='true'] {
-    @mixin fade-in;
-
     display: block;
   }
 
   & .product-tabs__loader {
+    @mixin abs-full;
     @mixin flex-center;
 
-    height: 0;
     opacity: 0;
     pointer-events: none;
+    transition: opacity 0.3s ease;
   }
 
   &.is-loading {
     & .product-tabs__loader {
       opacity: 1;
-      min-height: 80px;
+    }
+
+    & .product-tabs__footer {
+      opacity: 0;
     }
   }
+}
+
+.product-tabs__footer {
+  transition: opacity 0.3s ease;
 }
