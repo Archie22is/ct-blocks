@@ -59,6 +59,7 @@
     }
   }
 
+  &[aria-selected='true'],
   &.is-active {
     opacity: 1;
     background: var(--primary);
