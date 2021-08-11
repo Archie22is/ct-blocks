@@ -59,6 +59,7 @@
     }
   }
 
+  &[aria-selected='true'],
   &.is-active {
     opacity: 1;
     background: var(--primary);
@@ -108,11 +109,5 @@
       opacity: 1;
       min-height: 80px;
     }
-  }
-}
-
-.product-tabs--nav-center {
-  & .product-tabs__nav {
-    justify-content: center;
   }
 }

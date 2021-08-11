@@ -22,7 +22,6 @@ export default el => {
   const contentEl = select('.js-main-content', el)
   let tabState = null
   let tabPanels = []
-  let mobileSelect = null
   let desktopTriggerEls = []
   let loaded = false
 
@@ -45,35 +44,8 @@ export default el => {
     }
 
     tabState = new Tabs(el)
-    mobileSelect = select('.js-mobile', el)
     desktopTriggerEls = selectAll('[role="tab"]', el)
-    tabPanels = selectAll('.js-tab-content', el)
-
-    if (mobileSelect) {
-      on(
-        'change',
-        e => {
-          const options = selectAll('option', e.target)
-          let selectedOption = null
-          map(option => {
-            if (option.value === e.target.value) {
-              selectedOption = option
-            }
-          }, options)
-
-          trigger(
-            {
-              event: 'update',
-              data: {
-                currentIndex: options.indexOf(selectedOption)
-              }
-            },
-            el
-          )
-        },
-        mobileSelect
-      )
-    }
+    tabPanels = selectAll('[role="tabpanel"]', el)
 
     if (desktopTriggerEls) {
       on(
