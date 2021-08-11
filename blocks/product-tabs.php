@@ -90,8 +90,9 @@ foreach ($items as $item) : ?>
         <div class="mt-2 product-tabs__footer">
           <?php the_block('button', array(
             'class' => 'product-tabs__button',
+            'atts' => ' title="' . sprintf(__('View all products in %s', 'ct-blocks'), $item['name']) . '"',
             'type' => !empty($button_style) ? $button_style : 'primary',
-            'button' => sprintf(__('View all products in %s', 'ct-blocks'), $item['name']),
+            'button' => esc_html__('View all products', 'ct-blocks'),
             'target' => !empty($button_target) ? esc_attr($button_target) : '_self',
             'url' => get_term_link((int) $item['category_id'], 'product_cat')
           )); ?>

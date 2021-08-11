@@ -38,7 +38,7 @@ export default el => {
       return true
     }
 
-    if (hasClass('is-not-loaded', contentEl)) {
+    if (contentEl && hasClass('is-not-loaded', contentEl)) {
       loadNoscriptContent(contentEl)
       removeClass('is-loading', el)
     }
