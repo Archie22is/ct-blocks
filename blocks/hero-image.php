@@ -24,7 +24,8 @@ if (!empty($image)) :
     <?php endif; ?>
     <?php the_block('image', array(
       'image' => $image,
-      'size' => 'medium',
+      'size' => wp_is_mobile() ? 'medium' : 'full',
+      'lazyload' => false,
       'class' => 'w100 image--cover hero-image__image'
     )); ?>
   </div>
