@@ -69,7 +69,7 @@
   }
 }
 
-.is-dark-contract {
+.counters.is-dark-contract {
   & .counters__count-number,
   & .counters__unit,
   & .counters__title,
@@ -80,7 +80,7 @@
   }
 }
 
-.is-light-contract {
+.counters.is-light-contract {
   & .counters__count {
     color: var(--primary);
   }
