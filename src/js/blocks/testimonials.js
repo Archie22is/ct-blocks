@@ -36,6 +36,7 @@ export default el => {
 
     if (hasClass('is-not-loaded', contentEl)) {
       loadNoscriptContent(contentEl)
+      removeClass('is-loading', el)
     }
 
     if (!sliderEl) {
