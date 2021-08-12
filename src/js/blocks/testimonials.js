@@ -1,5 +1,12 @@
 /* eslint-disable no-unused-vars */
-import { select, on, inViewPort, hasClass, loadNoscriptContent, removeClass } from 'lib/dom'
+import {
+  select,
+  on,
+  inViewPort,
+  hasClass,
+  loadNoscriptContent,
+  removeClass
+} from 'lib/dom'
 import { throttle } from 'lib/utils'
 import carousel from 'lib/carousel'
 
