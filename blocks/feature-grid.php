@@ -5,8 +5,8 @@ $_class = 'feature-grid';
 $_class .= !empty($columns) ? ' has-'. $columns .'-columns' : '';
 $_class .= !empty($header_alignment) ? ' is-header-'.  $header_alignment : ' is-header-left';
 $_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
+$_class .= !empty($background_contract) ? ' is-' . $background_contract . '-contract' : ' is-light-contract';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
-$_class .= !empty($background_contract) ? ' is-' . $background_contract . '-contract' : '';
 
 $_card_class = '';
 $_card_class .= $card_layout === 'column' ? 'f fw fdc is-column-layout' : 'f fw is-row-layout';

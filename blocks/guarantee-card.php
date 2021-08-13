@@ -9,14 +9,12 @@ $_class .= !empty($alignment) ? ' guarantee-card--' . esc_attr($alignment): '';
   <div class="guarantee-card__wrapper">
     <?php if ($type === 'svg') : ?>
       <span class="guarantee-card__svg" aria-hidden="true"><?php echo $icon; ?></span>
-      <?php elseif ($type === 'image' && !empty($icon)) : ?>
-      <?php
+    <?php elseif ($type === 'image' && !empty($icon)) :
       the_block('image', array(
         'image' => $icon,
         'class' => 'image--contain guarantee-card__image'
       ));
-      ?>
-    <?php endif; ?>
+    endif; ?>
   </div>
   <?php if (!empty($title) || !empty($description)) : ?>
   <div class="guarantee-card__content">

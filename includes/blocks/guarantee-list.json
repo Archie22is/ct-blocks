@@ -3,207 +3,56 @@
     "key": "layout_5fc748a6787ed",
     "name": "guarantee_list",
     "label": "Guarantee List",
-    "display": "block",
+    "display": "row",
     "sub_fields": [
       {
-        "key": "field_60121834038b2",
-        "label": "Class",
-        "name": "class",
-        "type": "text",
+        "key": "field_60121834038a8",
+        "label": "Preview",
+        "name": "",
+        "type": "tab",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "25",
+          "width": "",
           "class": "",
           "id": ""
         },
-        "default_value": "",
-        "placeholder": "",
-        "prepend": "",
-        "append": "",
-        "maxlength": ""
+        "placement": "top",
+        "endpoint": 0
       },
       {
-        "key": "field_6012183c038b3",
-        "label": "Anchor Name",
-        "name": "anchor_name",
-        "type": "text",
+        "key": "field_60121834038ba9",
+        "label": "Preview Image",
+        "name": "",
+        "type": "message",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "25",
+          "width": "",
           "class": "",
           "id": ""
         },
-        "default_value": "",
-        "placeholder": "",
-        "prepend": "",
-        "append": "",
-        "maxlength": ""
+        "message": "<div class=\"js-custom-preview-block\" data-block=\"guarantee-list\"></div>",
+        "new_lines": "wpautop",
+        "esc_html": 0
       },
       {
-        "key": "field_60121844038b4",
-        "label": "Presets",
-        "name": "block_preset",
-        "type": "select",
+        "key": "field_60121834038b0",
+        "label": "Content",
+        "name": "",
+        "type": "tab",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
         "wrapper": {
-          "width": "25",
+          "width": "",
           "class": "",
           "id": ""
         },
-        "choices": [],
-        "default_value": false,
-        "allow_null": 0,
-        "multiple": 0,
-        "ui": 0,
-        "return_format": "value",
-        "ajax": 0,
-        "placeholder": ""
-      },
-      {
-        "key": "field_5fdb1a470c856",
-        "label": "Background Type",
-        "name": "background_type",
-        "type": "select",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "25",
-          "class": "",
-          "id": ""
-        },
-        "choices": {},
-        "default_value": false,
-        "allow_null": 0,
-        "multiple": 0,
-        "ui": 0,
-        "return_format": "value",
-        "ajax": 0,
-        "placeholder": ""
-      },
-      {
-        "key": "field_guaranteel884db8",
-        "label": "Main Layout",
-        "name": "layout",
-        "type": "radio",
-        "instructions": "",
-        "required": 1,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "20",
-          "class": "",
-          "id": ""
-        },
-        "choices": {
-          "row": "Left Icon - Right Title",
-          "column": "Top Icon - Bottom Title"
-        },
-        "allow_null": 0,
-        "other_choice": 0,
-        "default_value": "column",
-        "layout": "vertical",
-        "return_format": "value",
-        "save_other_choice": 0
-      },
-      {
-        "key": "field_guaranteelb5db8",
-        "label": "Content Alignment",
-        "name": "content_alignment",
-        "type": "radio",
-        "instructions": "",
-        "required": 1,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "20",
-          "class": "",
-          "id": ""
-        },
-        "choices": {
-          "left": "Left",
-          "center": "Center",
-          "right": "Right"
-        },
-        "allow_null": 0,
-        "other_choice": 0,
-        "default_value": "left",
-        "layout": "horizontal",
-        "return_format": "value",
-        "save_other_choice": 0
-      },
-      {
-        "key": "field_guaranteelist1f7e",
-        "label": "Columns",
-        "name": "columns",
-        "type": "select",
-        "instructions": "",
-        "required": 1,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "20",
-          "class": "",
-          "id": ""
-        },
-        "choices": {
-          "2": "2 Columns",
-          "3": "3 Columns",
-          "4": "4 Columns",
-          "5": "5 Columns"
-        },
-        "default_value": false,
-        "allow_null": 0,
-        "multiple": 0,
-        "ui": 0,
-        "return_format": "value",
-        "ajax": 0,
-        "placeholder": ""
-      },
-      {
-        "key": "field_5fc9da7b42d88",
-        "label": "Fullscreen",
-        "name": "fullscreen",
-        "type": "checkbox",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "20",
-          "class": "",
-          "id": ""
-        },
-        "choices": {
-          "fullscreen": "Fullscreen"
-        },
-        "allow_custom": 0,
-        "default_value": [],
-        "layout": "vertical",
-        "toggle": 0,
-        "return_format": "value",
-        "save_custom": 0
-      },
-      {
-        "key": "field_60122be34ddac",
-        "label": "Hide on mobile",
-        "name": "hide_mobile",
-        "type": "true_false",
-        "instructions": "",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-          "width": "20",
-          "class": "",
-          "id": ""
-        },
-        "message": "Hide",
-        "default_value": 0,
-        "ui": 0,
-        "ui_on_text": "",
-        "ui_off_text": ""
+        "placement": "top",
+        "endpoint": 0
       },
       {
         "key": "field_5fc8870a9b64b",
@@ -351,6 +200,263 @@
             "maxlength": ""
           }
         ]
+      },
+      {
+        "key": "field_60121834038b1",
+        "label": "Settings",
+        "name": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_60121834038g0",
+        "label": "Lazyload",
+        "name": "enable_lazyload",
+        "type": "true_false",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "message": "Enable",
+        "default_value": 1,
+        "ui": 0,
+        "ui_on_text": "",
+        "ui_off_text": ""
+      },
+      {
+        "key": "field_60121834038b2",
+        "label": "Class",
+        "name": "class",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_6012183c038b3",
+        "label": "Anchor Name",
+        "name": "anchor_name",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "maxlength": ""
+      },
+      {
+        "key": "field_60121844038b4",
+        "label": "Presets",
+        "name": "block_preset",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": [],
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_5fdb1a470c856",
+        "label": "Background Type",
+        "name": "background_type",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_5fdb1a470c857",
+        "label": "Background Contract",
+        "name": "background_contract",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_guaranteel884db8",
+        "label": "Item Layout",
+        "name": "layout",
+        "type": "radio",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "row": "Left Icon - Right Title",
+          "column": "Top Icon - Bottom Title"
+        },
+        "allow_null": 0,
+        "other_choice": 0,
+        "default_value": "column",
+        "layout": "vertical",
+        "return_format": "value",
+        "save_other_choice": 0
+      },
+      {
+        "key": "field_guaranteelb5db8",
+        "label": "Content Alignment",
+        "name": "content_alignment",
+        "type": "radio",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "left": "Left",
+          "center": "Center",
+          "right": "Right"
+        },
+        "allow_null": 0,
+        "other_choice": 0,
+        "default_value": "left",
+        "layout": "horizontal",
+        "return_format": "value",
+        "save_other_choice": 0
+      },
+      {
+        "key": "field_5fc9da7b42d88",
+        "label": "Fullwidth",
+        "name": "fullscreen",
+        "type": "checkbox",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "fullscreen": "Fullscreen"
+        },
+        "allow_custom": 0,
+        "default_value": [],
+        "layout": "vertical",
+        "toggle": 0,
+        "return_format": "value",
+        "save_custom": 0
+      },
+      {
+        "key": "field_60122be34ddac",
+        "label": "Hide on mobile",
+        "name": "hide_mobile",
+        "type": "true_false",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "message": "Hide",
+        "default_value": 0,
+        "ui": 0,
+        "ui_on_text": "",
+        "ui_off_text": ""
+      },
+      {
+        "key": "field_guaranteelist1f7e",
+        "label": "Columns",
+        "name": "columns",
+        "type": "select",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "20",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "2": "2 Columns",
+          "3": "3 Columns",
+          "4": "4 Columns",
+          "5": "5 Columns"
+        },
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
       }
     ],
     "min": "",
