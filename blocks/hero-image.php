@@ -10,14 +10,10 @@ $_class .= (empty($fullscreen)) ? ' hero-image--no-fullscreen' : '';
 
 $_overlay = !empty($overlay) ? $overlay : '0';
 $_title_tag = !empty($section_title_tag) ? $section_title_tag : 'h1';
-$container = codetot_site_container();
 
+// Get image html
 ob_start();
-if (!empty($image)) :
-?>
-<?php if(empty($fullscreen)) : ?>
-  <div class="<?php echo $container; ?> hero-image__image-container">
-<?php endif; ?>
+if (!empty($image)) :?>
   <div class="rel hero-image__image-wrapper">
     <?php if (!empty($overlay)) : ?>
       <div class="hero-image__overlay" style="background-color: rgba(0, 0, 0, <?php echo esc_attr($_overlay); ?>);"></div>
@@ -29,20 +25,17 @@ if (!empty($image)) :
       'class' => 'w100 image--cover hero-image__image'
     )); ?>
   </div>
-<?php if(empty($fullscreen)) : ?>
-  </div>
-<?php endif; ?>
 <?php
 endif;
 $image_html = ob_get_clean();
 
+// Get content
 ob_start(); ?>
 <?php if (!empty($label)) : ?>
   <p class="hero-image__label"><?php echo esc_html($label); ?></p>
 <?php endif; ?>
-<?php if (!empty($title)) : ?>
-  <?php echo sprintf('<%1$s class="hero-image__title">%2$s</%1$s>', $_title_tag, $title); ?>
-<?php endif; ?>
+<?php // $title always requires, not need check ?>
+<?php printf('<%1$s class="hero-image__title">%2$s</%1$s>', $_title_tag, $title); ?>
 <?php if (!empty($description)) : ?>
   <div class="wysiwyg hero-image__description"><?php echo $description; ?></div>
 <?php endif; ?>
@@ -57,18 +50,21 @@ ob_start(); ?>
 <?php
 $content_html = ob_get_clean();
 
-if (!empty($content_html)) :
-  ?>
-  <section class="<?php echo $_class; ?>">
-    <?php echo $image_html; ?>
-    <div class="hero-image__wrapper">
-      <div class="hero-image__content">
-        <div class="<?php echo $container; ?> hero-image__container">
-          <div class="hero-image__inner">
-            <?php echo $content_html; ?>
-          </div>
+?>
+
+<section class="<?php echo $_class; ?>">
+  <?php if ($fullscreen) :
+    printf('<div class="container hero-image__container hero-image__container--image">%s</div>', $image_html);
+  else :
+    echo $image_html;
+  endif; ?>
+  <div class="hero-image__wrapper">
+    <div class="hero-image__content">
+      <div class="container hero-image__container hero-image__container--content">
+        <div class="hero-image__inner">
+          <?php echo $content_html; ?>
         </div>
       </div>
     </div>
-  </section>
-<?php endif; ?>
+  </div>
+</section>
