@@ -3,7 +3,7 @@
     "key": "layout_5fd0509e277ed",
     "name": "category_grid",
     "label": "Category Grid",
-    "display": "block",
+    "display": "row",
     "sub_fields": [
       {
         "key": "field_5fd050b003c40",
@@ -197,7 +197,7 @@
         "required": 1,
         "conditional_logic": "",
         "wrapper": {
-          "width": "34",
+          "width": "",
           "class": "",
           "id": ""
         },
@@ -211,8 +211,95 @@
       },
       {
         "key": "field_5fcdvala01f7f",
+        "label": "Background Type",
+        "name": "background_type",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_5fcdvala01f2c",
+        "label": "Header Alignment",
+        "name": "header_alignment",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_5fcdvala01f7g",
+        "label": "Background Contract",
+        "name": "background_contract",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_5fcdvala01f7h",
         "label": "Section Title Tag",
         "name": "section_title_tag",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "allow_null": 0,
+        "other_choice": 0,
+        "default_value": "",
+        "layout": "horizontal",
+        "return_format": "value",
+        "save_other_choice": 0
+      },
+      {
+        "key": "field_5fcdvala01f7i",
+        "label": "Block Preset",
+        "name": "block_preset",
         "type": "select",
         "instructions": "",
         "required": 0,

@@ -1,5 +1,5 @@
 <?php
-$container_class = codetot_site_container();
+
 $args = array(
   'orderby' => 'menu_order',
   'order' => 'asc',
@@ -15,8 +15,9 @@ if (!empty($select_categories)) {
 $product_categories = get_terms('product_cat', $args);
 
 $header = codetot_build_content_block(array(
+  'alignment' => $header_alignment ?? 'left',
   'title' => !empty($title) ? $title : '',
-  'description' => !empty($sub_title) ? $sub_title : ''
+  'description' => !empty($description) ? $description : ''
 ), 'category-grid');
 
 $_columns = array_map(function($product_category) {
@@ -25,21 +26,22 @@ $_columns = array_map(function($product_category) {
   ));
 }, $product_categories);
 
-$content = codetot_build_grid_columns($_columns, 'category-grid');
+$content = codetot_build_grid_columns($_columns, 'category-grid', array(
+  'column_class' => 'default-section__col'
+));
 
-$_class = 'category-grid bg-white section-bg';
+$_class = 'category-grid';
+$_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
+$_class .= !empty($background_contract) ? ' is-' . $background_contract . '-contract' : ' is-light-contract';
+$_class .= !empty($columns_count) ? ' has-' . $columns_count . '-columns' : ' has-3-columns';
+$_class .= !empty($block_preset) ? ' category-grid--preset-' . esc_attr($block_preset) : ' category-grid--preset-default';
 $_class .= !empty($class) ? ' ' . $class : '';
-$_class .= !empty($style) ? ' category-grid--' . esc_attr($style) : ' category-grid--1';
-$_class .= !empty($columns_count) ? ' has-' . $columns_count . '-columns' : ' has-5-columns';
-
 
 if (!empty($product_categories) && !is_wp_error($product_categories)) :
-
   the_block('default-section', array(
     'class' => $_class,
     'header' => $header,
-    'lazyload' => true,
+    'lazyload' => isset($enable_lazyload) && $enable_lazyload,
     'content' => $content
   ));
-
 endif; ?>
