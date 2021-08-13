@@ -1,32 +1,29 @@
-.default-content--alignment-center {
-  text-align: center;
-
-  & .default-content__title,
-  & .default-content__inner {
-    margin: 0 auto;
-  }
-}
-
 .default-content {
   &.is-dark-contract {
-    & .default-content__inner {
+    & .default-section__inner {
+      color: var(--white);
+    }
+
+    & .default-content__title {
       color: var(--white);
     }
   }
 
-  &.default-content--alignment-left {
-    text-align: left;
+  &.is-content-alignment-left {
+    & .default-section__inner {
+      text-align: left;
+    }
   }
 
-  &.default-content--alignment-right {
-    text-align: right;
+  &.is-content-alignment-center {
+    & .default-section__inner {
+      text-align: center;
+    }
   }
-}
 
-.default-content__title {
-  max-width: var(--xs);
-}
-
-.default-content__inner {
-  max-width: var(--container-max);
+  &.is-content-alignment-right {
+    & .default-section__inner {
+      text-align: right;
+    }
+  }
 }

@@ -47,11 +47,15 @@ class Codetot_Block_Default_Content extends Codetot_Base_Block implements Codeto
     $this->block_slug = 'default_content';
     $this->block_title = __('Default Content', 'ct-blocks');
     $this->fields = [
+      // Settings
       'enable_lazyload',
       'class',
       'anchor_name',
       'content_alignment',
       'background_type',
+      'background_contract',
+      'section_title_tag',
+      // Content
       'title',
       'content'
     ];

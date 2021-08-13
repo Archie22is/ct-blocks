@@ -47,16 +47,16 @@ class Codetot_Block_Hero_Image extends Codetot_Base_Block implements Codetot_Bas
     $this->block_slug = 'hero_image';
     $this->block_title = __('Hero Image', 'ct-blocks');
     $this->fields = [
+      // Settings
       'class',
       'content_alignment',
       'spacing',
-      'background_position',
+      'fullscreen',
       'background_contract',
       'overlay',
       'section_title_tag',
-      'fullscreen',
+      // Content
       'image',
-      'mobile_image',
       'label',
       'title',
       'description',
