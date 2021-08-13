@@ -2,7 +2,7 @@
 $_class = 'default-content';
 $_class .= !empty($content_alignment) ? ' is-content-alignment-' . esc_attr($content_alignment) : ' is-content-alignment-left';
 $_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
-$_class .= !empty($background_contract) ? ' is-' . $background_contract . '-contract' : '';
+$_class .= !empty($background_contract) ? ' is-' . $background_contract . '-contract' : ' is-light-contract';
 $_class .= !empty($class) ? ' ' . $class : '';
 
 $header = codetot_build_content_block(array(
