@@ -47,11 +47,18 @@ class Codetot_Block_Category_Grid extends Codetot_Base_Block implements Codetot_
     $this->block_slug = 'category_grid';
     $this->block_title = __('Category Grid', 'ct-blocks');
     $this->fields = [
+      // Settings
+      'enable_lazyload',
       'class',
-      'style',
-      'title',
+      'anchor_name',
       'columns_count',
-      'sub_title',
+      'header_alignment',
+      'background_type',
+      'background_contract',
+      'block_preset',
+      // Content
+      'title',
+      'description',
       'select_categories'
     ];
 
