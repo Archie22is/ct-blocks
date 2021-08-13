@@ -202,7 +202,7 @@
         ]
       },
       {
-        "key": "field_60121834038b1",
+        "key": "field_60121834038c0",
         "label": "Settings",
         "name": "",
         "type": "tab",
@@ -218,7 +218,7 @@
         "endpoint": 0
       },
       {
-        "key": "field_60121834038g0",
+        "key": "field_60121834038b1",
         "label": "Lazyload",
         "name": "enable_lazyload",
         "type": "true_false",
@@ -344,7 +344,7 @@
         "key": "field_guaranteel884db8",
         "label": "Item Layout",
         "name": "layout",
-        "type": "radio",
+        "type": "select",
         "instructions": "",
         "required": 1,
         "conditional_logic": 0,
@@ -368,7 +368,7 @@
         "key": "field_guaranteelb5db8",
         "label": "Content Alignment",
         "name": "content_alignment",
-        "type": "radio",
+        "type": "select",
         "instructions": "",
         "required": 1,
         "conditional_logic": 0,
@@ -393,7 +393,7 @@
         "key": "field_5fc9da7b42d88",
         "label": "Fullwidth",
         "name": "fullscreen",
-        "type": "checkbox",
+        "type": "true_false",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
@@ -402,15 +402,11 @@
           "class": "",
           "id": ""
         },
-        "choices": {
-          "fullscreen": "Fullscreen"
-        },
-        "allow_custom": 0,
-        "default_value": [],
-        "layout": "vertical",
-        "toggle": 0,
-        "return_format": "value",
-        "save_custom": 0
+        "message": "Enable",
+        "default_value": 1,
+        "ui": 0,
+        "ui_on_text": "",
+        "ui_off_text": ""
       },
       {
         "key": "field_60122be34ddac",
