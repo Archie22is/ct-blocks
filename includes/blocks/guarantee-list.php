@@ -46,14 +46,17 @@ class Codetot_Block_Guarantee_List extends Codetot_Base_Block implements Codetot
     $this->block_title = __('Guarantee List', 'ct-blocks');
     $this->fields = [
       // Settings
+      'enable_lazyload',
       'class',
       'anchor_name',
       'block_preset',
       'background_type',
+      'background_contract',
       'layout',
       'content_alignment',
       'fullscreen',
       'hide_mobile',
+      // Content
       'columns',
       'items'
     ];
