@@ -27,6 +27,12 @@
   flex: 1 0 auto;
 }
 
+.category-grid.has-center-content-alignment {
+  & .category-grid__label {
+    text-align: center;
+  }
+}
+
 .category-grid--preset-default {
   & .category-grid__label {
     margin-top: 0.5em;
