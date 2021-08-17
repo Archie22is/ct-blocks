@@ -15,7 +15,7 @@ $_lazyload = !empty($enable_lazyload) ?? true;
 
 $header = codetot_build_content_block(array(
   'class' => 'section-header',
-  'alignment' => $header_alignment,
+  'alignment' => !empty($header_alignment) ? $header_alignment : 'left',
   'title' => !empty($title) ? $title : '',
   'description' => !empty($description) ? $description : ''
 ), 'image-row');
@@ -46,21 +46,21 @@ $content = codetot_build_grid_columns($_columns, 'image-row', array(
   'column_class' => 'default-section__col image-row__col'
 ));
 
-ob_start(); ?>
-<?php if (!empty($buttons)) :
+ob_start();
+if (!empty($buttons)) :
   the_block('button-group', array(
     'class' => 'image-row__buttons',
     'buttons' => $buttons
   ));
-endif; ?>
-<?php $footer = ob_get_clean();
+endif;
+$footer = ob_get_clean();
 
 the_block('default-section', array(
-  'id' => !empty($id) ? $id : '',
+  'id' => !empty($anchor_name) ? $anchor_name : '',
   'class' => $_class,
   'lazyload' => $_lazyload,
   'tag' => !empty($title) ? 'section' : 'div',
-  'header' => (!empty($title) || !empty($description)) ? $header : false,
+  'header' => $header,
   'content' => $content,
-  'footer' => (!empty($buttons)) ? $footer : false
+  'footer' => $footer
 ));

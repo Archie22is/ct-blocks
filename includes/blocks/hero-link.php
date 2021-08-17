@@ -49,6 +49,7 @@ class Codetot_Block_Hero_Link extends Codetot_Base_Block implements Codetot_Base
       'class',
       'anchor_name',
       'block_preset',
+      'slider_autoplay',
       'page_dots_style',
       'enable_page_dots',
       'previous_next_style',
