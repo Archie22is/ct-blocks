@@ -179,6 +179,27 @@
         "placeholder": ""
       },
       {
+        "key": "field_5fd314e84f631",
+        "label": "Slider Autoplay Duration",
+        "name": "slider_autoplay",
+        "type": "number",
+        "instructions": "Set 0 to disable, set 1-10 to enable switch in seconds.",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "0",
+        "placeholder": "",
+        "prepend": "",
+        "append": "second(s)",
+        "min": "0",
+        "max": "10",
+        "step": ""
+      },
+      {
         "key": "field_herolink79ca2938c",
         "label": "Previous/Next Buttons",
         "name": "enable_prev_next_buttons",
