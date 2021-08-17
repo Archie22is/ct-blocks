@@ -53,9 +53,11 @@ class Codetot_Block_Category_Grid extends Codetot_Base_Block implements Codetot_
       'anchor_name',
       'columns_count',
       'header_alignment',
+      'content_alignment',
       'background_type',
       'background_contract',
       'block_preset',
+      'image_size',
       // Content
       'title',
       'description',

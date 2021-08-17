@@ -210,9 +210,9 @@
         "save_other_choice": 0
       },
       {
-        "key": "field_5fcdvala01f7f",
-        "label": "Background Type",
-        "name": "background_type",
+        "key": "field_5fcdvala01fg0",
+        "label": "Image Size",
+        "name": "image_size",
         "type": "select",
         "instructions": "",
         "required": 0,
@@ -222,8 +222,12 @@
           "class": "",
           "id": ""
         },
-        "choices": {},
-        "default_value": false,
+        "choices": {
+          "default": "Default Image Size",
+          "cover": "Cover Image",
+          "contain": "Contain Image"
+        },
+        "default_value": "default",
         "allow_null": 0,
         "multiple": 0,
         "ui": 0,
@@ -232,9 +236,9 @@
         "placeholder": ""
       },
       {
-        "key": "field_5fcdvala01f2c",
-        "label": "Header Alignment",
-        "name": "header_alignment",
+        "key": "field_5fcdvala01f7f",
+        "label": "Background Type",
+        "name": "background_type",
         "type": "select",
         "instructions": "",
         "required": 0,
@@ -295,6 +299,50 @@
         "layout": "horizontal",
         "return_format": "value",
         "save_other_choice": 0
+      },
+      {
+        "key": "field_5fcdvala01f2c",
+        "label": "Header Alignment",
+        "name": "header_alignment",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
+        "key": "field_5fcdvala01fb7",
+        "label": "Content Alignment",
+        "name": "content_alignment",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {},
+        "default_value": false,
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
       },
       {
         "key": "field_5fcdvala01f7i",

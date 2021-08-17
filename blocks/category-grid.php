@@ -16,13 +16,16 @@ $product_categories = get_terms('product_cat', $args);
 
 $header = codetot_build_content_block(array(
   'alignment' => $header_alignment ?? 'left',
-  'title' => !empty($title) ? $title : '',
-  'description' => !empty($description) ? $description : ''
+  'title' => $title ?? '',
+  'description' => $description ?? ''
 ), 'category-grid');
 
-$_columns = array_map(function($product_category) {
+$_image_size = $image_size ?? 'default';
+
+$_columns = array_map(function($product_category) use ($_image_size) {
   return get_block('category-grid-item', array(
-    'category' => $product_category
+    'category' => $product_category,
+    'image_size' => $_image_size
   ));
 }, $product_categories);
 
@@ -32,9 +35,10 @@ $content = codetot_build_grid_columns($_columns, 'category-grid', array(
 
 $_class = 'category-grid';
 $_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
-$_class .= !empty($background_contract) ? ' is-' . $background_contract . '-contract' : ' is-light-contract';
-$_class .= !empty($columns_count) ? ' has-' . $columns_count . '-columns' : ' has-3-columns';
-$_class .= !empty($block_preset) ? ' category-grid--preset-' . esc_attr($block_preset) : ' category-grid--preset-default';
+$_class .= !empty($background_contract) ? ' is-' . esc_html($background_contract) . '-contract' : ' is-light-contract';
+$_class .= !empty($columns_count) ? ' has-' . (int) esc_html($columns_count) . '-columns' : ' has-3-columns';
+$_class .= !empty($block_preset) ? ' category-grid--preset-' . esc_html($block_preset) : ' category-grid--preset-default';
+$_class .= !empty($content_alignment) ? ' has-' . esc_html($content_alignment). '-content-alignment' : ' has-left-content-aligment';
 $_class .= !empty($class) ? ' ' . $class : '';
 
 if (!empty($product_categories) && !is_wp_error($product_categories)) :
@@ -44,4 +48,4 @@ if (!empty($product_categories) && !is_wp_error($product_categories)) :
     'lazyload' => isset($enable_lazyload) && $enable_lazyload,
     'content' => $content
   ));
-endif; ?>
+endif;
