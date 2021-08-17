@@ -10,9 +10,10 @@ $carousel_settings = array(
   'prevNextButtons' => !empty($enable_prev_next_buttons),
   'pageDots' => !empty($enable_page_dots),
   'cellAlign' => 'center',
+  'contain' => true,
   'groupCells' => 1,
   'wrapAround' => true,
-  'autoPlay' => !empty($slider_autoplay) ? $slider_autoplay: false
+  'autoPlay' => !empty($slider_autoplay) ? (int) $slider_autoplay * 1000 : false
 );
 
 if(!empty($items)) : ?>
@@ -31,7 +32,7 @@ if(!empty($items)) : ?>
                 'size' => wp_is_mobile() ? 'medium' : 'large'
               ));
 
-              if($item['url']) {
+              if( !empty($item['url']) ) {
                 printf('<a class="hero-link__url" href="%1$s" target="%2$s">%3$s</a>', $item['url'], $item['button_target'], $image_html);
               } else {
                 echo $image_html;
