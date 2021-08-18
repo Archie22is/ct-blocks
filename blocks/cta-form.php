@@ -12,34 +12,16 @@ $_class .= ((!empty($background_type) !== 'white') || !empty($background_image))
 $_class .= !empty($background_image) ? ' rel bg-image' : '';
 $_class .= !empty($overlay) ? ' ' . $preset_class . '--has-overlay' : '';
 
+$header = codetot_build_content_block(array(
+  'title' => $title ?? '',
+  'description' => $content ?? ''
+), $preset_class);
 
-if (!empty($title) || !empty($content)) {
-  $header = codetot_build_content_block(array(
-    'title' => $title,
-    'description' => $content
-  ), $preset_class);
-}
 ob_start();
-if (!empty($background_image)) {
-the_block('image', array(
-  'class' => 'image--cover cta-form__background',
-  'image' => $background_image
-));
-}
-
-if (!empty($overlay)) { ?>
+if (!empty($overlay)) : ?>
   <div class="cta-form__overlay" style="background-color: rgba(0, 0, 0, <?php echo esc_attr($overlay); ?>);"></div>
-<?php }
-$background = ob_get_clean();
-
-ob_start();
-
-the_block('image', array(
-  'image' => $image,
-  'class' => (!empty($image_size) ? 'image--' . $image_size : 'image--default') . ' ' . $preset_class . '__sidebar-image '
-));
-
-$sidebar = ob_get_clean();
+<?php endif;
+$background_html = ob_get_clean();
 
 if (!empty($select_form)) :
   ob_start();
@@ -48,24 +30,13 @@ if (!empty($select_form)) :
   gravity_form($select_form, false, false, false, null, true);
   echo '</div>';
 
-  $form = ob_get_clean();
-endif;
+  $content = ob_get_clean();
 
-if (!empty($select_form)) :
-  if (!empty($image)):
-    the_block('sidebar-section', array(
-      'class' => $_class,
-      'before_header' => $background,
-      'sidebar' => !empty($sidebar) ? $sidebar : false,
-      'content' => $header . $form
-    ));
-  else :
   the_block('default-section', array(
     'class' => $_class,
-    'attributes' => ' data-reveal="fade-up"',
-    'before_header' => $background,
-    'header' => !empty($header) ? $header : false,
-    'content' => $form
+    'background_image' => $background_image ?? '',
+    'before_header' => $background_html,
+    'header' => $header,
+    'content' => $content
   ));
-  endif;
 endif;
