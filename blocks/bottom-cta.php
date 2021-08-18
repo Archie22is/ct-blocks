@@ -52,22 +52,16 @@ ob_start(); ?>
 $content .= $footer;
 
 ob_start(); ?>
-<?php if (!empty($background_image)) : ?>
-  <?php the_block('image', array(
-    'image' => $background_image,
-    'class' => 'image--cover bottom-cta__background-image'
-  )); ?>
-<?php endif; ?>
 <?php if (!empty($overlay)) : ?>
   <div class="bottom-cta__overlay" style="background-color: rgba(0, 0, 0, <?php echo esc_attr($overlay); ?>);"></div>
 <?php endif; ?>
 <?php $background_html = ob_get_clean();
 
 the_block('default-section', array(
-  'id' => !empty($anchor_name) ? $anchor_name : '',
+  'id' => $anchor_name ?? '',
   'class' => $_class,
-  'attributes' => ' data-reveal="fade-up"',
-  'lazyload' => !empty($enable_lazyload),
+  'lazyload' => $enable_lazyload ?? false,
+  'background_image' => $background_image,
   'before_header' => $background_html,
   'content' => $content
 ));
