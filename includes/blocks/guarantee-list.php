@@ -52,6 +52,7 @@ class Codetot_Block_Guarantee_List extends Codetot_Base_Block implements Codetot
       'block_preset',
       'background_type',
       'background_contract',
+      'background_image',
       'layout',
       'content_alignment',
       'fullscreen',
