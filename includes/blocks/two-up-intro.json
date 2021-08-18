@@ -55,13 +55,46 @@
         "endpoint": 0
       },
       {
+        "key": "field_5fd724d04fb2h",
+        "label": "Media Type",
+        "name": "media_type",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "25",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "image": "Image",
+          "youtube": "Youtube"
+        },
+        "default_value": "image",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "return_format": "value",
+        "ajax": 0,
+        "placeholder": ""
+      },
+      {
         "key": "field_5fd724d04fb1d",
         "label": "Image",
         "name": "image",
         "type": "image",
         "instructions": "",
         "required": 0,
-        "conditional_logic": 0,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_5fd724d04fb2h",
+              "operator": "==",
+              "value": "image"
+            }
+          ]
+        ],
         "wrapper": {
           "width": "",
           "class": "",
@@ -77,6 +110,30 @@
         "max_height": "",
         "max_size": "",
         "mime_types": ""
+      },
+      {
+        "key": "field_5fd724d04fb2m",
+        "label": "Video (Youtube)",
+        "name": "youtube_video",
+        "type": "oembed",
+        "instructions": "Youtube Video URL",
+        "required": 0,
+        "conditional_logic": [
+          [
+            {
+              "field": "field_5fd724d04fb2h",
+              "operator": "==",
+              "value": "youtube"
+            }
+          ]
+        ],
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "width": "",
+        "height": ""
       },
       {
         "key": "field_5fcf52d7di341",
@@ -476,6 +533,30 @@
         "layout": "horizontal",
         "return_format": "value",
         "save_other_choice": 0
+      },
+      {
+        "key": "field_5fcdf9134abd",
+        "label": "Background Image",
+        "name": "background_image",
+        "type": "image",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "array",
+        "preview_size": "medium",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": ""
       }
     ],
     "min": "",
