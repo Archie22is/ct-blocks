@@ -27,16 +27,10 @@ $_slider_options = empty($slider_options) ? array(
 
 // Build background image and overlay
 ob_start();
-if (!empty($background_image)) {
-  the_block('image', array(
-    'class' => 'image--cover testimonials__background',
-    'image' => $background_image
-  ));
-}
-if (!empty($overlay)) { ?>
+if (!empty($overlay)) : ?>
   <div class="testimonials__overlay" style="background-color: rgba(0, 0, 0, <?php echo esc_attr($overlay); ?>);"></div>
-<?php }
-$background = ob_get_clean();
+<?php endif;
+$background_html = ob_get_clean();
 
 // Build column content
 $columns = !empty($columns) ? array_map(function($column) {
@@ -58,10 +52,11 @@ $content = !$enable_slider ? $column_content : $slider_html;
 if (!empty($content)) :
   the_block('default-section', array(
     'attributes' => 'data-ct-block="testimonials"',
-    'before_header' => !empty($background) ? $background : '',
+    'background_image' => $background_image ?? '',
+    'before_header' => $background_html ?? '',
     'class' => $_class,
     'lazyload' => (isset($enable_lazyload) && $lazyload) || !isset($lazyload),
-    'id' => !empty($anchor_name) ? $anchor_name : '',
+    'id' => $anchor_name ?? '',
     'header' => $header,
     'content' => $content
   ));
