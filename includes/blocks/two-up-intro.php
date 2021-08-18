@@ -60,8 +60,11 @@ class Codetot_Block_Two_Up_Intro extends Codetot_Base_Block implements Codetot_B
       'media_size',
       'background_type',
       'background_contract',
+      'background_image',
       // Content
+      'media_type',
       'image',
+      'youtube_video',
       'label',
       'title',
       'content',

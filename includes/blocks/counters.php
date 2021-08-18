@@ -56,6 +56,7 @@ class Codetot_Block_Counters extends Codetot_Base_Block implements Codetot_Base_
       'content_alignment',
       'background_type',
       'background_contract',
+      'background_image',
       // Input
       'title',
       'description',

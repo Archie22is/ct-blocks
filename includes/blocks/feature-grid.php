@@ -56,6 +56,7 @@ class Codetot_Block_Feature_Grid extends Codetot_Base_Block implements Codetot_B
       'media_size',
       'background_contract',
       'background_type',
+      'background_image',
       // Content
       'title',
       'label',

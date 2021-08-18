@@ -54,6 +54,7 @@ class Codetot_Block_Default_Content extends Codetot_Base_Block implements Codeto
       'content_alignment',
       'background_type',
       'background_contract',
+      'background_image',
       'section_title_tag',
       // Content
       'title',
