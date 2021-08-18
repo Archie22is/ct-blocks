@@ -200,7 +200,7 @@
             "mime_types": ""
           },
           {
-            "key": "field_5fd314e84f631",
+            "key": "field_counter5fd31f631",
             "label": "Count",
             "name": "count",
             "type": "number",
