@@ -81,6 +81,7 @@ the_block('default-section', array(
   'lazyload' => (isset($enable_lazyload) && $enable_lazyload) || !isset($enable_lazyload),
   'attributes' => $enable_js ? ' data-ct-block="two-up-intro"' : '',
   'class' => $_class,
-  'id' => $anchor_name,
+  'background_image' => $background_image ?? '',
+  'id' => $anchor_name ?? '',
   'content' => $content
 ));
