@@ -1,19 +1,8 @@
 <?php
-/**
- *
- * 'class',
- * 'anchor_name',
- * 'background_type',
- * 'enable_slideshow',
- * 'columns',
- * 'header_alignment',
- */
-
-$container = codetot_site_container();
 
 $_class = 'logo-grid';
 $_class .= !empty($columns) ? ' has-'. $columns .'-columns' : ' has-4-columns';
-$_class .= !empty($header_alignment) ? ' is-header-' .  $header_alignment : 'is-header-center';
+$_class .= !empty($header_alignment) ? ' is-header-' .  $header_alignment : 'is-header-left';
 $_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
 $_class .= !empty($enable_slideshow) ? ' logo-grid--has-slider' : ' logo-grid--no-slider';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
@@ -28,9 +17,9 @@ $_slider_options = empty($slider_options) ? array(
 
 $header = codetot_build_content_block(array(
   'class' => 'section-header',
-  'alignment' => $header_alignment,
-  'title' => $title,
-  'description' => $description
+  'alignment' => $header_alignment ?? 'left',
+  'title' => $title ?? '',
+  'description' => $description ?? ''
 ), 'logo-grid');
 
 // Build column content
@@ -56,9 +45,10 @@ $slider_html = ob_get_clean();
 $content = !$enable_slideshow ? $column_content : $slider_html;
 
 the_block('default-section', array(
-  'id' => !empty($id) ? $id : '',
-  'attributes' => ' data-ct-block="logo-grid" data-reveal="fade-up"',
+  'id' => $anchor_name ?? '',
+  'attributes' => ' data-ct-block="logo-grid"',
+  'background_image' => $background_image ?? '',
   'class' => $_class,
-  'header' => (!empty($title) || !empty($description)) ? $header : false,
-  'content' => $content
+  'header' => $header,
+  'content' => $content,
 ));

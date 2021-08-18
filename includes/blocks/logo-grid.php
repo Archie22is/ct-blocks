@@ -49,6 +49,7 @@ class Codetot_Block_Logo_Grid extends Codetot_Base_Block implements Codetot_Base
       'class',
       'anchor_name',
       'background_type',
+      'background_image',
       'enable_slideshow',
       'columns',
       'header_alignment',
