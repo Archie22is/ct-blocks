@@ -697,7 +697,7 @@
       },
       {
         "key": "field_60711e72eed0d",
-        "label": "Background Color",
+        "label": "Background Type",
         "name": "background_type",
         "type": "select",
         "instructions": "",
@@ -716,6 +716,30 @@
         "return_format": "value",
         "ajax": 0,
         "placeholder": ""
+      },
+      {
+        "key": "field_60711e72eed0e",
+        "label": "Background Image",
+        "name": "background_image",
+        "type": "image",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "array",
+        "preview_size": "medium",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": ""
       }
     ],
     "min": "",
