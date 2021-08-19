@@ -417,7 +417,8 @@
           "style-1": "Style 1",
           "style-2": "Style 2",
           "style-3": "Style 3",
-          "style-4": "Style 4"
+          "style-4": "Style 4",
+          "style-5": "Style 5"
         },
         "allow_null": 0,
         "other_choice": 0,
