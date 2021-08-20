@@ -14,7 +14,7 @@ $_title_tag = !empty($section_title_tag) ? $section_title_tag : 'h1';
 // Get image html
 ob_start();
 if (!empty($image)) :?>
-  <div class="rel hero-image__image-wrapper">
+  <div class="hero-image__image-wrapper">
     <?php if (!empty($overlay)) : ?>
       <div class="hero-image__overlay" style="background-color: rgba(0, 0, 0, <?php echo esc_attr($_overlay); ?>);"></div>
     <?php endif; ?>
@@ -32,7 +32,7 @@ $image_html = ob_get_clean();
 // Get content
 ob_start(); ?>
 <?php if (!empty($label)) : ?>
-  <p class="hero-image__label"><?php echo esc_html($label); ?></p>
+  <div class="hero-image__label"><?php echo $label; ?></div>
 <?php endif; ?>
 <?php // $title always requires, not need check ?>
 <?php printf('<%1$s class="hero-image__title">%2$s</%1$s>', $_title_tag, $title); ?>
