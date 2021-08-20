@@ -392,21 +392,19 @@ if (!function_exists('codetot_build_slider')) {
 
     ob_start();
 
-    $block_class = $prefix_class . '__inner';
+    $block_class = $prefix_class . '__slider js-slider';
     $block_class .= !empty($slider_class) ? ' ' . $slider_class : '';
 
     $block_attributes = '';
     $block_attributes .= !empty($slider_attributes) ? ' ' . $slider_attributes : '';
     ?>
 
-    <div class="<?php echo $block_class; ?>__inner" <?php echo $block_attributes; ?>>
-      <div class="<?php echo $prefix_class; ?>__slider js-slider" <?php if (!empty($slider_settings)) : ?> data-carousel='<?php echo json_encode($slider_settings); ?>' <?php endif; ?>>
-        <?php foreach ($columns as $column) : ?>
-          <div class="<?php echo $prefix_class; ?>__slider-item js-slider-item">
-            <?php echo $column; ?>
-          </div>
-        <?php endforeach; ?>
-      </div>
+    <div class="<?php echo $block_class; ?>" <?php if (!empty($slider_settings)) : ?> data-carousel='<?php echo json_encode($slider_settings); ?>' <?php endif; ?>>
+      <?php foreach ($columns as $column) : ?>
+        <div class="<?php echo $prefix_class; ?>__slider-item js-slider-item">
+          <?php echo $column; ?>
+        </div>
+      <?php endforeach; ?>
     </div>
   <?php
 
