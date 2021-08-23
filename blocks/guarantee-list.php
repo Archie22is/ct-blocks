@@ -28,7 +28,7 @@ if (!empty($items)) :
     'id' => $anchor_name ?? '',
     'lazyload' => $enable_lazyload ?? true,
     'class' => $_class,
-    'attributes' => $attributes,
+    'attributes' => $attributes ?? '',
     'background_image' => $background_image ?? '',
     'content' => $content
   ));
