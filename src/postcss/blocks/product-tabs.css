@@ -1,4 +1,10 @@
 .product-tabs {
+  &.is-loading {
+    & * {
+      pointer-events: none;
+    }
+  }
+
   & .default-section__header {
     margin-bottom: 0;
   }
