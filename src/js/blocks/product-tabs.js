@@ -47,6 +47,16 @@ export default el => {
     desktopTriggerEls = selectAll('[role="tab"]', el)
     tabPanels = selectAll('[role="tabpanel"]', el)
 
+    trigger(
+      {
+        event: 'update',
+        data: {
+          currentIndex: 0
+        }
+      },
+      el
+    )
+
     if (desktopTriggerEls) {
       on(
         'click',
@@ -79,7 +89,7 @@ export default el => {
       const listEl = currentTabEl ? select('.js-grid', currentTabEl) : null
 
       if (listEl && hasClass('is-not-loaded', listEl) && categoryId) {
-        addClass('is-loading', currentTabEl)
+        addClass('is-loading', el)
 
         window
           .fetch(getRestUrl(categoryId))
@@ -90,16 +100,22 @@ export default el => {
               removeClass('is-not-loaded', listEl)
             }
 
-            removeClass('is-loading', currentTabEl)
+            removeClass('is-loading', el)
           })
       }
     },
     el
   )
 
-  if (inViewPort(el)) {
-    init()
-  }
+  on(
+    'load',
+    throttle(() => {
+      if (inViewPort(el) && !loaded) {
+        init()
+      }
+    }, 100),
+    window
+  )
 
   on(
     'scroll',
