@@ -53,7 +53,7 @@ $content_html = ob_get_clean();
 ?>
 
 <section class="<?php echo $_class; ?>">
-  <?php if ($fullscreen) :
+  <?php if (!empty($fullscreen)) :
     printf('<div class="container hero-image__container hero-image__container--image">%s</div>', $image_html);
   else :
     echo $image_html;
