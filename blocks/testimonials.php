@@ -55,7 +55,7 @@ if (!empty($content)) :
     'background_image' => $background_image ?? '',
     'before_header' => $background_html ?? '',
     'class' => $_class,
-    'lazyload' => (isset($enable_lazyload) && $lazyload) || !isset($lazyload),
+    'lazyload' => isset($enable_lazyload) && $enable_lazyload,
     'id' => $anchor_name ?? '',
     'header' => $header,
     'content' => $content
