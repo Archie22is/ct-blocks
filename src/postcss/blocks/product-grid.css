@@ -11,12 +11,46 @@
         padding: 0 10px;
       }
 
+      &.columns-3 {
+        & .product {
+          width: 50%;
+
+          @media (--sm) {
+            width: 33.33%;
+          }
+        }
+      }
+
       &.columns-4 {
         & .product {
           width: 50%;
 
           @media (--sm) {
             width: 25%;
+          }
+        }
+      }
+
+      &.columns-5 {
+        & .product {
+          width: 50%;
+
+          @media (--m) {
+            width: 20%;
+          }
+        }
+      }
+
+      &.columns-6{
+        & .product {
+          width: 50%;
+
+          @media (--xs) {
+            width: 33.33%;
+          }
+
+          @media (--m) {
+            width: 16.66%;
           }
         }
       }
