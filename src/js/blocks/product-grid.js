@@ -4,6 +4,7 @@ import {
   removeClass,
   select,
   on,
+  getData,
   loadNoscriptContent,
   inViewPort
 } from 'lib/dom'
@@ -11,7 +12,7 @@ import { throttle } from 'lib/utils'
 import Carousel from 'lib/carousel'
 
 export default el => {
-  const loaded = false
+  let loaded = false
   const contentEl = select('.js-content', el)
   let slider = null
 
@@ -21,15 +22,57 @@ export default el => {
       removeClass('is-loading', el)
     }
 
-    const sliderEl = select('.js-slider', el)
-    slider = new Carousel(sliderEl)
+    sliderInit()
   }
+
+  const sliderInit = () => {
+    if (slider) {
+      slider.destroy()
+    }
+
+    const sliderEl = select('.js-slider', el)
+
+    // Calculate minimum items for creating a slider
+    const slidesCount = sliderEl.childElementCount
+    const sliderColumn = getData('columns', sliderEl)
+    const breakpoint =
+      window
+        .getComputedStyle(document.documentElement)
+        .getPropertyValue('--m') || '1024px'
+
+    console.log(slidesCount)
+    console.log(sliderColumn)
+    console.log(`(min-width: ${breakpoint})`)
+
+    if (window.matchMedia(`(min-width: ${breakpoint})`).matches) {
+      console.log('case min-width 1024px')
+      if (parseInt(slidesCount) > parseInt(sliderColumn)) {
+        slider = new Carousel(sliderEl)
+      }
+    } else if (parseInt(slidesCount) > 2) {
+      slider = new Carousel(sliderEl)
+    }
+  }
+
+  on(
+    'resize',
+    throttle(() => {
+      if (inViewPort(el)) {
+        init()
+
+        loaded = true
+      }
+    }, 300),
+    window
+  )
 
   on(
     'load',
     throttle(() => {
       if (inViewPort(el) && !loaded) {
         init()
+
+        loaded = true
       }
     }, 100),
     window
@@ -40,6 +83,8 @@ export default el => {
     throttle(() => {
       if (inViewPort(el) && !loaded) {
         init()
+
+        loaded = true
       }
     }, 300),
     window
