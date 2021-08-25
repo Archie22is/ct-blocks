@@ -33,10 +33,16 @@ $header = codetot_build_content_block(array(
   'title' => $title ?? ''
 ), 'product-grid');
 
+ob_start(); ?>
+<?php if (!empty($carousel_settings)) : ?> data-carousel='<?= json_encode($carousel_settings); ?>' <?php endif; ?>
+<?php if (!empty($columns) && $columns !== 'hide') : ?> data-columns="<?php echo $columns; ?>"<?php endif; ?>
+  data-breakpoint="--sm"
+<?php $column_attributes = ob_get_clean();
+
 ob_start();
 
 ?>
-<ul class="<?php echo $wrapper_class; ?>" <?php if (!empty($carousel_settings)) : ?> data-carousel='<?= json_encode($carousel_settings); ?>' <?php endif; ?>>
+<ul class="<?php echo $wrapper_class; ?>" <?php echo $column_attributes; ?>>
 <?php
 
 if (!empty($query) && $query instanceof WP_Query && $query->have_posts()) {
