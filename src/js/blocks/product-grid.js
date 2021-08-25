@@ -40,12 +40,7 @@ export default el => {
         .getComputedStyle(document.documentElement)
         .getPropertyValue('--m') || '1024px'
 
-    console.log(slidesCount)
-    console.log(sliderColumn)
-    console.log(`(min-width: ${breakpoint})`)
-
     if (window.matchMedia(`(min-width: ${breakpoint})`).matches) {
-      console.log('case min-width 1024px')
       if (parseInt(slidesCount) > parseInt(sliderColumn)) {
         slider = new Carousel(sliderEl)
       }
