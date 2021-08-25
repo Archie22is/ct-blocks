@@ -17,8 +17,7 @@ $carousel_settings = apply_filters('codetot_product_grid_slider_settings', array
   'groupCells' => true,
   'percentagePosition' => true,
   'prevNextButtons' => true,
-  'resize' => true,
-  'items' => (int) $_columns
+  'resize' => true
 ));
 
 if ($carousel_settings['pageDots'] === true) {
@@ -30,6 +29,7 @@ if ($carousel_settings['prevNextButtons'] === true) {
 }
 
 $header = codetot_build_content_block(array(
+  'class' => 'section-header',
   'title' => $title ?? ''
 ), 'product-grid');
 
@@ -39,7 +39,7 @@ ob_start();
 <ul class="<?php echo $wrapper_class; ?>" <?php if (!empty($carousel_settings)) : ?> data-carousel='<?= json_encode($carousel_settings); ?>' <?php endif; ?>>
 <?php
 
-if ($query instanceof WP_Query && $query->have_posts()) {
+if (!empty($query) && $query instanceof WP_Query && $query->have_posts()) {
   while ( $query->have_posts() ) :
     $query->the_post();
 
