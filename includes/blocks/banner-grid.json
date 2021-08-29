@@ -184,15 +184,7 @@
               "class": "",
               "id": ""
             },
-            "choices": {
-              "white": "Trắng",
-              "light": "Xám nhạt",
-              "gray": "Xám",
-              "dark": "Tối",
-              "black": "Đen",
-              "primary": "Chính",
-              "secondary": "Phụ"
-            },
+            "choices": {},
             "default_value": false,
             "allow_null": 0,
             "multiple": 0,
