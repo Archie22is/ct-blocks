@@ -4,6 +4,7 @@ $_class = 'logo-grid';
 $_class .= !empty($columns) ? ' has-'. $columns .'-columns' : ' has-4-columns';
 $_class .= !empty($header_alignment) ? ' is-header-' .  $header_alignment : 'is-header-left';
 $_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
+$_class .= !empty($background_contract) ? ' is-' . $background_contract . '-contract' : ' is-light-contract';
 $_class .= !empty($enable_slideshow) ? ' logo-grid--has-slider' : ' logo-grid--no-slider';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 
