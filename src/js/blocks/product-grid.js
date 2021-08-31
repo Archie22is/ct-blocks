@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import {
+  addClass,
   hasClass,
   removeClass,
   select,
@@ -46,6 +47,10 @@ export default el => {
       }
     } else if (parseInt(slidesCount) > 2) {
       slider = new Carousel(sliderEl)
+    }
+
+    if (slider) {
+      addClass('slider-has-loaded', el)
     }
   }
 

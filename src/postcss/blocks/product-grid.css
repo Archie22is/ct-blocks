@@ -1,5 +1,5 @@
 .product-grid {
-  &.has-slider {
+  &.slider-has-loaded {
     & .default-section__inner--main {
       padding: 0 10px;
 
