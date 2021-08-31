@@ -119,13 +119,22 @@ class Codetot_Block_Product_Tabs extends Codetot_Base_Block implements Codetot_B
       endwhile; wp_reset_postdata();
       $html = ob_get_clean();
 
-      $response = new \WP_Rest_Response(array(
+      $response = new \WP_Rest_Response();
+      $data_args = array(
         'html' => $html
-      ), 200);
+      );
 
-      $response->set_headers(array(
-        'Cache-Control' => 'max-age=3600' // 1 hour
-      ));
+      if ( empty( $request->get_param('cache') ) ) :
+        $response->set_headers(array(
+          'Cache-Control' => 'max-age=3600' // 1 hour
+        ));
+        $data_args['cache'] = true;
+      else :
+        $data_args['cache'] = false;
+      endif;
+
+      $response->set_data($data_args);
+      $response->set_status(200);
 
       return $response;
 
