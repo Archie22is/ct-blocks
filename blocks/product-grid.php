@@ -45,6 +45,15 @@ ob_start();
 <ul class="<?php echo $wrapper_class; ?>" <?php echo $column_attributes; ?>>
 <?php
 
+/**
+ * For example: 'name' => 'related'
+ */
+if (!empty($loop_args)) {
+  foreach ($loop_args as $loop_key => $loop_variable) {
+    wc_set_loop_prop(sanitize_key($loop_key), sanitize_text_field($loop_variable));
+  }
+}
+
 if (!empty($query) && $query instanceof WP_Query && $query->have_posts()) {
   while ( $query->have_posts() ) :
     $query->the_post();
