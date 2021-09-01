@@ -241,7 +241,7 @@
   }
 
   & .hero-image__post-meta__item {
-    dislay: inline-block;
+    display: inline-block;
     margin-right: 15px;
 
     &::after {
