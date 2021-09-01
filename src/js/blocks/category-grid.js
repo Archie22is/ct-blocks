@@ -1,13 +1,17 @@
 /* eslint-disable no-unused-vars */
 import {
+  addClass,
   select,
+  selectAll,
+  getHeight,
+  setStyle,
   on,
   inViewPort,
   hasClass,
   loadNoscriptContent,
   removeClass
 } from 'lib/dom'
-import { throttle } from 'lib/utils'
+import { throttle, map } from 'lib/utils'
 import carousel from 'lib/carousel'
 
 export default el => {
@@ -15,6 +19,30 @@ export default el => {
   let sliderEl = select('.js-slider', el)
   let slider = null
   let loaded = false
+
+  const update = () => {
+    const imageEl = select('.js-slider-item .image__img', sliderEl)
+
+    if (imageEl) {
+      const timer = setInterval(() => {
+        if (hasClass('lazyloaded', imageEl)) {
+          slider.resize()
+
+          const buttons = selectAll('.flickity-button', el)
+
+          if (slider && imageEl && buttons) {
+            const imageHeight = getHeight(imageEl)
+
+            map(button => {
+              setStyle('top', imageHeight / 2 + 'px', button)
+            }, buttons)
+          }
+
+          clearInterval(timer)
+        }
+      }, 500)
+    }
+  }
 
   const init = () => {
     if (loaded) {
@@ -30,7 +58,13 @@ export default el => {
       sliderEl = select('.js-slider', el)
     }
 
-    slider = carousel(sliderEl)
+    const customOptions = {
+      on: {
+        ready: update
+      }
+    }
+
+    slider = carousel(sliderEl, customOptions)
 
     loaded = true
   }

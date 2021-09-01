@@ -1,14 +1,16 @@
 <?php
 
+$_image_size = $image_size ?? 'default';
+$_enable_slider = $enable_slider ?? false;
+
 $_class = 'category-grid';
 $_class .= !empty($background_type) ? codetot_generate_block_background_class($background_type) : ' section';
 $_class .= !empty($background_contract) ? ' is-' . esc_html($background_contract) . '-contract' : ' is-light-contract';
 $_class .= !empty($columns_count) ? ' has-' . (int) esc_html($columns_count) . '-columns' : ' has-3-columns';
 $_class .= !empty($block_preset) ? ' category-grid--preset-' . esc_html($block_preset) : ' category-grid--preset-default';
 $_class .= !empty($content_alignment) ? ' has-' . esc_html($content_alignment). '-content-alignment' : ' has-left-content-aligment';
+$_class .= $_enable_slider ? ' has-slider' : '';
 $_class .= !empty($class) ? ' ' . $class : '';
-
-$_image_size = $image_size ?? 'default';
 
 $args = array(
   'orderby' => 'menu_order',
@@ -39,24 +41,25 @@ if (!empty($product_categories) && !is_wp_error($product_categories)) :
     ));
   }, $product_categories);
 
-  $content = codetot_build_grid_columns($columns, 'category-grid', array(
+  $column_html = codetot_build_grid_columns($columns, 'category-grid', array(
     'column_class' => 'default-section__col'
   ));
 
   $slider_settings = array(
     'cellAlign' => 'left',
     'prevNextButtons' => true,
-    'pageDots' => false
+    'pageDots' => false,
+    'resize' => true
   );
 
   $slider_html = codetot_build_slider($columns, 'category-grid', array(
     'slider_settings' => $slider_settings
   ));
 
-  $content = $enable_slider ? $slider_html : $column_html;
+  $content = $_enable_slider ? $slider_html : $column_html;
 
   the_block('default-section', array(
-    'attributes' => $enable_slider ? ' data-ct-block="category-grid"' : '',
+    'attributes' => $_enable_slider ? ' data-ct-block="category-grid"' : '',
     'class' => $_class,
     'header' => $header,
     'lazyload' => isset($enable_lazyload) && $enable_lazyload,

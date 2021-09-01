@@ -49,6 +49,7 @@ class Codetot_Block_Category_Grid extends Codetot_Base_Block implements Codetot_
     $this->fields = [
       // Settings
       'enable_lazyload',
+      'enable_slider',
       'class',
       'anchor_name',
       'columns_count',
