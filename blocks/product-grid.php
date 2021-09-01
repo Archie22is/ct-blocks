@@ -80,7 +80,10 @@ if ($_enable_slider) :
   $content = str_replace('</li>', '</div>', $content);
 endif;
 
-if (!empty($query) || !empty($list)) :
+if (
+  (!empty($query) || !empty($list)) &&
+  (!empty($columns) && $columns !== 'hide')
+) :
   the_block('default-section', array(
     'class' => $_class,
     'attributes' => $_enable_slider ? ' data-ct-block="product-grid"' : '',
