@@ -1,7 +1,7 @@
 <?php
 
 $_enable_slider = isset($enable_slider) && $enable_slider ?? false;
-$_columns = !empty($columns) ? $columns : 4;
+$_columns = $columns ?? '4-col';
 
 $_class = 'product-grid';
 $_class .= $_enable_slider ? ' has-slider' : '';
