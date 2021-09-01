@@ -1,6 +1,6 @@
 <?php
 
-$_enable_slider = isset($enable_slider) && $enable_slider;
+$_enable_slider = isset($enable_slider) && $enable_slider ?? false;
 $_columns = !empty($columns) ? $columns : 4;
 
 $_class = 'product-grid';
