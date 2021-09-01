@@ -151,6 +151,25 @@
         "ui_off_text": ""
       },
       {
+        "key": "field_60121834038h0",
+        "label": "Slider",
+        "name": "enable_slider",
+        "type": "true_false",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "message": "Enable",
+        "default_value": 0,
+        "ui": 0,
+        "ui_on_text": "",
+        "ui_off_text": ""
+      },
+      {
         "key": "field_5fd050b003c49",
         "label": "Class",
         "name": "class",

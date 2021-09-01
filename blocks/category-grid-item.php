@@ -10,6 +10,7 @@
       if (!empty($thumbnail_id)) :
         the_block('image', array(
           'image' => $thumbnail_id,
+          'size' => wp_is_mobile() ? 'medium' : 'large',
           'class' => sprintf('%s category-grid__image', $_image_class)
         ));
       else :
