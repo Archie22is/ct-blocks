@@ -1,5 +1,5 @@
 import { select } from 'lib/dom'
-import Carousel from 'lib/carousel'
+import carousel from 'lib/carousel'
 
 export default el => {
   const sliderEl = select('.js-slider', el)
@@ -7,7 +7,7 @@ export default el => {
   let slider = null
 
   if (sliderEl) {
-    slider = new Carousel(sliderEl, {
+    slider = carousel(sliderEl, {
       lazyload: true
     })
   }

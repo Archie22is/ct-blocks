@@ -240,6 +240,23 @@
     margin-bottom: 0.5em;
   }
 
+  & .hero-image__post-meta__item {
+    display: inline-block;
+    margin-right: 15px;
+
+    &::after {
+      content: ',';
+    }
+
+    &:last-child {
+      margin-right: 0;
+
+      &::after {
+        content: none;
+      }
+    }
+  }
+
   & .hero-image__post-meta__link {
     color: var(--white);
     text-transform: uppercase;

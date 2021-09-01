@@ -1,7 +1,7 @@
 <?php
 
-$_enable_slider = isset($enable_slider) && $enable_slider;
-$_columns = !empty($columns) ? $columns : 4;
+$_enable_slider = isset($enable_slider) && $enable_slider ?? false;
+$_columns = $columns ?? '4-col';
 
 $_class = 'product-grid';
 $_class .= $_enable_slider ? ' has-slider' : '';
@@ -45,6 +45,15 @@ ob_start();
 <ul class="<?php echo $wrapper_class; ?>" <?php echo $column_attributes; ?>>
 <?php
 
+/**
+ * For example: 'name' => 'related'
+ */
+if (!empty($loop_args)) {
+  foreach ($loop_args as $loop_key => $loop_variable) {
+    wc_set_loop_prop(sanitize_key($loop_key), sanitize_text_field($loop_variable));
+  }
+}
+
 if (!empty($query) && $query instanceof WP_Query && $query->have_posts()) {
   while ( $query->have_posts() ) :
     $query->the_post();
@@ -80,7 +89,10 @@ if ($_enable_slider) :
   $content = str_replace('</li>', '</div>', $content);
 endif;
 
-if (!empty($query) || !empty($list)) :
+if (
+  (!empty($query) || !empty($list)) &&
+  (!empty($columns) && $columns !== 'hide')
+) :
   the_block('default-section', array(
     'class' => $_class,
     'attributes' => $_enable_slider ? ' data-ct-block="product-grid"' : '',
