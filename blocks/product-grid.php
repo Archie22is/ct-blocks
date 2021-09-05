@@ -8,7 +8,7 @@ $_class .= $_enable_slider ? ' has-slider' : '';
 $_class .= !empty($class) ? ' ' . $class : '';
 
 $wrapper_class = 'products';
-$wrapper_class .= !empty($columns) ? ' columns-' . esc_html($columns) : ' columns-4';
+$wrapper_class .= !empty($_columns) ? ' columns-' . esc_html($_columns) : ' columns-4';
 $wrapper_class .= $_enable_slider ? ' js-slider' : '';
 
 $carousel_settings = apply_filters('codetot_product_grid_slider_settings', array(
@@ -62,16 +62,6 @@ if (!empty($query) && $query instanceof WP_Query && $query->have_posts()) {
   endwhile;
 }
 
-if (!empty($list) && is_array($list)) {
-  foreach ( $list as $item ) :
-
-    $post_object = get_post( $item->get_id() );
-    setup_postdata( $GLOBALS['post'] =& $post_object );
-    wc_get_template_part( 'content', 'product' );
-
-  endforeach;
-}
-
 wp_reset_postdata();
 
 if(!empty($columns)) {
@@ -90,7 +80,7 @@ if ($_enable_slider) :
 endif;
 
 if (
-  (!empty($query) || !empty($list)) &&
+  !empty($query) &&
   (!empty($columns) && $columns !== 'hide')
 ) :
   the_block('default-section', array(
