@@ -34,7 +34,7 @@ $header = codetot_build_content_block(array(
 ), 'product-grid');
 
 ob_start(); ?>
-<?php if (!empty($carousel_settings)) : ?> data-carousel='<?= json_encode($carousel_settings); ?>' <?php endif; ?>
+<?php if (!empty($_enable_slider)) : ?> data-carousel='<?= json_encode($carousel_settings); ?>' <?php endif; ?>
 <?php if (!empty($columns) && $columns !== 'hide') : ?> data-columns="<?php echo $columns; ?>"<?php endif; ?>
   data-breakpoint="--sm"
 <?php $column_attributes = ob_get_clean();
