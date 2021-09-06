@@ -2,7 +2,6 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
-const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const WebpackBar = require('webpackbar')
@@ -63,7 +62,7 @@ module.exports = {
       lib: path.resolve(process.cwd(), 'src/js/lib/'),
       blocks: path.resolve(process.cwd(), 'blocks')
     },
-    extensions: ['.js']
+    extensions: ['.js', '.jsx']
   },
 
   module: {
@@ -114,7 +113,6 @@ module.exports = {
     ]
   },
   plugins: [
-    // Remove the extra JS files Webpack creates for CSS entries.
     // This should be fixed in Webpack 5.
     new FixStyleOnlyEntriesPlugin({
       silent: true
