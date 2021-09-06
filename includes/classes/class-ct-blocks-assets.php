@@ -33,16 +33,12 @@ class Codetot_Blocks_Assets {
 	public function __construct() {
     $this->theme_environment = $this->is_localhost() ? '' : '.min';
 
-    add_action('wp_enqueue_scripts', array($this, 'load_css'));
-    add_action('wp_enqueue_scripts', array($this, 'load_js'));
+    add_action('wp_enqueue_scripts', array($this, 'load_assets'));
 	}
 
-  public function load_css() {
-    wp_enqueue_style('codetot-blocks-style', CODETOT_BLOCKS_PLUGIN_URI . '/assets/css/blocks-style' . $this->theme_environment . '.css', array('codetot-first-screen'), CODETOT_BLOCKS_VERSION);
-  }
-
-  public function load_js() {
-    wp_enqueue_script('codetot-blocks-script', CODETOT_BLOCKS_PLUGIN_URI . '/assets/js/blocks-script' . $this->theme_environment . '.js', array('jquery'), CODETOT_BLOCKS_VERSION, true);
+  public function load_assets() {
+    wp_enqueue_style('ct-blocks-style', CODETOT_BLOCKS_PLUGIN_URI . '/assets/css/frontend-style' . $this->theme_environment . '.css', array('codetot-first-screen'), CODETOT_BLOCKS_VERSION);
+    wp_enqueue_script('ct-blocks-script', CODETOT_BLOCKS_PLUGIN_URI . '/assets/js/frontend-script' . $this->theme_environment . '.js', array('jquery'), CODETOT_BLOCKS_VERSION, true);
   }
 
   public function is_localhost() {
