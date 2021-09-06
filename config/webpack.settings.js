@@ -1,8 +1,8 @@
 module.exports = {
   entries: {
     // JS File
-    'blocks-script': './src/js/blocks.js',
-    'blocks-style': './src/postcss/blocks.css',
+    'frontend-script': './src/js/frontend.js',
+    'frontend-style': './src/postcss/frontend.css',
     'admin-script': './src/js/admin.js',
     'admin-style': './src/postcss/admin.css'
   },
