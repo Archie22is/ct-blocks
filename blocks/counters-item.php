@@ -1,5 +1,4 @@
 <?php
-// var_dump($item);
 $media_class = 'icon-type--'.$item['icon_type'];
 
 if (!empty($item)): ?>
