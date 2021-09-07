@@ -29,9 +29,7 @@ class Codetot_Block_Video_Center extends Codetot_Base_Block implements Codetot_B
   /**
    * Get singleton instance.
    *
-
    * @return Codetot_Block_Video_Center
-
    */
   public final static function instance() {
     if ( is_null( self::$instance ) ) {

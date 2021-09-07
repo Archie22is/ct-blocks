@@ -25,4 +25,4 @@ the_block('modal', array(
   'content' => $content
 ));
 
-?>
+

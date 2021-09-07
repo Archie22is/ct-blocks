@@ -48,7 +48,7 @@ class Codetot_Block_Pricing_Tables extends Codetot_Base_Block implements Codetot
     $this->block_slug = 'pricing_tables';
     $this->block_title = __('Pricing Tables', 'ct-blocks');
     $this->fields = [
-      //setting
+      // setting
       'class',
       'anchor_name',
       'enable_slider',
@@ -59,7 +59,7 @@ class Codetot_Block_Pricing_Tables extends Codetot_Base_Block implements Codetot
       'columns',
       'background_contract',
       'background_type',
-      //Input
+      // Input
       'highlight_text',
       'title',
       'description',

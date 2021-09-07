@@ -40,8 +40,8 @@ class Codetot_Blocks_Page {
   }
 
   /**
-	 * Add custom filter for easy to override fields
-	 *
+   * Add custom filter for easy to override fields
+   *
    * @return mixed|void
    */
   public function register_layout_fields() {

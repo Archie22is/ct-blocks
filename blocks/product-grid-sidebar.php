@@ -9,7 +9,7 @@ $_class .= !empty($columns) ? ' ' . $preset_class . '--' . esc_attr($columns) .'
 
 if (!empty($categories)) :
 
-//HEADER
+// HEADER
 ob_start();
 echo '<div class="'.$preset_class.'__menu-items js-sidebar-block">';
 foreach ($categories as $category):
@@ -44,10 +44,10 @@ if (!empty($title) || !empty($description)) {
     'description' => $description
   ), $preset_class);
 }
-//END HEADER
+// END HEADER
 
-//CONTENT
-//IMAGE SIDEBAR
+// CONTENT
+// IMAGE SIDEBAR
 ob_start();
 
 if (!empty($image_sidebar_items)) :
@@ -64,9 +64,9 @@ if (!empty($image_sidebar_items)) :
 endif;
 
 $sidebar = ob_get_clean();
-//END IMAGE SIDEBAR
+// END IMAGE SIDEBAR
 
-//PRODUCT COLUMNS
+// PRODUCT COLUMNS
 if (!empty($attribute)) :
   if ($attribute == 'featured') :
     $product_args = array(
@@ -123,8 +123,8 @@ if (!empty($image_sidebar_items)) :
 else :
   $content = $product_columns;
 endif;
-//END PRODUCT COLUMNS
-//END CONTENT
+// END PRODUCT COLUMNS
+// END CONTENT
 
 the_block('default-section', array(
   'attributes' => ' data-ct-block="product-grid-sidebar"',
@@ -134,4 +134,4 @@ the_block('default-section', array(
   'content' => $content
 ));
 endif;
-?>
+

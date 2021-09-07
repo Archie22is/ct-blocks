@@ -3,7 +3,7 @@
 if (!function_exists('get_block')) {
   /**
    * @param string $block_name
-   * @param array $args
+   * @param array  $args
    * @return false|string
    */
   function get_block($block_name, $args = array())
@@ -50,7 +50,7 @@ if (!function_exists('the_block')) {
         if (WP_DEBUG) {
           error_log(print_r($available_paths));
         }
-        throw new Exception(sprintf(__('%s: Block %s is not available.', 'codetot'), 'ct_theme_block_paths', $block_name));
+        throw new Exception(sprintf(__('%1$s: Block %2$s is not available.', 'codetot'), 'ct_theme_block_paths', $block_name));
       }
     } catch (Exception $e) {
       echo $e->getMessage();
@@ -98,7 +98,7 @@ if (!function_exists('the_block_part')) {
           error_log(print_r($available_paths));
         }
 
-        throw new Exception(sprintf(__('%s: Block part %s is not available.', 'codetot'), 'ct_theme_block_parts_paths', $path_name));
+        throw new Exception(sprintf(__('%1$s: Block part %2$s is not available.', 'codetot'), 'ct_theme_block_parts_paths', $path_name));
       }
     } catch (Exception $e) {
       echo $e->getMessage();
@@ -122,7 +122,7 @@ if (!function_exists('codetot_block_generate_class')) {
   /**
    * @param $args
    * @param $origin_class
-   * @param string $extra_class
+   * @param string       $extra_class
    * @return string
    */
   function codetot_block_generate_class($args, $origin_class)
@@ -318,9 +318,9 @@ if (!function_exists('codetot_build_grid_columns')) {
   /**
    * Generate HTML markup for grid columns
    *
-   * @param array $columns
+   * @param array  $columns
    * @param string $prefix_class
-   * @param array $args
+   * @param array  $args
    * @return string
    */
   function codetot_build_grid_columns($columns, $prefix_class, $args = [])
@@ -367,9 +367,9 @@ if (!function_exists('codetot_build_slider')) {
   /**
    * Generate HTML markup for slider
    *
-   * @param array $columns
+   * @param array  $columns
    * @param string $prefix_class
-   * @param array $args
+   * @param array  $args
    * @return string
    */
   function codetot_build_slider($columns, $prefix_class, $args = [])
@@ -416,9 +416,9 @@ if (!function_exists('codetot_build_two_up_content')) {
   /**
    * Generate HTML markup for slider
    *
-   * @param array $columns
+   * @param array  $columns
    * @param string $prefix_class
-   * @param array $args
+   * @param array  $args
    * @return string
    */
   function codetot_build_two_up_content($prefix_class, $args = [])
