@@ -48,7 +48,7 @@ if (!function_exists('the_block')) {
         include($path);
       } else {
         if (WP_DEBUG) {
-          var_dump($available_paths);
+          error_log(print_r($available_paths));
         }
         throw new Exception(sprintf(__('%s: Block %s is not available.', 'codetot'), 'ct_theme_block_paths', $block_name));
       }
@@ -95,7 +95,7 @@ if (!function_exists('the_block_part')) {
         include($path);
       } else {
         if (WP_DEBUG) {
-          var_dump($available_paths);
+          error_log(print_r($available_paths));
         }
 
         throw new Exception(sprintf(__('%s: Block part %s is not available.', 'codetot'), 'ct_theme_block_parts_paths', $path_name));

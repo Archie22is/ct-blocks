@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Class for Admin UI
+ *
+ * @package ct_blocks/ct_blocks_admin
+ * @author  CODE TOT JSC <dev@codetot.com>
+ * @since   2.0.0
+ */
 class Codetot_Blocks_Admin {
   /**
    * Singleton instance
@@ -38,10 +45,18 @@ class Codetot_Blocks_Admin {
     add_action('admin_head', array($this, 'setup_admin_head_js_variables'));
   }
 
+	/**
+	 * Load CSS fiel in admin assets
+	 *
+	 * @return void
+	 */
   public function load_css() {
     wp_enqueue_style('codetot-admin-acf-style', CODETOT_BLOCKS_PLUGIN_URI . '/assets/css/admin-style.min.css', array(), $this->theme_version);
   }
 
+	/**
+	 * Load assets into acf assets hoosk
+	 */
   public function load_acf_assets() {
     global $pagenow;
 
@@ -54,10 +69,18 @@ class Codetot_Blocks_Admin {
     }
   }
 
+	/**
+	 * Add hook for register metabox to post editing screen
+	 */
   public function flexible_block_button_metabox() {
     add_action('add_meta_boxes', array($this, 'register_flexible_button_metabox'));
   }
 
+	/**
+	 * Register metabox block list
+	 *
+	 * @return void
+	 */
   public function register_flexible_button_metabox() {
     global $pagenow;
 
@@ -73,6 +96,11 @@ class Codetot_Blocks_Admin {
     }
   }
 
+	/**
+	 * Render metabox for display block list
+	 *
+	 * @return void
+	 */
   public function render_flexible_button_metabox() {
     $copyright_text = sprintf(
       __('Build with <span class="ct-blocks__metabox__copyright-icon">%1$s</span> by <a href="%2$s" target="_blank">%3$s</a>', 'ct-blocks'),
@@ -96,6 +124,11 @@ class Codetot_Blocks_Admin {
     <?php
   }
 
+	/**
+	 * Setup custom css style inline
+	 *
+	 * @return void
+	 */
   public function setup_admin_head_js_variables() {
     $variables_css_file = CODETOT_BLOCKS_DIR . '/variables.css';
     $block_images = apply_filters('codetot_blocks_preview_images', [

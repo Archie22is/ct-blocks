@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Abstract Block Class
+ *
+ * @author codetot
+ * @package ct_blocks/codet_base
+ * @since 2.0.0
+ */
 abstract class Codetot_Base_Block {
   public function __construct() {
     add_filter('codetot_layout_fields', array($this, 'register_fields'));
@@ -9,6 +15,8 @@ abstract class Codetot_Base_Block {
   }
 
   /**
+	 * Register fields with array settings
+	 *
    * @param array $fields
    * @return array
    * @throws Exception
@@ -29,6 +37,8 @@ abstract class Codetot_Base_Block {
   }
 
   /**
+	 * 	Load primary fields from ACF field json
+	 *
    * @return array|WP_Error
    * @throws Exception
    */
@@ -54,6 +64,13 @@ abstract class Codetot_Base_Block {
     }
   }
 
+	/**
+	 * Load custom template with $data passing in
+	 *
+	 * @param int $index
+	 * @param string $layout
+	 * @return void
+	 */
   public function load_template($index, $layout) {
     if ($layout == $this->block_slug) {
       $data = codetot_get_sub_fields($this->fields);
@@ -62,10 +79,21 @@ abstract class Codetot_Base_Block {
     }
   }
 
+	/**
+	 * Load default svg icon if no custom svg defined
+	 *
+	 * @return void
+	 */
   public function get_default_svg_icon() {
     return '<svg id="' . esc_attr($this->block_slug) . '" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M12 0l-11 6v12.131l11 5.869 11-5.869v-12.066l-11-6.065zm7.91 6.646l-7.905 4.218-7.872-4.294 7.862-4.289 7.915 4.365zm-16.91 1.584l8 4.363v8.607l-8-4.268v-8.702zm10 12.97v-8.6l8-4.269v8.6l-8 4.269z"/></svg>';
   }
 
+	/**
+	 * Register preview image
+	 *
+	 * @param array $images
+	 * @return array
+	 */
   public function register_preview_image_url($images) {
     if (!empty($this->preview_image_url)) {
       $images[$this->block_slug] = esc_url($this->preview_image_url);
@@ -74,6 +102,12 @@ abstract class Codetot_Base_Block {
     return $images;
   }
 
+	/**
+	 * Add custom svg icon
+	 *
+	 * @param array $icons
+	 * @return array
+	 */
   public function register_svg_icon($icons) {
     if (!empty($this->svg_icon)) {
       $icons[] = $this->svg_icon;
