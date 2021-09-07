@@ -4,7 +4,7 @@
  *
  * @author codetot
  * @package ct_blocks/codet_base
- * @since 5.0.0
+ * @since 2.0.0
  */
 abstract class Codetot_Base_Block {
   public function __construct() {

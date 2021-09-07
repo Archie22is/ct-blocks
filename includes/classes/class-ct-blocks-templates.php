@@ -3,7 +3,7 @@
  * @package    Codetot_Base
  * @subpackage Codetot_Blocks_Templates
  * @author     CODE TOT JSC <dev@codetot.com>
- * @since      5.0.0
+ * @since      2.0.0
  */
 class Codetot_Blocks_Templates {
   /**
