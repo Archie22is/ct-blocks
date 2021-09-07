@@ -1,5 +1,4 @@
 <?php
-$container_class = codetot_site_container();
 $preset_class = 'cta-form';
 $_class = 'cta-form ';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';

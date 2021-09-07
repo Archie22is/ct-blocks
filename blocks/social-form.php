@@ -1,10 +1,9 @@
 <?php
-$container = codetot_site_container();
 $_class = 'social-form';
 $_class .= !empty($class) ? ' ' . $class : '';
 ?>
 <section class="<?php echo $_class; ?>" data-reveal="fade-up">
-  <div class="<?php echo $container; ?> social-form__container">
+  <div class="container social-form__container">
     <div class="social-form__main">
       <div class="grid social-form__grid">
         <div class="grid social-form__col grid social-form__social">

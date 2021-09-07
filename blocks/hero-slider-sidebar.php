@@ -1,7 +1,6 @@
 <?php
 $_class = 'hero-slider-sidebar';
 $_class .= !empty($class) ? ' ' . $class : '';
-$container_class = codetot_site_container();
 
 $slider_args = array(
   'cellAlign' => 'left',

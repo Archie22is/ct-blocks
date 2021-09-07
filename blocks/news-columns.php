@@ -1,5 +1,4 @@
 <?php
-$container = codetot_site_container();
 $_class = 'news-columns';
 $_class .= !empty($class) ? ' ' . $class : '';
 $_class .= !empty($background_type) ? ' bg-' . esc_attr($background_type) : '';

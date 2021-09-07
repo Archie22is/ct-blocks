@@ -2,11 +2,10 @@
 $_class = 'image-gallery section';
 $_class .= !empty($style) ? ' image-gallery--' . esc_attr($style) : '';
 $_class .= !empty($items) ? ' image-gallery--' . count($items) . '-items' : '';
-$container = codetot_site_container();
 ?>
 <?php if(!empty($items)) : ?>
   <div class="<?php echo $_class; ?>" data-reveal="fade-up">
-    <div class="<?php echo $container; ?> image-gallery__container">
+    <div class="container image-gallery__container">
       <div class="image-gallery__main">
         <div class="image-gallery__items">
           <?php foreach ($items as $item) :

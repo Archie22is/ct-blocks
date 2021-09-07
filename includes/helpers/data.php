@@ -21,16 +21,6 @@ if (!function_exists('codetot_get_sub_fields')) {
   }
 }
 
-if ( ! function_exists( 'codetot_site_container' ) ) {
-  /**
-   * @return string
-   */
-  function codetot_site_container() {
-    // boxed - fullwidth
-    return !empty(get_global_option('codetot_container_layout')) ? 'container ' . sprintf('container--%s', get_global_option('codetot_container_layout')) : 'container';
-  }
-}
-
 if (!function_exists('get_global_option')) {
   function get_global_option($field_name) {
     $options = get_option('ct_theme');

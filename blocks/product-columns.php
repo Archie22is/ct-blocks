@@ -1,6 +1,4 @@
 <?php
-$container = codetot_site_container();
-
 $_class = 'product-columns';
 $_class .= !empty($class) ? ' ' . $class : '';
 $_class .= !empty($columns) ? ' product-columns--' . $columns . '-column' : '';

@@ -288,7 +288,7 @@ if (!function_exists('codetot_build_content_block')) {
 
       ob_start();
       printf('<%s class="%s">', $block_tag, $_class);
-      if (isset($args['enable_container'])) : printf('<div class="%s %s__container">', codetot_site_container(), $prefix_class);
+      if (isset($args['enable_container'])) : printf('<div class="container %s__container">', $prefix_class);
       endif;
 
       if (!empty($args['before_content'])) :
