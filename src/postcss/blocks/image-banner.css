@@ -1,29 +1,29 @@
 .image-banner {
-  position: relative;
+	position: relative;
 
-  &:hover {
-    @media (--m) {
-      & .image-banner__image::after {
-        background-color: rgba(0, 0, 0, 0.25);
-      }
-    }
-  }
+	&:hover {
+		@media (--m) {
+			& .image-banner__image::after {
+				background-color: rgba(0, 0, 0, 0.25);
+			}
+		}
+	}
 }
 
 .image-banner--radius {
-  border-radius: 6px;
-  overflow: hidden;
+	border-radius: 6px;
+	overflow: hidden;
 }
 
 .image-banner__image {
-  & img.image__img {
-    position: static;
-    width: 100%;
-  }
+	& img.image__img {
+		position: static;
+		width: 100%;
+	}
 }
 
 .image-banner__link {
-  @mixin abs-full;
+	@mixin abs-full;
 
-  z-index: 3;
+	z-index: 3;
 }

@@ -1,84 +1,84 @@
 .counters-item {
-  &.is-layout-row {
-    flex-direction: row !important;
+	&.is-layout-row {
+		flex-direction: row !important;
 
-    & .counters__wrapper,
-    & .counters__count {
-      padding-right: var(--grid-gutter);
-    }
-  }
+		& .counters__wrapper,
+		& .counters__count {
+			padding-right: var(--grid-gutter);
+		}
+	}
 
-  &.is-layout-column {
-    flex-direction: column !important;
+	&.is-layout-column {
+		flex-direction: column !important;
 
-    &.is-content-alignment-left {
-      align-items: left;
-      text-align: left;
+		&.is-content-alignment-left {
+			align-items: left;
+			text-align: left;
 
-      & .counters__wrapper {
-        text-align: center;
-      }
-    }
+			& .counters__wrapper {
+				text-align: center;
+			}
+		}
 
-    &.is-content-alignment-center {
-      align-items: center;
-      text-align: center;
+		&.is-content-alignment-center {
+			align-items: center;
+			text-align: center;
 
-      & .counters__wrapper {
-        text-align: center;
-      }
-    }
+			& .counters__wrapper {
+				text-align: center;
+			}
+		}
 
-    &.is-content-alignment-right {
-      align-items: flex-end;
-      text-align: right;
+		&.is-content-alignment-right {
+			align-items: flex-end;
+			text-align: right;
 
-      & .counters__wrapper {
-        text-align: right;
-      }
-    }
-  }
+			& .counters__wrapper {
+				text-align: right;
+			}
+		}
+	}
 }
 
 .counters__wrapper {
-  max-width: 100px;
+	max-width: 100px;
 }
 
 .counters__count {
-  margin-bottom: 0.5em;
-  line-height: 1;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
+	margin-bottom: 0.5em;
+	line-height: 1;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
 
-  & .counters__count-number {
-    font-size: 3rem;
-  }
+	& .counters__count-number {
+		font-size: 3rem;
+	}
 
-  & .counters__unit {
-    margin-left: 0.25em;
-    font-size: 1.5rem;
-  }
+	& .counters__unit {
+		margin-left: 0.25em;
+		font-size: 1.5rem;
+	}
 }
 
 .counters__svg {
-  & svg {
-    max-width: 80px;
-    width: 100%;
-    height: auto;
-  }
+	& svg {
+		max-width: 80px;
+		width: 100%;
+		height: auto;
+	}
 
-  & path {
-    fill: var(--primary);
-  }
+	& path {
+		fill: var(--primary);
+	}
 }
 
 .icon-type--image {
-  width: 100%;
+	width: 100%;
 }
 
 .counters__image {
-  @mixin ratio 1;
+	@mixin ratio 1;
 
-  max-width: 100%;
+	max-width: 100%;
 }

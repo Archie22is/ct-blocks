@@ -1,67 +1,67 @@
 .guarantee-card {
-  display: flex;
-  flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .guarantee-card--row {
-  width: 100%;
-  flex-direction: row;
+	width: 100%;
+	flex-direction: row;
 
-  & .guarantee-card__content {
-    width: auto;
-    flex: 1 1 0;
-  }
+	& .guarantee-card__content {
+		width: auto;
+		flex: 1 1 0;
+	}
 
-  & .guarantee-card__wrapper {
-    margin-right: 1em;
-  }
+	& .guarantee-card__wrapper {
+		margin-right: 1em;
+	}
 }
 
 .guarantee-card--column {
-  flex-direction: column;
+	flex-direction: column;
 
-  & .guarantee-card__content {
-    margin-top: 1em;
-  }
+	& .guarantee-card__content {
+		margin-top: 1em;
+	}
 }
 
 .guarantee-card--left {
-  & .guarantee-card__content {
-    text-align: left;
-  }
+	& .guarantee-card__content {
+		text-align: left;
+	}
 }
 
 .guarantee-card--center {
-  & .guarantee-card__content {
-    text-align: center;
-  }
+	& .guarantee-card__content {
+		text-align: center;
+	}
 
-  & .guarantee-card__wrapper {
-    margin: auto;
-  }
+	& .guarantee-card__wrapper {
+		margin: auto;
+	}
 }
 
 .guarantee-card--right {
-  & .guarantee-card__content {
-    text-align: right;
-  }
+	& .guarantee-card__content {
+		text-align: right;
+	}
 
-  & .guarantee-card__wrapper {
-    margin-left: auto;
-  }
+	& .guarantee-card__wrapper {
+		margin-left: auto;
+	}
 }
 
 .guarantee-card__wrapper {
-  width: 48px;
+	width: 48px;
 }
 
 .guarantee-card__image {
-  @mixin ratio 1/1;
+	@mixin ratio 1/1;
 }
 
 .is-dark-contract {
-  & .guarantee-card__title,
-  & .guarantee-card__description {
-    color: var(--white);
-  }
+	& .guarantee-card__title,
+	& .guarantee-card__description {
+		color: var(--white);
+	}
 }

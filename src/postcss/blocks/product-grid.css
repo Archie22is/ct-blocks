@@ -1,144 +1,144 @@
 .product-grid {
-  &.slider-has-loaded {
-    & .default-section__inner--main {
-      padding: 0 10px;
+	&.slider-has-loaded {
+		& .default-section__inner--main {
+			padding: 0 10px;
 
-      @media (--sm) {
-        padding: 0 20px;
-      }
-    }
+			@media (--sm) {
+				padding: 0 20px;
+			}
+		}
 
-    & .products.flickity-enabled {
-      display: block;
+		& .products.flickity-enabled {
+			display: block;
 
-      & .product {
-        padding: 0 5px;
+			& .product {
+				padding: 0 5px;
 
-        @media (--sm) {
-          padding: 0 10px;
-        }
-      }
+				@media (--sm) {
+					padding: 0 10px;
+				}
+			}
 
-      &.columns-2 {
-        & .product {
-          width: 50%;
-        }
-      }
+			&.columns-2 {
+				& .product {
+					width: 50%;
+				}
+			}
 
-      &.columns-3 {
-        & .product {
-          width: 50%;
+			&.columns-3 {
+				& .product {
+					width: 50%;
 
-          @media (--sm) {
-            width: 33.33%;
-          }
-        }
-      }
+					@media (--sm) {
+						width: 33.33%;
+					}
+				}
+			}
 
-      &.columns-4 {
-        & .product {
-          width: 50%;
+			&.columns-4 {
+				& .product {
+					width: 50%;
 
-          @media (--sm) {
-            width: 25%;
-          }
-        }
-      }
+					@media (--sm) {
+						width: 25%;
+					}
+				}
+			}
 
-      &.columns-5 {
-        & .product {
-          width: 50%;
+			&.columns-5 {
+				& .product {
+					width: 50%;
 
-          @media (--sm) {
-            width: 25%;
-          }
+					@media (--sm) {
+						width: 25%;
+					}
 
-          @media (--m) {
-            width: 20%;
-          }
-        }
-      }
+					@media (--m) {
+						width: 20%;
+					}
+				}
+			}
 
-      &.columns-6 {
-        & .product {
-          width: 50%;
+			&.columns-6 {
+				& .product {
+					width: 50%;
 
-          @media (--xs) {
-            width: 33.33%;
-          }
+					@media (--xs) {
+						width: 33.33%;
+					}
 
-          @media (--sm) {
-            width: 25%;
-          }
+					@media (--sm) {
+						width: 25%;
+					}
 
-          @media (--m) {
-            width: 16.66%;
-          }
-        }
-      }
+					@media (--m) {
+						width: 16.66%;
+					}
+				}
+			}
 
-      & .flickity-prev-next-button {
-        width: 40px;
-        height: 40px;
-        background: var(--dark);
-        transition: background 0.3s;
-        border-radius: var(--border-radius);
+			& .flickity-prev-next-button {
+				width: 40px;
+				height: 40px;
+				background: var(--dark);
+				transition: background 0.3s;
+				border-radius: var(--border-radius);
 
-        &:hover {
-          background: var(--primary);
-        }
+				&:hover {
+					background: var(--primary);
+				}
 
-        &.previous {
-          left: -10px;
+				&.previous {
+					left: -10px;
 
-          @media (--sm) {
-            left: -20px;
-          }
+					@media (--sm) {
+						left: -20px;
+					}
 
-          @media (--ml) {
-            left: -70px;
-          }
-        }
+					@media (--ml) {
+						left: -70px;
+					}
+				}
 
-        &.next {
-          right: -10px;
+				&.next {
+					right: -10px;
 
-          @media (--sm) {
-            right: -20px;
-          }
+					@media (--sm) {
+						right: -20px;
+					}
 
-          @media (--ml) {
-            right: -70px;
-          }
-        }
-      }
+					@media (--ml) {
+						right: -70px;
+					}
+				}
+			}
 
-      & .flickity-button-icon {
-        fill: var(--white);
-      }
+			& .flickity-button-icon {
+				fill: var(--white);
+			}
 
-      & .flickity-page-dots {
-        bottom: 0;
+			& .flickity-page-dots {
+				bottom: 0;
 
-        & .dot {
-          width: 16px;
-          height: 10px;
-          background: var(--dark);
-          border-radius: 2px;
-          transition: width 0.3s, background-color 0.3s;
+				& .dot {
+					width: 16px;
+					height: 10px;
+					background: var(--dark);
+					border-radius: 2px;
+					transition: width 0.3s, background-color 0.3s;
 
-          &.is-selected {
-            width: 32px;
-            background-color: var(--primary);
-          }
-        }
-      }
-    }
+					&.is-selected {
+						width: 32px;
+						background-color: var(--primary);
+					}
+				}
+			}
+		}
 
-    &.has-page-dots {
-      & .products {
-        padding-bottom: 40px;
-      }
-    }
-  }
+		&.has-page-dots {
+			& .products {
+				padding-bottom: 40px;
+			}
+		}
+	}
 }
