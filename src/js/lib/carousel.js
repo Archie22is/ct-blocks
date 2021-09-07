@@ -1,12 +1,12 @@
 import Flickity from 'flickity'
 import {
-  getModuleOptions,
-  loadNoscriptContent,
-  on,
-  addClass,
-  hasClass,
-  appendHtml,
-  removeClass
+	getModuleOptions,
+	loadNoscriptContent,
+	on,
+	addClass,
+	hasClass,
+	appendHtml,
+	removeClass
 } from 'lib/dom'
 import { throttle } from 'lib/utils'
 require('flickity-as-nav-for')
@@ -15,75 +15,75 @@ const MODULE_NAME = 'carousel'
 const INIT_CLASS = 'is-initialized'
 
 export default (el, options = {}) => {
-  const defaults = {
-    prevNextButtons: true,
-    pageDots: true,
-    cellAlign: 'left',
-    percentPosition: false,
-    items: 1,
-    lazyload: false,
-    watchCSS: false,
-    resize: true,
-    on: {
-      ready: () => {
-        addClass('is-ready', el)
-      }
-    },
-    arrowShape: {
-      x0: 10,
-      x1: 50,
-      y1: 50,
-      x2: 55,
-      y2: 45,
-      x3: 20
-    }
-  }
-  const args = getModuleOptions(MODULE_NAME, el, defaults)
-  const finalArgs = { ...args, ...options }
+	const defaults = {
+		prevNextButtons: true,
+		pageDots: true,
+		cellAlign: 'left',
+		percentPosition: false,
+		items: 1,
+		lazyload: false,
+		watchCSS: false,
+		resize: true,
+		on: {
+			ready: () => {
+				addClass('is-ready', el)
+			}
+		},
+		arrowShape: {
+			x0: 10,
+			x1: 50,
+			y1: 50,
+			x2: 55,
+			y2: 45,
+			x3: 20
+		}
+	}
+	const args = getModuleOptions(MODULE_NAME, el, defaults)
+	const finalArgs = { ...args, ...options }
 
-  const resize = () => addClass(INIT_CLASS, el)
-  const reset = () => removeClass(INIT_CLASS, el)
+	const resize = () => addClass(INIT_CLASS, el)
+	const reset = () => removeClass(INIT_CLASS, el)
 
-  if (el.childElementCount > args.items) {
-    const flickity = new Flickity(el, finalArgs)
+	if (el.childElementCount > args.items) {
+		const flickity = new Flickity(el, finalArgs)
 
-    if (finalArgs.lazyload) {
-      flickity.on('change', () => {
-        const currentSlide = flickity.selectedElement
+		if (finalArgs.lazyload) {
+			flickity.on('change', () => {
+				const currentSlide = flickity.selectedElement
 
-        loadNoscriptContent(currentSlide)
-      })
-    }
+				loadNoscriptContent(currentSlide)
+			})
+		}
 
-    const handler = () => {
-      reset()
-      flickity.resize()
-      resize()
-    }
+		const handler = () => {
+			reset()
+			flickity.resize()
+			resize()
+		}
 
-    handler()
+		handler()
 
-    on('change', handler, window)
-    on('resize', throttle(handler, 300), window)
+		on('change', handler, window)
+		on('resize', throttle(handler, 300), window)
 
-    return flickity
-  }
+		return flickity
+	}
 
-  return null
+	return null
 }
 
 const loadImage = itemEl => {
-  if (hasClass('is-not-loaded', itemEl)) {
-    const contextEls = itemEl.getElementsByTagName('noscript')
-    if (contextEls && contextEls.length) {
-      const context = contextEls[0].textContent || contextEls[0].innerHTML
+	if (hasClass('is-not-loaded', itemEl)) {
+		const contextEls = itemEl.getElementsByTagName('noscript')
+		if (contextEls && contextEls.length) {
+			const context = contextEls[0].textContent || contextEls[0].innerHTML
 
-      itemEl.innerHTML = ''
-      appendHtml(itemEl, context)
+			itemEl.innerHTML = ''
+			appendHtml(itemEl, context)
 
-      removeClass('is-not-loaded', itemEl)
-    }
-  }
+			removeClass('is-not-loaded', itemEl)
+		}
+	}
 }
 
 export { loadImage }

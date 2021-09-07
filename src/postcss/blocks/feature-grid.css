@@ -1,23 +1,23 @@
 .feature-grid__col {
-  display: flex;
+	display: flex;
 }
 
 .feature-grid.is-dark-contract {
-  & .feature-grid__title,
-  & .feature-grid__description {
-    color: var(--white);
-  }
+	& .feature-grid__title,
+	& .feature-grid__description {
+		color: var(--white);
+	}
 
-  & .flickity-prev-next-button {
-    background-color: var(--white);
-    box-shadow: var(--box-shadow);
+	& .flickity-prev-next-button {
+		background-color: var(--white);
+		box-shadow: var(--box-shadow);
 
-    &.previous {
-      margin-left: calc(-1 * var(--container-gutter));
-    }
+		&.previous {
+			margin-left: calc(-1 * var(--container-gutter));
+		}
 
-    &.next {
-      margin-right: calc(-1 * var(--container-gutter));
-    }
-  }
+		&.next {
+			margin-right: calc(-1 * var(--container-gutter));
+		}
+	}
 }

@@ -1,85 +1,85 @@
 .two-up-slider__wrapper {
-  @media (--m) {
-    padding: 80px 0 40px;
-  }
+	@media (--m) {
+		padding: 80px 0 40px;
+	}
 }
 
 .two-up-slider__grid {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column-reverse;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column-reverse;
 
-  @media (--m) {
-    position: relative;
-    margin-bottom: 40px;
-  }
+	@media (--m) {
+		position: relative;
+		margin-bottom: 40px;
+	}
 }
 
 .two-up-slider__col {
-  width: 100%;
-  margin-bottom: 20px;
+	width: 100%;
+	margin-bottom: 20px;
 
-  @media (--m) {
-    margin: 0;
-  }
+	@media (--m) {
+		margin: 0;
+	}
 
-  &:last-child {
-    margin-bottom: 0;
-  }
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
 
 .two-up-slider__col--content {
-  pointer-events: none;
-  z-index: 2;
+	pointer-events: none;
+	z-index: 2;
 
-  @media (--m) {
-    width: 100%;
-    margin: 0 auto;
-    padding-left: 60%;
-  }
+	@media (--m) {
+		width: 100%;
+		margin: 0 auto;
+		padding-left: 60%;
+	}
 }
 
 .two-up-slider__inner {
-  margin-top: 20px;
-  pointer-events: visible;
+	margin-top: 20px;
+	pointer-events: visible;
 
-  @media (--m) {
-    margin-top: 0;
-    margin-right: 40px;
-    padding: 40px;
-    background: var(--white);
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
-  }
+	@media (--m) {
+		margin-top: 0;
+		margin-right: 40px;
+		padding: 40px;
+		background: var(--white);
+		box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+	}
 }
 
 .two-up-slider__col--slider {
-  @media (--m) {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 65%;
-    transform: translateY(-50%);
-  }
+	@media (--m) {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 65%;
+		transform: translateY(-50%);
+	}
 }
 
 .two-up-slider__slider {
-  & .flickity-page-dots {
-    @mixin flickity-page-dots var(--white);
+	& .flickity-page-dots {
+		@mixin flickity-page-dots var(--white);
 
-    bottom: 10px;
+		bottom: 10px;
 
-    @media (--m) {
-      bottom: 20px;
-    }
-  }
+		@media (--m) {
+			bottom: 20px;
+		}
+	}
 }
 
 .two-up-slider__item {
-  width: 100%;
+	width: 100%;
 }
 
 .two-up-slider__image {
-  @mixin ratio 3/4;
+	@mixin ratio 3/4;
 
-  width: 100%;
+	width: 100%;
 }
