@@ -10,3 +10,4 @@ node_modules/
 .stylelintrc
 webpack.config.js
 src/postcss/mixins
+composer.json

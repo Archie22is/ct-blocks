@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Default page block for setting up ACF Fields Flexible content
+ *
+ * @package ct_blocks/ct_blocks_page
+ * @since   2.0.0
+ * @author  CODE TOT JSC <dev@codetot.com>
+ */
 class Codetot_Blocks_Page {
 
   /**
@@ -34,12 +40,17 @@ class Codetot_Blocks_Page {
   }
 
   /**
+   * Add custom filter for easy to override fields
+   *
    * @return mixed|void
    */
   public function register_layout_fields() {
     return apply_filters('codetot_layout_fields', []);
   }
 
+	/**
+	 * Register ACF field group
+	 */
   public function register_flexible_block_fields() {
     if( function_exists('acf_add_local_field_group') ):
 
@@ -88,10 +99,21 @@ class Codetot_Blocks_Page {
     endif;
   }
 
+	/**
+	 * Filter default block fields
+	 *
+	 * @return array|void
+	 */
   public function get_default_block_fields() {
     return array();
   }
 
+	/**
+	 * Load template on frontend
+	 *
+	 * @param string $content
+	 * @return void
+	 */
   public function load_flexible_page_template($content) {
     $template_slug = get_post_meta( get_the_ID(), '_wp_page_template', TRUE );
 

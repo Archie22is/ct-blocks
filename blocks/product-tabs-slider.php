@@ -1,6 +1,4 @@
 <?php
-$container = codetot_site_container();
-
 $carousel_settings = array(
   'prevNextButtons' => true,
   'pageDots' => false,
