@@ -20,7 +20,6 @@
  *  'button_url',
  *  'button_target',
  *  'button_style'
- *
  */
 $_columns = !empty($columns) ? (int) $columns : 4;
 $_numbers = !empty($numbers) ? (int) $numbers : 8;

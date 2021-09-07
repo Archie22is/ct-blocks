@@ -15,8 +15,8 @@ abstract class Codetot_Base_Block {
   }
 
   /**
-	 * Register fields with array settings
-	 *
+   * Register fields with array settings
+   *
    * @param array $fields
    * @return array
    * @throws Exception
@@ -37,8 +37,8 @@ abstract class Codetot_Base_Block {
   }
 
   /**
-	 * 	Load primary fields from ACF field json
-	 *
+   * 	Load primary fields from ACF field json
+   *
    * @return array|WP_Error
    * @throws Exception
    */
@@ -57,7 +57,7 @@ abstract class Codetot_Base_Block {
         }
       }
 
-      throw new Exception(sprintf(__('%s: Block %s is not available.', 'ct-blocks'), 'ct_blocks_fields_paths', $this->block_name . '.json'));
+      throw new Exception(sprintf(__('%1$s: Block %2$s is not available.', 'ct-blocks'), 'ct_blocks_fields_paths', $this->block_name . '.json'));
     } catch (Exception $e) {
       echo $e->getMessage();
       die();
@@ -67,7 +67,7 @@ abstract class Codetot_Base_Block {
 	/**
 	 * Load custom template with $data passing in
 	 *
-	 * @param int $index
+	 * @param int    $index
 	 * @param string $layout
 	 * @return void
 	 */

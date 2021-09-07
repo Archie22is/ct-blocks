@@ -29,9 +29,7 @@ class Codetot_Block_Category_Grid extends Codetot_Base_Block implements Codetot_
   /**
    * Get singleton instance.
    *
-
    * @return Codetot_Block_Category_Grid
-
    */
   public final static function instance() {
     if ( is_null( self::$instance ) ) {

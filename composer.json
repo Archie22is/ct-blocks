@@ -17,6 +17,7 @@
         "phpunit/phpunit": "^9.5"
     },
     "scripts": {
-      "lint": "@php ./vendor/bin/phpcs"
+      "lint": "@php ./vendor/bin/phpcs",
+      "fix": "@php ./vendor/bin/phpcbf"
     }
 }

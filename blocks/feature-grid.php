@@ -40,5 +40,4 @@ the_block('default-section', array(
   'header' => $header,
   'content' => $content
 ));
-?>
 
