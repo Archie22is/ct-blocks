@@ -1,15 +1,15 @@
 .video-center {
-  position: relative;
+	position: relative;
 
-  & .plyr,
-  & .js-video {
-    transition: all 0.3s;
-  }
+	& .plyr,
+	& .js-video {
+		transition: all 0.3s;
+	}
 }
 
 .video-center.is-dark-contract {
-  & .video-center__title,
-  & .video-center__description * {
-    color: var(--white);
-  }
+	& .video-center__title,
+	& .video-center__description * {
+		color: var(--white);
+	}
 }

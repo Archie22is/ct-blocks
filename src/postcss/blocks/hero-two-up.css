@@ -1,89 +1,89 @@
 .hero-two-up__col {
-  @media (--sm) {
-    @mixin column-item 2, 0;
-  }
+	@media (--sm) {
+		@mixin column-item 2, 0;
+	}
 }
 
 .hero-two-up__col--media {
-  @media (--sm) {
-    position: relative;
-  }
+	@media (--sm) {
+		position: relative;
+	}
 }
 
 .hero-two-up__col--content {
-  @media (--sm) {
-    @mixin flex-center;
+	@media (--sm) {
+		@mixin flex-center;
 
-    padding: 2em;
-  }
+		padding: 2em;
+	}
 }
 
 .hero-two-up__inner {
-  padding: 2em;
+	padding: 2em;
 }
 
 .hero-two-up {
-  &.is-media-image {
-    & .hero-two-up__media-wrapper {
-      @mixin ratio 9/16;
+	&.is-media-image {
+		& .hero-two-up__media-wrapper {
+			@mixin ratio 9/16;
 
-      @media (--sm) {
-        @mixin abs-full;
+			@media (--sm) {
+				@mixin abs-full;
 
-        &::before {
-          content: none;
-        }
-      }
-    }
+				&::before {
+					content: none;
+				}
+			}
+		}
 
-    & .hero-two-up__image {
-      @mixin abs-full;
+		& .hero-two-up__image {
+			@mixin abs-full;
 
-      object-fit: cover;
-    }
-  }
+			object-fit: cover;
+		}
+	}
 
-  &.is-layout-alternative {
-    & .hero-two-up__grid {
-      @media (--sm) {
-        flex-direction: row-reverse;
-      }
-    }
-  }
+	&.is-layout-alternative {
+		& .hero-two-up__grid {
+			@media (--sm) {
+				flex-direction: row-reverse;
+			}
+		}
+	}
 
-  &.is-spacing-s {
-    & .hero-two-up__inner {
-      @media (--sm) {
-        padding: 3em;
-      }
-    }
-  }
+	&.is-spacing-s {
+		& .hero-two-up__inner {
+			@media (--sm) {
+				padding: 3em;
+			}
+		}
+	}
 
-  &.is-spacing-m {
-    & .hero-two-up__inner {
-      @media (--sm) {
-        padding: 4em;
-      }
-    }
-  }
+	&.is-spacing-m {
+		& .hero-two-up__inner {
+			@media (--sm) {
+				padding: 4em;
+			}
+		}
+	}
 
-  &.is-spacing-l {
-    & .hero-two-up__inner {
-      @media (--sm) {
-        padding: 6em 4em;
-      }
-    }
-  }
+	&.is-spacing-l {
+		& .hero-two-up__inner {
+			@media (--sm) {
+				padding: 6em 4em;
+			}
+		}
+	}
 
-  &.section,
-  &.section-bg {
-    padding: 0;
-  }
+	&.section,
+	&.section-bg {
+		padding: 0;
+	}
 
-  &.is-dark-contract {
-    & .hero-two-up__title,
-    & .hero-two-up__description {
-      color: var(--white);
-    }
-  }
+	&.is-dark-contract {
+		& .hero-two-up__title,
+		& .hero-two-up__description {
+			color: var(--white);
+		}
+	}
 }

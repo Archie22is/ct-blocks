@@ -1,28 +1,28 @@
 .hero-title--alignment-center {
-  text-align: center;
+	text-align: center;
 
-  & .button-group--multiple {
-    justify-content: center;
-  }
+	& .button-group--multiple {
+		justify-content: center;
+	}
 
-  & .hero-title__title,
-  & .hero-title__inner {
-    margin: 0 auto;
-  }
+	& .hero-title__title,
+	& .hero-title__inner {
+		margin: 0 auto;
+	}
 }
 
 .hero-title {
-  &.is-dark-contract {
-    & .hero-title__inner {
-      color: var(--white);
-    }
-  }
+	&.is-dark-contract {
+		& .hero-title__inner {
+			color: var(--white);
+		}
+	}
 }
 
 .hero-title__title {
-  max-width: var(--xs);
+	max-width: var(--xs);
 }
 
 .hero-title__inner {
-  max-width: var(--s);
+	max-width: var(--s);
 }
