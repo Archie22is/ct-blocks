@@ -2,9 +2,21 @@
     "name": "codetot/ct-blocks",
     "type": "wordpress-plugin",
     "license": "GPLv3",
-    "minimum-stability": "stable",
+    "require": {
+      "php": ">=7.0"
+    },
+    "config": {
+      "platform": {
+        "php": "7.3"
+      }
+    },
     "require-dev": {
         "automattic/vipwpcs": "^2.3",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1"
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+        "wp-coding-standards/wpcs": "^2.3",
+        "phpunit/phpunit": "^9.5"
+    },
+    "scripts": {
+      "lint": "@php ./vendor/bin/phpcs"
     }
 }
