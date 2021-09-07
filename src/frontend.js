@@ -1,5 +1,6 @@
 import { selectAll, getData, on, addClass, setStyle } from 'lib/dom'
 import { map, throttle } from 'lib/utils'
+import './postcss/frontend.css'
 
 const blocks = selectAll('[data-ct-block]')
 const woocommerceBlocks = selectAll('[data-ct-woocommerce-block]')
@@ -13,7 +14,7 @@ const initBlocks = () => {
         return
       }
 
-      require(`./blocks/${blockName}.js`).default(block)
+      require(`./js/blocks/${blockName}.js`).default(block)
     }, blocks)
   }
 }
@@ -26,7 +27,7 @@ const initWooCommerceBlocks = () => {
         return
       }
 
-      require(`./woocommerce-blocks/${blockName}.js`).default(block)
+      require(`./js/woocommerce-blocks/${blockName}.js`).default(block)
     }, woocommerceBlocks)
   }
 }

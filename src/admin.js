@@ -1,6 +1,7 @@
 /* global CODETOT_BLOCKS_IMAGES, jQuery */
 import { select, selectAll, getData } from 'lib/dom'
 import { map } from 'lib/utils'
+import './postcss/admin.css'
 
 const $ = jQuery
 
