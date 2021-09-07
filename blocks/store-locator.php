@@ -9,7 +9,6 @@ $tax_terms = get_terms(
       'hide_empty' => true,
   )
 );
-$container = codetot_site_container();
 ?>
 <section class="<?php echo $_class;?>" <?php echo (post_type_exists('store')) ? 'data-post-type="true"' : false; ?> data-ct-block="store-locator" data-reveal="fade-up">
 <?php if(post_type_exists('store') && !empty($tax_terms)) : ?>
@@ -22,7 +21,7 @@ $container = codetot_site_container();
 
 
   <div class="default-section__main">
-    <div class="<?php echo $container; ?> default-section__container default-section__container--main">
+    <div class="container default-section__container default-section__container--main">
       <div class="js-no-result sidebar-section__no-result">There is no matching map</div>
       <div class="sidebar-section__container">
         <div class="grid sidebar-section__block-grid js-sidebar-section">

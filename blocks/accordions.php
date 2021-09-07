@@ -11,8 +11,6 @@
  * - background_type
  * - header_alignment
  */
-$container = codetot_site_container();
-
 $_class = 'accordions has-1-column';
 $_class .= !empty($block_preset) ? ' accordions--style-' . esc_attr($block_preset) : '';
 $_class .= !empty($header_alignment) ? ' is-header-'.  $header_alignment : '';

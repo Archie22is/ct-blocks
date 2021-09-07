@@ -1,5 +1,4 @@
 <?php
-$container = codetot_site_container();
 $preset_class = 'product-grid-sidebar';
 $_class = 'section '. $preset_class;
 

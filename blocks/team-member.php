@@ -1,5 +1,4 @@
 <?php
-$container = codetot_site_container();
 $carousel_settings = array(
   'prevNextButtons' => true,
   'pageDots' => false,
@@ -17,7 +16,7 @@ $_class .= !empty($item_style) ? ' team-member--item-style-' . esc_attr($item_st
 ?>
 <?php if(!empty($items)) : ?>
   <section class="<?php echo $_class; ?>" data-ct-block="team-member" data-reveal="fade-up">
-    <div class="<?php echo $container; ?> team-member__container">
+    <div class="container team-member__container">
       <div class="grid team-member__grid">
         <?php if(!empty($title)) : ?>
           <header class="grid__col team-member__col team-member__col--header">
