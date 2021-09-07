@@ -15,7 +15,12 @@ composer install
 ## Test
 
 1. Run `npm run test` for testing tab indent, CSS & JS coding standards.
-2. Run `phpcs --standard=WordPress-VIP-Go -sp --basepath=. --ignore=vendor includes/` for testing PHP Coding Standards.
+2. Run `composer lint` for testing PHP Coding Standards.
+
+## Autofix
+
+1. Run `npm run fix` for automatically fix CSS, JS and tab indent.
+2. Run `composer fix` for automatically fix PHP Coding Standards.
 
 ## Git Workflow
 
