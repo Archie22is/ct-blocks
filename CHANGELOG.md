@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 4.4.4
+
+- Add ct-bones as dependencies parent for loading css to avoid conflict css.
+
 ## 4.4.3
 
 - Update dependencies postcss-mixins downgrade version
