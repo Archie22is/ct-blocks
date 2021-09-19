@@ -12,7 +12,8 @@ $carousel_settings = array(
   'pageDots' => !empty($enable_page_dots),
   'cellAlign' => 'center',
   'pauseAutoPlayOnHover' => true,
-  'groupCells' => 1
+  'groupCells' => 1,
+	'autoPlay' => isset($autoplay) && $autoplay !== '0' ? esc_attr($autoplay) : false
 );
 ?>
 
