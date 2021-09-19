@@ -13,7 +13,7 @@ $tax_terms = get_terms(
 <section class="<?php echo $_class;?>" <?php echo (post_type_exists('store')) ? 'data-post-type="true"' : false; ?> data-ct-block="store-locator" data-reveal="fade-up">
 <?php if(post_type_exists('store') && !empty($tax_terms)) : ?>
   <div class="default-section__header">
-    <div class="<?php echo $container; ?> default-section__container default-section__container--header">
+    <div class="container default-section__container default-section__container--header">
       <?php the_block('store-locator-form'); ?>
     </div>
   </div>
