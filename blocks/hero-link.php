@@ -29,7 +29,7 @@ if(!empty($items)) : ?>
                 'image' => $item['image']['ID'],
                 'class' => 'image--cover hero-link__image js-image',
                 'lazyload' => false,
-                'size' => wp_is_mobile() ? 'medium' : 'large'
+                'size' => wp_is_mobile() ? 'medium' : 'full'
               ));
 
               if( !empty($item['url']) ) {
