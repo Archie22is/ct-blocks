@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 4.4.5
+
+- Increase hero link image in desktop
+
 ## 4.4.4
 
 - Add ct-bones as dependencies parent for loading css to avoid conflict css.
