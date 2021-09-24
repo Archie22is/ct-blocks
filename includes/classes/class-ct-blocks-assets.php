@@ -37,7 +37,7 @@ class Codetot_Blocks_Assets {
 	}
 
   public function load_assets() {
-    wp_enqueue_style('ct-blocks-style', CODETOT_BLOCKS_PLUGIN_URI . '/assets/css/frontend' . $this->theme_environment . '.css', array(), CODETOT_BLOCKS_VERSION);
+    wp_enqueue_style('ct-blocks-style', CODETOT_BLOCKS_PLUGIN_URI . '/assets/css/frontend' . $this->theme_environment . '.css', array('codetot-global'), CODETOT_BLOCKS_VERSION);
     wp_enqueue_script('ct-blocks-script', CODETOT_BLOCKS_PLUGIN_URI . '/assets/js/frontend' . $this->theme_environment . '.js', array('jquery'), CODETOT_BLOCKS_VERSION, true);
   }
 
