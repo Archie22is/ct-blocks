@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 4.4.6
+
+- Remove store locator block.
+- Refactor hero slider admin UI
+- Add hero slider autoplay variable
+
 ## 4.4.5
 
 - Increase hero link image in desktop
