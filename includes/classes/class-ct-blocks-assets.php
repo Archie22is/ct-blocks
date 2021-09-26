@@ -33,12 +33,15 @@ class Codetot_Blocks_Assets {
 	public function __construct() {
     $this->theme_environment = $this->is_localhost() ? '' : '.min';
 
-    add_action('wp_enqueue_scripts', array($this, 'load_assets'));
+    add_action('wp_enqueue_scripts', array($this, 'load_assets'), 10);
 	}
 
   public function load_assets() {
-    wp_enqueue_style('ct-blocks-style', CODETOT_BLOCKS_PLUGIN_URI . '/assets/css/frontend' . $this->theme_environment . '.css', array('codetot-global'), CODETOT_BLOCKS_VERSION);
-    wp_enqueue_script('ct-blocks-script', CODETOT_BLOCKS_PLUGIN_URI . '/assets/js/frontend' . $this->theme_environment . '.js', array('jquery'), CODETOT_BLOCKS_VERSION, true);
+		if (!$this->is_localhost()) {
+			wp_enqueue_style('ct-blocks-frontend-legacy-style', CODETOT_BLOCKS_PLUGIN_URI . '/assets/css/legacy-frontend.min.css', array(), CODETOT_BLOCKS_VERSION);
+		}
+
+		wp_enqueue_script('ct-blocks-frontend-legacy-script', CODETOT_BLOCKS_PLUGIN_URI . '/assets/js/legacy-frontend' . $this->theme_environment . '.js', array('jquery'), CODETOT_BLOCKS_VERSION, true);
   }
 
   public function is_localhost() {
