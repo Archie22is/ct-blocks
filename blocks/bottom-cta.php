@@ -61,7 +61,7 @@ the_block('default-section', array(
   'id' => $anchor_name ?? '',
   'class' => $_class,
   'lazyload' => $enable_lazyload ?? false,
-  'background_image' => $background_image,
-  'before_header' => $background_html,
+  'background_image' => $background_image ?? '',
+  'before_header' => $background_html ?? '',
   'content' => $content
 ));
