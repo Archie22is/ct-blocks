@@ -1,6 +1,6 @@
 import { selectAll, getData, on, addClass, setStyle } from 'lib/dom'
 import { map, throttle } from 'lib/utils'
-import './postcss/frontend.css'
+import './postcss/legacy-blocks/_index.css'
 
 const blocks = selectAll('[data-ct-block]')
 const woocommerceBlocks = selectAll('[data-ct-woocommerce-block]')
