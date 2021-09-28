@@ -1,0 +1,7 @@
+.feature-grid-section__row {
+	margin-top: 1em;
+
+	&:first-child {
+		margin-top: 0;
+	}
+}

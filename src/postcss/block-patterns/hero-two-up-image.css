@@ -1,0 +1,37 @@
+.section-bg.wp-block-cover.hero-two-up-image {
+	margin-top: 0;
+
+	& .wp-block-cover__inner-container {
+		max-width: 100%;
+		padding: 0;
+	}
+
+	& .wp-block-column {
+		position: relative;
+		margin: 0;
+
+		@media (--sm) {
+			@mixin flex-center;
+
+			min-height: 50vh;
+		}
+	}
+
+	& .wp-block-cover {
+		margin: 0;
+
+		@media (--sm) {
+			@mixin abs-full;
+
+			min-height: 0;
+		}
+	}
+
+	& .wp-block-column > .wp-block-group {
+		padding: 2em;
+
+		@media (--sm) {
+			max-width: 75%;
+		}
+	}
+}

@@ -8,6 +8,7 @@ const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   entry: {
+		frontend: path.resolve(process.cwd(), './src/frontend.js'),
     'legacy-frontend': path.resolve(process.cwd(), './src/legacy-frontend.js'),
     admin: path.resolve(process.cwd(), './src/admin.js')
   },
