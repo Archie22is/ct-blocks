@@ -1,26 +1,44 @@
 .section-bg.wp-block-cover.hero-two-up-image {
 	margin-top: 0;
+	padding: 0;
 
 	& .wp-block-cover__inner-container {
 		max-width: 100%;
 		padding: 0;
 	}
 
-	& .wp-block-column {
-		position: relative;
-		margin: 0;
+	& .wp-block-columns {
+		flex-wrap: wrap;
 
 		@media (--sm) {
+			min-height: 50vh;
+		}
+	}
+
+	& .wp-block-column {
+		position: relative;
+		flex-basis: 100%;
+		margin: 0;
+
+		@media (--s) {
 			@mixin flex-center;
 
 			min-height: 50vh;
+			flex-basis: 100% !important;
+		}
+
+		@media (--m) {
+			flex-basis: 50% !important;
 		}
 	}
 
 	& .wp-block-cover {
 		margin: 0;
+		padding: 0;
+		min-height: 0;
+		flex: 1 0 auto;
 
-		@media (--sm) {
+		@media (--s) {
 			@mixin abs-full;
 
 			min-height: 0;
@@ -30,7 +48,7 @@
 	& .wp-block-column > .wp-block-group {
 		padding: 2em;
 
-		@media (--sm) {
+		@media (--s) {
 			max-width: 75%;
 		}
 	}
