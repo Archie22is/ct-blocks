@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 4.4.7 - 05/10/2021
+
+- Fix wrong constructor in js
+
 ## 4.4.6
 
 - Remove store locator block.
