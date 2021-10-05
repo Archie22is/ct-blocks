@@ -6,7 +6,7 @@ export default el => {
 	const mobileSelect = select('.js-mobile', el)
 	const triggerEls = el ? selectAll('[role="tab"]', el) : []
 
-	const tabState = new Tabs(el, {
+	const tabState = Tabs(el, {
 		lazyload: true,
 		lazyloadCallback: (navItem, panelItem) => {
 			const sliderEl = select('.js-slider', panelItem)
