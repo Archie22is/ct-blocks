@@ -10,6 +10,8 @@ $_class .= !empty($block_preset) ? ' '. $prefix_class .'--' . esc_attr($block_pr
 $_class .= !empty($number_columns) ? ' has-' . esc_attr($number_columns) .'-columns' : ' has-3-columns';
 $_class .= !empty($enable_slider) ? ' ' . $prefix_class . '--slider' : '';
 
+$_icon_style = $icon_style ?? '';
+
 $carousel_settings = array(
   'prevNextButtons' => true,
   'pageDots' => true,
@@ -26,7 +28,7 @@ if (!empty($title) || !empty($description)) {
 }
 
 // Main Content
-$columns = !empty($items) ? array_map(function($item) use ($item_style, $icon_style, $content_alignment, $highlight_text) {
+$columns = !empty($items) ? array_map(function($item) use ($item_style, $_icon_style, $content_alignment, $highlight_text) {
   $item_class = '';
   $item_class .= !empty($item['is_highlight']) ? ' pricing-box--highlight' : '';
   $item_class .= !empty($item_style) ? ' pricing-box--' . esc_attr($item_style) : ' pricing-box--style-1';
