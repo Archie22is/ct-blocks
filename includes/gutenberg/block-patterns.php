@@ -39,6 +39,16 @@ class CT_Blocks_Gutenberg_Block_Patterns
 				'id' => 'icon-card',
 				'title' => __('Icon Card', 'ct-blocks'),
 				'content' => file_get_contents(CODETOT_BLOCKS_DIR . '/block-patterns/icon-card.html')
+			),
+			array(
+				'id' => 'faq-item',
+				'title' => __('FAQ Item', 'ct-blocks'),
+				'content' => file_get_contents(CODETOT_BLOCKS_DIR . '/block-patterns/faq-item.html')
+			),
+			array(
+				'id' => 'faq-section',
+				'title' => __('FAQ Section', 'ct-blocks'),
+				'content' => file_get_contents(CODETOT_BLOCKS_DIR . '/block-patterns/faq-section.html')
 			)
 		);
 
