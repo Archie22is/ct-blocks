@@ -1,8 +1,12 @@
-import { InnerBlocks } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 export default function Edit() {
+	const blockProps = useBlockProps({
+		className: 'ct-blocks-accordions-item'
+	});
+
 	return (
-		<div className={'ct-blocks-accordion-item'}>
+		<div { ...blockProps }>
 			<InnerBlocks
 				template={[
 					['core/group', { className: 'ct-blocks-accordions-item__header'}, [

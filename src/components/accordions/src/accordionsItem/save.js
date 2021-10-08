@@ -1,6 +1,11 @@
-const AccordionItemSave = props => {
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+
+const AccordionItemSave = () => {
+	const blockProps = useBlockProps.save();
+	blockProps.className += ' ct-blocks-accordions-item';
+
 	return (
-		<div className={props.className}>
+		<div { ...blockProps }>
 			<InnerBlocks.Content />
 		</div>
 	)

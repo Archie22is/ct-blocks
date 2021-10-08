@@ -53,11 +53,10 @@ class Codetot_Blocks_Admin {
 	 */
   public function load_assets() {
 		if (!$this->is_localhost()) {
-			wp_enqueue_style('ct-blocks-blocks-css', CODETOT_BLOCKS_PLUGIN_URI . '/assets/css/blocks.min.css', array(), $this->theme_version);
 			wp_enqueue_style('codetot-admin-acf-style', CODETOT_BLOCKS_PLUGIN_URI . '/assets/css/admin.min.css', array(), $this->theme_version);
+		} else {
+			wp_enqueue_script('codetot-admin-acf-script', CODETOT_BLOCKS_PLUGIN_URI . '/assets/js/admin' . $this->plugin_environment . '.js', array(), $this->theme_version);
 		}
-
-		wp_register_script('ct-blocks-blocks-js', CODETOT_BLOCKS_PLUGIN_URI . '/assets/js/blocks' . $this->plugin_environment . '.js', array('wp-blocks', 'wp-i18n'), $this->theme_version);
   }
 
 	/**
