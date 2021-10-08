@@ -1,0 +1,17 @@
+{
+	"apiVersion": 2,
+	"name": "ct-blocks/accordions",
+	"version": "0.1.0",
+	"title": "[CT] Accordions",
+	"category": "widgets",
+	"icon": "smiley",
+	"keywords": ["faq", "accordions", "ct-blocks", "codetot"],
+	"description": "Example block written with ESNext standard and JSX support – build step required.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "ct-blocks",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css"
+}
