@@ -5,7 +5,7 @@ import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
  */
 export default function Save() {
 	const blockProps = useBlockProps.save();
-	blockProps.className += ' ct-blocks-accordions-item';
+	blockProps.className += ' ct-blocks-accordions';
 
 	return (
 		<div { ...blockProps }>

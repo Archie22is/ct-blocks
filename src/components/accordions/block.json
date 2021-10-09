@@ -12,6 +12,5 @@
 	},
 	"textdomain": "ct-blocks",
 	"editorScript": "file:./build/index.js",
-	"editorStyle": "file:./build/index.css",
-	"style": "file:./build/style-index.css"
+	"editorStyle": "file:./build/index.css"
 }

@@ -19,17 +19,10 @@ function ct_blocks_accordions_init() {
 	);
 
 	wp_register_style(
-		'ct_blocks_accordion_editor_css',
+		'ct-blocks-accordions-editor-css',
 		plugins_url( '/build/index.css', __FILE__ ),
 		array( 'wp-edit-blocks' ),
 		filemtime( plugin_dir_path( __FILE__ ) . '/build/index.css' )
-	);
-
-	wp_register_style(
-		'ct-blocks_accordions_css',
-		plugins_url( '/build/style-index.css', __FILE__ ),
-		array(),
-		filemtime( plugin_dir_path( __FILE__ ) . '/build/style-index.css' )
 	);
 
 	register_block_type('ct-blocks/accordions-item', array(
@@ -43,3 +36,20 @@ function ct_blocks_accordions_init() {
 
 }
 add_action( 'init', 'ct_blocks_accordions_init' );
+
+function ct_bones_accordions_frontend_assets() {
+	wp_enqueue_script(
+		'ct-blocks-accordions-frontend-js',
+		plugins_url( '/build/accordions.js', __FILE__ ),
+		array(),
+		filemtime( plugin_dir_path( __FILE__ ) . '/build/accordions.js' )
+	);
+
+	wp_enqueue_style(
+		'ct-blocks-accordions-frontend-css',
+		plugins_url( '/build/accordions.css', __FILE__ ),
+		array(),
+		filemtime( plugin_dir_path( __FILE__ ) . '/build/accordions.css' )
+	);
+}
+add_action('wp_enqueue_scripts', 'ct_bones_accordions_frontend_assets');
