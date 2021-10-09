@@ -8,7 +8,7 @@ export default function Save() {
 	blockProps.className += ' ct-blocks-accordions';
 
 	return (
-		<div { ...blockProps }>
+		<div {...blockProps}>
 			<InnerBlocks.Content />
 		</div>
 	);

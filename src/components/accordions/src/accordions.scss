@@ -10,10 +10,6 @@
 	border-top: 0;
 }
 
-.ct-blocks-accordions-item.is-active .ct-blocks-accordions-item__header {
-	color: var(--primary);
-}
-
 .ct-blocks-accordions-item__header {
 	user-select: none;
 	cursor: pointer;
@@ -26,6 +22,10 @@
 .ct-blocks-accordions-item__header .wp-block-group__inner-container {
 	display: flex;
 	justify-content: space-between;
+}
+
+.ct-blocks-accordions-item.is-active .ct-blocks-accordions-item__header {
+	color: var(--primary);
 }
 
 .ct-blocks-accordions-item__header .wp-block-group__inner-container > * {

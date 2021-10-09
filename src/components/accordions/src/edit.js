@@ -1,4 +1,3 @@
-import { __ } from '@wordpress/i18n';
 import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 import './editor.scss';
 
@@ -7,14 +6,10 @@ import './editor.scss';
  */
 export default function Edit() {
 	return (
-		<div { ...useBlockProps() }>
+		<div {...useBlockProps()}>
 			<InnerBlocks
-				template={[
-					['ct-blocks/accordions-item']
-				]}
-				allowedBlocks={[
-					'ct-blocks/accordions-item'
-				]}
+				template={[['ct-blocks/accordions-item']]}
+				allowedBlocks={['ct-blocks/accordions-item']}
 			/>
 		</div>
 	);

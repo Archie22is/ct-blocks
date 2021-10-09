@@ -5,10 +5,10 @@ const AccordionItemSave = () => {
 	blockProps.className += ' ct-blocks-accordions-item';
 
 	return (
-		<div { ...blockProps }>
+		<div {...blockProps}>
 			<InnerBlocks.Content />
 		</div>
-	)
-}
+	);
+};
 
-export default AccordionItemSave
+export default AccordionItemSave;
