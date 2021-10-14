@@ -28,13 +28,11 @@ commands:
             git config user.email "dev@codetot.com"
             git config user.name "CODE TOT JSC"
 
-jobs:
   setup_npm:
     working_directory: ~/example
     docker:
       - image: circleci/node:12.18
     steps:
-      - checkout
       - restore_cache: *restore_npm_cache
       - run: *install_npm_dependencies
       - save_cache: *save_npm_cache
@@ -51,6 +49,7 @@ jobs:
     steps:
       - checkout:
           path: ~/example
+      - setup_npm
       - attach_workspace:
           at: ~/example
       - run:
@@ -64,10 +63,11 @@ jobs:
     steps:
       - checkout:
           path: ~/example
+      - setup_npm
       - attach_workspace:
           at: ~/example
       - run:
-            command: npm run build
+          command: npm run build
       - setup_git
       - run:
           name: Commit changes
@@ -107,16 +107,11 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - setup_npm
       - test_code:
-          requires:
-            - setup_npm
           filters:
             branches:
               only: /(feature|bugfix|hotfix)\/?(.*)/
       - build_assets:
-          requires:
-            - setup_npm
           filters:
             branches:
               only: /(develop|feature\/ci)/
