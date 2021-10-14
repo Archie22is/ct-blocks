@@ -1,81 +1,56 @@
 version: 2.1
 
-orbs:
-  node: circleci/node@4.7.0
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:14.17.6
 
 aliases:
-  - &restore_npm_cache
-    name: 'Restoring node_modules from the cache'
-    key: npm-v1-{{ checksum "package-lock.json" }}-{{ arch }}
   - &install_npm_dependencies
     name: Installing NPM Dependencies
     command: npm ci
-  - &save_npm_cache
-    name: 'Saving node_modules into the cache'
-    key: npm-v1-{{ checksum "package-lock.json" }}-{{ arch }}
-    paths:
-      - node_modules
 
-commands:
-  setup_git:
+jobs:
+  test_code:
+    <<: *defaults
     steps:
-      - add_ssh_keys:
-          fingerprints:
-            - '85:6e:5d:a6:3b:97:82:a2:6b:de:20:67:1f:f8:ba:d0'
-      - run:
-          name: Setup git config global
-          command: |
-            git config user.email "dev@codetot.com"
-            git config user.name "CODE TOT JSC"
-
-  setup_npm:
-    working_directory: ~/example
-    steps:
-      - restore_cache: *restore_npm_cache
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
       - run: *install_npm_dependencies
-      - save_cache: *save_npm_cache
-      - persist_to_workspace:
-          root: ~/example
+      - save_cache:
           paths:
             - node_modules
-
-  test_code:
-    working_directory: ~/example
-    executor: node/default
-    steps:
-      - checkout:
-          path: ~/example
-      - setup_npm
-      - attach_workspace:
-          at: ~/example
-      - run:
-          command: npm run test
-
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run: npm run test
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
   build_assets:
-    working_directory: ~/example
-    executor: node/default
+    <<: *defaults
     steps:
-      - checkout:
-          path: ~/example
-      - setup_npm
       - attach_workspace:
-          at: ~/example
+          at: ~/repo
       - run:
-          command: npm run build
+					command: npm run build
       - setup_git
       - run:
           name: Commit changes
           command: |
-              if [ -n "$(git status --porcelain)" ]; then
-                git add .
-                git commit -m "Process styles and scripts [skip ci]"
-                git push origin HEAD:${CIRCLE_BRANCH}
-                exit 0
-              else
-                exit 0
-              fi
-
-  release_production:
+						if [ -n "$(git status --porcelain)" ]; then
+							git add .
+							git commit -m "Process styles and scripts [skip ci]"
+							git push origin HEAD:${CIRCLE_BRANCH}
+							exit 0
+						else
+							exit 0
+						fi
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+	release_production:
     executor: node/default
     steps:
       - checkout
