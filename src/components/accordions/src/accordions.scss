@@ -1,0 +1,43 @@
+.ct-blocks-accordions-item {
+	margin-top: var(--element-space);
+	padding-top: var(--element-space);
+	border-top: 1px solid var(--border);
+}
+
+.ct-blocks-accordions-item:first-child {
+	margin-top: 0;
+	padding-top: 0;
+	border-top: 0;
+}
+
+.ct-blocks-accordions-item__header {
+	user-select: none;
+	cursor: pointer;
+}
+
+.ct-blocks-accordions-item__header * {
+	pointer-events: none;
+}
+
+.ct-blocks-accordions-item__header .wp-block-group__inner-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.ct-blocks-accordions-item.is-active .ct-blocks-accordions-item__header {
+	color: var(--primary);
+}
+
+.ct-blocks-accordions-item__header .wp-block-group__inner-container > * {
+	margin-top: 0;
+}
+
+.ct-blocks-accordions-item__content {
+	display: none;
+	overflow: hidden;
+	opacity: 0;
+}
+
+.ct-blocks-accordions-item__content > .wp-block-group__inner-container {
+	padding-bottom: var(--element-space);
+}

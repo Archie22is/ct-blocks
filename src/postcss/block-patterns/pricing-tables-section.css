@@ -1,0 +1,6 @@
+.pricing-tables-section {
+	& .wp-block-column {
+		display: flex;
+		flex-direction: column;
+	}
+}
