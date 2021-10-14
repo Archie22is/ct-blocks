@@ -89,7 +89,7 @@ jobs:
       - run:
           name: Remove source
           command: |
-              rm -rf assets/js/*.js.LICENSE.txt src/ package.json package-lock.json
+              rm -rf assets/js/*.js.LICENSE.txt src/
               rm -rf .babelrc .browserslistrc .eslintrc.js .prettierignore .stylelintrc
               rm -rf components/*/src/ components/*/src/package*.json components/*/src/.gitignore components/*/src/.stylelintignore components/*/src/.stylelintrc.json components/*/src/.prettierignore
       - run:
