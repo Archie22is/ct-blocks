@@ -8,7 +8,7 @@ defaults: &defaults
 aliases:
   - &install_npm_dependencies
     name: Installing NPM Dependencies
-    command: npm ci
+    command: npm install
 
 commands:
   setup_git:
