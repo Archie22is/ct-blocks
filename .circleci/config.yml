@@ -6,9 +6,23 @@ defaults: &defaults
     - image: circleci/node:14.17.6
 
 aliases:
-  - &install_npm_dependencies
-    name: Installing NPM Dependencies
-    command: npm install
+  restore_cache: &restore_cache
+    restore_cache:
+      name: Restore Npm Package Cache
+      keys:
+      - v{{ .Environment.versionCache }}-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}-{{ checksum ".circleci/config.yml" }}
+
+  install_node_modules: &install_node_modules
+    run:
+      name: Install NPM dependencies
+      command: npm install
+
+  save_cache: &save_cache
+    save_cache:
+      name: Save NPM modules cache
+      key: v{{ .Environment.versionCache }}-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}-{{ checksum ".circleci/config.yml" }}
+      paths:
+      - ./node_modules/
 
 commands:
   setup_git:
@@ -24,39 +38,23 @@ commands:
 
 jobs:
   test_code:
-    <<: *defaults
+    executor: node
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
-      - run: *install_npm_dependencies
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      - run: npm run test
-      - persist_to_workspace:
-          root: ~/repo
-          paths: .
-  build_assets:
-    <<: *defaults
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
-      - run: *install_npm_dependencies
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      - run: npm run test
-      - attach_workspace:
-          at: ~/repo
+      - <<: *restore_cache
+      - <<: *install_node_modules
       - run:
+        name: Test Assets
+        command: npm run test
+  build_assets:
+    executor: node
+    steps:
+      - checkout
+      - <<: *restore_cache
+      - <<: *install_node_modules
+      - <<: *save_cache
+      - run:
+          name: Build Public
           command: npm run build
       - setup_git
       - run:
@@ -70,18 +68,15 @@ jobs:
             else
               exit 0
             fi
-      - persist_to_workspace:
-          root: ~/repo
-          paths: .
   release_production:
-    <<: *defaults
+    executor: node
     steps:
       - checkout
       - setup_git
       - run:
           name: Remove source
           command: |
-              rm -rf assets/js/*.js.LICENSE.txt src/
+              rm -rf assets/js/*.js.LICENSE.txt src/ package.json package-lock.json
               rm -rf .babelrc .browserslistrc .eslintrc.js .prettierignore .stylelintrc
               rm -rf components/*/src/ components/*/src/package*.json components/*/src/.gitignore components/*/src/.stylelintignore components/*/src/.stylelintrc.json components/*/src/.prettierignore
       - run:
