@@ -1,4 +1,4 @@
-version: '2.1'
+version: 2.1
 orbs:
   node: circleci/node@4.7.0
 
@@ -32,19 +32,18 @@ jobs:
       - checkout
       - setup_git
       - node/install-packages
-      - node/run:
-          npm-run: build
+      - run: npm run build
       - run:
           name: Commit changes
           command: |
-              if [ -n "$(git status --porcelain)" ]; then
-                git add .
-                git commit -m "Process styles and scripts [skip ci]"
-                git push origin HEAD:${CIRCLE_BRANCH}
-                exit 0
-              else
-                exit 0
-              fi
+            if [ -n "$(git status --porcelain)" ]; then
+              git add .
+              git commit -m "Process styles and scripts [skip ci]"
+              git push origin HEAD:${CIRCLE_BRANCH}
+              exit 0
+            else
+              exit 0
+            fi
 
 workflows:
   test_assets:
@@ -59,4 +58,3 @@ workflows:
           filters:
             branches:
               only: /(develop|feature\/ci)/
-
