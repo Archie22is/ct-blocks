@@ -1,10 +1,10 @@
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
-import './editor.scss';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor'
+import './editor.scss'
 
 /**
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit () {
 	return (
 		<div {...useBlockProps()}>
 			<InnerBlocks
@@ -12,5 +12,5 @@ export default function Edit() {
 				allowedBlocks={['ct-blocks/accordions-item']}
 			/>
 		</div>
-	);
+	)
 }
