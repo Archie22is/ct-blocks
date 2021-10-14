@@ -1,20 +1,6 @@
 version: 2.1
-
 orbs:
   node: circleci/node@4.7.0
-
-aliases:
-  - &restore_npm_cache
-    name: 'Restoring node_modules from the cache'
-    key: npm-v1-{{ checksum "package-lock.json" }}-{{ arch }}
-  - &install_npm_dependencies
-    name: Installing NPM Dependencies
-    command: npm ci
-  - &save_npm_cache
-    name: 'Saving node_modules into the cache'
-    key: npm-v1-{{ checksum "package-lock.json" }}-{{ arch }}
-    paths:
-      - node_modules
 
 commands:
   setup_git:
@@ -29,97 +15,46 @@ commands:
             git config user.name "CODE TOT JSC"
 
 jobs:
-  setup_npm:
-    working_directory: ~/example
-    docker:
-      - image: circleci/node:12.18
+  test:
+    executor:
+      name: node/default
+      tag: '14.17.6'
     steps:
       - checkout
-      - restore_cache: *restore_npm_cache
-      - run: *install_npm_dependencies
-      - save_cache: *save_npm_cache
-      - persist_to_workspace:
-          root: ~/example
-          paths:
-            - node_modules
-
-  test_code:
-    working_directory: ~/example
-    docker:
-      - image: circleci/node:12.18
-    executor: node/default
-    steps:
-      - checkout:
-          path: ~/example
-      - attach_workspace:
-          at: ~/example
+      - node/install-packages
       - run:
           command: npm run test
-
-  build_assets:
-    working_directory: ~/example
-    docker:
-      - image: circleci/node:12.18
-    executor: node/default
-    steps:
-      - checkout:
-          path: ~/example
-      - attach_workspace:
-          at: ~/example
-      - run:
-            command: npm run build
-      - setup_git
-      - run:
-          name: Commit changes
-          command: |
-              if [ -n "$(git status --porcelain)" ]; then
-                git add .
-                git commit -m "Process styles and scripts [skip ci]"
-                git push origin HEAD:${CIRCLE_BRANCH}
-                exit 0
-              else
-                exit 0
-              fi
-
-  release_production:
-    executor: node/default
+  build:
+    executor:
+      name: node/default
+      tag: '14.17.6'
     steps:
       - checkout
       - setup_git
-      - run:
-          name: Remove source
-          command: |
-              rm -rf assets/js/*.js.LICENSE.txt src/ package.json package-lock.json
-              rm -rf .babelrc .browserslistrc .eslintrc.js .prettierignore .stylelintrc
+      - node/install-packages
+      - run: npm run build
       - run:
           name: Commit changes
           command: |
+            if [ -n "$(git status --porcelain)" ]; then
               git add .
-              git commit -m "Prepare production package"
-              git push origin HEAD:production-temp --force
-              git reset --hard origin/production
-              git merge origin/production-temp --no-ff --no-edit -m "Release package"
-              git push origin HEAD:production
-              git push origin :production-temp
+              git commit -m "Process styles and scripts [skip ci]"
+              git push origin HEAD:${CIRCLE_BRANCH}
+              exit 0
+            else
+              exit 0
+            fi
 
 workflows:
-  version: 2
-  build_and_test:
+  test_assets:
     jobs:
-      - setup_npm
-      - test_code:
-          requires:
-            - setup_npm
+      - test:
           filters:
             branches:
               only: /(feature|bugfix|hotfix)\/?(.*)/
-      - build_assets:
-          requires:
-            - setup_npm
+  build_assets:
+    jobs:
+      - build:
           filters:
             branches:
               only: /(develop|feature\/ci)/
-      - release_production:
-          filters:
-            branches:
-              only: master

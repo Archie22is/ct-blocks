@@ -1,1 +1,1 @@
-import './postcss/block-patterns/_index.css';
+import './postcss/block-patterns/_index.css'

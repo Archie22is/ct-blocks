@@ -13,7 +13,8 @@
 	opacity: 0.75;
 }
 
-.ct-blocks-accordions-item.is-selected  .ct-blocks-accordions-item__content,
-.ct-blocks-accordions-item.has-child-selected .ct-blocks-accordions-item__content {
+.ct-blocks-accordions-item.is-selected .ct-blocks-accordions-item__content,
+.ct-blocks-accordions-item.has-child-selected
+	.ct-blocks-accordions-item__content {
 	opacity: 1;
 }
