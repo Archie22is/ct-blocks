@@ -264,6 +264,11 @@ class Codetot_Base
     require_once CODETOT_BLOCKS_DIR . 'includes/classes/interface-block.php';
     require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-block.php';
 
+		// Gutenberg
+		require_once CODETOT_BLOCKS_DIR . 'includes/gutenberg/block-patterns.php';
+		require_once CODETOT_BLOCKS_DIR . 'includes/gutenberg/custom-blocks.php';
+
+		// ACF
     require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-ct-blocks-templates.php';
     require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-ct-blocks-page.php';
     require_once CODETOT_BLOCKS_DIR . 'includes/classes/class-ct-blocks-admin.php';

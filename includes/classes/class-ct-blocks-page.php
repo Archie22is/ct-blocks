@@ -37,6 +37,10 @@ class Codetot_Blocks_Page {
     add_action('wp', function() {
       add_filter('the_content', array($this, 'load_flexible_page_template'));
     });
+
+		add_filter('gutenberg_can_edit_post_type', array($this, 'disable_gutenberg'), 10, 2);
+		add_filter('use_block_editor_for_post_type', array($this, 'disable_gutenberg'), 10, 2);
+		add_action('admin_head', array($this, 'disable_classic_editor'));
   }
 
   /**
@@ -47,6 +51,56 @@ class Codetot_Blocks_Page {
   public function register_layout_fields() {
     return apply_filters('codetot_layout_fields', []);
   }
+
+	/**
+	 * Disable gutenberg when checking template
+	 *
+	 * @param [type] $can_edit
+	 * @param [type] $post_type
+	 * @return void
+	 */
+	public function disable_gutenberg($can_edit) {
+		if( ! ( is_admin() && !empty( $_GET['post'] ) ) ) {
+			return $can_edit;
+		}
+
+		if( $this->disable_block_editor( $_GET['post'] ) ) {
+			$can_edit = false;
+		}
+
+		return $can_edit;
+	}
+
+	/**
+	 * Disable class editor by template
+	 *
+	 * @return void
+	 */
+	public function disable_classic_editor() {
+		$screen = get_current_screen();
+
+		if( 'page' !== $screen->id || ! isset( $_GET['post']) ) {
+			return;
+		}
+
+		if( $this->disable_block_editor( $_GET['post'] ) ) {
+			remove_post_type_support( 'page', 'editor' );
+		}
+	}
+
+	public function disable_block_editor($id = false) {
+		$excluded_templates = array(
+			'flexible'
+		);
+
+		if( empty( $id ) )
+			return false;
+
+		$id = intval( $id );
+		$template = get_page_template_slug( $id );
+
+		return in_array( $template, $excluded_templates );
+	}
 
 	/**
 	 * Register ACF field group

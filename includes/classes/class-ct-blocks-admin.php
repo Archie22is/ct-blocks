@@ -35,9 +35,10 @@ class Codetot_Blocks_Admin {
 
   public function __construct()
   {
-    $this->theme_version = wp_get_theme(get_template())->get('Version');
+		$this->theme_version = $this->is_localhost() ? substr(sha1(rand()), 0, 6) : CODETOT_BLOCKS_VERSION;
+		$this->plugin_environment = $this->is_localhost() ? '' : '.min';
 
-    add_action('admin_enqueue_scripts', array($this, 'load_css'), 40);
+    add_action('admin_enqueue_scripts', array($this, 'load_assets'), 40);
     add_action('acf/input/admin_enqueue_scripts', array($this, 'load_acf_assets'));
     add_action('load-post.php', array($this, 'flexible_block_button_metabox'));
     add_action('load-post-new.php', array($this, 'flexible_block_button_metabox'));
@@ -46,12 +47,16 @@ class Codetot_Blocks_Admin {
   }
 
 	/**
-	 * Load CSS fiel in admin assets
+	 * Load assets in admin assets
 	 *
 	 * @return void
 	 */
-  public function load_css() {
-    wp_enqueue_style('codetot-admin-acf-style', CODETOT_BLOCKS_PLUGIN_URI . '/assets/css/admin.min.css', array(), $this->theme_version);
+  public function load_assets() {
+		if (!$this->is_localhost()) {
+			wp_enqueue_style('codetot-admin-acf-style', CODETOT_BLOCKS_PLUGIN_URI . '/assets/css/admin.min.css', array(), $this->theme_version);
+		} else {
+			wp_enqueue_script('codetot-admin-acf-script', CODETOT_BLOCKS_PLUGIN_URI . '/assets/js/admin' . $this->plugin_environment . '.js', array(), $this->theme_version);
+		}
   }
 
 	/**
@@ -148,5 +153,9 @@ class Codetot_Blocks_Admin {
     echo 'var CODETOT_PLUGIN_URL = "' . CODETOT_BLOCKS_PLUGIN_URI . '";' . PHP_EOL;
     echo 'var CODETOT_BLOCKS_IMAGES = ' . json_encode($block_images) . ';';
     echo '</script>';
+  }
+
+	public function is_localhost() {
+    return !empty($_SERVER['HTTP_X_CODETOT_BLOCKS_HEADER']) && $_SERVER['HTTP_X_CODETOT_BLOCKS_HEADER'] === 'development';
   }
 }
