@@ -58,6 +58,7 @@ jobs:
           command: |
             rm -rf assets/js/*.js.LICENSE.txt src/ package.json package-lock.json
             rm -rf .babelrc .browserslistrc .eslintrc.js .prettierignore .stylelintrc
+            rm -rf components/*/src/ rm -rf components/*/.browserslistrc components/*/.eslintrc.js components/*/.prettierignore components/*/.stylelintrc
       - run:
           name: Commit assets changes
           command: |
