@@ -1,4 +1,4 @@
-import { selectAll, on, trigger, addClass, removeClass } from 'lib/dom';
+import { selectAll, on, trigger, addClass, removeClass } from 'lib/dom'
 
 export default (el, customOptions = {}) => {
 	const defaultOptions = {

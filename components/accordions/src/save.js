@@ -1,15 +1,15 @@
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor'
 
 /**
  * @return {WPElement} Element to render.
  */
-export default function Save() {
-	const blockProps = useBlockProps.save();
-	blockProps.className += ' ct-blocks-accordions';
+export default function Save () {
+	const blockProps = useBlockProps.save()
+	blockProps.className += ' ct-blocks-accordions'
 
 	return (
 		<div {...blockProps}>
 			<InnerBlocks.Content />
 		</div>
-	);
+	)
 }
