@@ -30,8 +30,6 @@ commands:
 
   setup_npm:
     working_directory: ~/example
-    docker:
-      - image: circleci/node:12.18
     steps:
       - restore_cache: *restore_npm_cache
       - run: *install_npm_dependencies
@@ -43,8 +41,6 @@ commands:
 
   test_code:
     working_directory: ~/example
-    docker:
-      - image: circleci/node:12.18
     executor: node/default
     steps:
       - checkout:
@@ -57,8 +53,6 @@ commands:
 
   build_assets:
     working_directory: ~/example
-    docker:
-      - image: circleci/node:12.18
     executor: node/default
     steps:
       - checkout:
