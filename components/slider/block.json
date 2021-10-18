@@ -1,0 +1,16 @@
+{
+	"apiVersion": 2,
+	"name": "ct-blocks/slider",
+	"version": "0.1.0",
+	"title": "[CT] Slider",
+	"category": "widgets",
+	"icon": "smiley",
+	"keywords": ["slider", "ct-blocks", "codetot"],
+	"description": "Example block written with ESNext standard and JSX support – build step required.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "ct-blocks",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css"
+}
