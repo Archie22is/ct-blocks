@@ -78,7 +78,7 @@ class Codetot_Blocks_Admin {
 	 * Add hook for register metabox to post editing screen
 	 */
   public function flexible_block_button_metabox() {
-    add_action('add_meta_boxes', array($this, 'register_flexible_button_metabox'));
+    //add_action('add_meta_boxes', array($this, 'register_flexible_button_metabox'));
   }
 
 	/**

@@ -32,9 +32,11 @@ jobs:
       - checkout
       - setup_git
       - node/install-packages
-      - run: npm run build
       - run:
-          name: Commit changes
+          name: Build assets
+          command: npm run build
+      - run:
+          name: Commit if assets changes
           command: |
             if [ -n "$(git status --porcelain)" ]; then
               git add .
@@ -44,6 +46,32 @@ jobs:
             else
               exit 0
             fi
+  release:
+    executor:
+      name: node/default
+      tag: '14.17.6'
+    steps:
+      - checkout
+      - setup_git
+      - run:
+          name: Remove source
+          command: |
+            rm -rf assets/js/*.js.LICENSE.txt src/ package.json package-lock.json
+            rm -rf .babelrc .browserslistrc .eslintrc.js .prettierignore .stylelintrc
+            rm -rf components/*/src/ components/*/.browserslistrc components/*/.eslintrc.js components/*/.prettierignore components/*/.stylelintrc
+      - run:
+          name: Commit assets changes
+          command: |
+            git add .
+            git commit -m "Prepare production package"
+            git push origin HEAD:production-temp --force
+      - run:
+          name: Merge to branch production
+          command: |
+            git reset --hard origin/production
+            git merge origin/production-temp --no-ff --no-edit -m "Release package"
+            git push origin HEAD:production
+            git push origin :production-temp
 
 workflows:
   test_assets:
@@ -58,3 +86,9 @@ workflows:
           filters:
             branches:
               only: /(develop|feature\/ci)/
+  release_package:
+    jobs:
+      - release:
+          filters:
+            branches:
+              only: master
