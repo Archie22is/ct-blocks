@@ -127,6 +127,8 @@
 
 .feature-card__title {
 	@mixin large-text;
+
+	margin-top: 0;
 }
 
 .feature-card__image {

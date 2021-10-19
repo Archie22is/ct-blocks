@@ -1017,6 +1017,11 @@
 }
   }
 
+.feature-card__title {
+
+	margin-top: 0;
+}
+
 .feature-card__image.image--contain {
 		position: relative;
 	}
