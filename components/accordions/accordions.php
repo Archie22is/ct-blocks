@@ -32,7 +32,7 @@ function ct_blocks_accordions_init() {
 		'textdomain' => 'ct-blocks'
 	));
 
-	register_block_type( plugin_dir_path( __FILE__ ) );
+	register_block_type_from_metadata( plugin_dir_path( __FILE__ ) );
 }
 add_action( 'init', 'ct_blocks_accordions_init' );
 
