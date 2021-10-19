@@ -1092,11 +1092,6 @@
 			width: 80px;
 		}
 
-.feature-card__svg.image--default svg, .feature-card__svg.image--cover svg, .feature-card__svg.image--contain svg {
-			min-width: 80px;
-			min-height: 80px;
-		}
-
 .feature-card__svg.icon--24 {
 		width: 24px;
 		height: 24px;
