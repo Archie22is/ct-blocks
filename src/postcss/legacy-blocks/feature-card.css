@@ -183,15 +183,6 @@
 }
 
 .feature-card__svg {
-	&.image--default,
-	&.image--cover,
-	&.image--contain {
-		& svg {
-			min-width: 80px;
-			min-height: 80px;
-		}
-	}
-
 	&.icon--24 {
 		@mixin icon 24px;
 	}
