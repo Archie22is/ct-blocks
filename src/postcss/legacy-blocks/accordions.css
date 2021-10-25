@@ -1,8 +1,8 @@
-.accordions__grid {
+.grid.accordions__grid {
 	margin: 0;
 }
 
-.accordions__col {
+.default-section__col.accordions__col {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
@@ -33,10 +33,10 @@
 }
 
 .accordions__item-content {
-	display: block;
-	height: 0;
+	display: none;
 	overflow: hidden;
-	transition: height 0.35s ease-in-out;
+	opacity: 0;
+	transition: opacity 0.3s;
 }
 
 .accordions__item-text {
@@ -65,6 +65,12 @@
 		& line:first-child {
 			transform: rotate(90deg);
 		}
+	}
+
+	& .accordions__item-content {
+		display: block;
+		height: auto;
+		opacity: 1;
 	}
 }
 

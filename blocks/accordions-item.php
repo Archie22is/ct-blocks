@@ -14,7 +14,7 @@ if (!empty($item) && !empty($item['title']) && !empty($item['content'])) : ?>
           <?php codetot_svg('plus', true); ?>
         </span>
       </button>
-      <div class="d-none accordions__item-content js-content"<?php echo $answer_attributes; ?>>
+      <div class="accordions__item-content js-content"<?php echo $answer_attributes; ?>>
         <div class="accordions__item-text js-content-inner">
           <div class="wysiwyg mb-1 accordions__content"<?php echo $answer_content_attributes; ?>><?php echo $item['content']; ?></div>
         </div>
