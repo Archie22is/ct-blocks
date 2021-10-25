@@ -11,7 +11,7 @@ export default (el, customOptions = {}) => {
 
 	const options = { ...defaultOptions, ...customOptions }
 	const rowEls = selectAll(options.rowEl, el)
-	const navItems = selectAll(options.tabNavSelector, el)
+	const navItems = selectAll(options.navEl, el)
 
 	const activateRow = rowIndex => {
 		addClass(options.activeClass, rowEls[rowIndex])
@@ -20,6 +20,8 @@ export default (el, customOptions = {}) => {
 	const deactivateRow = rowIndex => {
 		removeClass(options.activeClass, rowEls[rowIndex])
 	}
+
+	console.log(options.el)
 
 	on(
 		'update',
@@ -38,6 +40,8 @@ export default (el, customOptions = {}) => {
 	on(
 		'click',
 		e => {
+			e.stopPropagation()
+
 			const navItem = e.target
 
 			trigger(
@@ -52,4 +56,6 @@ export default (el, customOptions = {}) => {
 		},
 		navItems
 	)
+
+	return el
 }
