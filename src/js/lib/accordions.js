@@ -21,8 +21,6 @@ export default (el, customOptions = {}) => {
 		removeClass(options.activeClass, rowEls[rowIndex])
 	}
 
-	console.log(options.el)
-
 	on(
 		'update',
 		e => {
