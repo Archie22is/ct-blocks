@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## 5.0.2 - 25/10/2021
+
+- Fix product tabs load
+- Fix accordions, using same lib/accordions like component accordions.
+- Fix register block type support lower wp version
+- Fix feature card top spacing
+- Fix feature card svg size
+- Hide flexible button metabox
+- Config circleci to remove source in production mode
+
 ## 5.0.1 - 14/10/2021
 
 - Fix ci remove src/ folder.
