@@ -43,7 +43,7 @@ export default el => {
 			removeClass('is-loading', el)
 		}
 
-		tabState = new Tabs(el)
+		tabState = Tabs(el)
 		desktopTriggerEls = selectAll('[role="tab"]', el)
 		tabPanels = selectAll('[role="tabpanel"]', el)
 
