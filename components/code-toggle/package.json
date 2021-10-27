@@ -20,6 +20,7 @@
 		"@wordpress/i18n": "^4.2.3"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^19.0.0"
+		"@wordpress/scripts": "^19.0.0",
+		"@wordpress/stylelint-config": "^19.1.0"
 	}
 }
