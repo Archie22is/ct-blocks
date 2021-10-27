@@ -1,0 +1,15 @@
+{
+	"apiVersion": 2,
+	"name": "ct-blocks/code-toggle",
+	"version": "0.1.0",
+	"title": "Code Toggle",
+	"category": "widgets",
+	"icon": "smiley",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "ct-blocks",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css"
+}
