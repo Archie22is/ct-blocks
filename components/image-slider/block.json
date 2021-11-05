@@ -1,0 +1,29 @@
+{
+	"apiVersion": 2,
+	"name": "ct-blocks/image-slider",
+	"version": "0.0.1",
+	"title": "Image Slider",
+	"category": "widgets",
+	"icon": "smiley",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "ct-blocks",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css",
+	"attributes": {
+		"images": {
+			"type": "array",
+			"default": []
+		},
+		"enableAutoplay": {
+			"type": "boolean",
+			"default": false
+		},
+		"autoplayTiming": {
+			"type": "number",
+			"default": "3"
+		}
+	}
+}
