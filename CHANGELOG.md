@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## 5.1.0 - 06/11/2021
+
+- Add custom block Image Slider (with Flickity support)
+- Add custom block Post Grid (server-sider render)
+
 ## 5.0.2 - 25/10/2021
 
 - Fix product tabs load
