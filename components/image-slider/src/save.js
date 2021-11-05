@@ -1,5 +1,6 @@
 import { __ } from '@wordpress/i18n';
 import { useBlockProps } from '@wordpress/block-editor';
+import { Fragment } from '@wordpress/element';
 
 export default function save({ attributes }) {
 	const {
@@ -36,6 +37,10 @@ export default function save({ attributes }) {
 		blockProps.className += ' is-not-loaded';
 	}
 
+	if (adaptiveHeight) {
+		blockProps.className += ' has-height-animation';
+	}
+
 	const imagesMarkup =
 		<div className={'ct-blocks-image-slider__slider js-slider'} data-settings={JSON.stringify(settings)}>
 			{ images.map((image, index) => {
@@ -45,10 +50,8 @@ export default function save({ attributes }) {
 				itemClass += ' is-not-loaded';
 			}
 
-			console.log(image);
-
 			const imageBlock = <img className={'ct-blocks-image-slider__image'} src={image.url} alt={image.alt} width={image.width} height={image.height} />
-			const itemBlock = image.link ? <a className={'ct-blocks-image-slider__link'} href={image.link} target={linkTarget}>{ imageBlock }</a> : imageBlock
+			const itemBlock = image.link ? <a className={'ct-blocks-image-slider__link'} href={image.link} target={linkTarget} rel={linkTarget === '_blank' ? 'noopener' : ''}>{ imageBlock }</a> : imageBlock
 
 			return <div className={itemClass} data-slider-index={image.index}>
 				{ index > 0 && lazyload ==='not-viewport' ? <noscript>{ itemBlock }</noscript> : itemBlock }
@@ -58,7 +61,10 @@ export default function save({ attributes }) {
 
 	return (
 		<div {...blockProps} data-component="ct-blocks-image-slider">
-			{ lazyload === 'section' ? <noscript>{ imagesMarkup }</noscript> : imagesMarkup }
+			<Fragment>
+				{ lazyload === 'section' ? <noscript>{ imagesMarkup }</noscript> : imagesMarkup }
+			</Fragment>
+			<div className={'ct-blocks-image-slider__loader'}><span className={'loader'}></span></div>
 		</div>
 	);
 }

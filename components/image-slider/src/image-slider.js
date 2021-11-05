@@ -1,5 +1,32 @@
 import Flickity from 'flickity';
 
+let imageSliderEls = [];
+
+const debounce = (callback, wait) => {
+	let timeoutId = null;
+
+	return (...args) => {
+	  window.clearTimeout(timeoutId);
+	  timeoutId = window.setTimeout(() => {
+		callback.apply(null, args);
+	  }, wait);
+	};
+}
+
+const inViewport = el => {
+	let bounding, html;
+    if ( !el || 1 !== el.nodeType ) { return false; }
+    html = document.documentElement;
+    bounding = el.getBoundingClientRect();
+
+    return ( !!bounding
+      && bounding.bottom >= 0
+      && bounding.right >= 0
+      && bounding.top <= html.clientHeight
+      && bounding.left <= html.clientWidth
+    );
+}
+
 const getNoScriptContent = el => {
 	if (!el) {
 		return ''
@@ -25,6 +52,11 @@ const imageSliderLazyloadSection = el => {
 }
 
 const imageSliderInit = el => {
+	if ( !inViewport(el) ) {
+		console.log('not in viewport');
+		return el;
+	}
+
 	if (el.classList.contains('is-not-loaded')) {
 		imageSliderLazyloadSection(el);
 	}
@@ -51,8 +83,6 @@ const imageSliderInit = el => {
 		}
 	}
 
-	console.log(settings);
-
 	if (!sliderEl || !settings) {
 		return;
 	}
@@ -60,10 +90,20 @@ const imageSliderInit = el => {
 	slider = new Flickity(sliderEl, settings);
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-	const imageSliderEls = Array.prototype.slice.call(document.querySelectorAll('[data-component="ct-blocks-image-slider"]'));
-
+const imageSliderLoad = () => {
 	if (imageSliderEls.length) {
-		imageSliderEls.map(imageSliderInit);
+		const unloadedSliderEls = imageSliderEls.map(imageSliderInit);
+
+		console.log('load');
+
+		imageSliderEls = unloadedSliderEls;
 	}
-})
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+	imageSliderEls = Array.prototype.slice.call(document.querySelectorAll('[data-component="ct-blocks-image-slider"]'));
+
+	imageSliderLoad();
+});
+
+document.addEventListener('scroll', debounce(imageSliderLoad, 100));
