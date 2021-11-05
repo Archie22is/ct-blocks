@@ -3,8 +3,9 @@
 	"name": "ct-blocks/image-slider",
 	"version": "0.0.1",
 	"title": "Image Slider",
-	"category": "widgets",
+	"category": "ct-blocks",
 	"icon": "smiley",
+	"keywords": ["image", "slider", "slideshow"],
 	"supports": {
 		"html": false
 	},
@@ -24,6 +25,26 @@
 		"autoplayTiming": {
 			"type": "number",
 			"default": "3"
+		},
+		"pageDots": {
+			"type": "boolean",
+			"default": true
+		},
+		"prevNextButtons": {
+			"type": "boolean",
+			"default": "true"
+		},
+		"adaptiveHeight": {
+			"type": "boolean",
+			"default": "true"
+		},
+		"wrapAround": {
+			"type": "boolean",
+			"default": "true"
+		},
+		"cellAlign": {
+			"type": "string",
+			"default": "left"
 		}
 	}
 }
