@@ -23,11 +23,24 @@ class CT_Blocks_Gutenberg_Custom_Blocks {
 
     public function __construct()
     {
+		add_filter('block_categories_all', array($this, 'custom_block_categories'), 10, 2);
+
 		$this->load_blocks();
     }
 
+	public function custom_block_categories($categories) {
+		return array_merge( $categories, array(
+			array(
+				'slug' => 'ct-blocks',
+				'title' => esc_html__('CT Blocks', 'ct-blocks')
+			)
+		));
+	}
+
 	public function load_blocks() {
 		require_once CODETOT_BLOCKS_DIR . 'components/accordions/accordions.php';
+		require_once CODETOT_BLOCKS_DIR . 'components/image-slider/image-slider.php';
+		require_once CODETOT_BLOCKS_DIR . 'components/post-grid/post-grid.php';
 	}
 }
 

@@ -1,0 +1,58 @@
+{
+	"apiVersion": 2,
+	"name": "ct-blocks/image-slider",
+	"version": "0.0.1",
+	"title": "[CT] Image Slider",
+	"category": "design",
+	"icon": "smiley",
+	"keywords": ["image", "slider", "slideshow"],
+	"supports": {
+		"html": false
+	},
+	"textdomain": "ct-blocks",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css",
+	"attributes": {
+		"lazyload": {
+			"type": "string",
+			"default": "none"
+		},
+		"enableAutoplay": {
+			"type": "boolean",
+			"default": false
+		},
+		"autoplayTiming": {
+			"type": "number",
+			"default": "3"
+		},
+		"pageDots": {
+			"type": "boolean",
+			"default": true
+		},
+		"prevNextButtons": {
+			"type": "boolean",
+			"default": "true"
+		},
+		"adaptiveHeight": {
+			"type": "boolean",
+			"default": "true"
+		},
+		"wrapAround": {
+			"type": "boolean",
+			"default": "true"
+		},
+		"cellAlign": {
+			"type": "string",
+			"default": "left"
+		},
+		"linkTarget": {
+			"type": "string",
+			"default": "_self"
+		},
+		"images": {
+			"type": "array",
+			"default": []
+		}
+	}
+}

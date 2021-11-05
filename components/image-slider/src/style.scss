@@ -1,0 +1,11 @@
+.ct-blocks-image-slider__item {
+	width: 100%;
+}
+
+.ct-blocks-image-slider .flickity-prev-next-button .flickity-button-icon {
+	transform: rotate(-90deg);
+}
+
+.ct-blocks-image-slider.has-height-animation .flickity-viewport {
+	transition: height 0.3s;
+}
