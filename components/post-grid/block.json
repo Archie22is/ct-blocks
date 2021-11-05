@@ -1,0 +1,12 @@
+{
+	"apiVersion": 2,
+	"name": "ct-blocks/post-grid",
+	"version": "0.0.1",
+	"title": "[CT] Post Grid",
+	"category": "widgets",
+	"icon": "smiley",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "ct-blocks"
+}
