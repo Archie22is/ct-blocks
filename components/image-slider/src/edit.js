@@ -2,6 +2,8 @@ import { __ } from '@wordpress/i18n';
 import { InspectorControls, useBlockProps, BlockControls, MediaPlaceholder } from '@wordpress/block-editor';
 import { PanelBody, RangeControl, ToggleControl, ToolbarGroup, ToolbarButton } from '@wordpress/components';
 import { edit } from '@wordpress/icons';
+import { useEffect, useState, useRef } from '@wordpress/element';
+import Flickity from 'flickity';
 import './editor.scss';
 
 export default function Edit(props) {
@@ -15,6 +17,24 @@ export default function Edit(props) {
 		autoplayTiming,
 		images
 	} = attributes;
+
+	const [slider, setSlider] = useState(null);
+	const sliderEl = useRef(null);
+
+	useEffect(() => {
+		if (images && images.length) {
+			const settings = {
+				cellAlign: 'left',
+				autoPlay: enableAutoplay && autoplayTiming ? autoplayTiming * 1000 : false,
+			};
+
+			if (slider) {
+				slider.destroy();
+			}
+
+			setSlider(new Flickity(sliderEl.current, settings));
+		}
+	}, [attributes]);
 
 	function setAutoplay() {
 		setAttributes({ enableAutoplay: !enableAutoplay });
@@ -67,20 +87,33 @@ export default function Edit(props) {
 					/>
 				</ToolbarGroup>
 			</BlockControls>
-			{ images.length ? <div className={'ct-blocks-image-grid__slider'}>
-				{
-					images.map(image => {
-						return <div className={'ct-blocks-image-slider__item'}>
-							<img className={'ct-blocks-image-slider__image'} src={image.url} alt={image.alt} width={image.width} height={image.height} />
-						</div>
-					})
-				}
-			</div> :
-				<MediaPlaceholder
+			{ images.length ?
+				<div className={'ct-blocks-image-slider'}>
+					<div className={'ct-blocks-image-grid__slider'} ref={sliderEl}>
+					{
+						images.map(image => {
+							return <div className={'ct-blocks-image-slider__item'}>
+								<img className={'ct-blocks-image-slider__image'} src={image.url} alt={image.alt} width={image.width} height={image.height} />
+							</div>
+						})
+					}
+				</div>
+				<div className= {'ct-blocks-image-slider__placeholder'}>
+					<MediaPlaceholder
 					handleUpload={false}
 					multiple={true}
 					onSelect = {(selectedImages) => updateImage(selectedImages)}
-				></MediaPlaceholder>
+					></MediaPlaceholder>
+				</div>
+			</div>
+			:
+				<div className= {'ct-blocks-image-slider__placeholder'}>
+					<MediaPlaceholder
+					handleUpload={false}
+					multiple={true}
+					onSelect = {(selectedImages) => updateImage(selectedImages)}
+					></MediaPlaceholder>
+				</div>
 			}
 		</div>
 	);
