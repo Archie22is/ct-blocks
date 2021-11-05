@@ -40,6 +40,7 @@ class CT_Blocks_Gutenberg_Custom_Blocks {
 	public function load_blocks() {
 		require_once CODETOT_BLOCKS_DIR . 'components/accordions/accordions.php';
 		require_once CODETOT_BLOCKS_DIR . 'components/image-slider/image-slider.php';
+		require_once CODETOT_BLOCKS_DIR . 'components/post-grid/post-grid.php';
 	}
 }
 
