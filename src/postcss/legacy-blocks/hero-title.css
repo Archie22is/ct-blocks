@@ -21,6 +21,7 @@
 
 .hero-title__title {
 	max-width: var(--xs);
+	margin-top: 0;
 }
 
 .hero-title__inner {
