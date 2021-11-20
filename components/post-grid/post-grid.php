@@ -1,34 +1,33 @@
 <?php
 
 function ct_blocks_render_post_grid($attributes) {
-	$post_args = array(
-		'post_type' => 'post',
-		'posts_per_page' => 3
-	);
-
 	$category_id = absint($attributes['categoryId']);
-	$classname = $attributes['className'];
-	$anchorname = $attributes['anchorName'];
-	$postCount = $attributes['postCount'];
-	$columns = $attributes['columns'];
+	$class_name = esc_attr($attributes['className']);
+	$anchor_name = esc_attr($attributes['anchorName']);
+	$post_count = absint($attributes['postCount']) ?? 3;
+	$column_number = absint($attributes['columns']) ?? 3;
 	$showDate = $attributes['showDate'];
 	$showCategory = $attributes['showCategory'];
 	$showReadMore = $attributes['showReadMore'];
 	$showThumbnail = $attributes['showThumbnail'];
 
-	if(!empty($postCount)) {
-		$post_args['posts_per_page'] = $postCount;
+	if ( !empty($category_id) && is_numeric($category_id) ) {
+		$post_args['category__in'] = $category_id;
 	}
 
-	$post_args['category__in'] = $category_id;
+	$post_args = array(
+		'post_type' => 'post',
+		'posts_per_page' => $post_count
+	);
+
 	$post_query = new WP_Query($post_args);
 
 	return get_block('post-grid', array(
-		'class' => 'ct-blocks-post-grid ' . $classname . ' count-'.$postCount,
-		'id' => !empty($anchorname) ? $anchorname : '',
+		'class' => 'default-section--no-container ct-blocks-post-grid ' . $class_name . ' count-' . $post_count,
+		'id' => $anchor_name ?? '',
 		'query' => $post_query,
-		'columns' => !empty($columns) ? $columns : '',
-		'card_style' => 'style-2'
+		'columns' => $column_number,
+		'card_style' => 'style-1'
 	));
 }
 
