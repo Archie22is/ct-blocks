@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## 5.1.1 - 23/11/2021
+
+- Escape attributes in post grid block
+- Fix top spacing hero title
+
+## 5.1.0 - 06/11/2021
+
+- Add custom block Image Slider (with Flickity support)
+- Add custom block Post Grid (server-sider render)
+
 ## 5.0.2 - 25/10/2021
 
 - Fix product tabs load
