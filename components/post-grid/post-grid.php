@@ -11,14 +11,14 @@ function ct_blocks_render_post_grid($attributes) {
 	$showReadMore = $attributes['showReadMore'];
 	$showThumbnail = $attributes['showThumbnail'];
 
-	if ( !empty($category_id) && is_numeric($category_id) ) {
-		$post_args['category__in'] = $category_id;
-	}
-
 	$post_args = array(
 		'post_type' => 'post',
 		'posts_per_page' => $post_count
 	);
+
+	if ( !empty($category_id) && is_numeric($category_id) ) {
+		$post_args['category__in'] = $category_id;
+	}
 
 	$post_query = new WP_Query($post_args);
 
@@ -41,7 +41,7 @@ function ct_blocks_register_post_grid() {
 
 	$metadata['attributes'] = array(
 		'categoryId'    => array(
-			'type'      => 'number',
+			'type'      => 'string',
 			'default'   => '',
 		),
 		'className'    => array(
