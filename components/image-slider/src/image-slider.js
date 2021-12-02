@@ -1,7 +1,5 @@
 import Flickity from 'flickity';
 
-let imageSliderEls = [];
-
 const debounce = (callback, wait) => {
 	let timeoutId = null;
 
@@ -53,7 +51,6 @@ const imageSliderLazyloadSection = el => {
 
 const imageSliderInit = el => {
 	if ( !inViewport(el) ) {
-		console.log('not in viewport');
 		return el;
 	}
 
@@ -62,12 +59,20 @@ const imageSliderInit = el => {
 	}
 
 	const sliderEl = el.querySelector('.js-slider');
+	const imageEl = el.querySelector('.ct-blocks-image-slider__image');
 	let slider = null;
 
 	let settings = sliderEl.getAttribute('data-settings') ? JSON.parse(sliderEl.getAttribute('data-settings')) : {}
 
 	if (settings && el.classList.contains('is-lazyload-not-viewport')) {
 		settings.on = {
+			ready: function () {
+				if (imageEl) {
+					imageEl.onload = function() {
+						slider.resize()
+					}
+				}
+			},
 			change: function () {
 				if (slider) {
 					if (slider.selectedElement.classList.contains('is-not-loaded')) {
@@ -90,20 +95,18 @@ const imageSliderInit = el => {
 	slider = new Flickity(sliderEl, settings);
 }
 
-const imageSliderLoad = () => {
-	if (imageSliderEls.length) {
-		const unloadedSliderEls = imageSliderEls.map(imageSliderInit);
-
-		console.log('load');
-
-		imageSliderEls = unloadedSliderEls;
-	}
-}
-
 window.addEventListener('DOMContentLoaded', () => {
-	imageSliderEls = Array.prototype.slice.call(document.querySelectorAll('[data-component="ct-blocks-image-slider"]'));
+	const imageSliderEls = Array.prototype.slice.call(document.querySelectorAll('[data-component="ct-blocks-image-slider"]'));
+
+	const imageSliderLoad = () => {
+		if (imageSliderEls.length) {
+			const unloadedSliderEls = imageSliderEls.map(imageSliderInit);
+
+			imageSliderEls = unloadedSliderEls;
+		}
+	}
 
 	imageSliderLoad();
-});
 
-document.addEventListener('scroll', debounce(imageSliderLoad, 100));
+	document.addEventListener('scroll', debounce(imageSliderLoad, 100));
+});
