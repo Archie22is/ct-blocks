@@ -8965,6 +8965,7 @@ p.testimonial-card__title {
 .hero-title__title {
 	max-width: 480px;
 	max-width: var(--xs);
+	margin-top: 0;
 }
 
 .hero-title__inner {
