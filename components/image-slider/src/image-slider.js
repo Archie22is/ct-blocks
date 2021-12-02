@@ -59,7 +59,6 @@ const imageSliderInit = el => {
 	}
 
 	const sliderEl = el.querySelector('.js-slider');
-	const imageEl = el.querySelector('.ct-blocks-image-slider__image');
 	let slider = null;
 
 	let settings = sliderEl.getAttribute('data-settings') ? JSON.parse(sliderEl.getAttribute('data-settings')) : {}
@@ -67,11 +66,11 @@ const imageSliderInit = el => {
 	if (settings && el.classList.contains('is-lazyload-not-viewport')) {
 		settings.on = {
 			ready: function () {
-				if (imageEl) {
-					imageEl.onload = function() {
-						slider.resize()
+				setTimeout(() => {
+					if (slider) {
+						slider.resize();
 					}
-				}
+				}, 1000)
 			},
 			change: function () {
 				if (slider) {
