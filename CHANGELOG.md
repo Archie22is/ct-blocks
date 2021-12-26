@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 5.1.3 - 26/12/2021
+
+- Fix spacing heading
+
 ## 5.1.1 - 23/11/2021
 
 - Escape attributes in post grid block
