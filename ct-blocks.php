@@ -27,6 +27,7 @@ define( 'CODETOT_BLOCKS_VERSION', '5.1.3' );
 define( 'CODETOT_BLOCKS_PLUGIN_SLUG', 'ct-blocks' );
 define( 'CODETOT_BLOCKS_PLUGIN_NAME', esc_html_x('CT Blocks', 'plugin name', 'ct-blocks'));
 define( 'CODETOT_BLOCKS_DIR', plugin_dir_path(__FILE__));
+define( 'CODETOT_BLOCKS_PATH', dirname( plugin_basename( __FILE__ ) ) );
 define( 'CODETOT_BLOCKS_AUTHOR', 'Code Tot JSC' );
 define( 'CODETOT_BLOCKS_AUTHOR_URI', 'https://codetot.com');
 define( 'CODETOT_BLOCKS_PLUGIN_URI', plugins_url('ct-blocks'));

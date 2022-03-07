@@ -251,7 +251,7 @@ class Codetot_Base
     load_plugin_textdomain(
       'ct-blocks',
       false,
-      CODETOT_BLOCKS_DIR . '/languages/'
+      CODETOT_BLOCKS_PATH . '/languages/'
     );
   }
 
