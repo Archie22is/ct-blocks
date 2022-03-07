@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: CT Blocks\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-10 09:12+0000\n"
-"PO-Revision-Date: 2021-05-11 14:27+0000\n"
+"PO-Revision-Date: 2022-03-07 15:24+0000\n"
 "Last-Translator: \n"
 "Language-Team: Tiếng Việt\n"
 "Language: vi\n"
@@ -15,25 +15,37 @@ msgstr ""
 "X-Loco-Version: 2.5.2; wp-5.7.1\n"
 "X-Domain: ct-blocks"
 
-#: includes/classes/class-block.php:50
-#, php-format
-#| msgid "Block %s is not available."
-msgid "%s: Block %s is not available."
+#: includes/classes/class-block.php:60
+#, fuzzy, php-format
+#| msgid "%s: Block %s is not available."
+msgid "%1$s: Block %2$s is not available."
 msgstr "%s: Blocks %s không có sẵn."
+
+#: components/accordions/accordions.php:29
+msgid "[CT] Accordions Item"
+msgstr ""
 
 #: includes/blocks/accordions.php:47
 msgid "Accordions"
 msgstr ""
 
-#: includes/classes/class-ct-blocks-page.php:64
+#: includes/classes/class-ct-blocks-page.php:129
 msgid "Add Block"
 msgstr "Thêm khối"
+
+#: includes/blocks/section-product.php:96
+msgid "Bad request. Missing or wrong parameters."
+msgstr ""
+
+#: includes/blocks/product-tabs.php:89
+msgid "Bad request. Missing parameters."
+msgstr ""
 
 #: includes/blocks/banner-grid.php:47
 msgid "Banner Grid"
 msgstr ""
 
-#: includes/classes/class-ct-blocks-templates.php:46
+#: includes/classes/class-ct-blocks-templates.php:59
 msgid "Block Page"
 msgstr "Block Page Builder"
 
@@ -51,7 +63,7 @@ msgstr ""
 "Mang hơn 20 khối block cho trình bày trang của bạn với giao diện hiện đại và "
 "linh hoạt."
 
-#: includes/classes/class-ct-blocks-admin.php:77
+#: includes/classes/class-ct-blocks-admin.php:111
 #, php-format
 msgid ""
 "Build with <span class=\"ct-blocks__metabox__copyright-icon\">%1$s</span> by "
@@ -60,16 +72,32 @@ msgstr ""
 "Xây dựng với <span class=\"ct-blocks__metabox__copyright-icon\">%1$s</span> "
 "bởi <a href=\"%2$s\" target=\"_blank\">%3$s</a>"
 
-#: includes/blocks/category-grid.php:48
+#: includes/blocks/category-grid.php:46
 msgid "Category Grid"
 msgstr ""
 
+#: includes/helpers/utils.php:515
+msgid "Choose Country"
+msgstr ""
+
+#: includes/helpers/utils.php:523
+msgid "Choose District"
+msgstr ""
+
+#: includes/helpers/utils.php:527
+msgid "Choose Location"
+msgstr ""
+
+#: includes/helpers/utils.php:519
+msgid "Choose Province"
+msgstr ""
+
 #. Author of the plugin
-#: includes/classes/class-ct-blocks-admin.php:80
+#: includes/classes/class-ct-blocks-admin.php:114
 msgid "CODE TOT JSC"
 msgstr "Công ty Cổ phần CODE TỐT"
 
-#: includes/blocks/cta-form.php:48
+#: includes/blocks/cta-form.php:46
 msgid "Contact Form"
 msgstr ""
 
@@ -82,8 +110,21 @@ msgid "Counters"
 msgstr ""
 
 #. Name of the plugin
+#: includes/gutenberg/custom-blocks.php:35
 msgid "CT Blocks"
 msgstr "Code Tốt - Thư viện Block"
+
+#: includes/blocks/default-content.php:48
+msgid "Default Content"
+msgstr ""
+
+#: includes/gutenberg/block-patterns.php:55
+msgid "FAQ Item"
+msgstr ""
+
+#: includes/gutenberg/block-patterns.php:34
+msgid "FAQ Section"
+msgstr ""
 
 #: includes/blocks/feature-grid.php:46
 msgid "Feature Grid"
@@ -105,10 +146,26 @@ msgstr ""
 msgid "Hero Slider"
 msgstr ""
 
+#: includes/blocks/hero-slider-sidebar.php:46
+msgid "Hero Slider Sidebar"
+msgstr ""
+
+#: includes/blocks/hero-title.php:48
+msgid "Hero Title"
+msgstr ""
+
+#: includes/blocks/hero-two-up.php:48
+msgid "Hero Two Up"
+msgstr ""
+
 #. URI of the plugin
 #. Author URI of the plugin
 msgid "https://codetot.com"
 msgstr "https://codetot.com"
+
+#: includes/gutenberg/block-patterns.php:50
+msgid "Icon Card"
+msgstr ""
 
 #: includes/blocks/image-gallery.php:48
 msgid "Image Gallery"
@@ -122,7 +179,7 @@ msgstr ""
 msgid "Logo Grid"
 msgstr ""
 
-#: includes/class-ct-blocks.php:130
+#: includes/class-ct-blocks.php:131
 #, php-format
 msgid "Missing block class %s. Please contact Web Administrator."
 msgstr "Thiếu block class %s. Vui lòng liên hệ quản trị viên website."
@@ -131,7 +188,7 @@ msgstr "Thiếu block class %s. Vui lòng liên hệ quản trị viên website.
 msgid "Missing block name"
 msgstr "Thiếu tên khối"
 
-#: includes/helpers/data.php:57
+#: includes/helpers/data.php:47
 msgid "Missing svg file name"
 msgstr "Thiếu tên file SVG"
 
@@ -144,12 +201,20 @@ msgctxt "plugin name"
 msgid "CT Blocks"
 msgstr "Code Tốt - Thư viện Block"
 
-#: includes/blocks/popup-form.php:48
+#: blocks/pricing-box.php:4
+msgid "Popular"
+msgstr ""
+
+#: includes/blocks/popup-form.php:46
 msgid "Popup Form"
 msgstr ""
 
 #: includes/blocks/pricing-calculator.php:49
 msgid "Pricing Calculator"
+msgstr ""
+
+#: includes/gutenberg/block-patterns.php:45
+msgid "Pricing Card"
 msgstr ""
 
 #: includes/blocks/pricing-tables.php:49
@@ -166,6 +231,10 @@ msgstr ""
 
 #: includes/blocks/product-tabs.php:46
 msgid "Product Tabs"
+msgstr ""
+
+#: includes/blocks/product-tabs-slider.php:46
+msgid "Product Tabs Slider"
 msgstr ""
 
 #: includes/blocks/section-post.php:46
@@ -192,13 +261,15 @@ msgstr ""
 msgid "Testimonials"
 msgstr ""
 
-#: blocks/product-tabs.php:93
+#: blocks/product-tabs-slider.php:105 includes/blocks/product-tabs.php:145
+#: includes/blocks/product-tabs.php:147 includes/blocks/section-product.php:143
+#: includes/blocks/section-product.php:145
 msgid "There is no product to display."
 msgstr "Chưa có sản phẩm nào."
 
-#: includes/blocks/three-up-card.php:49
-msgid "Three Up Card"
-msgstr ""
+#: blocks/product-tabs.php:84 blocks/section-product.php:107
+msgid "There is no products available for this category."
+msgstr "Chưa có sản phẩm nào trong danh mục này."
 
 #: includes/blocks/two-up-intro.php:49
 msgid "Two Up Intro"
@@ -208,14 +279,19 @@ msgstr ""
 msgid "Two Up Slider"
 msgstr ""
 
-#: includes/blocks/video-center.php:48
+#: includes/blocks/video-center.php:46 includes/gutenberg/block-patterns.php:38
 msgid "Video Center"
 msgstr ""
 
-#: blocks/section-product.php:22
-msgid "View all"
-msgstr "Xem tất cả"
+#: blocks/product-tabs.php:95 blocks/section-product.php:62
+msgid "View all products"
+msgstr ""
 
-#: includes/classes/class-ct-blocks-admin.php:66
+#: blocks/product-tabs.php:93
+#, php-format
+msgid "View all products in %s"
+msgstr ""
+
+#: includes/classes/class-ct-blocks-admin.php:95
 msgid "Web Builder Blocks"
 msgstr "Thư viện block"

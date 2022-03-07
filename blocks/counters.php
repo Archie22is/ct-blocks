@@ -11,6 +11,7 @@
  * - header_alignment
  * - content_alignment
  * - background_type
+ * - enable_running_count
  */
 $_class = 'counters';
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
@@ -23,6 +24,9 @@ $_class .= !empty($background_contract) ? ' is-' . $background_contract . '-cont
 $_card_class = !empty($layout_items) ? ' is-layout-'. esc_attr($layout_items) : ' is-layout-column';
 $_card_class .= !empty($content_alignment) ? ' is-content-alignment-'.  esc_attr($content_alignment) : '';
 
+// Enable running count
+$_enable_running_count = $enable_running_count ?? true;
+
 $header = codetot_build_content_block(array(
   'class' => 'section-header',
   'alignment' => $header_alignment ?? 'left',
@@ -30,10 +34,11 @@ $header = codetot_build_content_block(array(
   'description' => $description ?? ''
 ), 'counters');
 
-$columns = !empty($counters) ? array_map(function($item) use ($_card_class) {
+$columns = !empty($counters) ? array_map(function($item) use ($_card_class, $_enable_running_count) {
   return get_block('counters-item', array(
     'item' => $item,
-    'class' => $_card_class
+    'class' => $_card_class,
+		'enable_running_count' => $_enable_running_count
   ));
 }, $counters) : [];
 

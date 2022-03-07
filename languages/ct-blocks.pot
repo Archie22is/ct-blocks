@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CT Blocks\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-11 14:27+0000\n"
+"POT-Creation-Date: 2022-03-07 15:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,24 +16,36 @@ msgstr ""
 "X-Loco-Version: 2.5.0; wp-5.6.1\n"
 "X-Domain: ct-blocks"
 
-#: includes/classes/class-block.php:50
+#: includes/classes/class-block.php:60
 #, php-format
-msgid "%s: Block %s is not available."
+msgid "%1$s: Block %2$s is not available."
+msgstr ""
+
+#: components/accordions/accordions.php:29
+msgid "[CT] Accordions Item"
 msgstr ""
 
 #: includes/blocks/accordions.php:47
 msgid "Accordions"
 msgstr ""
 
-#: includes/classes/class-ct-blocks-page.php:64
+#: includes/classes/class-ct-blocks-page.php:129
 msgid "Add Block"
+msgstr ""
+
+#: includes/blocks/section-product.php:96
+msgid "Bad request. Missing or wrong parameters."
+msgstr ""
+
+#: includes/blocks/product-tabs.php:89
+msgid "Bad request. Missing parameters."
 msgstr ""
 
 #: includes/blocks/banner-grid.php:47
 msgid "Banner Grid"
 msgstr ""
 
-#: includes/classes/class-ct-blocks-templates.php:46
+#: includes/classes/class-ct-blocks-templates.php:59
 msgid "Block Page"
 msgstr ""
 
@@ -49,23 +61,39 @@ msgstr ""
 msgid "Brings 20+ blocks to your custom page with modern design and flexible."
 msgstr ""
 
-#: includes/classes/class-ct-blocks-admin.php:77
+#: includes/classes/class-ct-blocks-admin.php:111
 #, php-format
 msgid ""
 "Build with <span class=\"ct-blocks__metabox__copyright-icon\">%1$s</span> by "
 "<a href=\"%2$s\" target=\"_blank\">%3$s</a>"
 msgstr ""
 
-#: includes/blocks/category-grid.php:48
+#: includes/blocks/category-grid.php:46
 msgid "Category Grid"
 msgstr ""
 
+#: includes/helpers/utils.php:515
+msgid "Choose Country"
+msgstr ""
+
+#: includes/helpers/utils.php:523
+msgid "Choose District"
+msgstr ""
+
+#: includes/helpers/utils.php:527
+msgid "Choose Location"
+msgstr ""
+
+#: includes/helpers/utils.php:519
+msgid "Choose Province"
+msgstr ""
+
 #. Author of the plugin
-#: includes/classes/class-ct-blocks-admin.php:80
+#: includes/classes/class-ct-blocks-admin.php:114
 msgid "CODE TOT JSC"
 msgstr ""
 
-#: includes/blocks/cta-form.php:48
+#: includes/blocks/cta-form.php:46
 msgid "Contact Form"
 msgstr ""
 
@@ -78,7 +106,20 @@ msgid "Counters"
 msgstr ""
 
 #. Name of the plugin
+#: includes/gutenberg/custom-blocks.php:35
 msgid "CT Blocks"
+msgstr ""
+
+#: includes/blocks/default-content.php:48
+msgid "Default Content"
+msgstr ""
+
+#: includes/gutenberg/block-patterns.php:55
+msgid "FAQ Item"
+msgstr ""
+
+#: includes/gutenberg/block-patterns.php:34
+msgid "FAQ Section"
 msgstr ""
 
 #: includes/blocks/feature-grid.php:46
@@ -101,9 +142,25 @@ msgstr ""
 msgid "Hero Slider"
 msgstr ""
 
+#: includes/blocks/hero-slider-sidebar.php:46
+msgid "Hero Slider Sidebar"
+msgstr ""
+
+#: includes/blocks/hero-title.php:48
+msgid "Hero Title"
+msgstr ""
+
+#: includes/blocks/hero-two-up.php:48
+msgid "Hero Two Up"
+msgstr ""
+
 #. URI of the plugin
 #. Author URI of the plugin
 msgid "https://codetot.com"
+msgstr ""
+
+#: includes/gutenberg/block-patterns.php:50
+msgid "Icon Card"
 msgstr ""
 
 #: includes/blocks/image-gallery.php:48
@@ -118,7 +175,7 @@ msgstr ""
 msgid "Logo Grid"
 msgstr ""
 
-#: includes/class-ct-blocks.php:130
+#: includes/class-ct-blocks.php:131
 #, php-format
 msgid "Missing block class %s. Please contact Web Administrator."
 msgstr ""
@@ -127,7 +184,7 @@ msgstr ""
 msgid "Missing block name"
 msgstr ""
 
-#: includes/helpers/data.php:57
+#: includes/helpers/data.php:47
 msgid "Missing svg file name"
 msgstr ""
 
@@ -140,12 +197,20 @@ msgctxt "plugin name"
 msgid "CT Blocks"
 msgstr ""
 
-#: includes/blocks/popup-form.php:48
+#: blocks/pricing-box.php:4
+msgid "Popular"
+msgstr ""
+
+#: includes/blocks/popup-form.php:46
 msgid "Popup Form"
 msgstr ""
 
 #: includes/blocks/pricing-calculator.php:49
 msgid "Pricing Calculator"
+msgstr ""
+
+#: includes/gutenberg/block-patterns.php:45
+msgid "Pricing Card"
 msgstr ""
 
 #: includes/blocks/pricing-tables.php:49
@@ -162,6 +227,10 @@ msgstr ""
 
 #: includes/blocks/product-tabs.php:46
 msgid "Product Tabs"
+msgstr ""
+
+#: includes/blocks/product-tabs-slider.php:46
+msgid "Product Tabs Slider"
 msgstr ""
 
 #: includes/blocks/section-post.php:46
@@ -188,12 +257,14 @@ msgstr ""
 msgid "Testimonials"
 msgstr ""
 
-#: blocks/product-tabs.php:93
+#: blocks/product-tabs-slider.php:105 includes/blocks/product-tabs.php:145
+#: includes/blocks/product-tabs.php:147 includes/blocks/section-product.php:143
+#: includes/blocks/section-product.php:145
 msgid "There is no product to display."
 msgstr ""
 
-#: includes/blocks/three-up-card.php:49
-msgid "Three Up Card"
+#: blocks/product-tabs.php:84 blocks/section-product.php:107
+msgid "There is no products available for this category."
 msgstr ""
 
 #: includes/blocks/two-up-intro.php:49
@@ -204,14 +275,19 @@ msgstr ""
 msgid "Two Up Slider"
 msgstr ""
 
-#: includes/blocks/video-center.php:48
+#: includes/blocks/video-center.php:46 includes/gutenberg/block-patterns.php:38
 msgid "Video Center"
 msgstr ""
 
-#: blocks/section-product.php:22
-msgid "View all"
+#: blocks/product-tabs.php:95 blocks/section-product.php:62
+msgid "View all products"
 msgstr ""
 
-#: includes/classes/class-ct-blocks-admin.php:66
+#: blocks/product-tabs.php:93
+#, php-format
+msgid "View all products in %s"
+msgstr ""
+
+#: includes/classes/class-ct-blocks-admin.php:95
 msgid "Web Builder Blocks"
 msgstr ""

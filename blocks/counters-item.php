@@ -1,5 +1,6 @@
 <?php
 $media_class = 'icon-type--'.$item['icon_type'];
+$_enable_running_count = $enable_running_count ?? true;
 
 if (!empty($item)): ?>
   <div class="f fdc counters-item <?php echo $class; ?>">
@@ -18,7 +19,7 @@ if (!empty($item)): ?>
     <?php endif; ?>
     <?php if (!empty($item['count'])) : ?>
       <p class="counters__count">
-        <span class="h3 counters__count-number js-counter"><?php echo $item['count']; ?></span>
+        <span class="h3 counters__count-number <?php if ($_enable_running_count) : ?> js-counter<?php endif; ?>"><?php echo $item['count']; ?></span>
         <?php if (!empty($item['unit'])) : ?>
           <span class="counters__unit"><?php echo $item['unit']; ?></span>
         <?php endif; ?>
