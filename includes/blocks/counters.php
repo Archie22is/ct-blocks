@@ -57,10 +57,11 @@ class Codetot_Block_Counters extends Codetot_Base_Block implements Codetot_Base_
       'background_type',
       'background_contract',
       'background_image',
+			'enable_running_count',
       // Input
       'title',
       'description',
-      'counters'
+      'counters',
     ];
 
     $this->svg_icon = '<svg id="counters" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M0 21l12-18 12 18h-24zm12-16.197l-10.132 15.197h20.263l-10.131-15.197" /></svg>';

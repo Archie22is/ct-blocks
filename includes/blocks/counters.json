@@ -471,7 +471,7 @@
         "save_other_choice": 0
       },
       {
-        "key": "field_5fthathao4db8",
+        "key": "field_5fd327ff799ad",
         "label": "Item Layout",
         "name": "layout_items",
         "type": "select",
@@ -493,6 +493,25 @@
         "layout": "horizontal",
         "return_format": "value",
         "save_other_choice": 0
+      },
+      {
+        "key": "field_5fd327ff799ae",
+        "label": "Running Count",
+        "name": "enable_running_count",
+        "type": "true_false",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "message": "Enable",
+        "default_value": 1,
+        "ui": 0,
+        "ui_on_text": "",
+        "ui_off_text": ""
       }
     ],
     "min": "",
