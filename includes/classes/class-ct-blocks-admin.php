@@ -32,8 +32,8 @@ class Codetot_Blocks_Admin {
 
     add_action('admin_enqueue_scripts', array($this, 'load_css'), 40);
     add_action('acf/input/admin_enqueue_scripts', array($this, 'load_acf_assets'));
-    add_action('load-post.php', array($this, 'flexible_block_button_metabox'));
-    add_action('load-post-new.php', array($this, 'flexible_block_button_metabox'));
+    //add_action('load-post.php', array($this, 'flexible_block_button_metabox'));
+   // add_action('load-post-new.php', array($this, 'flexible_block_button_metabox'));
 
     add_action('admin_head', array($this, 'setup_admin_head_js_variables'));
   }
