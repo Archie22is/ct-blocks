@@ -16,6 +16,11 @@ p.testimonial-card__title {
 	font-weight: var(--font-bold);
 }
 
+blockquote.testimonial-card__comment {
+	padding: 1em;
+	border-left: 0;
+}
+
 .testimonials--preset-default,
 .testimonials--preset-theme,
 .testimonials--preset-4,
