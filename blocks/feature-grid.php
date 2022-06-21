@@ -25,8 +25,8 @@ $header = codetot_build_content_block(array(
 $columns = !empty($items) ? array_map(function($item) use ($_card_class, $media_size) {
   $item['class'] = $_card_class;
   $item['media_size'] = $media_size;
-  $item['image'] = $item['icon_image'];
-  $item['svg_icon'] = $item['icon_svg'];
+  $item['image'] = $item['icon_image'] ?? [];
+  $item['svg_icon'] = $item['icon_svg'] ?? null;
 
   return get_block('feature-card', $item);
 }, $items) : [];
