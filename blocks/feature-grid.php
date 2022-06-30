@@ -7,7 +7,9 @@ $_class .= !empty($background_contract) ? ' is-' . $background_contract . '-cont
 $_class .= !empty($class) ? ' ' . esc_attr($class) : '';
 
 $_card_class = '';
-$_card_class .= $card_layout === 'column' ? 'f fw fdc is-column-layout' : 'f fw is-row-layout';
+if ( !empty($card_layout) ) {
+	$_card_class .= $card_layout === 'column' ? 'f fw fdc is-column-layout' : 'f fw is-row-layout';
+}
 $_card_class .= !empty($content_alignment) ? ' is-content-alignment-' . $content_alignment : '';
 $_card_class .= !empty($enable_card_border) ? ' has-border' : '';
 
@@ -23,8 +25,8 @@ $header = codetot_build_content_block(array(
 $columns = !empty($items) ? array_map(function($item) use ($_card_class, $media_size) {
   $item['class'] = $_card_class;
   $item['media_size'] = $media_size;
-  $item['image'] = $item['icon_image'];
-  $item['svg_icon'] = $item['icon_svg'];
+  $item['image'] = $item['icon_image'] ?? [];
+  $item['svg_icon'] = $item['icon_svg'] ?? null;
 
   return get_block('feature-card', $item);
 }, $items) : [];

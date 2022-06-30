@@ -12,5 +12,5 @@ webpack.config.js
 src/postcss/mixins
 composer.json
 variables.css
-components/*/build/*.js
-components/*/build/*.css
+components/
+components/
