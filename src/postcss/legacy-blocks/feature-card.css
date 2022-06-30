@@ -12,9 +12,8 @@
 	}
 }
 
-.feature-card,
 .feature-card__content {
-	flex: 1 1 auto;
+	flex: 1 1 0;
 }
 
 .feature-card__footer {
@@ -22,6 +21,8 @@
 }
 
 .feature-card {
+	flex: 1 1 auto;
+
 	&.is-content-alignment-left {
 		text-align: left;
 
