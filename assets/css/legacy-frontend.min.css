@@ -624,6 +624,7 @@
 		}
 
 .counters__title {
+	margin-top: 0;
 	line-height: 1.25;
 }
 
@@ -906,13 +907,16 @@
 			}
 		}
 
-.feature-card,
 .feature-card__content {
-	flex: 1 1 auto;
+	flex: 1 1 0;
 }
 
 .feature-card__footer {
 	margin-top: auto;
+}
+
+.feature-card {
+	flex: 1 1 auto
 }
 
 .feature-card.is-content-alignment-left {
@@ -9091,28 +9095,6 @@ p.testimonial-card__title {
 		.hero-two-up.is-dark-contract .hero-two-up__description {
 			color: #fff;
 			color: var(--white);
-		}
-
-.default-content.is-dark-contract .default-section__inner {
-			color: #fff;
-			color: var(--white);
-		}
-
-.default-content.is-dark-contract .default-content__title {
-			color: #fff;
-			color: var(--white);
-		}
-
-.default-content.is-content-alignment-left .default-section__inner {
-			text-align: left;
-		}
-
-.default-content.is-content-alignment-center .default-section__inner {
-			text-align: center;
-		}
-
-.default-content.is-content-alignment-right .default-section__inner {
-			text-align: right;
 		}
 
 .hero-link .flickity-page-dots {

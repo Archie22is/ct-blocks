@@ -86,6 +86,10 @@ if (!function_exists('the_block_part')) {
       foreach ($available_paths as $available_path) {
         $file_name = $available_path . '/' . esc_html($path_name) . '.php';
 
+				if ( !empty($path) ) {
+					continue;
+				}
+
         if (file_exists($file_name)) {
           $path = $file_name;
         }
