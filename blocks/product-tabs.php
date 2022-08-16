@@ -9,6 +9,8 @@ $_class .= !empty($class) ? ' ' . $class : '';
 $_columns = !empty($columns) && is_numeric($columns) ? $columns : 4;
 $_enable_lazyload = isset($enable_lazyload) && $enable_lazyload;
 
+$_title_class = !empty($title_class) ? ' ' . $title_class : ' has-heading-4-font-size';
+
 $block_attributes = array(
   'endpoint' => 'get_product_tabs_html',
   'postsPerPage' => !empty($numbers) ? (int) $numbers : 8,
@@ -29,7 +31,7 @@ endforeach;
 // Generate header
 ob_start(); ?>
 <?php if(!empty($title)) : ?>
-  <h2 class="h2 product-tabs__title"><?php echo $title; ?></h2>
+  <h2 class="<?php echo esc_attr($_title_class); ?> product-tabs__title"><?php echo $title; ?></h2>
 <?php endif; ?>
 <?php if (!empty($categories)) : ?>
   <div class="mt-2 d-inline-flex product-tabs__nav-wrapper">

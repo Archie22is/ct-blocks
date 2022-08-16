@@ -37,11 +37,8 @@
 }
 
 .product-tabs__nav {
-	margin-left: 0;
-	margin-right: 0;
-	margin-bottom: 0;
-	padding: 0;
-	list-style: none;
+	@mixin list-reset;
+
 	white-space: nowrap;
 
 	@media (--m) {
