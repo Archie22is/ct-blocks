@@ -7705,11 +7705,11 @@ p.testimonial-card__title {
 	}
 
 .product-tabs__nav {
-	margin-left: 0;
-	margin-right: 0;
-	margin-bottom: 0;
+	margin: 0;
 	padding: 0;
-	list-style: none;
+	text-indent: 0;
+	list-style-type: none;
+
 	white-space: nowrap
 }
 
