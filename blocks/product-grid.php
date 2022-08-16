@@ -30,7 +30,8 @@ if ($carousel_settings['prevNextButtons'] === true) {
 
 $header = codetot_build_content_block(array(
   'class' => 'section-header',
-  'title' => $title ?? ''
+  'title' => $title ?? '',
+  'title_class' => $title_class ?? 'has-heading-4-font-size',
 ), 'product-grid');
 
 ob_start(); ?>
