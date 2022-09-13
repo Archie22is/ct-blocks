@@ -47,6 +47,7 @@ class Codetot_Block_Section_Post extends Codetot_Base_Block implements Codetot_B
     $this->fields = [
       // Settings
       'enable_lazyload',
+      'enable_slider',
       'class',
       'anchor_name',
       'block_preset',
