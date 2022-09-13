@@ -14,6 +14,7 @@
 
 
 :root {
+	--column-gutter: 0.5em;
 	--black: #000;
 	--white: #fff;
 	--dark: #1e1e1e;
@@ -61,5 +62,4 @@
 	--text-small: 0.85rem;
 	--element-space: 20px;
 	--column-space: 20px;
-	--column-gutter: 0.5em;
 }

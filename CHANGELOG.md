@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 5.1.7 - 13/09/2022
+
+- Add 'enable_slider' option to Section Post.
+
 ## 5.1.3 - 26/12/2021
 
 - Fix spacing heading
