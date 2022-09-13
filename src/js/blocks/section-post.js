@@ -1,4 +1,11 @@
-import { select, inViewPort, on, hasClass, removeClass, loadNoscriptContent } from 'lib/dom'
+import {
+	select,
+	inViewPort,
+	on,
+	hasClass,
+	removeClass,
+	loadNoscriptContent
+} from 'lib/dom'
 import { throttle } from 'lib/utils'
 import carousel from 'lib/carousel'
 
@@ -12,8 +19,8 @@ export default el => {
 	let loaded = false
 
 	const initLazyload = () => {
-		if ( contentEl && hasClass('is-not-loaded', contentEl) ) {
-			loadNoscriptContent( contentEl )
+		if (contentEl && hasClass('is-not-loaded', contentEl)) {
+			loadNoscriptContent(contentEl)
 
 			removeClass('is-loading', el)
 		}
@@ -28,7 +35,7 @@ export default el => {
 			return
 		}
 
-		if ( !inViewPort( el ) ) {
+		if (!inViewPort(el)) {
 			return
 		}
 
